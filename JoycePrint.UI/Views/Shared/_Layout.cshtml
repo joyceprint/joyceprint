@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head id="headMaster">
+
+    <!-- Set the encoding to UTF-8 -->
+    <meta charset="utf-8" />
+
+    <!-- Tells IE to use it's Edge rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Ensures proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- This line allows sub pages to omit the Header section -->
+    @RenderSection("head", false)
+   
+    <!-- Normal browser style sheet links -->
+    @Styles.Render("~/Content/css/bootstrapcss")
+    @Styles.Render("~/Content/css/joyceprint/joyceprintless")
+    
+    <title>@ViewBag.Title</title>
+
+</head>
+
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/Scripts/bootstrapjs")
+
+</body>
+</html>
