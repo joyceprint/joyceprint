@@ -17,19 +17,30 @@
     @RenderSection("head", false)
    
     <!-- Normal browser style sheet links -->
-    @Styles.Render("~/Content/css/bootstrapcss")
-    @Styles.Render("~/Content/css/joyceprint/joyceprintless")
+    @Styles.Render("~/Content/css/joyceprintcss")    
     
+    <link rel="icon" href="@Url.Content("~/Content/images/favicon.ico")" />
+
     <title>@ViewBag.Title</title>
 
 </head>
 
-<body>
-    <div>
-        @RenderBody()
-    </div>
+<body class="container-fluid">
+    
+    <section id="masterHeader">
+        @Html.Partial("_Header")
+    </section>
 
-    @Scripts.Render("~/Scripts/bootstrapjs")
+    @* We add the row class here so we don't have to do it in every view *@
+    <section id="masterBody" class="row">
+        @RenderBody()
+    </section>
+
+    <section id="masterFooter">
+        @Html.Partial("_Footer")
+    </section>    
+
+    @Scripts.Render("~/Scripts/joyceprintjs")
 
 </body>
 </html>
