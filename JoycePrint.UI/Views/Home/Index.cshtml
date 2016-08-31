@@ -3,10 +3,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section id="home" class="col-xs-12 bg-danger center-block" role="main">
-    
+<section id="home-carousel" class="col-xs-12 bg-danger center-block">
     <div id="jp-carousel" class="carousel slide" data-ride="carousel">
-        
+
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#jp-carousel" data-slide-to="0" class="active"></li>
@@ -15,10 +14,10 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <!-- 
+        <!--
         ToDo
         Use a razor for loop here
-        Load the images from the config file web config 
+        Load the images from the config file web config
         In .net core the json file will be used and creating custom config sections is no longer required
         -->
         <div class="carousel-inner" role="listbox">
@@ -57,3 +56,42 @@
     </div>
 </section>
 
+<div class="clearfix"></div>
+
+<section id="home-information" class="col-xs-12">
+    <div class="row row-eq-height">
+        <section id="home-products" class="col-xs-4 bg-info">
+            <div class="panel panel-info">
+                <div class="panel-heading">Products Offered</div>
+                <div class="panel-body">
+                    Docket Books <br />
+                    Business Cards <br />
+                    Letterheads <br />
+                    Brouchers <br />
+                </div>
+            </div>
+        </section>
+
+        <section id="home-paper-sizes" class="col-xs-4 bg-danger">
+            <div class="panel panel-danger">
+                <div class="panel-heading">Paper Sizes</div>
+                <div class="panel-body">
+                    A4 <br />
+                    A5 <br />
+                    A6 <br />
+                </div>
+            </div>
+        </section>
+
+        <section id="home-services" class="col-xs-4 bg-success">
+            <div class="panel panel-success">
+                <div class="panel-heading">Services Offered</div>
+                <div class="panel-body">
+                    Design <br />
+                    Printing <br />
+                    Finishing <br />
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
