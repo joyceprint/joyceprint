@@ -31,10 +31,12 @@
        
     @Html.Partial("_Navigation")    
 
-    @* We add the row class here so we don't have to do it in every view *@
-    <section id="masterBody" class="row">
-        @RenderBody()
-    </section>
+    <div id="wrap">
+        @* We add the row class here so we don't have to do it in every view *@
+        <main id="masterBody" class="row">
+            @RenderBody()
+        </main>
+    </div>
     
     @Html.Partial("_Footer")    
 

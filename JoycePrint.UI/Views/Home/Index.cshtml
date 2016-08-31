@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section id="home" class="col-xs-12 bg-danger" role="main">
+<section id="home" class="col-xs-12 bg-danger center-block" role="main">
     
     <div id="jp-carousel" class="carousel slide" data-ride="carousel">
         
@@ -15,23 +15,29 @@
         </ol>
 
         <!-- Wrapper for slides -->
+        <!-- 
+        ToDo
+        Use a razor for loop here
+        Load the images from the config file web config 
+        In .net core the json file will be used and creating custom config sections is no longer required
+        -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img alt="First slide" src="http://placehold.it/1200x675&text=First+slide">
+                <img alt="First slide" class="center-block img-responsive" src="http://placehold.it/1200x675&text=First+slide">
                 <div class="carousel-caption">
                     <h3>Caption heading 1</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
             <div class="item">
-                <img alt="Second slide" src="http://placehold.it/1200x675&text=Second+slide">
+                <img alt="Second slide" class="center-block img-responsive" src="http://placehold.it/1200x675&text=Second+slide">
                 <div class="carousel-caption">
                     <h3>Caption heading 2</h3>
                     <p>Morbi eget libero quis metus consectetur semper.</p>
                 </div>
             </div>
             <div class="item">
-                <img alt="Third slide" src="http://placehold.it/1200x675&text=Third+slide">
+                <img alt="Third slide" class="center-block img-responsive" src="http://placehold.it/1200x675&text=Third+slide">
                 <div class="carousel-caption">
                     <h3>Caption heading 3</h3>
                     <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
