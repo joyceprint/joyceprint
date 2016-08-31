@@ -26,19 +26,17 @@
 </head>
 
 <body class="container-fluid">
-    
-    <section id="masterHeader">
-        @Html.Partial("_Header")
-    </section>
+            
+    @Html.Partial("_Header")
+       
+    @Html.Partial("_Navigation")    
 
     @* We add the row class here so we don't have to do it in every view *@
     <section id="masterBody" class="row">
         @RenderBody()
     </section>
-
-    <section id="masterFooter">
-        @Html.Partial("_Footer")
-    </section>    
+    
+    @Html.Partial("_Footer")    
 
     @Scripts.Render("~/Scripts/joyceprintjs")
 
