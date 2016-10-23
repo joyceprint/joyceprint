@@ -1,0 +1,148 @@
+﻿@{
+    ViewBag.Title = "Quote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="getquote" class="col-xs-12">
+
+    <div class="row">
+        <div class="text-center">
+            <h1 class="text-danger text-weight-900">
+                Delivery to Ireland & The UK
+            </h1>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-sm-5 col-md-5 col-lg-4">
+            <article id="information">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-weight-900 text-center">Help Information</div>
+                    <div class="panel-body">
+                        <div class="panel-heading text-weight-700">
+                            Size
+                        </div>
+                        <ul>
+                            <li><span class="text-danger">A4</span> - 210 x 297mm</li>
+                            <li><span class="text-danger">A5</span> - Half A4 - 148.5 x 210mm</li>
+                            <li><span class="text-danger">A6</span> - Quarter A4 - 105 x 148.5mm</li>
+                            <li><span class="text-danger">DL</span> - Third A4 - 99 x 210mm</li>
+                        </ul>
+
+                        <div class="panel-heading text-weight-700">
+                            Orientation
+                        </div>
+                        <ul>
+                            <li>A6 - Shape: Protrait Size: 105 x 148.5mm</li>
+                            <li>A6 - Shape: Landscape Size: 148.5 x 105mm</li>
+                            <li>DL - Shape: Protrait Size: 99 x 210mm</li>
+                            <li>DL - Shape: Landscape Size: 210 x 99mm</li>
+                            <li>A5 - Shape: Protrait Size: 148.5 x 210mm</li>
+                            <li>A5 - Shape: Landscape Size: 210 x 148.5mm</li>
+                            <li>A4 - Shape: Protrait Size: 210 x 297mm</li>
+                            <li>A4 - Shape: Landscape Size: 297 x 210mm</li>
+                            <li>A3 - Shape: Landscape Size: 400 x 297mm</li>
+                        </ul>
+
+                        <div class="panel-heading text-weight-700">
+                            Type of Book
+                        </div>
+                        <ul>
+                            <li><span>Duplicate</span> (2 sheets in a Set - <span class="text-danger">100</span> sets per book)</li>
+                            <li><span>Triplicate</span> (3 sheets in a Set - <span class="text-danger">50</span> sets per book)</li>
+                            <li><span>Quad</span> (4 sheets in a Set - <span class="text-danger">50</span> sets per book)</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="col-sm-7 col-md-7 col-lg-8">
+            <form action="/Quote/Index" method="post" class="form-horizontal">
+                <div class="form-group">
+                    <label class="sr-only control-label" for="form-group-input-company"><span class="text-danger">*</span> Company</label>
+                    <div class="col-xs-8">
+                        <input type="text" inputmode="latin-prose" class="form-control" id="form-group-input-company" placeholder=" Company" maxlength="150" autofocus required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="form-group-input-firstname"><span class="text-danger">*</span> First name</label>
+                    <div class="col-xs-8">
+                        <input type="text" inputmode="latin-name" class="form-control" id="form-group-input-firstname" placeholder="Han" maxlength="150" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="form-group-input-lastname"><span class="text-danger">*</span> Last name</label>
+                    <div class="col-xs-8">
+                        <input type="text" inputmode="latin-name" class="form-control" id="form-group-input-lastname" placeholder="Solo" maxlength="150" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="form-group-input-position">Position</label>
+                    <div class="col-xs-8">
+                        <input type="text" inputmode="latin-prose" class="form-control" id="form-group-input-position" placeholder="Space Pirate" maxlength="150" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="form-group-input-telephone"><span class="text-danger">*</span> Telephone Number</label>
+                    <div class="col-xs-8">
+                        <input type="tel" inputmode="tel" class="form-control" id="form-group-input-telephone" placeholder="000-0000000" maxlength="10" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="form-group-input-email"><span class="text-danger">*</span> Email</label>
+                    <div class="col-xs-8">
+                        <input type="email" inputmode="email" class="form-control" id="form-group-input-email" placeholder="hansolo@space.com" maxlength="254" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="form-group-input-docketbook-size"><span class="text-danger">*</span> Docket Book Size</label>
+                    <div class="col-xs-8">
+                        <select class="form-control" name="form-group-input-docketbook-size" required>
+                            <option>-- Docket Book Size --</option>
+                            <option value="A4">A4</option>
+                            <option value="A5">A5</option>
+                            <option value="A6">A6</option>
+                            <option value="DL">DL</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="form-group-input-docketbook-type"><span class="text-danger">*</span> Docket Book Type</label>
+                    <div class="col-xs-8">
+                        <select class="form-control" name="form-group-input-docketbook-type" required>
+                            <option>-- Docket Book Type --</option>
+                            <option value="Duplicate">Duplicate</option>
+                            <option value="Triplicate">Triplicate</option>
+                            <option value="Quad">Quad</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="form-group-input-docketbook-quantity"><span class="text-danger">*</span> Quantity</label>
+                    <div class="col-xs-8">
+                        <input type="number" inputmode="numeric" class="form-control" id="form-group-input-docketbook-quantity" placeholder="Quantity" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="form-group-input-message"><span class="text-danger">*</span> Message</label>
+                    <div class="col-xs-8">
+                        <textarea rows="10" class="form-control" id="form-group-input-message" placeholder="Any additional information" wrap="hard" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-4 col-lg-offset-2">
+                            <button class="btn btn-warning form-control" type="reset">CLEAR</button>
+                        </div>
+                        <div class="col-xs-4">
+                            <button class="btn btn-success form-control" formmethod="post" type="submit">SUBMIT</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>

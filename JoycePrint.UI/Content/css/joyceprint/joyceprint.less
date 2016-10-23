@@ -3,20 +3,20 @@
 }
 
 #wrap {
-    min-height: 100%; 
+    min-height: 100%;
     padding-bottom: 150px; // This needs to be bigger than footer height
 }
 
 main {
-    overflow: auto;    
+    overflow: auto;
 }
 
-.jp-footer {    
+.jp-footer {
     position: relative;
     margin-top: -150px; // Negative value of footer height
     height: 150px;
-    clear:both;
-    padding-top:20px;
+    clear: both;
+    padding-top: 20px;
 }
 
 #home-information {
@@ -24,13 +24,68 @@ main {
     padding-bottom: 20px;
 }
 
+#information ul {
+  list-style-type: none;
+}
+
+#information div.panel-body {
+    padding: 0;
+	padding-top: 15px;
+}
+
 /******************************************************************************
  * Row with equal height columns
  * --------------------------------------------------
+ * Makes all columns in the row equal height
+ * Does not vertically center, for that use [col-vcenter]
 ******************************************************************************/
 .row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-eq-height > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+/*.row-vertical-align {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+}*/
+
+/*.row-vertical-align > [class^="col-"],
+.row-vertical-align > [class*=" col-"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
+
+/******************************************************************************
+ * Row with equal height vertically centered columns
+ * --------------------------------------------------
+ * Makes all columns in the row vertically centered
+******************************************************************************/
+.col-vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.text-weight-900 {
+    font-weight: 900;
+}
+
+.text-weight-700 {
+    font-weight: 700;
+}
+
+.text-weight-500 {
+    font-weight: 500;
 }
