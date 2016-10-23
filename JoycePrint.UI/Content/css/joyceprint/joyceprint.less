@@ -1,4 +1,75 @@
-﻿/*html, body {
+﻿@color-warning: #F89C28;
+
+/******************************************************************************
+ * Bootstrap Class Extensions
+ * --------------------------------------------------
+ * Classes required that bootstrap does not have by default
+ *
+ * Classes required for overriding bootstrap styles that are not accessable 
+ * using the site customizations
+******************************************************************************/
+.text-white {
+    color: #FFFFFF;
+}
+
+.text-weight-900 {
+    font-weight: 900;
+}
+
+.text-weight-700 {
+    font-weight: 700;
+}
+
+.navbar {
+    background-image: none;
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        margin-top: 12px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        margin-top: 35px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar {
+        margin-top: 50px;
+    }
+}
+/******************************************************************************
+ * JoycePrint Site Styles
+ * --------------------------------------------------
+ * 
+******************************************************************************/
+#jpNav a {
+    .text-weight-900;
+}
+
+.jp-delivery {
+    padding-bottom: 20px;
+}
+
+footer a {
+    color: @color-warning;
+}
+
+footer a:hover {
+    color: @color-warning;
+}
+
+
+
+
+
+
+
+/*html, body {
     height: 100%;
 }
 
@@ -64,33 +135,6 @@ footer {
     float: none;
 }*/
 
-/******************************************************************************
- * Bootstrap Class Extensions
- * --------------------------------------------------
- * Classes required that bootstrap does not have by default
- *
- * Classes required for overriding bootstrap styles that are not accessable 
- * using the site customizations
-******************************************************************************/
-.text-weight-900 {
-    font-weight: 900;
-}
-
-.text-weight-700 {
-    font-weight: 700;
-}
-
-.navbar {
-    background-image: none;        
-}
-/******************************************************************************
- * JoycePrint Site Styles
- * --------------------------------------------------
- * 
-******************************************************************************/
-.jp-delivery {
-    padding-bottom: 20px;
-}
 
 /* verifiy these are still needed
 #home-information {

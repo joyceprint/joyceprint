@@ -1,12 +1,13 @@
-﻿<footer class="row">
-    <section class="col-xs-12 bg-primary">
-        Add footer items here
-        
-        <!--
-        ToDo
-        Add a menu in the footer [menu links]
-        Move contact us and about us out of the header and have them only in the footer
-        Replace these in the header with the pages products and request a quote
-        -->
-    </section>
+﻿<footer class="row bg-primary">
+
+    <img src="~/Content/images/jp-logo-footer.jpg" class="img-responsive center-block" alt="JoycePrint Footer Logo" />
+
+    <div class="clearfix"></div>
+
+    <div class="col-sm-12 text-center">
+        <p class="small">
+            <a href="@Url.Action("Index", "ContactUs")">Contact Us</a> | Copyright JoycePrint Ltd, @DateTime.Now.Year All rights reserved
+        </p>
+    </div>
+
 </footer>

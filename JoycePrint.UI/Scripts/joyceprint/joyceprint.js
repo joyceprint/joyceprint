@@ -8,15 +8,15 @@
 function ToggleNavigationMenu() {
 
     // Find and remove the active class
-    $("#jp-nav").find(".active").removeClass("active");
+    $("#jpNav").find(".active").removeClass("active");
 
     if ($("#home").length > 0) {
-        $("#jp-nav #liHome").addClass("active");
-    } else if ($("#aboutus").length > 0) {
-        $("#jp-nav #liAboutUs").addClass("active");
-    } else if ($("#contactus").length > 0) {
-        $("#jp-nav #liContactUs").addClass("active");
+        $("#jpNav #liHome").addClass("active");
+    } else if ($("#quote").length > 0) {
+        $("#jpNav #liQuote").addClass("active");
     } else if ($("#services").length > 0) {
-        $("#jp-nav #liServices").addClass("active");
-    }       
+        $("#jpNav #liServices").addClass("active");
+    } else if ($("#aboutus").length > 0) {
+        $("#jpNav #liAboutUs").addClass("active");
+    }
 }
