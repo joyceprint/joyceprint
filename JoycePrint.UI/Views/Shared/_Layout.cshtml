@@ -21,6 +21,8 @@
     
     <link rel="icon" href="@Url.Content("~/Content/images/favicon.ico")" />
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
     <title>@ViewBag.Title</title>
 
 </head>
@@ -29,16 +31,13 @@
             
     @Html.Partial("_Header")
        
-    @Html.Partial("_Navigation")    
-
-    <div id="wrap">
-        @* We add the row class here so we don't have to do it in every view *@
+    <div id="wrap">        
         <main id="masterBody" class="row">
             @RenderBody()
         </main>
     </div>
     
-    @Html.Partial("_Footer")    
+    @Html.Partial("_Footer")
 
     @Scripts.Render("~/Scripts/joyceprintjs")
 

@@ -1,4 +1,4 @@
-﻿html, body {
+﻿/*html, body {
     height: 100%;
 }
 
@@ -11,27 +11,13 @@ main {
     overflow: auto;
 }
 
-.jp-footer {
+footer {
     position: relative;
     margin-top: -150px; // Negative value of footer height
     height: 150px;
     clear: both;
     padding-top: 20px;
-}
-
-#home-information {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-#information ul {
-  list-style-type: none;
-}
-
-#information div.panel-body {
-    padding: 0;
-	padding-top: 15px;
-}
+}*/
 
 /******************************************************************************
  * Row with equal height columns
@@ -39,7 +25,7 @@ main {
  * Makes all columns in the row equal height
  * Does not vertically center, for that use [col-vcenter]
 ******************************************************************************/
-.row-eq-height {
+/*.row-eq-height {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -50,7 +36,7 @@ main {
 .row-eq-height > [class*='col-'] {
     display: flex;
     flex-direction: column;
-}
+}*/
 
 /*.row-vertical-align {
     display: -webkit-box;
@@ -72,12 +58,20 @@ main {
  * --------------------------------------------------
  * Makes all columns in the row vertically centered
 ******************************************************************************/
-.col-vcenter {
+/*.col-vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
-}
+}*/
 
+/******************************************************************************
+ * Bootstrap Class Extensions
+ * --------------------------------------------------
+ * Classes required that bootstrap does not have by default
+ *
+ * Classes required for overriding bootstrap styles that are not accessable 
+ * using the site customizations
+******************************************************************************/
 .text-weight-900 {
     font-weight: 900;
 }
@@ -86,6 +80,29 @@ main {
     font-weight: 700;
 }
 
-.text-weight-500 {
-    font-weight: 500;
+.navbar {
+    background-image: none;        
 }
+/******************************************************************************
+ * JoycePrint Site Styles
+ * --------------------------------------------------
+ * 
+******************************************************************************/
+.jp-delivery {
+    padding-bottom: 20px;
+}
+
+/* verifiy these are still needed
+#home-information {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#information ul {
+  list-style-type: none;
+}
+
+#information div.panel-body {
+    padding: 0;
+	padding-top: 15px;
+}*/

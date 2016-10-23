@@ -5,19 +5,21 @@
 
 <section id="getquote" class="col-xs-12">
 
+    <div class="text-center jp-delivery">
+        <h1 class="text-danger text-weight-900">
+            Delivery to Ireland & The UK
+        </h1>
+    </div>
+
     <div class="row">
-        <div class="text-center">
-            <h1 class="text-danger text-weight-900">
-                Delivery to Ireland & The UK
-            </h1>
-        </div>
-
-        <div class="clearfix"></div>
-
-        <div class="col-sm-5 col-md-5 col-lg-4">
+        <div class="col-sm-5 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-1">
             <article id="information">
-                <div class="panel panel-info">
-                    <div class="panel-heading text-weight-900 text-center">Help Information</div>
+                <div class="panel panel-warning">
+                    @*<div class="panel-heading text-weight-900 text-center">
+                        <h3 class="panel-title">
+                            Helpful Information
+                        </h3>
+                    </div>*@
                     <div class="panel-body">
                         <div class="panel-heading text-weight-700">
                             Size
@@ -57,92 +59,101 @@
             </article>
         </div>
 
-        <div class="col-sm-7 col-md-7 col-lg-8">
+        <div class="col-sm-6 col-md-6 col-lg-6">
             <form action="/Quote/Index" method="post" class="form-horizontal">
-                <div class="form-group">
-                    <label class="sr-only control-label" for="form-group-input-company"><span class="text-danger">*</span> Company</label>
-                    <div class="col-xs-8">
-                        <input type="text" inputmode="latin-prose" class="form-control" id="form-group-input-company" placeholder=" Company" maxlength="150" autofocus required>
+
+                <div id="contactUs" class="jp-contact-information">
+                    <h3 class="text-primary text-weight-700">Contact Information</h3>
+
+                    <div class="form-group">
+                        <label class="sr-only" for="form-group-input-company">Company</label>
+                        <div class="col-sm-5">
+                            <input type="text" inputmode="latin-prose" class="form-control" id="form-group-input-company" placeholder="Company" maxlength="150" autofocus required>
+                        </div>
+
+                        <label class="sr-only" for="form-group-input-position">Position</label>
+                        <div class="col-sm-5">
+                            <input type="text" inputmode="latin-prose" class="form-control" id="form-group-input-position" placeholder="Position" maxlength="150" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-4" for="form-group-input-firstname"><span class="text-danger">*</span> First name</label>
-                    <div class="col-xs-8">
-                        <input type="text" inputmode="latin-name" class="form-control" id="form-group-input-firstname" placeholder="Han" maxlength="150" required>
+
+                    <div class="form-group">
+                        <label class="sr-only" for="form-group-input-name">Name</label>
+                        <div class="col-sm-5">
+                            <input type="text" inputmode="latin-name" class="form-control" id="form-group-input-name" placeholder="Name" maxlength="150" required>
+                        </div>
+
+                        <label class="sr-only" for="form-group-input-telephone">Telephone Number</label>
+                        <div class="col-sm-5">
+                            <input type="tel" inputmode="tel" class="form-control" id="form-group-input-telephone" placeholder="000-0000000" maxlength="10" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-4" for="form-group-input-lastname"><span class="text-danger">*</span> Last name</label>
-                    <div class="col-xs-8">
-                        <input type="text" inputmode="latin-name" class="form-control" id="form-group-input-lastname" placeholder="Solo" maxlength="150" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-4" for="form-group-input-position">Position</label>
-                    <div class="col-xs-8">
-                        <input type="text" inputmode="latin-prose" class="form-control" id="form-group-input-position" placeholder="Space Pirate" maxlength="150" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-4" for="form-group-input-telephone"><span class="text-danger">*</span> Telephone Number</label>
-                    <div class="col-xs-8">
-                        <input type="tel" inputmode="tel" class="form-control" id="form-group-input-telephone" placeholder="000-0000000" maxlength="10" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-4" for="form-group-input-email"><span class="text-danger">*</span> Email</label>
-                    <div class="col-xs-8">
-                        <input type="email" inputmode="email" class="form-control" id="form-group-input-email" placeholder="hansolo@space.com" maxlength="254" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-4" for="form-group-input-docketbook-size"><span class="text-danger">*</span> Docket Book Size</label>
-                    <div class="col-xs-8">
-                        <select class="form-control" name="form-group-input-docketbook-size" required>
-                            <option>-- Docket Book Size --</option>
-                            <option value="A4">A4</option>
-                            <option value="A5">A5</option>
-                            <option value="A6">A6</option>
-                            <option value="DL">DL</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-4" for="form-group-input-docketbook-type"><span class="text-danger">*</span> Docket Book Type</label>
-                    <div class="col-xs-8">
-                        <select class="form-control" name="form-group-input-docketbook-type" required>
-                            <option>-- Docket Book Type --</option>
-                            <option value="Duplicate">Duplicate</option>
-                            <option value="Triplicate">Triplicate</option>
-                            <option value="Quad">Quad</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-4" for="form-group-input-docketbook-quantity"><span class="text-danger">*</span> Quantity</label>
-                    <div class="col-xs-8">
-                        <input type="number" inputmode="numeric" class="form-control" id="form-group-input-docketbook-quantity" placeholder="Quantity" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-4" for="form-group-input-message"><span class="text-danger">*</span> Message</label>
-                    <div class="col-xs-8">
-                        <textarea rows="10" class="form-control" id="form-group-input-message" placeholder="Any additional information" wrap="hard" required></textarea>
-                    </div>
+
+                    <div class="form-group">
+                        <label class="sr-only" for="form-group-input-email">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" inputmode="email" class="form-control" id="form-group-input-email" placeholder="your@email.com" maxlength="254" required>
+                        </div>
+                    </div>                    
                 </div>
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-xs-4 col-lg-offset-2">
-                            <button class="btn btn-warning form-control" type="reset">CLEAR</button>
+                <div class="clearfix"></div>
+
+                <div>
+                    <h3 class="text-primary text-weight-700">Product Information</h3>
+
+                    <div class="form-group">
+                        <label class="sr-only" for="form-group-input-docketbook-type">Docket Type</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="form-group-input-docketbook-type" required>
+                                <option value="None">
+                                    Type
+                                </option>
+                                <option value="Duplicate">Duplicate</option>
+                                <option value="Triplicate">Triplicate</option>
+                                <option value="Quad">Quad</option>
+                            </select>
                         </div>
-                        <div class="col-xs-4">
-                            <button class="btn btn-success form-control" formmethod="post" type="submit">SUBMIT</button>
+
+                        <label class="sr-only" for="form-group-input-docketbook-size">Docket Size</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="form-group-input-docketbook-size" required>
+                                <option value="None">Size</option>
+                                <option value="A4">A4</option>
+                                <option value="A5">A5</option>
+                                <option value="A6">A6</option>
+                                <option value="DL">DL</option>
+                            </select>
+                        </div>
+                        
+                        <label class="sr-only" for="form-group-input-docketbook-quantity">Quantity</label>
+                        <div class="col-sm-3">
+                            <input type="number" inputmode="numeric" class="form-control" id="form-group-input-docketbook-quantity" placeholder="Quantity" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="sr-only" for="form-group-input-message">Message</label>
+                        <!-- TODO: Have the right side border here transition into the background so we can't see where the lines are?-->
+                        <div class="col-sm-10 col-md-10 col-lg-10">
+                            <textarea rows="10" class="form-control" id="form-group-input-message" placeholder="Any additional information" wrap="hard" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4 col-sm-offset-1">
+                                <button class="btn btn-warning form-control" type="reset">CLEAR</button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button class="btn btn-success form-control" formmethod="post" type="submit">SUBMIT</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+
     </div>
 
 </section>
