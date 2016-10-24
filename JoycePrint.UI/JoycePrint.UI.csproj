@@ -200,6 +200,9 @@
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Quote\Index.cshtml" />
+    <Content Include="Views\Quote\Partial\DocketForm.cshtml" />
+    <Content Include="Views\Quote\Partial\DocketHelp.cshtml" />
+    <Content Include="Views\Quote\Partial\PersonalForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

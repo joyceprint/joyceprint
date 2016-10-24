@@ -1,4 +1,13 @@
-﻿@color-warning: #F89C28;
+﻿@color-primary: #1D4A5D;
+@color-warning: #F89C28;
+@color-success: #97C23C;
+@color-success-dark: #3c763d;
+@color-danger: #d9534f;
+@color-danger-dark: #a94442;
+@color-info: #66afe9;
+
+@color-info-bg: #66afe9;
+
 
 /******************************************************************************
  * Bootstrap Class Extensions
@@ -8,6 +17,38 @@
  * Classes required for overriding bootstrap styles that are not accessable 
  * using the site customizations
 ******************************************************************************/
+.focus {
+    border-color: @color-info;
+    background-color: @color-info-bg;
+}
+
+.form-control:focus:invalid {
+    border-color: @color-info;
+}
+
+.invalid {
+    border-color: @color-danger;
+    background-color: #f2dede;
+    color: @color-danger-dark;
+}
+
+.form-control:invalid {
+    border-color: @color-danger;
+}
+
+.valid {
+    border-color: @color-success;
+    background-color: #dff0d8;
+    color: @color-success-dark;
+}
+
+.form-control:valid {
+    border-color: @color-success;
+}
+
+/*
+ * Text Classes
+*/
 .text-white {
     color: #FFFFFF;
 }
@@ -20,20 +61,33 @@
     font-weight: 700;
 }
 
+/*
+ * Navigation
+*/
 .navbar {
     background-image: none;
     margin-bottom: 0;
 }
 
+.navbar .h4 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.navbar-inverse .navbar-nav > .active > a {
+    box-shadow: none;
+    background-image: none;
+}
+
 @media (min-width: 768px) {
     .navbar {
-        margin-top: 12px;
+        margin-top: 0;
     }
 }
 
 @media (min-width: 992px) {
     .navbar {
-        margin-top: 35px;
+        margin-top: 37px;
     }
 }
 
@@ -42,17 +96,42 @@
         margin-top: 50px;
     }
 }
+
+/*
+ * Row Extensions
+*/
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-eq-height > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-vertical-align {
+    .row-eq-height;
+    flex-direction: row;
+}
+
+.row-vertical-align > [class^="col-"],
+.row-vertical-align > [class*=" col-"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /******************************************************************************
  * JoycePrint Site Styles
  * --------------------------------------------------
  * 
 ******************************************************************************/
-#jpNav a {
-    .text-weight-900;
-}
-
-.jp-delivery {
-    padding-bottom: 20px;
+nav a {
+    .text-weight-700;
 }
 
 footer a {
@@ -62,6 +141,25 @@ footer a {
 footer a:hover {
     color: @color-warning;
 }
+
+.jp-delivery {
+    padding-bottom: 20px;
+}
+
+.jp-header-container {
+    border-bottom: 5px solid @color-primary;
+    margin-bottom: 20px;
+    padding-left: 0px;
+}
+
+/*form span[class~=input-group-addon] {
+    background-color: #f2dede;
+    border-color: @color-danger;
+}*/
+
+
+
+
 
 
 
