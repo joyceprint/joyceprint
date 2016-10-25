@@ -17,13 +17,17 @@
  * Classes required for overriding bootstrap styles that are not accessable 
  * using the site customizations
 ******************************************************************************/
+/*.form-control:optional {
+    border-color: @color-info;
+}*/
+
+/*.form-control:focus:invalid {
+    border-color: @color-info;
+}*/
+
 .focus {
     border-color: @color-info;
     background-color: @color-info-bg;
-}
-
-.form-control:focus:invalid {
-    border-color: @color-info;
 }
 
 .invalid {
@@ -32,17 +36,17 @@
     color: @color-danger-dark;
 }
 
-.form-control:invalid {
-    border-color: @color-danger;
-}
-
 .valid {
     border-color: @color-success;
     background-color: #dff0d8;
     color: @color-success-dark;
 }
 
-.form-control:valid {
+.touched:invalid {
+    border-color: @color-danger;
+}
+
+.touched:valid {
     border-color: @color-success;
 }
 

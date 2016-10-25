@@ -2,7 +2,54 @@
     toggleNavigationMenu();
 
     contactUsValidation();
+
+    handleCssHtmlRestriction();
 });
+
+function handleCssHtmlRestriction() {
+
+    // use $.fn.one here to fire the event only once.
+    $(':required').one('blur keydown', function () {
+        $(this).addClass('touched');
+    });
+}
+
+function contactUsValidation() {
+
+    //glyphicon glyphicon-ok-circle
+    //glyphicon glyphicon-remove-circle
+    //$(symbol).removeClass("glyphicon-asterisk text-warning");
+
+    $(':required').on("focusout keyup change", function (e) {
+
+        if (e.originalEvent.code === "Tab")
+            return;
+
+        var input = $(e.target);
+        var symbolContainer = $(e.target).prev();
+        var symbol = $(symbolContainer).children().first();
+
+        if ($(input).is(':invalid')) {
+            $(symbol).removeAttr("class");
+            $(symbol).addClass("glyphicon glyphicon-remove-circle text-danger");
+
+            $(symbolContainer).removeAttr("class");
+            $(symbolContainer).addClass("input-group-addon invalid");
+        } else if ($(input).is(':valid')) {
+            $(symbol).removeAttr("class");
+            $(symbol).addClass("glyphicon glyphicon-ok-circle text-success");
+
+            $(symbolContainer).removeAttr("class");
+            $(symbolContainer).addClass("input-group-addon valid");
+        }
+
+        //if ($(input).is(':focus')) {
+        //    $(symbol).addClass('focus');
+        //} else {
+        //    $(symbol).removeClass('focus');
+        //}
+    });
+}
 
 /*
  * Toggle the navigation menu so the active page reflects the page the user is currently on
@@ -21,28 +68,4 @@ function toggleNavigationMenu() {
     } else if ($("#aboutus").length > 0) {
         $("#jpNav #liAboutUs").addClass("active");
     }
-}
-
-function contactUsValidation() {
-
-    $(document).bind('keyup', function (e) {
-        if ($(e.target).is(':invalid')) {
-            $(e.target).prev().addClass('invalid');
-
-        } else {
-            $(e.target).prev().removeClass('invalid');
-        }
-
-        if ($(e.target).is(':valid')) {
-            $(e.target).prev().addClass('valid');
-        } else {
-            $(e.target).prev().removeClass('valid');
-        }
-
-        if ($(e.target).is(':focus')) {
-            $(e.target).prev().addClass('focus');
-        } else {
-            $(e.target).prev().removeClass('focus');
-        }
-    });
 }
