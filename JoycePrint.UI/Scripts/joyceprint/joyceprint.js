@@ -16,10 +16,6 @@ function handleCssHtmlRestriction() {
 
 function contactUsValidation() {
 
-    //glyphicon glyphicon-ok-circle
-    //glyphicon glyphicon-remove-circle
-    //$(symbol).removeClass("glyphicon-asterisk text-warning");
-
     $(':required').on("focusout keyup change", function (e) {
 
         if (e.originalEvent.code === "Tab")
@@ -33,11 +29,15 @@ function contactUsValidation() {
             $(symbol).removeAttr("class");
             $(symbol).addClass("glyphicon glyphicon-remove-circle text-danger");
 
+            if ($(input).is("textarea")) return;
+
             $(symbolContainer).removeAttr("class");
             $(symbolContainer).addClass("input-group-addon invalid");
         } else if ($(input).is(':valid')) {
             $(symbol).removeAttr("class");
             $(symbol).addClass("glyphicon glyphicon-ok-circle text-success");
+
+            if ($(input).is("textarea")) return;
 
             $(symbolContainer).removeAttr("class");
             $(symbolContainer).addClass("input-group-addon valid");
