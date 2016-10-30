@@ -17,7 +17,7 @@
             @Html.Partial("DocketHelp")
         </div>
 
-        <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <form action="/Quote/DocketBook" method="post" class="form-horizontal">
                 @Html.Partial("PersonalForm")
 
@@ -28,7 +28,7 @@
                 <div class="col-sm-5 col-sm-offset-1">
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <button class="btn btn-warning form-control" type="reset">CLEAR</button>
+                            <button class="btn btn-success form-control" formmethod="post" type="submit">SUBMIT</button>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="col-sm-5">
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <button class="btn btn-success form-control" formmethod="post" type="submit">SUBMIT</button>
+                            <button class="btn btn-warning form-control" type="reset">CLEAR</button>
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,10 @@
     handleCssHtmlRestriction();
 });
 
+/*
+ * Creates an event that will add the touched class to required fields
+ * This is required as the :visited pseudo class only applies to anchor tags
+ */
 function handleCssHtmlRestriction() {
 
     // use $.fn.one here to fire the event only once.
@@ -14,10 +18,14 @@ function handleCssHtmlRestriction() {
     });
 }
 
+/*
+ * Applies the classes used for validation depending on whether the target is [ :valid | :invalid ]
+ */
 function contactUsValidation() {
 
     $(':required').on("focusout keyup change", function (e) {
 
+        // If we tabbed into the input we do not want to perform validation
         if (e.originalEvent.code === "Tab")
             return;
 
@@ -29,25 +37,23 @@ function contactUsValidation() {
             $(symbol).removeAttr("class");
             $(symbol).addClass("glyphicon glyphicon-remove-circle text-danger");
 
-            if ($(input).is("textarea")) return;
-
-            $(symbolContainer).removeAttr("class");
-            $(symbolContainer).addClass("input-group-addon invalid");
+            if ($(input).is("textarea")) {
+                $(input).addClass("bg-danger");
+            } else {
+                $(symbolContainer).removeAttr("class");
+                $(symbolContainer).addClass("input-group-addon invalid");
+            }
         } else if ($(input).is(':valid')) {
             $(symbol).removeAttr("class");
             $(symbol).addClass("glyphicon glyphicon-ok-circle text-success");
 
-            if ($(input).is("textarea")) return;
-
-            $(symbolContainer).removeAttr("class");
-            $(symbolContainer).addClass("input-group-addon valid");
+            if ($(input).is("textarea")) {
+                $(input).removeClass("bg-danger");
+            } else {
+                $(symbolContainer).removeAttr("class");
+                $(symbolContainer).addClass("input-group-addon valid");
+            }
         }
-
-        //if ($(input).is(':focus')) {
-        //    $(symbol).addClass('focus');
-        //} else {
-        //    $(symbol).removeClass('focus');
-        //}
     });
 }
 

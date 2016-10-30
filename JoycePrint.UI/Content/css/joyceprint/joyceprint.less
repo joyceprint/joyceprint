@@ -8,7 +8,6 @@
 
 @color-info-bg: #66afe9;
 
-
 /******************************************************************************
  * Bootstrap Class Extensions
  * --------------------------------------------------
@@ -17,6 +16,8 @@
  * Classes required for overriding bootstrap styles that are not accessable 
  * using the site customizations
 ******************************************************************************/
+
+/* Validation Classes ********************************************************/
 .focus {
     border-color: @color-info;
     background-color: @color-info-bg;
@@ -42,9 +43,25 @@
     border-color: @color-success;
 }
 
-/*
- * Text Classes
-*/
+/* Placeholder Classes *******************************************************/
+/* do not group these rules */
+*::-webkit-input-placeholder {
+    color: red;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: red;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: red;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: red;
+}
+
+/* Text Classes **************************************************************/
 .text-white {
     color: #FFFFFF;
 }
@@ -57,9 +74,7 @@
     font-weight: 700;
 }
 
-/*
- * Navigation
-*/
+/* Navigation ****************************************************************/
 .navbar {
     background-image: none;
     margin-bottom: 0;
@@ -93,9 +108,7 @@
     }
 }
 
-/*
- * Row Extensions
-*/
+/* Row Extensions ************************************************************/
 .row-eq-height {
     display: -webkit-box;
     display: -webkit-flex;
@@ -144,21 +157,6 @@ footer a:hover {
     padding-left: 0px;
 }
 
-/*form span[class~=input-group-addon] {
-    background-color: #f2dede;
-    border-color: @color-danger;
-}*/
-
-
-
-
-
-
-
-
-
-
-
 /*html, body {
     height: 100%;
 }
@@ -178,65 +176,4 @@ footer {
     height: 150px;
     clear: both;
     padding-top: 20px;
-}*/
-
-/******************************************************************************
- * Row with equal height columns
- * --------------------------------------------------
- * Makes all columns in the row equal height
- * Does not vertically center, for that use [col-vcenter]
-******************************************************************************/
-/*.row-eq-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.row-eq-height > [class*='col-'] {
-    display: flex;
-    flex-direction: column;
-}*/
-
-/*.row-vertical-align {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: row;
-}*/
-
-/*.row-vertical-align > [class^="col-"],
-.row-vertical-align > [class*=" col-"] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}*/
-
-/******************************************************************************
- * Row with equal height vertically centered columns
- * --------------------------------------------------
- * Makes all columns in the row vertically centered
-******************************************************************************/
-/*.col-vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-}*/
-
-
-/* verifiy these are still needed
-#home-information {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-#information ul {
-  list-style-type: none;
-}
-
-#information div.panel-body {
-    padding: 0;
-	padding-top: 15px;
 }*/
