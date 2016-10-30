@@ -1,0 +1,61 @@
+﻿@using JoycePrint.Domain.Models
+@model DocketBook
+
+<section id="docketBook">
+
+    <div class="col-sm-12 jp-header-container">
+        <h3 class="text-primary text-weight-700">Product Information</h3>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+        <div class="form-group">
+            <label class="sr-only" for="docketbook-type">Docket Type</label>
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <span class="input-group-addon bg-primary" aria-hidden="true">
+                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
+                    </span>
+                    @Html.EnumDropDownListFor(model => model.Type, "Type", new { @class = "form-control", required = "required" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+        <div class="form-group">
+            <label class="sr-only" for="docketbook-quantity">Quantity</label>
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <span class="input-group-addon" aria-hidden="true">
+                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
+                    </span>
+                    <input type="number" inputmode="numeric" class="form-control" id="DocketBook_Quantity" name="DocketBook.Quantity" placeholder="Quantity" min="1" max="1000000" required>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-lg-6">
+        <div class="form-group">
+            <label class="sr-only" for="docketbook-size">Docket Size</label>
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <span class="input-group-addon" aria-hidden="true">
+                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
+                    </span>
+                    @Html.EnumDropDownListFor(model => model.Size, "Size", new { @class = "form-control", required = "required" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="col-xs-12">
+                <label class="sr-only" for="message">Message</label>
+                <textarea rows="10" class="form-control" id="DocketBook_Message" name="DocketBook.Message" placeholder="Any additional information" wrap="hard" required></textarea>
+            </div>
+        </div>
+    </div>
+
+</section>
