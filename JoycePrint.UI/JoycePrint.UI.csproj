@@ -200,9 +200,9 @@
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Quote\Index.cshtml" />
-    <Content Include="Views\Quote\Partial\DocketForm.cshtml" />
+    <Content Include="Views\Quote\EditorTemplates\DocketForm.cshtml" />
     <Content Include="Views\Quote\Partial\DocketHelp.cshtml" />
-    <Content Include="Views\Quote\Partial\PersonalForm.cshtml" />
+    <Content Include="Views\Quote\EditorTemplates\ContactForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -210,7 +210,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\JoycePrint.Models\JoycePrint.Models.csproj">
+      <Project>{965d36b0-ce0d-4ea4-9fc0-036b2d2603b2}</Project>
+      <Name>JoycePrint.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

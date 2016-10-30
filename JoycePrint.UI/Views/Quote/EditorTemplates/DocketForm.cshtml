@@ -1,4 +1,6 @@
-﻿<section id="docketBook">
+﻿@model JoycePrint.Models.DocketBook
+
+<section id="docketBook">
 
     <div class="col-sm-12 jp-header-container">
         <h3 class="text-primary text-weight-700">Product Information</h3>
@@ -12,12 +14,13 @@
                     <span class="input-group-addon bg-primary" aria-hidden="true">
                         <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
                     </span>
-                    <select class="form-control" name="docketbook-type" required>
+                    @*<select class="form-control" name="docketbook-type" required>
                         <option value>Type</option>
                         <option value="duplicate">Duplicate</option>
                         <option value="triplicate">Triplicate</option>
                         <option value="quad">Quad</option>
-                    </select>
+                    </select>*@
+                    @Html.EnumDropDownListFor(model => model.Type, "Type", new { @class="form-control" })
                 </div>
             </div>
         </div>
@@ -31,7 +34,7 @@
                     <span class="input-group-addon" aria-hidden="true">
                         <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
                     </span>
-                    <input type="number" inputmode="numeric" class="form-control" id="docketbook-quantity" placeholder="Quantity" min="1" max="1000000" required>
+                    <input type="number" inputmode="numeric" class="form-control" id="DocketBook_Quantity" name="DocketBook.Quantity" placeholder="Quantity" min="1" max="1000000" required>
                 </div>
             </div>
         </div>
@@ -45,13 +48,14 @@
                     <span class="input-group-addon" aria-hidden="true">
                         <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
                     </span>
-                    <select class="form-control" name="docketbook-size" required>
+                    @*<select class="form-control" name="docketbook-size" required>
                         <option value>Size</option>
                         <option value="a4">A4 - 210 x 297mm</option>
                         <option value="a5">A5 - 148.5 x 210mm</option>
                         <option value="a6">A6 - 105 x 148.5mm</option>
                         <option value="dl">DL - 99 x 210mm</option>
-                    </select>
+                    </select>*@
+                    @Html.EnumDropDownListFor(model => model.Size, "Size", new { @class = "form-control" })
                 </div>
             </div>
         </div>
@@ -62,7 +66,7 @@
             <div class="col-xs-12">
                 <label class="sr-only" for="message">Message</label>
                 <!-- TODO: Have the right side border here transition into the background so we can't see where the lines are?-->
-                <textarea rows="10" class="form-control" id="message" placeholder="Any additional information" wrap="hard" required></textarea>
+                <textarea rows="10" class="form-control" id="DocketBook_Message" name="DocketBook.Message" placeholder="Any additional information" wrap="hard" required></textarea>
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using JoycePrint.Models;
+using System.Web.Mvc;
 
 namespace JoycePrint.UI.Controllers
 {
@@ -8,13 +9,15 @@ namespace JoycePrint.UI.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View("Index");
+            var model = new QuoteRequest();
+            return View("Index", model);
         }
 
-        //[HttpPost]
-        //public ActionResult Index()
-        //{
-        //    return View("Index");
-        //}
+        [HttpPost]
+        public ActionResult Index(QuoteRequest model)
+        {
+
+            return View("Index");
+        }
     }
 }
