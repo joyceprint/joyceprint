@@ -8,11 +8,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JoycePrint.Domain.Tests</RootNamespace>
     <AssemblyName>JoycePrint.Domain.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JoycePrint.Domain\JoycePrint.Domain.csproj">
-      <Project>{965D36B0-CE0D-4EA4-9FC0-036B2D2603B2}</Project>
+      <Project>{c2c140d1-5e4e-4df3-a199-26cdb5fa530a}</Project>
       <Name>JoycePrint.Domain</Name>
     </ProjectReference>
   </ItemGroup>
