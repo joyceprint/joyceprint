@@ -3,12 +3,12 @@
 namespace JoycePrint.UI.Controllers
 {
     [Route("/")]
-    public class ServicesController : Controller
+    public class ContactUsController : Controller
     {
         [HttpGet]
         public ActionResult Index()
         {
-            return View("Index");
+            return View("ContactUs");
         }
     }
 }
