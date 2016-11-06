@@ -15,10 +15,10 @@
 
     <!-- This line allows sub pages to omit the Header section -->
     @RenderSection("head", false)
-   
+
     <!-- Normal browser style sheet links -->
-    @Styles.Render("~/Content/css/joyceprintcss")
-    
+    @Styles.Render("~/css/joyceprintcss")
+
     <link rel="icon" href="@Url.Content("~/Content/images/favicon.ico")" />
 
     <!-- Including google font: Roboto -->
@@ -28,19 +28,17 @@
 
 </head>
 
-<body class="container-fluid">
-            
+<body>
+
     @Html.Partial("_Header")
-       
-    <div id="wrap">        
-        <main id="masterBody" class="row">
-            @RenderBody()
-        </main>
-    </div>
-    
+
+    <main id="masterBody" class="row">
+        @RenderBody()
+    </main>
+
     @Html.Partial("_Footer")
 
-    @Scripts.Render("~/Scripts/joyceprintjs")
+    @Scripts.Render("~/js/joyceprintjs")
 
 </body>
 </html>
