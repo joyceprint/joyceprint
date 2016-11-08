@@ -21,6 +21,9 @@
 
     <link rel="icon" href="@Url.Content("~/Content/images/favicon.ico")" />
 
+    <!-- Incuding the materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Including google font: Roboto -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
 
@@ -32,7 +35,7 @@
 
     @Html.Partial("_Header")
 
-    <main id="masterBody" class="row">
+    <main class="row">
         @RenderBody()
     </main>
 

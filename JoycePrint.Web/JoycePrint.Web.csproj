@@ -146,6 +146,7 @@
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\jp-logo-footer.jpg" />
     <Content Include="Content\images\jp-logo.jpg" />
+    <Content Include="Content\images\thumb.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />

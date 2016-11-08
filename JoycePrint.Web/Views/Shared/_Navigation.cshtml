@@ -1,31 +1,20 @@
-﻿<nav class="navbar navbar-inverse" role="navigation">
-    <div>
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
+﻿<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo left">Logo</a>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right" id="jpNav">
-                <li id="liHome" class="h4">
-                    <a href="@Url.Action("Index", "Home")">Home</a>
-                </li>
-                <li id="liQuote" class="h4">
-                    <a href="@Url.Action("Index", "Quote")">Get A Quote</a>
-                </li>
-                <li id="liServices" class="h4">
-                    <a href="@Url.Action("Index", "Services")">Services</a>
-                </li>
-                <li id="liAboutUs" class="h4">
-                    <a href="@Url.Action("Index", "AboutUs")">About Us</a>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        <ul id="nav-mobile" class="right hide-on-small-and-down">
+            <li id="liHome">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </li>
+            <li id="liQuote">
+                <a href="@Url.Action("Index", "Quote")">Get A Quote</a>
+            </li>
+            <li id="liServices">
+                <a href="@Url.Action("Index", "Services")">Services</a>
+            </li>
+            <li id="liAboutUs">
+                <a href="@Url.Action("Index", "AboutUs")">About Us</a>
+            </li>
+        </ul>
+    </div>
 </nav>

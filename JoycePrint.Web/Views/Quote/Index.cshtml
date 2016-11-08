@@ -6,45 +6,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section id="quote" class="col-xs-12">
+<section id="quote" class="col s12">
 
-    <div class="text-center">
-        <h1 class="text-danger text-weight-900">
+    <div class="center-align">
+        <h1>
             Delivery To Ireland & The UK
         </h1>
     </div>
 
-    <div class="row row-vertical-align">
+    <div class="row">
 
-        <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-1">
+        <div class="col s6 m5 offset-m1 l4 offset-l1">
             @Html.Partial("DocketHelp")
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { @class = "form-horizontal", required = "true" }))
+        <div class="col s6 m6 l6">
+            @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true" }))
             {
                 @Html.AntiForgeryToken()
 
                 @Html.EditorFor(model => model.Contact, "ContactForm")
 
-                <div class="clearfix"></div>
-
                 @Html.EditorFor(model => model.DocketBook, "DocketForm")
 
-                <div class="col-sm-5 col-sm-offset-1">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <button class="btn btn-success form-control" formmethod="post" type="submit">SUBMIT</button>
-                        </div>
-                    </div>
+                <div class="col s5 offset-s1">
+                    <button class="btn waves-effect" formmethod="post" type="submit">SUBMIT</button>
                 </div>
 
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <button class="btn btn-warning form-control" type="reset">CLEAR</button>
-                        </div>
-                    </div>
+                <div class="col s5">
+                    <button class="btn waves-effect" type="reset">CLEAR</button>
                 </div>
             }
         </div>
