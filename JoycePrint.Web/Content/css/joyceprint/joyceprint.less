@@ -28,10 +28,32 @@ body {
     flex: 1 0 auto;
   }
 
-/* Row Extensions ************************************************************/
+/* Font Color Extensions ************************************************************/
+.dark-blue-text {
+    color: @color-primary;
+}
+
+/* Font Weight Extensions ************************************************************/
+.text-700 {
+    font-weight: 700;
+}
 
 /******************************************************************************
  * JoycePrint Site Styles
  * --------------------------------------------------
  * 
 ******************************************************************************/
+nav,
+footer.page-footer {
+    background-color: @color-primary;
+}
+
+h3 {
+    .dark-blue-text;
+    .text-700;
+}
+
+h1 {
+    color: @color-danger;
+    font-weight: 900;
+}
