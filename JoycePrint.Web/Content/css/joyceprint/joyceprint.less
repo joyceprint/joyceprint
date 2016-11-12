@@ -39,6 +39,10 @@ main {
     font-weight: 700;
 }
 
+.text-500 {
+    font-weight: 500;
+}
+
 /* Active Extensions *****************************************************************/
 .active-text {
     color: #F89C28 !important;
@@ -46,7 +50,7 @@ main {
 
 /* Side Nav Extensions ***************************************************************/
 .side-nav {
-    background-color: @color-primary;    
+    background-color: @color-primary;
 }
 
 .side-nav a {
@@ -76,14 +80,20 @@ h2 {
     font-weight: 900;
 }
 
-#paper-size {
-    height: 220px;
-}
-
-#paper-orientation {
-    height: 330px;
-}
-
+#paper-size,
+#paper-orientation,
 #book-type {
-    height: 200px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#docket-help .card-title {
+    .text-500;
+}
+
+#docket-help .collapsible-header {
+    .text-700;
+    font-size: 1.64rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
