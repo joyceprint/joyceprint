@@ -1,3 +1,9 @@
 ﻿<header>
-    @Html.Partial("_Navigation")
+    <div class="row show-on-medium-and-up hide-on-small-and-down">
+        @Html.Partial("_Navigation")
+    </div>
+
+    <div class="row hide-on-med-and-up">
+        @Html.Partial("_NavigationSide")
+    </div>
 </header>

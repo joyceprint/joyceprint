@@ -5,30 +5,31 @@
 @color-danger: #d9534f;
 @color-danger-dark: #a94442;
 @color-info: #66afe9;
+@color-white: #FFFFFF;
 
 @color-info-bg: #66afe9;
 
-/******************************************************************************
+/**************************************************************************************
  * Materialize Class Extensions
  * --------------------------------------------------
  * Classes required that materialize does not have by default
  *
  * Classes required for overriding materialize styles that are not accessable 
  * using the site customizations
-******************************************************************************/
+**************************************************************************************/
 
-/* Sticky Footer Classes ********************************************************/
+/* Sticky Footer Classes *************************************************************/
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
 
-  main {
+main {
     flex: 1 0 auto;
-  }
+}
 
-/* Font Color Extensions ************************************************************/
+/* Font Color Extensions *************************************************************/
 .dark-blue-text {
     color: @color-primary;
 }
@@ -38,11 +39,25 @@ body {
     font-weight: 700;
 }
 
-/******************************************************************************
+/* Active Extensions *****************************************************************/
+.active-text {
+    color: #F89C28 !important;
+}
+
+/* Side Nav Extensions ***************************************************************/
+.side-nav {
+    background-color: @color-primary;    
+}
+
+.side-nav a {
+    color: @color-white;
+}
+
+/**************************************************************************************
  * JoycePrint Site Styles
  * --------------------------------------------------
  * 
-******************************************************************************/
+**************************************************************************************/
 nav,
 footer.page-footer {
     background-color: @color-primary;

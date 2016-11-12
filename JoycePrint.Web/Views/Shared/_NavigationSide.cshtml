@@ -1,0 +1,29 @@
+﻿<nav>
+    <div class="col s11">
+        <div class="nav-wrapper">
+            <!-- This is for the mobile menu-->
+            <a href="#" data-activates="nav-mobile" class="button-collapse hide-on-med-and-up">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <div>
+                <img src="~/Content/images/jp-logo-footer.jpg" class="responsive-img center-block hide-on-med-and-up" alt="JoycePrint Header Logo" />
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li id="liHome">
+                        <a href="@Url.Action("Index", "Home")">Home</a>
+                    </li>
+                    <li id="liQuote">
+                        <a href="@Url.Action("Index", "Quote")">Get A Quote</a>
+                    </li>
+                    <li id="liServices">
+                        <a href="@Url.Action("Index", "Services")">Services</a>
+                    </li>
+                    <li id="liAboutUs">
+                        <a href="@Url.Action("Index", "AboutUs")">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
