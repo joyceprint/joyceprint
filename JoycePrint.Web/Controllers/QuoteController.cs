@@ -17,7 +17,7 @@ namespace JoycePrint.UI.Controllers
         [HttpPost]
         public ActionResult Index(QuoteRequest model)
         {
-            model.SendEmail();
+            //model.SendEmail();
 
             return View("Index");
         }

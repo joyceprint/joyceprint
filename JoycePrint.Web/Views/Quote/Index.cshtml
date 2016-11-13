@@ -21,7 +21,7 @@
         </div>
 
         <div class="col s6 m6 l6">
-            @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true" }))
+            @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote" }))
             {
                 @Html.AntiForgeryToken()
 

@@ -26,7 +26,9 @@ namespace JoycePrint.UI
             bundles.Add(new ScriptBundle("~/js/joyceprintjs")
                 .Include("~/Scripts/jquery-{version}.js",
                     "~/Scripts/materialize.min.js",
-                    "~/Scripts/joyceprint/joyceprint.js"
+                    "~/Scripts/joyceprint/joyceprint.js",
+                    "~/Scripts/joyceprint/jalidate.js",
+                    "~/Scripts/joyceprint/joyceprint-validation.js"
                 ));
 
             // Create the external style bundle, using a bundle instead of a style bundle allows us to mix css and less files.
