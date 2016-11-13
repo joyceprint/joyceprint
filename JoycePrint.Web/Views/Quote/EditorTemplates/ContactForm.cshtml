@@ -1,38 +1,38 @@
 ﻿@using JoycePrint.Domain.Models
 @model Contact
 
-<section id="contactUs">
+<section id="contact-us">
 
     <div class="col s12">
         <h3>Contact Information</h3>
     </div>
 
     <div class="input-field col s12 m6">
-        <i class="material-icons prefix">business</i>
+        <i class="material-icons prefix orange-text text-accent-4">business</i>
         <input type="text" inputmode="latin-prose" class="validate" id="Contact_Company" name="Contact.Company" maxlength="150" autofocus required/>
         <label for="Contact_Company">Company</label>
     </div>
 
     <div class="input-field col s12 m6">
-        <i class="material-icons prefix">recent_actors</i>
-        <input type="text" inputmode="latin-prose" class="validate" id="Contact_Position" name="Contact.Position" maxlength="150" />
+        <i class="material-icons prefix dark-blue-text">recent_actors</i>
+        <input type="text" inputmode="latin-prose" id="Contact_Position" name="Contact.Position" maxlength="150" />
         <label for="Contact_Position">Position</label>
     </div>
 
     <div class="input-field col s12 m6">
-        <i class="material-icons prefix">perm_identity</i>
+        <i class="material-icons prefix orange-text text-accent-4">perm_identity</i>
         <input type="text" inputmode="latin-name" class="validate" id="Contact_Name" name="Contact.Name" maxlength="150" required />
         <label for="Contact_Name">Name</label>
     </div>
 
     <div class="input-field col s12 m6">
-        <i class="material-icons prefix">phone</i>
+        <i class="material-icons prefix orange-text text-accent-4">phone</i>
         <input type="tel" inputmode="tel" class="validate" id="Contact_Telephone" name="Contact.Telephone" required />
         <label for="Contact_Telephone">Telephone Number</label>
     </div>
 
     <div class="input-field col s12 l12">
-        <i class="material-icons prefix">email</i>
+        <i class="material-icons prefix orange-text text-accent-4">email</i>
         <input type="email" inputmode="email" class="validate" id="Contact_Email" name="Contact.Email" maxlength="254" required />
         <label for="Contact_Email">Email</label>
     </div>
