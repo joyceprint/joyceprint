@@ -31,7 +31,6 @@
     // Public Property - Css class name of the invalid state
     jalidate.invalid = "invalid";
 
-
     // Public Method - Set the display using the valid styles
     jalidate.setValidDisplay = function (field, additionalFields, listener) {
         try {
@@ -43,6 +42,7 @@
                 removeClass(this.iconValid, this.icon);
                 addClass(this.required, this.icon);
 
+                removeClass(this.invalid, this.input);
                 removeClass(this.valid, this.input);
                 addClass(this.required, this.input);
             } else {
@@ -50,6 +50,7 @@
                 removeClass(this.iconInvalid, this.icon);
                 addClass(this.iconValid, this.icon);
 
+                removeClass(this.invalid, this.input);
                 removeClass(this.required, this.input);
                 addClass(this.valid, this.input);
             }
@@ -69,6 +70,7 @@
                 removeClass(this.iconInvalid, this.icon);
                 addClass(this.required, this.icon);
 
+                removeClass(this.valid, this.input);
                 removeClass(this.invalid, this.input);
                 addClass(this.required, this.input);
             } else {
@@ -76,6 +78,7 @@
                 removeClass(this.iconValid, this.icon);
                 addClass(this.iconInvalid, this.icon);
 
+                removeClass(this.valid, this.input);
                 removeClass(this.required, this.input);
                 addClass(this.invalid, this.input);
             }
