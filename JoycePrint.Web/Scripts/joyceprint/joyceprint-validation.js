@@ -58,7 +58,8 @@ function validateForm(event) {
 
             // Native validation available
             if (field.nodeName === "INPUT" && field.type !== field.getAttribute("type")) {
-                // input type not supported! Use legacy JavaScript validation
+
+                // Input type not supported! Use legacy JavaScript validation
                 field.setCustomValidity(LegacyValidation(field) ? "" : "error");
             }
 
@@ -67,29 +68,29 @@ function validateForm(event) {
         }
         else {
 
-            // native validation not available
+            // Native validation not available
             field.validity = field.validity || {};
 
-            // set to result of validation function
+            // Set to result of validation function
             field.validity.valid = LegacyValidation(field);
 
-            // if "invalid" events are required, trigger it here            
+            // If "invalid" events are required, trigger it here            
         }
 
         if (field.validity.valid) {
-            // remove error styles and messages
+            // Remove error styles and messages
             jalidate.setValidDisplay(field);
         }
         else {
-            // style field, show error, etc.
+            // Style field, show error, etc.
             jalidate.setInvalidDisplay(field);
 
-            // form is invalid
+            // Form is invalid
             formvalid = false;
         }
     }
 
-    // cancel form submit if validation fails
+    // Cancel form submit if validation fails
     if (!formvalid) {
         if (event.preventDefault) event.preventDefault();
     }

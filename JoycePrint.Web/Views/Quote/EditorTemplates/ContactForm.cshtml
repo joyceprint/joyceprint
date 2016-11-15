@@ -9,7 +9,7 @@
 
     <div class="input-field col s12 m6">
         <i class="material-icons prefix orange-text text-accent-4">business</i>
-        <input type="text" inputmode="latin-prose" class="validate" id="Contact_Company" name="Contact.Company" maxlength="150" required data-val-msg="Please enter the company name"/>
+        <input type="text" inputmode="latin-prose" class="validate" id="Contact_Company" name="Contact.Company" maxlength="150" pattern="\w+" required data-val-msg="Please enter the company name"/>
         <label for="Contact_Company">Company</label>
     </div>
 
@@ -21,13 +21,13 @@
 
     <div class="input-field col s12 m6">
         <i class="material-icons prefix orange-text text-accent-4">perm_identity</i>
-        <input type="text" inputmode="latin-name" class="validate" id="Contact_Name" name="Contact.Name" maxlength="150" required />
+        <input type="text" inputmode="latin-name" class="validate" id="Contact_Name" name="Contact.Name" maxlength="150" pattern="\w+" required />
         <label for="Contact_Name">Name</label>
     </div>
 
     <div class="input-field col s12 m6">
         <i class="material-icons prefix orange-text text-accent-4">phone</i>
-        <input type="tel" inputmode="tel" class="validate" id="Contact_Telephone" name="Contact.Telephone" required />
+        <input type="tel" inputmode="tel" class="validate" id="Contact_Telephone" name="Contact.Telephone" pattern="^(\d{10}|\d{9})$" required />
         <label for="Contact_Telephone">Telephone Number</label>
     </div>
 

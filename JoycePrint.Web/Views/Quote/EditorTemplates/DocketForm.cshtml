@@ -1,4 +1,6 @@
 ﻿@using JoycePrint.Domain.Models
+@using JoycePrint.Web.Extensions
+
 @model DocketBook
 
 <section id="docket-book">
@@ -9,8 +11,8 @@
 
     <div class="input-field col s12 m6">
         <i class="material-icons prefix orange-text text-accent-4">label</i>
-        @Html.EnumDropDownListFor(model => model.Type, "Type", new { @class = "validate", required = "required" })
-        <label for="DocketBook_Type">Docket Type</label>
+        @Html.MaterializeEnumDropDownListFor(model => model.Type, "Type", new { @class = "validate", required = "required" })        
+        @*<label for="DocketBook_Type">Docket Type</label>*@
     </div>
 
     <div class="input-field col s12 m6">
