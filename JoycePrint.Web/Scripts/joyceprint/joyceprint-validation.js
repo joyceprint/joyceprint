@@ -27,10 +27,9 @@ $(document).ready(function () {
 
         if (!field.required) continue;
 
-        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup");
-        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keydown");
         jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus");
         jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur");
+        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup");
     }
 });
 

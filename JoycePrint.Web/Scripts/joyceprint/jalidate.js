@@ -31,21 +31,16 @@
     // Public Property - Css class name of the invalid state
     jalidate.invalid = "invalid";
 
+    // Public Property - Css class name of the touched state
+    jalidate.touched = "touched";
+
     // Public Method - Set the display using the valid styles
-    jalidate.setValidDisplay = function (field, additionalFields, listener) {
+    jalidate.setValidDisplay = function (field, additionalFields) {
         try {
             this.icon = additionalFields[0];
             this.input = field;
-
-            if (listener === "focus") {                
-                removeClass(this.iconInvalid, this.icon);
-                removeClass(this.iconValid, this.icon);
-                addClass(this.required, this.icon);
-
-                removeClass(this.invalid, this.input);
-                removeClass(this.valid, this.input);
-                addClass(this.required, this.input);
-            } else {
+            
+            if (hasClass(this.touched, this.input)) {
                 removeClass(this.required, this.icon);
                 removeClass(this.iconInvalid, this.icon);
                 addClass(this.iconValid, this.icon);
@@ -53,6 +48,14 @@
                 removeClass(this.invalid, this.input);
                 removeClass(this.required, this.input);
                 addClass(this.valid, this.input);
+            } else {
+                removeClass(this.iconInvalid, this.icon);
+                removeClass(this.iconValid, this.icon);
+                addClass(this.required, this.icon);
+
+                removeClass(this.invalid, this.input);
+                removeClass(this.valid, this.input);
+                addClass(this.required, this.input);
             }
         } catch (e) {
             console.log(e);
@@ -60,20 +63,12 @@
     }
 
     // Public Method - Set the display using the invalid styles
-    jalidate.setInvalidDisplay = function (field, additionalFields, listener) {
+    jalidate.setInvalidDisplay = function (field, additionalFields) {
         try {
             this.icon = additionalFields[0];
-            this.input = field;
+            this.input = field;           
 
-            if (listener === "focus") {                
-                removeClass(this.iconValid, this.icon);
-                removeClass(this.iconInvalid, this.icon);
-                addClass(this.required, this.icon);
-
-                removeClass(this.valid, this.input);
-                removeClass(this.invalid, this.input);
-                addClass(this.required, this.input);
-            } else {
+            if (hasClass(this.touched, this.input)) {
                 removeClass(this.required, this.icon);
                 removeClass(this.iconValid, this.icon);
                 addClass(this.iconInvalid, this.icon);
@@ -81,6 +76,14 @@
                 removeClass(this.valid, this.input);
                 removeClass(this.required, this.input);
                 addClass(this.invalid, this.input);
+            } else {
+                removeClass(this.iconValid, this.icon);
+                removeClass(this.iconInvalid, this.icon);
+                addClass(this.required, this.icon);
+
+                removeClass(this.valid, this.input);
+                removeClass(this.invalid, this.input);
+                addClass(this.required, this.input);
             }
         } catch (e) {
             console.log(e);
@@ -93,12 +96,11 @@
 
         field.addEventListener(listener, function (event) {
             if (event.target.checkValidity()) {
-                jalidate.setValidDisplay(event.target, additionalFields, listener);
+                jalidate.setValidDisplay(event.target, additionalFields);
             } else {
-                jalidate.setInvalidDisplay(event.target, additionalFields, listener);
+                jalidate.setInvalidDisplay(event.target, additionalFields);
             }
-        }
-                                );
+        });
     }
 
     // Basic legacy validation checking
@@ -158,6 +160,13 @@
     function removeClass(ccsClass, element) {
         if ($(element).hasClass(ccsClass))
             $(element).removeClass(ccsClass);
+    }
+
+    function hasClass(ccsClass, element) {
+        if ($(element).hasClass(ccsClass) === true)
+            return true;
+        else
+            return false;
     }
 
 }(window.jalidate = window.jalidate || {}, jQuery));
