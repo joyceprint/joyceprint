@@ -30,8 +30,25 @@ $(document).ready(function () {
         jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus");
         jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur");
         jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup");
+
+        if (field.nodeName === "SELECT") {
+            handleBindingForMaterializeDropDown(field);
+        }
     }
 });
+
+function handleBindingForMaterializeDropDown(field) {
+
+    var selectWrapper = $(field).closest("div");
+    var selectInput = $(selectWrapper).find("input");
+
+    var icon = $(selectWrapper).prev();
+    var label = $(selectWrapper).next()
+
+    // To get the variables to be passed as javascript variables rather than jQeury variable we need to access the first element in the jQuery object    
+    jalidate.bindValidator(selectInput[0], [icon[0], label[0]], "input");
+    jalidate.bindValidator(selectInput[0], [icon[0], label[0]], "change");
+}
 
 function validateForm(event) {
 

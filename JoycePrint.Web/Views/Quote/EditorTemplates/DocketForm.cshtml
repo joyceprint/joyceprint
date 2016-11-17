@@ -1,5 +1,4 @@
 ﻿@using JoycePrint.Domain.Models
-@using JoycePrint.Web.Extensions
 
 @model DocketBook
 
@@ -9,25 +8,25 @@
         <h3>Product Information</h3>
     </div>
 
-    <div class="input-field col s12 m6">
+    <div class="input-field col s12 m4">
         <i class="material-icons prefix orange-text text-accent-4">label</i>
-        @Html.MaterializeEnumDropDownListFor(model => model.Type, "Type", new { @class = "validate", required = "required" })        
-        @*<label for="DocketBook_Type">Docket Type</label>*@
+        @Html.EnumDropDownListFor(model => model.Type, "Type", new { @class = "validate", required = "required" })        
+        <label for="DocketBook_Type">Docket Type</label>
     </div>
 
-    <div class="input-field col s12 m6">
-        <i class="material-icons prefix orange-text text-accent-4">label</i>
-        <input type="number" inputmode="numeric" class="validate" id="DocketBook_Quantity" name="DocketBook.Quantity" min="1" max="1000000" required>
-        <label for="DocketBook_Quantity">Quantity</label>
-    </div>
-
-    @*<div class="input-field col s12">
+    <div class="input-field col s12 m4">
         <i class="material-icons prefix orange-text text-accent-4">label</i>
         @Html.EnumDropDownListFor(model => model.Size, "Size", new { @class = "validate", required = "required" })
         <label for="DocketBook_Size">Docket Size</label>
-    </div>
+    </div> 
 
-    <div class="clearfix"></div>*@
+    <div class="input-field col s12 m4">
+        <i class="material-icons prefix orange-text text-accent-4">label</i>
+        <input type="number" inputmode="numeric" class="validate" id="DocketBook_Quantity" name="DocketBook.Quantity" min="1" max="1000000" required>
+        <label for="DocketBook_Quantity">Quantity</label>
+    </div>     
+
+    <div class="clearfix"></div>
 
     <div class="input-field col s12">
         <i class="material-icons prefix orange-text text-accent-4">message</i>

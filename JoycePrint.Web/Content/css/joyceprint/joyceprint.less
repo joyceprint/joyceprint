@@ -9,6 +9,15 @@
 
 @color-info-bg: #66afe9;
 
+@font-face {
+    font-family: "Open Sans", sans-serif;
+}
+
+.otherfont {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+}
+
 /**************************************************************************************
  * Materialize Class Extensions
  * --------------------------------------------------
@@ -27,6 +36,10 @@ body {
 
 main {
     flex: 1 0 auto;
+}
+
+footer.page-footer {
+    background-color: @color-primary;
 }
 
 /* Font Color Extensions *************************************************************/
@@ -70,6 +83,15 @@ main {
 
 .prefix.danger-text {
     color: @color-danger-dark;
+}
+
+/* Nav Extensions ***************************************************************/
+nav {
+    background-color: @color-primary;
+}
+
+nav a:hover {
+    color: @color-warning;
 }
 
 /* Side Nav Extensions ***************************************************************/
@@ -148,11 +170,6 @@ textarea.materialize-textarea:not([readonly])[required][class~=invalid] + label 
  * --------------------------------------------------
  * 
 **************************************************************************************/
-nav,
-footer.page-footer {
-    background-color: @color-primary;
-}
-
 h3 {
     .dark-blue-text;
     .text-700;
