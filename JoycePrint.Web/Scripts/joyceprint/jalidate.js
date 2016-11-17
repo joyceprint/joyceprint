@@ -13,6 +13,9 @@
     // Private Property - The input field that's being validated
     var input;
 
+    // Private Property - The message to display when validation fails
+    var message
+
     // Public Property
     jalidate.version = "v1.0";
 
@@ -68,6 +71,8 @@
             this.icon = additionalFields[0];
             this.input = field;           
 
+            this.message = GetValidationMessage(field);
+
             if (hasClass(this.touched, this.input)) {
                 removeClass(this.required, this.icon);
                 removeClass(this.iconValid, this.icon);
@@ -76,14 +81,18 @@
                 removeClass(this.valid, this.input);
                 removeClass(this.required, this.input);
                 addClass(this.invalid, this.input);
-            } else {
-                removeClass(this.iconValid, this.icon);
-                removeClass(this.iconInvalid, this.icon);
-                addClass(this.required, this.icon);
 
-                removeClass(this.valid, this.input);
-                removeClass(this.invalid, this.input);
-                addClass(this.required, this.input);
+                // TODO: need to style and position the materialize toast - is this a good method to handle validation?
+                // TODO: will the server side validation work with this scenario?
+                Materialize.toast(this.message, 4000);
+            //} else {
+            //    removeClass(this.iconValid, this.icon);
+            //    removeClass(this.iconInvalid, this.icon);
+            //    addClass(this.required, this.icon);
+
+            //    removeClass(this.valid, this.input);
+            //    removeClass(this.invalid, this.input);
+            //    addClass(this.required, this.input);
             }
         } catch (e) {
             console.log(e);
@@ -162,11 +171,20 @@
             $(element).removeClass(ccsClass);
     }
 
+    // Private Method - Check if the class is present
     function hasClass(ccsClass, element) {
         if ($(element).hasClass(ccsClass) === true)
             return true;
         else
             return false;
+    }
+
+    // Private Method - Get the validation message to display based on the type of validation that failed
+    function GetValidationMessage(field) {
+        var validationMessage = $(field).attr("data-val-msg");
+
+        // TODO: In here we will need to check the validaty object and perform checks to get the correct message
+        return validationMessage
     }
 
 }(window.jalidate = window.jalidate || {}, jQuery));

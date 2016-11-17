@@ -25,7 +25,7 @@ namespace JoycePrint.Domain.Models
         [Phone(ErrorMessage = "Please enter a valid phone number")]
         public int Phone { get; set; }
 
-        //TODO: need to add to or over ride the .net methods
+        // TODO: need to add to or over ride the .net methods
         /// <summary>
         /// The contacts email address
         /// </summary>
