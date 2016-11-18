@@ -4,8 +4,6 @@
 
     initMobileMenu();
 
-    handleCssHtmlRestriction();
-
     initMaterializeSelect();
 
     //carousel()
@@ -78,16 +76,4 @@ function toggleNavigationMenu() {
         $("#nav-mobile #liAboutUs").addClass("active");
         $("#nav-mobile #liAboutUs a").addClass("active-text");
     }
-}
-
-/**************************************************************************************************
- * Creates an event that will add the touched class to required fields
- * This is required as the :visited pseudo class only applies to anchor tags
- *************************************************************************************************/
-function handleCssHtmlRestriction() {
-
-    // use $.fn.one here to fire the event only once.
-    $(':required').one('blur keydown', function () {
-        $(this).addClass('touched');
-    });
 }

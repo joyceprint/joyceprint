@@ -165,6 +165,26 @@ textarea.materialize-textarea:not([readonly])[required][class~=invalid] + label 
     color: @color-danger-dark;
 }
 
+/*label#val-msg {
+    display: none;
+}*/
+
+label#val-msg.active {
+    display: block;    
+    font-size: 0.8rem;    
+    color: @color-danger;
+    transform: translateY(200%);    
+}
+
+/*transform {
+    
+
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: ease-out;
+}*/
+
 /**************************************************************************************
  * JoycePrint Site Styles
  * --------------------------------------------------

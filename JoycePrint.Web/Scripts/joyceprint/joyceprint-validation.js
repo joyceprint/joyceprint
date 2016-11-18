@@ -4,6 +4,13 @@
  *************************************************************************************************/
 $(document).ready(function () {
 
+    handleCssHtmlRestriction();
+
+    intializeValidation();
+});
+
+function intializeValidation() {
+
     var form = document.getElementById("frm-quote");
 
     // Turn or native validation for compatibilty
@@ -18,24 +25,31 @@ $(document).ready(function () {
 
         // Get the field from the form collection
         var field = form.elements[f];
-
-        // Ignore buttons, fieldsets, etc.
-        if (field.nodeName !== "INPUT" && field.nodeName !== "TEXTAREA" && field.nodeName !== "SELECT") continue;
+        
+        // If the field is not required we stop processing
+        if (!field.required) continue;
 
         // Ignore hidden fields
         if (field.type === "hidden") continue;
 
-        if (!field.required) continue;
+        // Ignore buttons, fieldsets, etc.
+        if (field.nodeName !== "INPUT" && field.nodeName !== "TEXTAREA" && field.nodeName !== "SELECT") continue;
+        
+        // Bind focus for when the user clicks on the input
+        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus", ["valid", "invalid"]);
 
-        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus");
-        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur");
-        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup");
+        // Bind blur for when the user leave the input
+        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur", ["valid", "invalid"]);
+
+        // Bind keyup for when the user presses a key
+        // This has special processing which will not trigger invalid styles on keyup, only valid events
+        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup", ["valid"]);
 
         if (field.nodeName === "SELECT") {
             handleBindingForMaterializeDropDown(field);
         }
     }
-});
+}
 
 function handleBindingForMaterializeDropDown(field) {
 
@@ -77,29 +91,31 @@ function validateForm(event) {
             if (field.nodeName === "INPUT" && field.type !== field.getAttribute("type")) {
 
                 // Input type not supported! Use legacy JavaScript validation
+                // TODO: Implement this
                 field.setCustomValidity(LegacyValidation(field) ? "" : "error");
             }
 
             // Native browser check
+            // TODO: This has to be added as a prototype function for the field?? other way??
             field.checkValidity();
         }
         else {
 
             // Native validation not available
+            // TODO: Implelement this
             field.validity = field.validity || {};
 
             // Set to result of validation function
             field.validity.valid = LegacyValidation(field);
 
             // If "invalid" events are required, trigger it here            
+            // Not sure what to do here yet            
         }
 
-        if (field.validity.valid) {
-            // Remove error styles and messages
+        if (field.validity.valid) {            
             jalidate.setValidDisplay(field);
         }
-        else {
-            // Style field, show error, etc.
+        else {            
             jalidate.setInvalidDisplay(field);
 
             // Form is invalid
@@ -114,4 +130,16 @@ function validateForm(event) {
 
     //return formvalid;
     return false;
+}
+
+/**************************************************************************************************
+ * Creates an event that will add the touched class to required fields
+ * This is required as the :visited pseudo class only applies to anchor tags
+ *************************************************************************************************/
+function handleCssHtmlRestriction() {
+
+    // use $.fn.one here to fire the event only once.
+    $(':required').one('blur keydown', function () {
+        $(this).addClass('touched');
+    });
 }
