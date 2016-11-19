@@ -90,12 +90,7 @@
 
             removeClass(jalidate.validCSS, jalidate.input);
             removeClass(jalidate.requiredCSS, jalidate.input);
-            addClass(jalidate.invalidCSS, jalidate.input);
-
-            // TODO: need to style and position the materialize toast - is this a good method to handle validation?
-            // TODO: will the server side validation work with this scenario? - we could use a tooltip instead?
-            // TODO: how do i know if this is aleady on the screen - it's getting added multiple times
-            //Materialize.toast(this.message, 4000);            
+            addClass(jalidate.invalidCSS, jalidate.input);          
         } catch (e) {
             console.log(e);
         }

@@ -4,11 +4,17 @@
  *************************************************************************************************/
 $(document).ready(function () {
 
-    handleCssHtmlRestriction();
-
     intializeValidation();
+
+    // Move this to line ~52
+    handleMaterializeSelectJankyness();
+
+    handleCssHtmlRestriction();
 });
 
+/**************************************************************************************************
+*
+ *************************************************************************************************/
 function intializeValidation() {
 
     var form = document.getElementById("frm-quote");
@@ -46,24 +52,89 @@ function intializeValidation() {
         jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup", ["valid"]);
 
         if (field.nodeName === "SELECT") {
-            handleBindingForMaterializeDropDown(field);
+            //handleMaterializeSelectJankyness(field);            
         }
     }
 }
 
-function handleBindingForMaterializeDropDown(field) {
+/**************************************************************************************************
+*
+ *************************************************************************************************/
+function handleMaterializeSelectJankyness() {
 
-    var selectWrapper = $(field).closest("div");
-    var selectInput = $(selectWrapper).find("input");
+    $(".select-wrapper").each(function () {
 
-    var icon = $(selectWrapper).prev();
-    var label = $(selectWrapper).next()
+        var select = $(this).find("select");
+        var ul = $(this).find("ul");
+        var input = $(this).find("input");
 
-    // To get the variables to be passed as javascript variables rather than jQeury variable we need to access the first element in the jQuery object    
-    jalidate.bindValidator(selectInput[0], [icon[0], label[0]], "input");
-    jalidate.bindValidator(selectInput[0], [icon[0], label[0]], "change");
+        var icon = $(this).prev();
+        var label = $(this).next()
+
+        // Switch the required attribute
+        var attr = $(select).attr("required");
+
+        // For some browsers, `attr` is undefined; for others, `attr` is false.  Check for both.
+        if (typeof attr !== typeof undefined && attr !== false) {
+            $(select).removeAttr("required");
+            $(input).attr("required", "required");
+        }
+
+        // Switch the validation class from the select to the materizlise input
+        if ($(select).hasClass("validate")) $(select).removeClass("validate")
+        if (!$(input).hasClass("validate")) $(input).addClass("validate")
+
+        // Switch selected option based on selected li item
+        $(ul).find("li").on("click", function (event) {
+
+            var ulSelectedItem = event.target.textContent;
+            var tempValue = $(this).val();
+
+            $(select).find('option').filter(function () {
+                return ($(this).text() !== ulSelectedItem);
+            }).attr('selected', false);
+
+            $(select).find('option').filter(function () {
+                return ($(this).text() === ulSelectedItem);
+            }).attr('selected', true);
+
+            $(input).attr("value", ulSelectedItem);
+
+            if ($(select).find("option:selected").val() === "") {
+                jalidate.setInvalidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
+            } else {                
+                jalidate.setValidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
+            }            
+        });
+
+        // TODO: This is currently not working so it will be left out for now
+        //// Switch the data-help toggle switch
+        //if ($(select).data("help") !== "undefined") {
+        //    var help = $(select).data("help");
+        //    $(select).removeAttr("data-help");
+
+        //    $(ul).data("help", help);            
+        //}
+    });
 }
 
+/**************************************************************************************************
+ * Creates an event that will add the touched class to required fields
+ * This is required as the :visited pseudo class only applies to anchor tags
+ *
+ * NOTE: This must be run after the validation has been wired up
+ *************************************************************************************************/
+function handleCssHtmlRestriction() {
+
+    // use $.fn.one here to fire the event only once.
+    $(':required').one('blur keydown', function () {
+        $(this).addClass('touched');
+    });
+}
+
+/**************************************************************************************************
+*
+ *************************************************************************************************/
 function validateForm(event) {
 
     // Fetch cross-browser event object and form node
@@ -112,10 +183,10 @@ function validateForm(event) {
             // Not sure what to do here yet            
         }
 
-        if (field.validity.valid) {            
+        if (field.validity.valid) {
             jalidate.setValidDisplay(field);
         }
-        else {            
+        else {
             jalidate.setInvalidDisplay(field);
 
             // Form is invalid
@@ -130,16 +201,4 @@ function validateForm(event) {
 
     //return formvalid;
     return false;
-}
-
-/**************************************************************************************************
- * Creates an event that will add the touched class to required fields
- * This is required as the :visited pseudo class only applies to anchor tags
- *************************************************************************************************/
-function handleCssHtmlRestriction() {
-
-    // use $.fn.one here to fire the event only once.
-    $(':required').one('blur keydown', function () {
-        $(this).addClass('touched');
-    });
 }
