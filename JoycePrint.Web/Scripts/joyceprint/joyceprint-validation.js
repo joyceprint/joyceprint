@@ -67,10 +67,10 @@ function handleMaterializeSelectJankyness() {
         var select = $(this).find("select");
         var ul = $(this).find("ul");
         var input = $(this).find("input");
-
         var icon = $(this).prev();
         var label = $(this).next()
 
+        //
         // Switch the required attribute
         var attr = $(select).attr("required");
 
@@ -80,10 +80,20 @@ function handleMaterializeSelectJankyness() {
             $(input).attr("required", "required");
         }
 
+        //
         // Switch the validation class from the select to the materizlise input
         if ($(select).hasClass("validate")) $(select).removeClass("validate")
         if (!$(input).hasClass("validate")) $(input).addClass("validate")
+       
+        //
+        // Switch the validation messages
+        $(select[0].attributes).each(function () {
+            if (!this.nodeName.startsWith("data-val-")) return;
 
+            $(input).attr(this.nodeName, this.nodeValue);
+        });
+
+        //
         // Switch selected option based on selected li item
         $(ul).find("li").on("click", function (event) {
 
@@ -201,4 +211,22 @@ function validateForm(event) {
 
     //return formvalid;
     return false;
+}
+
+/**************************************************************************************************
+* jQuery Regular Expression Filter - 3rd Party
+*
+* http://james.padolsey.com/javascript/regex-selector-for-jquery/
+ *************************************************************************************************/
+jQuery.expr[':'].regex = function (elem, index, match) {
+    var matchParams = match[3].split(','),
+        validLabels = /^(data|css):/,
+        attr = {
+            method: matchParams[0].match(validLabels) ?
+                        matchParams[0].split(':')[0] : 'attr',
+            property: matchParams.shift().replace(validLabels, '')
+        },
+        regexFlags = 'ig',
+        regex = new RegExp(matchParams.join('').replace(/^\s+|\s+$/g, ''), regexFlags);
+    return regex.test(jQuery(elem)[attr.method](attr.property));
 }
