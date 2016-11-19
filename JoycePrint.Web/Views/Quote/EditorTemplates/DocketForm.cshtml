@@ -9,20 +9,20 @@
     </div>
 
     <div class="input-field col s12 m4">
-        <i class="material-icons prefix orange-text text-accent-4">label</i>
-        @Html.EnumDropDownListFor(model => model.Type, "Type", new { @class = "validate", required = "required" })        
+        <i class="material-icons prefix orange-text text-accent-4">label</i>        
+        @Html.EnumDropDownListFor(model => model.Type, "Type", new { @class = "validate", required = "required", data_help = "help-docket-type" })   
         <label for="DocketBook_Type">Docket Type</label>
     </div>
 
     <div class="input-field col s12 m4">
         <i class="material-icons prefix orange-text text-accent-4">label</i>
-        @Html.EnumDropDownListFor(model => model.Size, "Size", new { @class = "validate", required = "required" })
+        @Html.EnumDropDownListFor(model => model.Size, "Size", new { @class = "validate", required = "required", data_help = "help-paper-size" })
         <label for="DocketBook_Size">Docket Size</label>
     </div> 
 
     <div class="input-field col s12 m4">
         <i class="material-icons prefix orange-text text-accent-4">label</i>
-        <input type="number" inputmode="numeric" class="validate" id="DocketBook_Quantity" name="DocketBook.Quantity" min="1" max="1000000" required>
+        <input type="number" inputmode="numeric" class="validate" id="DocketBook_Quantity" name="DocketBook.Quantity" min="1" max="1000000" required data-help="help-paper-size">
         <label for="DocketBook_Quantity">Quantity</label>
     </div>     
 

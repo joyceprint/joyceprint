@@ -1,9 +1,21 @@
 ﻿@using JoycePrint.Domain.Models
+@using JoycePrint.Web.Extensions;
+
 @model QuoteRequest
 
 @{
     ViewBag.Title = "Quote";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    var baseBundle = BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs");
+
+    ComposableBundle<Bundle> validationBundle = new Bundle("~/js/validationjs")
+                            .AsComposable()
+                            .Include("~/Scripts/joyceprint/jalidate.js",
+                                "~/Scripts/joyceprint/joyceprint-validation.js"
+                            );
+
+    baseBundle.AsComposable().UseBundle(validationBundle);    
 }
 
 <section id="quote" class="col s12">
