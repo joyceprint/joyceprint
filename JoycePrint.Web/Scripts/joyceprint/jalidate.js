@@ -14,10 +14,10 @@
     var input;
 
     // Private Property - The message to display when validation fails
-    var message
+    var message;
 
-    //Public Property - The validation message label
-    jalidate.validationMessage;
+    // Private Property - The validation message label
+    var label;
 
     // Public Property
     jalidate.validEvent = "valid";
@@ -29,42 +29,45 @@
     jalidate.version = "v1.0";
 
     // Public Property - Css class name of the icon in a required state
-    jalidate.required = "orange-text";
+    jalidate.requiredCSS = "orange-text";
 
     // Public Property - Css class name of the icon in a valid state
-    jalidate.iconValid = "success-text";
+    jalidate.iconValidCSS = "success-text";
 
     // Public Property - Css class name of the icon in a invalid state
-    jalidate.iconInvalid = "danger-text";
+    jalidate.iconInvalidCSS = "danger-text";
 
     // Public Property - Css class name of the valid state
-    jalidate.valid = "valid";
+    jalidate.validCSS = "valid";
 
     // Public Property - Css class name of the invalid state
-    jalidate.invalid = "invalid";
+    jalidate.invalidCSS = "invalid";
 
     // Public Property - Css class name of the touched state
     jalidate.touched = "touched";
+
+    // Public Property - Css class name of the touched state
+    jalidate.validationMessageLabelName = "val-msg";
 
     // Public Method - Set the display using the valid styles
     jalidate.setValidDisplay = function (field, additionalFields, validationEvents) {
         try {
 
-            this.icon = additionalFields[0];
-            this.input = field;
+            jalidate.icon = additionalFields[0];
+            jalidate.input = field;
 
-            if (!runEvent(validationEvents, this.validEvent)) return;
-            if (!hasClass(this.touched, this.input)) return;
+            if (!runEvent(validationEvents, jalidate.validEvent)) return;
+            if (!hasClass(jalidate.touched, jalidate.input)) return;
 
-            switchValidationMessage(this.input);
+            switchValidationMessage();
 
-            removeClass(this.required, this.icon);
-            removeClass(this.iconInvalid, this.icon);
-            addClass(this.iconValid, this.icon);
+            removeClass(jalidate.requiredCSS, jalidate.icon);
+            removeClass(jalidate.iconInvalidCSS, jalidate.icon);
+            addClass(jalidate.iconValidCSS, jalidate.icon);
 
-            removeClass(this.invalid, this.input);
-            removeClass(this.required, this.input);
-            addClass(this.valid, this.input);
+            removeClass(jalidate.invalidCSS, jalidate.input);
+            removeClass(jalidate.requiredCSS, jalidate.input);
+            addClass(jalidate.validCSS, jalidate.input);
         } catch (e) {
             console.log(e);
         }
@@ -73,21 +76,21 @@
     // Public Method - Set the display using the invalid styles
     jalidate.setInvalidDisplay = function (field, additionalFields, validationEvents) {
         try {
-            this.icon = additionalFields[0];
-            this.input = field;
+            jalidate.icon = additionalFields[0];
+            jalidate.input = field;
 
-            if (!runEvent(validationEvents, this.invalidEvent)) return;                        
-            if (!hasClass(this.touched, this.input)) return;
+            if (!runEvent(validationEvents, jalidate.invalidEvent)) return;
+            if (!hasClass(jalidate.touched, jalidate.input)) return;
 
-            switchValidationMessage(this.input);
+            switchValidationMessage();
 
-            removeClass(this.required, this.icon);
-            removeClass(this.iconValid, this.icon);
-            addClass(this.iconInvalid, this.icon);
+            removeClass(jalidate.requiredCSS, jalidate.icon);
+            removeClass(jalidate.iconValidCSS, jalidate.icon);
+            addClass(jalidate.iconInvalidCSS, jalidate.icon);
 
-            removeClass(this.valid, this.input);
-            removeClass(this.required, this.input);
-            addClass(this.invalid, this.input);
+            removeClass(jalidate.validCSS, jalidate.input);
+            removeClass(jalidate.requiredCSS, jalidate.input);
+            addClass(jalidate.invalidCSS, jalidate.input);
 
             // TODO: need to style and position the materialize toast - is this a good method to handle validation?
             // TODO: will the server side validation work with this scenario? - we could use a tooltip instead?
@@ -181,19 +184,18 @@
 
     // Private Method - Get the validation message to display based on the type of validation that failed
     function getValidationMessage() {
-                
-        
-        if (this.input.validity.valueMissing === true) {
-            validationMessage = $(this.input).attr("data-val-req-msg");
-        } else if (this.inputfield.validity.patternMismatch === true) {
-            validationMessage = $(this.input).attr("data-val-pat-msg");
+
+        if (jalidate.input.checkValidity()) {
+            jalidate.message = null;
+        } else if (jalidate.input.validity.valueMissing === true) {
+            jalidate.message = $(jalidate.input).attr("data-val-req-msg");
+        } else if (jalidate.input.validity.patternMismatch === true) {
+            jalidate.message = $(jalidate.input).attr("data-val-pat-msg");
         } else {
-            validationMessage = $(this.input).attr("data-val-msg");
+            jalidate.message = $(jalidate.input).attr("data-val-msg");
         }
 
         // This is a catch all that will return the default message
-        // TODO: Verify that this needs to be here
-        return validationMessage
     }
 
     // Private Method - Get the validation message to display based on the type of validation that failed
@@ -202,13 +204,19 @@
     }
 
     // Private Method - Switch the validation message to the current message on the field
-    function switchValidationMessage(field) {
-        this.input = field;
-        this.message = getValidationMessage();
+    function switchValidationMessage() {
+        getValidationMessage();
 
         // TODO: figure out how to use javascript global variables - can we or do i have to pass everything
-        this.validationMessage = $(this.input).nextUntil("val-msg");
-        this.validationMessage.val(this.message);
+        jalidate.label = $(jalidate.input).nextUntil(jalidate.validationMessageLabelName);
+
+        for (var index = 0; index < jalidate.label.length; index++) {
+            if (hasClass(jalidate.validationMessageLabelName, jalidate.label[index])) {
+                jalidate.label[index].textContent = jalidate.message;
+                //Materialize.updateTextFields();                
+                break;
+            }
+        }
     }
 
 }(window.jalidate = window.jalidate || {}, jQuery));

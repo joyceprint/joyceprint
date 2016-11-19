@@ -165,15 +165,17 @@ textarea.materialize-textarea:not([readonly])[required][class~=invalid] + label 
     color: @color-danger-dark;
 }
 
-/*label#val-msg {
-    display: none;
-}*/
-
-label#val-msg.active {
+label.val-msg.active {
     display: block;    
     font-size: 0.8rem;    
     color: @color-danger;
     transform: translateY(200%);    
+}
+
+label.val-msg,
+i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class~=active])
+i.material-icons:not([class~=active]) + input + label + label.val-msg[class~=active] {
+    display: none;
 }
 
 /*transform {
