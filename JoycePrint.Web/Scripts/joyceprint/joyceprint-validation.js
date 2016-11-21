@@ -51,6 +51,10 @@ function intializeValidation() {
         // This has special processing which will not trigger invalid styles on keyup, only valid events
         jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup", ["valid"]);
 
+        // Bind the change event.
+        // This enables the number input type to function correctly
+        jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "change", ["valid"]);
+
         if (field.nodeName === "SELECT") {
             //handleMaterializeSelectJankyness(field);            
         }

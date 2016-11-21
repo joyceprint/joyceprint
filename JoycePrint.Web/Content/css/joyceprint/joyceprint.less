@@ -166,15 +166,15 @@ textarea.materialize-textarea:not([readonly])[required][class~=invalid] + label 
 }
 
 label.val-msg.active {
-    display: block;    
-    font-size: 0.8rem;    
+    display: block;
+    font-size: 0.8rem;
     color: @color-danger;
-    transform: translateY(200%);    
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
 }
 
 label.val-msg,
-i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class~=active])
-i.material-icons:not([class~=active]) + input + label + label.val-msg[class~=active] {
+i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class~=active]) i.material-icons:not([class~=active]) + input + label + label.val-msg[class~=active] {
     display: none;
 }
 
