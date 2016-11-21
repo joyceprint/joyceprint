@@ -96,6 +96,30 @@
         }
     }
 
+    // Public Method - Set the display using the required styles
+    jalidate.setRequiredDisplay = function (field, additionalFields, validationEvents) {
+        try {
+
+            jalidate.icon = additionalFields[0];
+            jalidate.input = field;
+
+            if (!runEvent(validationEvents, jalidate.validEvent)) return;
+            if (!hasClass(jalidate.touched, jalidate.input)) return;
+
+            switchValidationMessage();
+
+            removeClass(jalidate.iconValidCSS, jalidate.icon);
+            removeClass(jalidate.iconInvalidCSS, jalidate.icon);
+            addClass(jalidate.requiredCSS, jalidate.icon);
+
+            removeClass(jalidate.invalidCSS, jalidate.input);
+            removeClass(jalidate.validCSS, jalidate.input);
+            addClass(jalidate.requiredCSS, jalidate.input);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     // Public Method - Bind an event listener to perform validation
     //
     jalidate.bindValidator = function (field, additionalFields, listener, validationEvents) {
@@ -147,13 +171,26 @@
         return valid;
     }
 
+    // TODO: Check what this is even for?
     // Private Method - Check if the field is valid
     function validate(field, additionalFields) {
 
+        if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA") {
+            icon = $(field).prev();
+            label = $(field).next();
+        } else if (field.nodeName === "SELECT") {
+            icon = $(field).closest("div").prev();
+            label = $(field).closest("div").next();
+        }
+
         if (field.checkValidity()) {
-            jalidate.setValidDisplay(field);
+            //jalidate.setValidDisplay(field);
+
+            //get the fields differently for select
+            jalidate.setInvalidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
         } else {
-            jalidate.setInvalidDisplay(field);
+            //jalidate.setInvalidDisplay(field);
+            jalidate.setInvalidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
         }
     }
 

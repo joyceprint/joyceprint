@@ -19,24 +19,52 @@
  *
  *************************************************************************************************/
 function initExtendHtml5ResetEvent() {
-    // remove the touched class
+
+    //
+    // Remove the touched, invalid and valid classes
     $("button[type='reset']").on("click", function () {
-        //$(this).default();
-
         $(".touched").each(function () {
-            $(this).removeClass("touched");
-        });
+            var field = this;
+            
+            if ($(field).hasClass("valid")) {
+                $(field).removeClass("valid");                
+            }
 
-        $(".valid").each(function () {
-            $(this).removeClass("valid");
-        });
+            if ($(field).hasClass("invalid")) {
+                $(field).removeClass("invalid");                                             
+            }
 
-        $(".invalid").each(function () {
-            $(this).removeClass("invalid");
-        });       
+            if ($(field).hasClass("validate")) {
+                if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA" || field.nodeName === "SELECT") {
+                    switchToRequiredDisplay(field);
+
+                    // need to reset the materialize dropdown, the select and the input value
+                    // by now all the css classes should be reset [touched, valid, invalid]
+                    // TOOD: inplement this - and fix the bug in the binding event - event is missing
+                    //resetMaterializeDropDown();
+                }
+            }
+
+            $(field).removeClass("touched");
+        });
     });
-    
-    // reset the ul
+}
+
+function switchToRequiredDisplay(field) {
+    var icon = null;
+    var label = null;
+
+    if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA") {
+        if ($(field).hasClass("select-dropdown")) {
+            icon = $(field).closest("div").prev();
+            label = $(field).closest("div").next();
+        } else {
+            icon = $(field).prev();
+            label = $(field).next();        
+        } //else if (field.nodeName === "SELECT") { }        
+    }    
+
+    jalidate.setRequiredDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);    
 }
 
 /**************************************************************************************************
@@ -44,7 +72,7 @@ function initExtendHtml5ResetEvent() {
  *
  *************************************************************************************************/
 function initDocketHelp() {
-    $("#docket-book input").each(function() {
+    $("#docket-book input").each(function () {
         if ($(this).data("help").length > 0) {
             $(this).on("focus", function (e) {
                 if (!$("#" + $(this).data("help")).hasClass("active")) {
@@ -59,7 +87,7 @@ function initDocketHelp() {
  *
  *
  *************************************************************************************************/
-function initMaterializeSelect() {    
+function initMaterializeSelect() {
     // Select - Single
     $('select:not([multiple])').material_select();
 
