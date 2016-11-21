@@ -165,6 +165,7 @@ textarea.materialize-textarea:not([readonly])[required][class~=invalid] + label 
     color: @color-danger-dark;
 }
 
+// The text has to fit in the column at it's lowest pixel width or the tranform value will not work
 label.val-msg.active {
     display: block;
     font-size: 0.8rem;
@@ -173,14 +174,21 @@ label.val-msg.active {
     transform: translateY(200%);
 }
 
+// The text has to fit in the column at it's lowest pixel width or the tranform value will not work
+textarea.materialize-textarea + label + label.val-msg.active {
+    display: block;
+    font-size: 0.8rem;
+    color: @color-danger;
+    -webkit-transform: translateY(400%);
+    transform: translateY(400%);
+}
+
 label.val-msg,
 i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class~=active]) i.material-icons:not([class~=active]) + input + label + label.val-msg[class~=active] {
     display: none;
 }
 
 /*transform {
-    
-
     transition-delay: 0s;
     transition-duration: 0.2s;
     transition-property: all;
@@ -192,7 +200,7 @@ i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class
  * --------------------------------------------------
  * 
 **************************************************************************************/
-h3 {
+h4 {
     .dark-blue-text;
     .text-700;
 }

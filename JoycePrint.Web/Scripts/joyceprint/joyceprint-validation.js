@@ -10,6 +10,8 @@ $(document).ready(function () {
     handleMaterializeSelectJankyness();
 
     handleCssHtmlRestriction();
+
+    initDocketHelp();
 });
 
 /**************************************************************************************************
@@ -120,15 +122,14 @@ function handleMaterializeSelectJankyness() {
                 jalidate.setValidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
             }            
         });
+        
+        // Switch the data-help toggle switch
+        if ($(select).data("help") !== "undefined") {
+            var help = $(select).data("help");
+            //$(select).removeAttr("data-help");
 
-        // TODO: This is currently not working so it will be left out for now
-        //// Switch the data-help toggle switch
-        //if ($(select).data("help") !== "undefined") {
-        //    var help = $(select).data("help");
-        //    $(select).removeAttr("data-help");
-
-        //    $(ul).data("help", help);            
-        //}
+            $(input).data("help", help);            
+        }
     });
 }
 
@@ -141,7 +142,8 @@ function handleMaterializeSelectJankyness() {
 function handleCssHtmlRestriction() {
 
     // use $.fn.one here to fire the event only once.
-    $(':required').one('blur keydown', function () {
+    $(':required').on('blur keydown', function () {
+        if ($(this).hasClass("touched")) return;
         $(this).addClass('touched');
     });
 }

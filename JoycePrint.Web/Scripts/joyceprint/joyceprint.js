@@ -6,7 +6,10 @@
 
     initMaterializeSelect();
 
-    initDocketHelp();
+    initExtendHtml5ResetEvent();
+
+    // This has been moved to the validation function
+    //initDocketHelp();
 
     //carousel()
 });
@@ -15,10 +18,39 @@
  *
  *
  *************************************************************************************************/
+function initExtendHtml5ResetEvent() {
+    // remove the touched class
+    $("button[type='reset']").on("click", function () {
+        //$(this).default();
+
+        $(".touched").each(function () {
+            $(this).removeClass("touched");
+        });
+
+        $(".valid").each(function () {
+            $(this).removeClass("valid");
+        });
+
+        $(".invalid").each(function () {
+            $(this).removeClass("invalid");
+        });       
+    });
+    
+    // reset the ul
+}
+
+/**************************************************************************************************
+ *
+ *
+ *************************************************************************************************/
 function initDocketHelp() {
-    $("[data-help]").on("focus", function (e) {
-        if (!$("#" + $(this).data("help")).hasClass("active")) {
-            $("#" + $(this).data("help")).trigger("click");
+    $("#docket-book input").each(function() {
+        if ($(this).data("help").length > 0) {
+            $(this).on("focus", function (e) {
+                if (!$("#" + $(this).data("help")).hasClass("active")) {
+                    $("#" + $(this).data("help")).trigger("click");
+                }
+            });
         }
     });
 }

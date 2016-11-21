@@ -27,7 +27,6 @@
     </div>
 
     <div class="row">
-
         <div class="col s12 m6 l4 offset-l1">
             @Html.Partial("DocketHelp")
         </div>
@@ -36,20 +35,22 @@
             @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote" }))
             {
                 @Html.AntiForgeryToken()
-
+                
                 @Html.EditorFor(model => model.Contact, "ContactForm")
 
                 @Html.EditorFor(model => model.DocketBook, "DocketForm")
 
-                <div class="col s10 offset-s1 m5 offset-m1 center">
-                    <div class="row">
-                        <button class="col s12 btn waves-effect orange" type="reset">CLEAR</button>
+                <div class="row">
+                    <div class="col s10 offset-s1 m5 offset-m1 center">
+                        <div class="row">
+                            <button class="col s12 btn waves-effect orange" type="reset">CLEAR</button>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col s10 offset-s1 m5 offset-m1 center">
-                    <div class="row">
-                        <button class="col s12 btn waves-effect waves-green green" formmethod="post" type="submit">SUBMIT</button>
+                    <div class="col s10 offset-s1 m5 offset-m1 center">
+                        <div class="row">
+                            <button class="col s12 btn waves-effect waves-green green" formmethod="post" type="submit">SUBMIT</button>
+                        </div>
                     </div>
                 </div>
             }
