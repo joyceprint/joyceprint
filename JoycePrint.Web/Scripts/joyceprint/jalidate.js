@@ -106,7 +106,7 @@
             if (!runEvent(validationEvents, jalidate.validEvent)) return;
             if (!hasClass(jalidate.touched, jalidate.input)) return;
 
-            switchValidationMessage();
+            switchValidationMessage(true);
 
             removeClass(jalidate.iconValidCSS, jalidate.icon);
             removeClass(jalidate.iconInvalidCSS, jalidate.icon);
@@ -114,7 +114,7 @@
 
             removeClass(jalidate.invalidCSS, jalidate.input);
             removeClass(jalidate.validCSS, jalidate.input);
-            addClass(jalidate.requiredCSS, jalidate.input);
+            //addClass(jalidate.requiredCSS, jalidate.input); // This changes to color of the label to orange
         } catch (e) {
             console.log(e);
         }
@@ -236,8 +236,13 @@
     }
 
     // Private Method - Switch the validation message to the current message on the field
-    function switchValidationMessage() {
-        getValidationMessage();
+    function switchValidationMessage(toEmpty) {
+
+        if (toEmpty) {
+            jalidate.message = "";
+        } else {
+            getValidationMessage();
+        }
 
         // TODO: figure out how to use javascript global variables - can we or do i have to pass everything
         jalidate.label = $(jalidate.input).nextUntil(jalidate.validationMessageLabelName);

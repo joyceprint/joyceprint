@@ -23,6 +23,8 @@ function initExtendHtml5ResetEvent() {
     //
     // Remove the touched, invalid and valid classes
     $("button[type='reset']").on("click", function () {
+        var autoFocusField = null;
+
         $(".touched").each(function () {
             var field = this;
             
@@ -46,7 +48,15 @@ function initExtendHtml5ResetEvent() {
             }
 
             $(field).removeClass("touched");
+
+            //// TODO: Fix this - exception being thrown
+            //if ($(field).attr("autofocus").length > 0) {
+            //    autoFocusField = field;
+            //}
         });
+
+        //$(autoFocusField).focus();
+        $("#Contact_Company").focus();
     });
 }
 

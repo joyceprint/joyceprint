@@ -65,16 +65,13 @@ function bindValidators(field) {
     // Bind blur for when the user leave the input
     jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur", ["valid", "invalid"]);
 
-    // Bind
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keydown", ["valid", "invalid"]);
+    // Bind keyup for when the user presses a key
+    // This has special processing which will not trigger invalid styles on keyup, only valid events
+    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup", ["valid", "invalid"]);
 
     // Bind
     jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "mousedown", ["valid", "invalid"]);
-
-    // Bind keyup for when the user presses a key
-    // This has special processing which will not trigger invalid styles on keyup, only valid events
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup", ["valid"]);
-
+    
     // Bind the change event.
     // This enables the number input type to function correctly
     jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "change", ["valid"]);
@@ -159,7 +156,7 @@ function handleMaterializeSelectJankyness() {
 function handleCssHtmlRestriction() {
 
     // use $.fn.one here to fire the event only once.    
-    $(':required').on('blur keydown', function () {
+    $(':required').on('focus keydown', function () {
     //$(':required').on('blur keydown, focus, mousedown', function () {
         if ($(this).hasClass("touched")) return;
         $(this).addClass('touched');
