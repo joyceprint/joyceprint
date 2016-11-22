@@ -39,11 +39,6 @@ function initExtendHtml5ResetEvent() {
             if ($(field).hasClass("validate")) {
                 if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA" || field.nodeName === "SELECT") {
                     switchToRequiredDisplay(field);
-
-                    // need to reset the materialize dropdown, the select and the input value
-                    // by now all the css classes should be reset [touched, valid, invalid]
-                    // TOOD: inplement this - and fix the bug in the binding event - event is missing
-                    //resetMaterializeDropDown();
                 }
             }
 
@@ -60,14 +55,20 @@ function initExtendHtml5ResetEvent() {
     });
 }
 
+/**************************************************************************************************
+ *
+ *************************************************************************************************/
 function switchToRequiredDisplay(field) {
     var icon = null;
     var label = null;
 
     if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA") {
+        // Handle the materialize drop downs
         if ($(field).hasClass("select-dropdown")) {
             icon = $(field).closest("div").prev();
             label = $(field).closest("div").next();
+
+            clearMaterializeSelections(field);
         } else {
             icon = $(field).prev();
             label = $(field).next();        
@@ -79,6 +80,21 @@ function switchToRequiredDisplay(field) {
 
 /**************************************************************************************************
  *
+ *************************************************************************************************/
+function clearMaterializeSelections(field) {    
+    var ul = $(field).next("ul");
+    $(ul).find("li.active.selected").removeClass("active selected");
+    $(ul).find("li:first").addClass("active selected");
+
+    var select = $(field).nextAll("select");
+    $(select).find(":selected").removeAttr("selected");
+    $(select).find("option:first").attr("selected", "selected");
+
+    var selectedOption = $(ul).find("li.active.selected").text();
+    $(field).attr("value", selectedOption);
+}
+
+/**************************************************************************************************
  *
  *************************************************************************************************/
 function initDocketHelp() {

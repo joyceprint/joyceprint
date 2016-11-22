@@ -60,14 +60,14 @@ function bindValidators(field) {
     // see this and handleCssHtmlRestriction() to fix this issue
 
     // Bind focus for when the user clicks on the input
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus", ["valid", "invalid"]);
+    //jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus", ["valid", "invalid"]);
 
     // Bind blur for when the user leave the input
     jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur", ["valid", "invalid"]);
 
     // Bind keyup for when the user presses a key
     // This has special processing which will not trigger invalid styles on keyup, only valid events
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup", ["valid", "invalid"]);
+    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup", ["valid"]);
 
     // Bind
     jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "mousedown", ["valid", "invalid"]);

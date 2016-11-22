@@ -124,7 +124,7 @@
     //
     jalidate.bindValidator = function (field, additionalFields, listener, validationEvents) {
 
-        field.addEventListener(listener, function (event) {
+        field.addEventListener(listener, function (event) {            
             if (event.target.checkValidity()) {
                 jalidate.setValidDisplay(event.target, additionalFields, validationEvents);
             }
