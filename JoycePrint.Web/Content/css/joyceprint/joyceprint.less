@@ -1,4 +1,8 @@
-﻿@color-primary: #1D4A5D;
+﻿/**************************************************************************************
+ * JoycePrint Common Class Extensions
+ * --------------------------------------------------
+**************************************************************************************/
+@color-primary: #1D4A5D;
 @color-warning: #F89C28;
 @color-success: #97C23C;
 @color-success-dark: #3c763d;
@@ -9,23 +13,15 @@
 
 @color-info-bg: #66afe9;
 
+/* Font Extension Classes *************************************************************/
 @font-face {
     font-family: "Open Sans", sans-serif;
 }
 
-.otherfont {
+.OpenSans {
     font-family: "Open Sans", sans-serif;
     font-weight: 800;
 }
-
-/**************************************************************************************
- * Materialize Class Extensions
- * --------------------------------------------------
- * Classes required that materialize does not have by default
- *
- * Classes required for overriding materialize styles that are not accessable 
- * using the site customizations
-**************************************************************************************/
 
 /* Sticky Footer Classes *************************************************************/
 body {
@@ -40,6 +36,78 @@ main {
 
 footer.page-footer {
     background-color: @color-primary;
+    margin-top: 0px;
+}
+
+/**************************************************************************************
+ * Materialize Class Extensions
+ * --------------------------------------------------
+ * Classes required that materialize does not have by default
+ *
+ * Classes required for overriding materialize styles that are not accessable 
+ * using the site customizations
+**************************************************************************************/
+
+/* Row Extensions *************************************************************/
+.row.eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.eq-height > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+/*.row.eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.eq-height > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.row.eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.eq-height > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}*/
+
+/* Background Color Extensions *************************************************************/
+.dark-blue {
+    background-color: @color-primary;
+}
+
+.warning {
+    background-color: @color-warning;
+}
+
+.success {
+    background-color: @color-success;
+}
+
+.danger {
+    background-color: @color-danger;
 }
 
 /* Font Color Extensions *************************************************************/
@@ -226,4 +294,33 @@ h2 {
     font-size: 1.64rem;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+header > .row.show-on-medium-and-up {
+    margin-bottom: 0px;
+}
+
+.aboutBanner.parallax-container {
+    height: 220px;
+}
+
+.aboutInformation.parallax-container {
+    height: 350px;
+}
+
+.col.col-parallax {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#aboutus .row {
+    margin-bottom: 0px;
+}
+
+#map {
+    height: 350px;
+    width: 100%;
+
+    margin-bottom: 20px;
+    margin-top: 20px;
 }

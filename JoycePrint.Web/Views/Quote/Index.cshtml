@@ -18,7 +18,7 @@
     baseBundle.AsComposable().UseBundle(validationBundle);
 }
 
-<section id="quote" class="col s12">
+<section id="quote" class="row">
 
     <div class="center-align">
         <h2 class="otherfont">
@@ -26,36 +26,40 @@
         </h2>
     </div>
 
-    <div class="row">
-        <div class="col s12 m6 l4 offset-l1">
-            @Html.Partial("DocketHelp")
-        </div>
+    <div class="clearfix"></div>
 
-        <div class="col s12 m6 l6">
-            @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote" }))
+    <div class="col s12 m6 l4 offset-l1">
+        @Html.Partial("DocketHelp")
+    </div>
+
+    <div class="clearfix hide-on-med-and-up"></div>
+
+    <div class="col s12 m6 l6">
+        @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote" }))
             {
-                @Html.AntiForgeryToken()
-                
-                @Html.EditorFor(model => model.Contact, "ContactForm")
+            @Html.AntiForgeryToken()
 
-                @Html.EditorFor(model => model.DocketBook, "DocketForm")
+            @Html.EditorFor(model => model.Contact, "ContactForm")
 
-                <div class="row">
-                    <div class="col s10 offset-s1 m5 offset-m1 center">
-                        <div class="row">
-                            <button class="col s12 btn waves-effect orange" type="reset">CLEAR</button>
-                        </div>
-                    </div>
+            @Html.EditorFor(model => model.DocketBook, "DocketForm")
 
-                    <div class="col s10 offset-s1 m5 offset-m1 center">
-                        <div class="row">
-                            <button class="col s12 btn waves-effect waves-green green" formmethod="post" type="submit">SUBMIT</button>
-                        </div>
+            <div class="row">
+                <div class="col s10 offset-s1 m5 offset-m1 center">
+                    <div class="row">
+                        <button class="col s12 btn waves-effect orange" type="reset">CLEAR</button>
                     </div>
                 </div>
-            }
-        </div>
-    </div>    
+
+                <div class="col s10 offset-s1 m5 offset-m1 center">
+                    <div class="row">
+                        <button class="col s12 btn waves-effect waves-green green" formmethod="post" type="submit">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="clearfix"></div>
 
     <div class="center-align">
         <h2>

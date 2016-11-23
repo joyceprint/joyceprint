@@ -3,13 +3,78 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section id="aboutus" class="col s12" role="main">
-    About Us
+<section id="aboutus" role="main">    
     <!--
     ToDo
-    use this type of format - http://www.dkprinting.com/about-us-2/   
+    use this type of format - http://www.dkprinting.com/about-us-2/
     https://designschool.canva.com/wp-content/uploads/sites/2/cache/2015/09/46_BoldFlatColors/46_BoldFlatColors-662x1324.png
-        https://designschool.canva.com/wp-content/uploads/sites/2/cache/2015/09/01_SharpPalette1/01_SharpPalette1-662x980.jpg 
+        https://designschool.canva.com/wp-content/uploads/sites/2/cache/2015/09/01_SharpPalette1/01_SharpPalette1-662x980.jpg
     -->
-</section>
 
+    <div class="parallax-container aboutBanner">
+        <div class="parallax">
+            <!-- This should be a picture of foxford mountain view from house -->
+            <img src="~/Content/images/jp-about-top.jpg" />
+        </div>
+    </div>
+
+    <div class="row eq-height valign-wrapper">
+        <div class="col s6 valign">
+            <div class="card dark-blue">
+                <div class="card-content white-text">
+                    <span class="card-title">About Company Information</span>
+                    <p>
+                        Address<br />
+                        Telephone<br />
+                        Fax<br />
+                        Email<br />
+                        <br />
+                        Tax No / Company No<br />
+                        Directors
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s6 valign">            
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <div class="row eq-height valign-wrapper">
+        <div class="col s6 col-parallax valign">
+            <div class="parallax-container aboutInformation" id="companyInformation">
+                <div class="parallax">
+                    <img src="~/Content/images/jp-company-information.jpg" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col s6 valign">
+            <div class="card dark-blue">
+                <div class="card-content white-text">
+                    <span class="card-title">Founding Company Information</span>
+                    <p>
+                      Founded in 1992 by Michael and Bernie Joyce
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        More blah blah.....with a nice typing type font
+                    </p>
+                </div>
+            </div>
+        </div>       
+    </div>
+
+    <div class="parallax-container aboutBanner">
+        <div class="parallax">
+            <!-- This should be a picture of foxford mountain view from house -->
+            <img src="~/Content/images/jp-about-bottom.jpg" />
+        </div>
+    </div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa2iMdCkGSsdETJFayToJgwlFdLkNWm7w&callback=initMap"></script>
+
+</section>
