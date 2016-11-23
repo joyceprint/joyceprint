@@ -152,6 +152,9 @@
     <Content Include="Content\images\jp-company-information.jpg" />
     <Content Include="Content\images\jp-logo-footer.jpg" />
     <Content Include="Content\images\jp-logo.jpg" />
+    <Content Include="Content\images\jp-press-ink.jpg" />
+    <Content Include="Content\images\jp-press-inspect.jpg" />
+    <Content Include="Content\images\jp-press-rollers.jpg" />
     <Content Include="Content\images\thumb.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />

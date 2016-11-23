@@ -33,8 +33,12 @@ namespace JoycePrint.UI
             bundles.Add(new ScriptBundle("~/js/joyceprintjs")
             .Include("~/Scripts/jquery-{version}.js",
                 "~/Scripts/materialize.min.js",
-                "~/Scripts/joyceprint/joyceprint.js",
-                "~/Scripts/joyceprint/jalidate.js",
+                "~/Scripts/joyceprint/joyceprint.js"
+                
+            ));
+
+            bundles.Add(new ScriptBundle("~/js/validationjs")
+            .Include("~/Scripts/joyceprint/jalidate.js",
                 "~/Scripts/joyceprint/joyceprint-validation.js"
             ));            
         }

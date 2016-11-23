@@ -13,9 +13,10 @@
     // This has been moved to the validation function
     //initDocketHelp();
 
-    //carousel()
+    initMaterializeCarousel()
 
-    initMap();
+    // TODO: Add this to api file and only use it when required
+    initMap();        
 });
 
 /**************************************************************************************************
@@ -24,8 +25,6 @@
  *************************************************************************************************/
 function initMap() {
 
-    //53.9807771,-9.113247,9.25z
-    //var uluru = { lat: -25.363, lng: 131.044 };
     var uluru = { lat: 53.9807771, lng: -9.113247 };
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 9,
@@ -157,12 +156,14 @@ function initMaterializeSelect() {
  *
  *
  *************************************************************************************************/
-function carousel() {
-    // Carousel init
-    $('.carousel').carousel();
-    // Slider init
-    $('.carousel-slider').slider({ full_width: true });
-    //$('.carousel.carousel-slider').carousel({ full_width: true });
+function initMaterializeCarousel() {
+    $('.carousel.carousel-slider').carousel({ full_width: true });
+
+    //// Carousel init
+    //$('.carousel').carousel();
+    //// Slider init
+    //$('.carousel-slider').slider({ full_width: true });
+    ////$('.carousel.carousel-slider').carousel({ full_width: true });
 }
 
 /**************************************************************************************************
