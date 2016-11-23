@@ -75,6 +75,8 @@ function bindValidators(field) {
     // Bind the change event.
     // This enables the number input type to function correctly
     jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "change", ["valid"]);
+
+    // TODO: validation is currently not working on the materizlize select if the change event is not fired
 }
 
 /**************************************************************************************************
