@@ -1,17 +1,34 @@
-﻿using JoycePrint.Web.Extensions;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
+using System.Collections.Generic;
+
+using JoycePrint.Web.Extensions;
 
 namespace JoycePrint.UI
 {
     public class BundleConfig
     {
+        /// <summary>
+        /// Page enum to specific which additional script bundles are required
+        /// </summary>
+        public enum PageBundle
+        {
+            None,
+            Home,
+            Quote,
+            AboutUs
+        }
+
+        /// <summary>
+        /// Register the bundles for the initial application start up
+        /// </summary>
+        /// <param name="bundles"></param>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.IgnoreList.Clear();
 
             AddStyleBundles(bundles);
 
-            AddScriptBundles(bundles);
+            AddScriptComposableBundles(bundles);
 
             // Optimization for script and style bundles.
             // In debug mode the scripts will not be minified in the browser
@@ -20,31 +37,10 @@ namespace JoycePrint.UI
 #else
             BundleTable.EnableOptimizations = true;
 #endif
-        }
+        }        
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="bundles"></param>
-        private static void AddScriptBundles(BundleCollection bundles)
-        {
-            // Create the script bundle
-            // {version} can be used to specify the jQuery version, the token has to appear last in the file name
-            bundles.Add(new ScriptBundle("~/js/joyceprintjs")
-            .Include("~/Scripts/jquery-{version}.js",
-                "~/Scripts/materialize.min.js",
-                "~/Scripts/joyceprint/joyceprint.js"
-
-            ));
-
-            bundles.Add(new ScriptBundle("~/js/validationjs")
-            .Include("~/Scripts/joyceprint/jalidate.js",
-                "~/Scripts/joyceprint/joyceprint-validation.js"
-            ));
-        }
-
-        /// <summary>
-        /// 
+        /// Add the scripts to a composable bundle
         /// </summary>
         /// <param name="bundles"></param>
         private static void AddScriptComposableBundles(BundleCollection bundles)
@@ -53,20 +49,15 @@ namespace JoycePrint.UI
                                             .AsComposable()
                                             .Include("~/Scripts/jquery-{version}.js",
                                                  "~/Scripts/materialize.min.js",
+                                                 "~/Scripts/joyceprint/joyceprint-nav.js",
                                                  "~/Scripts/joyceprint/joyceprint.js"
                                             );
-
-            //ComposableBundle<ScriptBundle> validationBundle = new ScriptBundle("~/js/validationjs")
-            //                        .AsComposable()
-            //                        .Include("~/Scripts/joyceprint/jalidate.js",
-            //                            "~/Scripts/joyceprint/joyceprint-validation.js"
-            //                        );
-
+                        
             bundles.Add(baseBundle);
-        }
+        }        
 
         /// <summary>
-        /// 
+        /// Add the styles to the style bundle
         /// </summary>
         /// <param name="bundles"></param>
         private static void AddStyleBundles(BundleCollection bundles)
@@ -80,47 +71,37 @@ namespace JoycePrint.UI
                                     );
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="useCdn"></param>
-        ///// <param name="bundles"></param>
-        ///// <remarks>
-        ///// This method requires a fall back for CDN failure in the form of a script tag on the view
-        ///// for this reason, where available local files are cleaner
-        ///// </remarks>
-        //private static void AddBundlesWithCdn(bool useCdn, BundleCollection bundles)
-        //{
-        //    var MaterializeStyleCdn = @"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css";
-        //    var MaterializeJsCdn = @"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js";
+        /// <summary>
+        /// Update the base script bundle based on the page bundle passed in
+        /// </summary>
+        public static void UpdateScriptBundle(Bundle baseBundle, PageBundle pageBundle)
+        {
+            var additionalScript = new List<string>();
 
-        //    bundles.UseCdn = true;
+            switch(pageBundle)
+            {
+                case PageBundle.None: break;
+                case PageBundle.Home:
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-home.js");
+                    break;
+                case PageBundle.Quote:
+                    additionalScript.Add("~/Scripts/joyceprint/jalidate.js");
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-validation.js");
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
+                    break;
+                case PageBundle.AboutUs:
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-aboutus.js");
+                    break;
+                default:
+                    break;
 
-        //    // Create the internal script bundle
-        //    bundles.Add(new ScriptBundle("~/js/joyceprintjs")
-        //        .Include("~/Scripts/joyceprint/joyceprint.js")
-        //        );
+            }
 
-        //    // Create the external script bundle
-        //    // {version} can be used to specify the jQuery version, the token has to appear last in the file name
-        //    bundles.Add(new ScriptBundle("~/js/libraryjs", MaterializeJsCdn).
-        //        Include("~/Scripts/jquery-{version}.js",
-        //            "~/Scripts/materialize.min.js")
-        //        );
+            ComposableBundle<Bundle> additionalBundle = new Bundle("~/js/validationjs")
+                                    .AsComposable()
+                                    .Include(additionalScript.ToArray());
 
-        //    // Create the internal style bundle, using a bundle instead of a style bundle allows us to mix css and less files.
-        //    // The less file is translated to css by the LessTransform class passed into the bundle
-        //    bundles.Add(new Bundle("~/css/joyceprintcss",
-        //            new IBundleTransform[] { new LessTransform(), new CssMinify() })
-        //            .Include("~/Content/css/joyceprint/joyceprint.less")
-        //        );
-
-        //    // Create the external style bundle, using a bundle instead of a style bundle allows us to mix css and less files.
-        //    // The less file is translated to css by the LessTransform class passed into the bundle
-        //    bundles.Add(new Bundle("~/css/librarycss", MaterializeStyleCdn,
-        //            new IBundleTransform[] { new CssMinify() })
-        //            .Include("~/Content/css/materialize.min.css")
-        //        );
-        //}
+            baseBundle.AsComposable().UseBundle(additionalBundle);
+        }
     }
 }
