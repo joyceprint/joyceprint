@@ -5,6 +5,7 @@ using JoycePrint.Web.Extensions;
 
 namespace JoycePrint.UI
 {
+    // TODO: Static classes here will cause an issue - fix this
     public class BundleConfig
     {
         /// <summary>
@@ -17,6 +18,16 @@ namespace JoycePrint.UI
             Quote,
             AboutUs
         }
+
+        /// <summary>
+        /// The list of base bundles to be used on each page
+        /// </summary>
+        public static List<string> BaseBundle => new List<string> {
+            "~/Scripts/jquery-3.1.1.js",
+            "~/Scripts/materialize.min.js",
+            "~/Scripts/joyceprint/joyceprint-nav.js",
+            "~/Scripts/joyceprint/joyceprint.js"
+        };
 
         /// <summary>
         /// Register the bundles for the initial application start up
@@ -47,11 +58,7 @@ namespace JoycePrint.UI
         {
             ComposableBundle<ScriptBundle> baseBundle = new ScriptBundle("~/js/joyceprintjs")
                                             .AsComposable()
-                                            .Include("~/Scripts/jquery-{version}.js",
-                                                 "~/Scripts/materialize.min.js",
-                                                 "~/Scripts/joyceprint/joyceprint-nav.js",
-                                                 "~/Scripts/joyceprint/joyceprint.js"
-                                            );
+                                            .Include(BaseBundle.ToArray());
                         
             bundles.Add(baseBundle);
         }        

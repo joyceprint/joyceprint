@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Web.Optimization;
 
+using JoycePrint.UI;
+
 namespace JoycePrint.Web.Extensions
 {
     public class ComposableBundle<T> where T : Bundle
@@ -30,11 +32,7 @@ namespace JoycePrint.Web.Extensions
             _bundle.Include(virtualPaths);
             return this;
         }
-
-        // TODO: Update this to be able to remove bundles aswel!!!!
-        // this will stop some script issues
-        // create a common and then a by page js file
-        //  common file has init function - called by doc ready - this calls init functions of each of the rest of the files based on what view the user is on
+       
         public ComposableBundle<T> UseBundle(ComposableBundle<T> bundle)
         {
             var collection = new BundleCollection();
@@ -43,13 +41,40 @@ namespace JoycePrint.Web.Extensions
             var resolver = new BundleResolver(collection);
             List<string> content = resolver.GetBundleContents(_bundle.Path)?.ToList();
 
+            RemoveScripts(content);
+
             foreach (var virtualPath in bundle.VirtualPaths)
             {
+                // Stop the script from being added twice
                 if (content.Contains(virtualPath)) continue;
                 _bundle.Include(virtualPath);
             }
 
             return this;
+        }
+
+        /// <summary>
+        /// TODO: figure out how to remove a file from a bundle
+        /// we cant remove and readd the bundle as that's done on app start
+        /// we can remove a file from the bundle though - IS THIS POSSIBLE
+        /// 
+        /// TODO: The scripts are not getting removed and static methods are being used where we need instanced ones
+        /// should i be changing the bundle like this or can it effect another user
+        /// even if i make everything non static, isn't there only 1 bundle for each web app
+        ///     ie the bundle is shared between all instances of the site - so changing one could screw someone else up?????????????
+        /// </summary>
+        /// <param name="content"></param>
+        private void RemoveScripts(List<string> content)
+        {
+            foreach (var file in content)
+            {
+                if (!BundleConfig.BaseBundle.Contains(file))
+                {
+                    
+                    //content.Remove(file);
+                    var bundlefiles = _bundle;
+                }
+            }
         }
     }
 
