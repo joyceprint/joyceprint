@@ -31,6 +31,10 @@ namespace JoycePrint.Web.Extensions
             return this;
         }
 
+        // TODO: Update this to be able to remove bundles aswel!!!!
+        // this will stop some script issues
+        // create a common and then a by page js file
+        //  common file has init function - called by doc ready - this calls init functions of each of the rest of the files based on what view the user is on
         public ComposableBundle<T> UseBundle(ComposableBundle<T> bundle)
         {
             var collection = new BundleCollection();

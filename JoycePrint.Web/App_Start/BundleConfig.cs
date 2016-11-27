@@ -11,7 +11,7 @@ namespace JoycePrint.UI
 
             AddStyleBundles(bundles);
 
-            AddScriptComposableBundles(bundles);
+            AddScriptBundles(bundles);
 
             // Optimization for script and style bundles.
             // In debug mode the scripts will not be minified in the browser
@@ -34,13 +34,13 @@ namespace JoycePrint.UI
             .Include("~/Scripts/jquery-{version}.js",
                 "~/Scripts/materialize.min.js",
                 "~/Scripts/joyceprint/joyceprint.js"
-                
+
             ));
 
             bundles.Add(new ScriptBundle("~/js/validationjs")
             .Include("~/Scripts/joyceprint/jalidate.js",
                 "~/Scripts/joyceprint/joyceprint-validation.js"
-            ));            
+            ));
         }
 
         /// <summary>
@@ -80,47 +80,47 @@ namespace JoycePrint.UI
                                     );
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="useCdn"></param>
-        /// <param name="bundles"></param>
-        /// <remarks>
-        /// This method requires a fall back for CDN failure in the form of a script tag on the view
-        /// for this reason, where available local files are cleaner
-        /// </remarks>
-        private static void AddBundlesWithCdn(bool useCdn, BundleCollection bundles)
-        {
-            var MaterializeStyleCdn = @"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css";
-            var MaterializeJsCdn = @"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js";
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="useCdn"></param>
+        ///// <param name="bundles"></param>
+        ///// <remarks>
+        ///// This method requires a fall back for CDN failure in the form of a script tag on the view
+        ///// for this reason, where available local files are cleaner
+        ///// </remarks>
+        //private static void AddBundlesWithCdn(bool useCdn, BundleCollection bundles)
+        //{
+        //    var MaterializeStyleCdn = @"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css";
+        //    var MaterializeJsCdn = @"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js";
 
-            bundles.UseCdn = true;
+        //    bundles.UseCdn = true;
 
-            // Create the internal script bundle
-            bundles.Add(new ScriptBundle("~/js/joyceprintjs")
-                .Include("~/Scripts/joyceprint/joyceprint.js")
-                );
+        //    // Create the internal script bundle
+        //    bundles.Add(new ScriptBundle("~/js/joyceprintjs")
+        //        .Include("~/Scripts/joyceprint/joyceprint.js")
+        //        );
 
-            // Create the external script bundle
-            // {version} can be used to specify the jQuery version, the token has to appear last in the file name
-            bundles.Add(new ScriptBundle("~/js/libraryjs", MaterializeJsCdn).
-                Include("~/Scripts/jquery-{version}.js",
-                    "~/Scripts/materialize.min.js")
-                );
+        //    // Create the external script bundle
+        //    // {version} can be used to specify the jQuery version, the token has to appear last in the file name
+        //    bundles.Add(new ScriptBundle("~/js/libraryjs", MaterializeJsCdn).
+        //        Include("~/Scripts/jquery-{version}.js",
+        //            "~/Scripts/materialize.min.js")
+        //        );
 
-            // Create the internal style bundle, using a bundle instead of a style bundle allows us to mix css and less files.
-            // The less file is translated to css by the LessTransform class passed into the bundle
-            bundles.Add(new Bundle("~/css/joyceprintcss",
-                    new IBundleTransform[] { new LessTransform(), new CssMinify() })
-                    .Include("~/Content/css/joyceprint/joyceprint.less")
-                );
+        //    // Create the internal style bundle, using a bundle instead of a style bundle allows us to mix css and less files.
+        //    // The less file is translated to css by the LessTransform class passed into the bundle
+        //    bundles.Add(new Bundle("~/css/joyceprintcss",
+        //            new IBundleTransform[] { new LessTransform(), new CssMinify() })
+        //            .Include("~/Content/css/joyceprint/joyceprint.less")
+        //        );
 
-            // Create the external style bundle, using a bundle instead of a style bundle allows us to mix css and less files.
-            // The less file is translated to css by the LessTransform class passed into the bundle
-            bundles.Add(new Bundle("~/css/librarycss", MaterializeStyleCdn,
-                    new IBundleTransform[] { new CssMinify() })
-                    .Include("~/Content/css/materialize.min.css")
-                );
-        }
+        //    // Create the external style bundle, using a bundle instead of a style bundle allows us to mix css and less files.
+        //    // The less file is translated to css by the LessTransform class passed into the bundle
+        //    bundles.Add(new Bundle("~/css/librarycss", MaterializeStyleCdn,
+        //            new IBundleTransform[] { new CssMinify() })
+        //            .Include("~/Content/css/materialize.min.css")
+        //        );
+        //}
     }
 }

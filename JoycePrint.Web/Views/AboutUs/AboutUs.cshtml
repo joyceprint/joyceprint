@@ -3,75 +3,84 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section id="aboutus" role="main">    
-    <!--
-    ToDo
-    use this type of format - http://www.dkprinting.com/about-us-2/
-    https://designschool.canva.com/wp-content/uploads/sites/2/cache/2015/09/46_BoldFlatColors/46_BoldFlatColors-662x1324.png
-        https://designschool.canva.com/wp-content/uploads/sites/2/cache/2015/09/01_SharpPalette1/01_SharpPalette1-662x980.jpg
-    -->
+<section id="aboutus" role="main">
 
     <div class="parallax-container aboutBanner">
         <div class="parallax">
             <!-- This should be a picture of foxford mountain view from house -->
-            <img src="~/Content/images/jp-about-top.jpg" />
+            <img src="~/Content/images/jp-about-top.jpg" alt="Nephin View" class="responsive-img" />
         </div>
     </div>
 
-    <div class="row eq-height valign-wrapper">
-        <div class="col s6 valign">
-            <div class="card dark-blue">
-                <div class="card-content white-text">
-                    <span class="card-title">About Company Information</span>
-                    <p>
-                        Address<br />
-                        Telephone<br />
-                        Fax<br />
-                        Email<br />
-                        <br />
-                        Tax No / Company No<br />
-                        Directors
-                    </p>
+    <div class="row no-pad eq-height valign-wrapper dark-blue">
+        <div class="col s12 m6 l6 valign white-text">
+            <h4 class="center-align">Company Information</h4>
+
+            <div class="row">
+                <div class="col l5 offset-l1">
+                    <dl>
+                        <dt>Address</dt>
+                        <dd>
+                            Castlebar Road,<br />
+                            Foxford,<br />
+                            Co Mayo,<br />
+                            Ireland
+                        </dd>
+                    </dl>                    
+                </div>
+
+                <div class="col l6">
+                    <dl>
+                        <dt>Telephone</dt>
+                        <dd>094-9256876</dd>
+                        <dt>Fax</dt>
+                        <dd>094-9256876</dd>
+                        <dt>Email</dt>
+                        <!-- Change this to a different email that is linked to joyceprint so we don't get spammed, is this needed?? -->
+                        <dd>joyceprint@gmail.com</dd>
+                    </dl>
                 </div>
             </div>
         </div>
 
-        <div class="col s6 valign">            
+        <div class="col s12 m6 l6 valign">
             <div id="map"></div>
         </div>
     </div>
 
-    <div class="row eq-height valign-wrapper">
-        <div class="col s6 col-parallax valign">
-            <div class="parallax-container aboutInformation" id="companyInformation">
-                <div class="parallax">
-                    <img src="~/Content/images/jp-company-information.jpg" />
-                </div>
-            </div>
+    <div class="row no-pad eq-height valign-wrapper dark-blue">
+        <div class="col s12 m6 l6 valign">
+            <img src="~/Content/images/jp-company-information.jpg" alt="Company Information" class="responsive-img" />
         </div>
 
-        <div class="col s6 valign">
-            <div class="card dark-blue">
-                <div class="card-content white-text">
-                    <span class="card-title">Founding Company Information</span>
-                    <p>
-                      Founded in 1992 by Michael and Bernie Joyce
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        More blah blah.....with a nice typing type font
-                    </p>
-                </div>
-            </div>
-        </div>       
+        <div class="col s12 m6 l6 valign white-text">
+            <h4 class="center-align">Company History</h4>
+            <p>
+                Our goal is to create an online resource for the printing, graphics and communications trade in Ireland, which will become the first port of call for industry people seeking news, information, products, technical support, employment, new business and much more.
+
+
+                Calling on more than 30 years experience in the Printing, Graphics and communications industry and utilising a global network of experts in their field, we intend to make available to you, all the resources you
+                need to help your business grow.
+
+                Through our PrintTrade TV, you will have the opportunity to view product demonstrations, tips and tricks, business development tools and technical support videos, all from your PC desktop.
+
+
+                So whether you are seeking new or used equipment, technical assistance,guidance on industry trends, new opportunities and ideas, then make PrintTrade.ie your home page and keep yourself informed!
+
+
+                PrintTrade.ie will always be a “work in progress “ and will develop into what you need it to be.
+
+                We look forward to receiving your feedback at any time.
+
+                Your PrintTrade.ie Team
+            </p>
+        </div>
     </div>
 
     <div class="parallax-container aboutBanner">
         <div class="parallax">
             <!-- This should be a picture of foxford mountain view from house -->
-            <img src="~/Content/images/jp-about-bottom.jpg" />
+            <img src="~/Content/images/jp-about-bottom.jpg" alt="Nephin View" class="responsive-img" />
         </div>
     </div>
 
