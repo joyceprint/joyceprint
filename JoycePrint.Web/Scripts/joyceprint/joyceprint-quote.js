@@ -10,7 +10,7 @@ function initializeQuote() {
     initializeExtendHtml5ResetEvent();
 
     // This has been moved to the validation function
-    //initializeDocketHelp();
+    initializeDocketHelp();
 }
 
 /**************************************************************************************************
@@ -27,15 +27,15 @@ function initializeMaterializeSelect() {
  *
  *************************************************************************************************/
 function initializeDocketHelp() {
-    $("#docket-book input").each(function () {
-        if ($(this).data("help").length > 0) {
-            $(this).on("focus", function (e) {
-                if (!$("#" + $(this).data("help")).hasClass("active")) {
-                    $("#" + $(this).data("help")).trigger("click");
-                }
-            });
-        }
-    });
+    //$("#docket-book input").each(function () {
+    //    if ($(this).data("help").length > 0) {
+    //        $(this).on("focus", function (e) {
+    //            if (!$("#" + $(this).data("help")).hasClass("active")) {
+    //                $("#" + $(this).data("help")).trigger("click");
+    //            }
+    //        });
+    //    }
+    //});
 }
 
 /**************************************************************************************************

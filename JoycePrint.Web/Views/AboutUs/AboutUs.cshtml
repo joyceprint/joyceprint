@@ -108,7 +108,22 @@
         </div>
     </div>
 
+    <script>
+        function initMap() {
+
+            var uluru = { lat: 53.9807771, lng: -9.113247 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+
     <!-- Create a config wrapper and put this in the config file - use an interface-->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa2iMdCkGSsdETJFayToJgwlFdLkNWm7w&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmlj3x-6ltqflvHZ1CvVjSbgOzERK85e4&callback=initMap"></script>
 
 </section>
