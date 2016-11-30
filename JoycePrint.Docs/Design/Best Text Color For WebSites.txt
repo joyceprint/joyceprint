@@ -1,0 +1,21 @@
+definitely a dark grey on white, or even dark grey on light grey. 
+for example, #222 on #eee, or #333 on white, i use them the most. 
+
+those text colors also work great with any light colored background.
+
+i find it easier on the eyes, and improving readability
+
+-------------------------------------------------------------------------
+
+Keeping readability and accessibility in mind, the ideal range for text color (on a white background) is between #000 and #555 -- with the sweet spot being in the middle (#222 and #333). 
+
+Never use white text on a black/dark background. Big usability no-no.
+
+-------------------------------------------------------------------------
+
+#333 or #777 (more subtle)
+
+-------------------------------------------------------------------------
+
+I tend to use #444444 for plain text. But, it depends on the font and size.
+

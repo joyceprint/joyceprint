@@ -14,68 +14,39 @@
         </div>
     </div>
 
-    <div class="row no-pad eq-height valign-wrapper dark-blue">
-        <div class="col s12 m6 l6 valign white-text">
-            <h4 class="center-align">Company Information</h4>
-
+    <div class="row no-pad eq-height valign-wrapper">
+        <div class="col s12 m6 l6 valign">
             <div class="row">
-                <div class="col l5 offset-l1">
-                    <dl>
-                        <dt>Address</dt>
-                        <dd>
-                            Castlebar Road,<br />
-                            Foxford,<br />
-                            Co Mayo,<br />
-                            Ireland
-                        </dd>
-                    </dl>                    
-                </div>
+                <div class="col s12 m10 offset-m1 l10 offset-l1">
+                    <article id="companyHistory">
+                        Our goal is to create an online resource for the printing, graphics and communications trade in Ireland, which will become the first port of call for industry people seeking news, information, products, technical support, employment, new business and much more.
 
-                <div class="col l6">
-                    <dl>
-                        <dt>Telephone</dt>
-                        <dd>094-9256876</dd>
-                        <dt>Fax</dt>
-                        <dd>094-9256876</dd>
-                        <dt>Email</dt>
-                        <!-- Change this to a different email that is linked to joyceprint so we don't get spammed, is this needed?? -->
-                        <dd>joyceprint@gmail.com</dd>
-                    </dl>
+
+                        Calling on more than 30 years experience in the Printing, Graphics and communications industry and utilising a global network of experts in their field, we intend to make available to you, all the resources you
+                        need to help your business grow.
+
+                        Through our PrintTrade TV, you will have the opportunity to view product demonstrations, tips and tricks, business development tools and technical support videos, all from your PC desktop.
+
+
+                        So whether you are seeking new or used equipment, technical assistance,guidance on industry trends, new opportunities and ideas, then make PrintTrade.ie your home page and keep yourself informed!
+
+
+                        PrintTrade.ie will always be a “work in progress “ and will develop into what you need it to be.
+
+                        We look forward to receiving your feedback at any time.
+
+                        Your PrintTrade.ie Team
+                    </article>
                 </div>
             </div>
         </div>
 
         <div class="col s12 m6 l6 valign">
-            <div id="map"></div>
-        </div>
-    </div>
-
-    <div class="row no-pad eq-height valign-wrapper dark-blue">
-        <div class="col s12 m6 l6 valign">
-            <img src="~/Content/images/jp-company-information.jpg" alt="Company Information" class="responsive-img" />
-        </div>
-
-        <div class="col s12 m6 l6 valign white-text">
-            <h4 class="center-align">Company History</h4>
-            <p>
-                Our goal is to create an online resource for the printing, graphics and communications trade in Ireland, which will become the first port of call for industry people seeking news, information, products, technical support, employment, new business and much more.
-
-
-                Calling on more than 30 years experience in the Printing, Graphics and communications industry and utilising a global network of experts in their field, we intend to make available to you, all the resources you
-                need to help your business grow.
-
-                Through our PrintTrade TV, you will have the opportunity to view product demonstrations, tips and tricks, business development tools and technical support videos, all from your PC desktop.
-
-
-                So whether you are seeking new or used equipment, technical assistance,guidance on industry trends, new opportunities and ideas, then make PrintTrade.ie your home page and keep yourself informed!
-
-
-                PrintTrade.ie will always be a “work in progress “ and will develop into what you need it to be.
-
-                We look forward to receiving your feedback at any time.
-
-                Your PrintTrade.ie Team
-            </p>
+            <div class="row">
+                <div class="col s12 m10 offset-m1 l10 offset-l1" id="companyHistoryImgCont">
+                    <img src="~/Content/images/jp-company-information.jpg" alt="Company Information" class="responsive-img" />
+                </div>
+            </div>
         </div>
     </div>
 
@@ -86,6 +57,58 @@
         </div>
     </div>
 
+    <div class="row eq-height">
+        <div class="col s12 m4 l4">
+            <div class="row">
+                <article class="col s12 m10 offset-m2 l10 offset-l2" id="companyInformation">
+                    <h5 class="primary-text">Address</h5>
+                    <address class="about-information">
+                        Castlebar Road,<br />
+                        Foxford,<br />
+                        Co Mayo,<br />
+                        Ireland
+                    </address>
+                    
+                    <div class="about-information">
+                        <h5 class="primary-text">Telephone</h5>
+                        <a href="tel:353949256876" title="Click to call us">+353-94-9256876</a>
+                    </div>
+
+                    <div class="about-information">
+                        <h5 class="primary-text">Fax</h5>
+                        <span>+353-94-9256876</span>
+                    </div>
+
+                    <div class="about-information">
+                        <h5 class="primary-text">Email</h5>
+                        <a href="mailto:info@yourdomain.com" title="Click to email us">joyceprintitsup@gmail.com</a>
+                    </div>
+
+                    <div class="about-information">
+                        <h5 class="primary-text">Skype</h5>
+                        <a href="skype:joyceprintitsup?call" title="Click to call us on Skype">joyceprintitsup</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="col s12 m8 l8">
+            <div class="row">
+                <div class="col s12 m10 offset-m1 l10 offset-l1">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-container aboutBanner">
+        <div class="parallax">
+            <!-- This should be a picture of foxford mountain view from house -->
+            <img src="~/Content/images/jp-about-bottom.jpg" alt="Nephin View" class="responsive-img" />
+        </div>
+    </div>
+
+    <!-- Create a config wrapper and put this in the config file - use an interface-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa2iMdCkGSsdETJFayToJgwlFdLkNWm7w&callback=initMap"></script>
 
 </section>

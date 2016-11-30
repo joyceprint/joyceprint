@@ -5,13 +5,14 @@
 @color-primary: #1D4A5D;
 @color-warning: #F89C28;
 @color-success: #97C23C;
-@color-success-dark: #3c763d;
-@color-danger: #d9534f;
-@color-danger-dark: #a94442;
-@color-info: #66afe9;
+@color-success-dark: #3C763D;
+@color-danger: #D9534F;
+@color-danger-dark: #A94442;
+@color-info: #66AFE9;
 @color-white: #FFFFFF;
+@color-regular: #333333;
 
-@color-info-bg: #66afe9;
+@color-info-bg: #66AFE9;
 
 /* Font Extension Classes *************************************************************/
 @font-face {
@@ -28,6 +29,9 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+
+    /* Basic Font Color Extension ****************************************************/
+    .regular-text;
 }
 
 main {
@@ -98,7 +102,7 @@ footer.page-footer {
 }*/
 
 /* Background Color Extensions *************************************************************/
-.dark-blue {
+.primary {
     background-color: @color-primary;
 }
 
@@ -115,7 +119,7 @@ footer.page-footer {
 }
 
 /* Font Color Extensions *************************************************************/
-.dark-blue-text {
+.primary-text {
     color: @color-primary;
 }
 
@@ -129,6 +133,10 @@ footer.page-footer {
 
 .danger-text {
     color: @color-danger;
+}
+
+.regular-text {
+    color: @color-regular;
 }
 
 /* Font Weight Extensions ************************************************************/
@@ -278,14 +286,22 @@ i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class
 /**************************************************************************************
  * JoycePrint Site Styles
  * --------------------------------------------------
- * 
+ * HTML Tag Style Extensions
 **************************************************************************************/
-h4 {
-    .text-700;
+address {
+    font-style: normal;
 }
 
 h2 {
     .text-900;
+}
+
+h4 {
+    .text-700;
+}
+
+h5 {
+    .text-700;
 }
 
 /* Quote Styles **********************************************************************/
@@ -316,18 +332,25 @@ h2 {
     height: 220px;
 }
 
-.aboutInformation.parallax-container {
-    height: 350px;
+#companyInformation:first-child {
+    padding-top : 42.3px; // 30 + 12.3 => 42.3
+}
+
+.about-information {
+    padding-bottom: 20px;
+}
+
+#companyInformation a {
+    .regular-text;
 }
 
 #map {
-    height: 350px;
+    height: 500px;
     width: 100%;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
-#aboutus dt {
-    .text-700;
-    color: @color-warning;   
+#companyHistoryImgCont {
+    margin-top: 20px;
 }
