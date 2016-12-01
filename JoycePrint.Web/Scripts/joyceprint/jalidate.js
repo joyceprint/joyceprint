@@ -4,52 +4,64 @@
  *************************************************************************************************/
 (function (jalidate, $, undefined) {
 
-    // Private Property
+    // *************************************************************************
+    // Private Properties Start
+    // *************************************************************************
+
+    // This will be used to abort operations
     var jbort = false;
 
-    // Private Property - The icon for the input field that's being validated
+    // The icon for the input field that's being validated
     var icon;
 
-    // Private Property - The input field that's being validated
+    // The input field that's being validated
     var input;
 
-    // Private Property - The message to display when validation fails
+    // The message to display when validation fails
     var message;
 
-    // Private Property - The validation message label
+    // The validation message label
     var label;
 
-    // Public Property
+    // *************************************************************************
+    // Public Properties Start
+    // *************************************************************************    
+
+    // The valid event name
     jalidate.validEvent = "valid";
 
-    // Public Property
+    // The invalid event name
     jalidate.invalidEvent = "invalid";
 
-    // Public Property
-    jalidate.version = "v1.0";
+    // The version
+    jalidate.version = "1.0";
 
-    // Public Property - Css class name of the icon in a required state
+    // Css class name of the icon in a required state
     jalidate.requiredCSS = "orange-text";
 
-    // Public Property - Css class name of the icon in a valid state
+    // Css class name of the icon in a valid state
     jalidate.iconValidCSS = "success-text";
 
-    // Public Property - Css class name of the icon in a invalid state
+    // Css class name of the icon in a invalid state
     jalidate.iconInvalidCSS = "danger-text";
 
-    // Public Property - Css class name of the valid state
+    // Css class name of the valid state
     jalidate.validCSS = "valid";
 
-    // Public Property - Css class name of the invalid state
+    // Css class name of the invalid state
     jalidate.invalidCSS = "invalid";
 
-    // Public Property - Css class name of the touched state
+    // Css class name of the touched state
     jalidate.touched = "touched";
 
-    // Public Property - Css class name of the touched state
+    // Css class name of the touched state
     jalidate.validationMessageLabelName = "val-msg";
 
-    // Public Method - Set the display using the valid styles
+    // *************************************************************************
+    // Public Methods Start
+    // *************************************************************************    
+
+    // Set the display using the valid styles
     jalidate.setValidDisplay = function (field, additionalFields, validationEvents) {
         try {
 
@@ -73,7 +85,7 @@
         }
     }
 
-    // Public Method - Set the display using the invalid styles
+    // Set the display using the invalid styles
     jalidate.setInvalidDisplay = function (field, additionalFields, validationEvents) {
         try {
             jalidate.icon = additionalFields[0];
@@ -90,13 +102,13 @@
 
             removeClass(jalidate.validCSS, jalidate.input);
             removeClass(jalidate.requiredCSS, jalidate.input);
-            addClass(jalidate.invalidCSS, jalidate.input);          
+            addClass(jalidate.invalidCSS, jalidate.input);
         } catch (e) {
             console.log(e);
         }
     }
 
-    // Public Method - Set the display using the required styles
+    // Set the display using the required styles
     jalidate.setRequiredDisplay = function (field, additionalFields, validationEvents) {
         try {
 
@@ -114,18 +126,17 @@
 
             removeClass(jalidate.invalidCSS, jalidate.input);
             removeClass(jalidate.validCSS, jalidate.input);
-            //addClass(jalidate.requiredCSS, jalidate.input); // This changes to color of the label to orange
+            // We don't change the color of the input label / text to orange as it would reduce readability
         } catch (e) {
             console.log(e);
         }
     }
 
-    // Public Method - Bind an event listener to perform validation
-    //
+    // Bind an event listener to perform validation
     jalidate.bindValidator = function (field, additionalFields, listener, validationEvents) {
 
         field.addEventListener(listener, function (event) {
-            console.log("event type: " + event.type);
+            //console.log("event type: " + event.type);
 
             if (event.target.checkValidity()) {
                 jalidate.setValidDisplay(event.target, additionalFields, validationEvents);
@@ -173,42 +184,42 @@
         return valid;
     }
 
-    // TODO: Check what this is even for?
-    // Private Method - Check if the field is valid
-    function validate(field, additionalFields) {
+    // *************************************************************************
+    // Private Methods Start
+    // *************************************************************************    
 
-        if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA") {
-            icon = $(field).prev();
-            label = $(field).next();
-        } else if (field.nodeName === "SELECT") {
-            icon = $(field).closest("div").prev();
-            label = $(field).closest("div").next();
-        }
+    //// Check if the field is valid
+    //function validate(field, additionalFields) {
 
-        if (field.checkValidity()) {
-            //jalidate.setValidDisplay(field);
+    //    // Have to get the group fields for select inputs differently due to using the materialize select control
+    //    if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA") {
+    //        icon = $(field).prev();
+    //        label = $(field).next();
+    //    } else if (field.nodeName === "SELECT") {
+    //        icon = $(field).closest("div").prev();
+    //        label = $(field).closest("div").next();
+    //    }
 
-            //get the fields differently for select
-            jalidate.setInvalidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
-        } else {
-            //jalidate.setInvalidDisplay(field);
-            jalidate.setInvalidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
-        }
-    }
+    //    if (field.checkValidity()) {                        
+    //        jalidate.setValidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
+    //    } else {            
+    //        jalidate.setInvalidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
+    //    }
+    //}
 
-    // Private Method - Check if the class is present and if not, add it
+    // Check if the class is present and if not, add it
     function addClass(ccsClass, element) {
         if (!$(element).hasClass(ccsClass))
             $(element).addClass(ccsClass);
     }
 
-    // Private Method - Check if the class is present and if it is, remove it
+    // Check if the class is present and if it is, remove it
     function removeClass(ccsClass, element) {
         if ($(element).hasClass(ccsClass))
             $(element).removeClass(ccsClass);
     }
 
-    // Private Method - Check if the class is present
+    // Check if the class is present
     function hasClass(ccsClass, element) {
         if ($(element).hasClass(ccsClass) === true)
             return true;
@@ -216,7 +227,7 @@
             return false;
     }
 
-    // Private Method - Get the validation message to display based on the type of validation that failed
+    // Get the validation message to display based on the type of validation that failed
     function getValidationMessage() {
 
         if (jalidate.input.checkValidity()) {
@@ -232,12 +243,12 @@
         // This is a catch all that will return the default message
     }
 
-    // Private Method - Get the validation message to display based on the type of validation that failed
+    // Get the validation message to display based on the type of validation that failed
     function runEvent(validationEvents, event) {
         return validationEvents.includes(event);
     }
 
-    // Private Method - Switch the validation message to the current message on the field
+    // Switch the validation message to the current message on the field
     function switchValidationMessage(toEmpty) {
 
         if (toEmpty) {

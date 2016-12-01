@@ -3,167 +3,13 @@
  *
  *************************************************************************************************/
 $(document).ready(function () {
-
+   
     intializeValidation();
 
-    // Move this to line ~52
-    handleMaterializeSelectJankyness();
-
     handleCssHtmlRestriction();
-
-    initDocketHelp();
-});
-
-/**************************************************************************************************
-*
- *************************************************************************************************/
-function intializeValidation() {
-
-    var form = document.getElementById("frm-quote");
-
-    // Turn or native validation for compatibilty
-    form.noValidate = true;
-
-    // Set handler to validate the form
-    // Onsubmit used for easier cross-browser compatibility
-    form.onsubmit = validateForm;
-
-    // Loop all fields
-    for (f = 0; f < form.elements.length; f++) {
-
-        // Get the field from the form collection
-        var field = form.elements[f];
-        
-        // If the field is not required we stop processing
-        if (!field.required) continue;
-
-        // Ignore hidden fields
-        if (field.type === "hidden") continue;
-
-        // Ignore buttons, fieldsets, etc.
-        if (field.nodeName !== "INPUT" && field.nodeName !== "TEXTAREA" && field.nodeName !== "SELECT") continue;
-        
-        bindValidators(field);
-        
-        if (field.nodeName === "SELECT") {
-            //handleMaterializeSelectJankyness(field);            
-        }
-    }
-}
-
-/**************************************************************************************************
-*
- *************************************************************************************************/
-function bindValidators(field) {
-
-    // TODO: fix the bug here where there validation is running when the user clicks on a control
-    // see this and handleCssHtmlRestriction() to fix this issue
-
-    // Bind focus for when the user clicks on the input
-    //jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus", ["valid", "invalid"]);
-
-    // Bind blur for when the user leave the input
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur", ["valid", "invalid"]);
-
-    // Bind keyup for when the user presses a key
-    // This has special processing which will not trigger invalid styles on keyup, only valid events
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup", ["valid"]);
-
-    // Bind
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "mousedown", ["valid", "invalid"]);
     
-    // Bind the change event.
-    // This enables the number input type to function correctly
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "change", ["valid"]);
-
-    // TODO: validation is currently not working on the materizlize select if the change event is not fired
-}
-
-/**************************************************************************************************
-*
- *************************************************************************************************/
-function handleMaterializeSelectJankyness() {
-
-    $(".select-wrapper").each(function () {
-
-        var select = $(this).find("select");
-        var ul = $(this).find("ul");
-        var input = $(this).find("input");
-        var icon = $(this).prev();
-        var label = $(this).next()
-
-        //
-        // Switch the required attribute
-        var attr = $(select).attr("required");
-
-        // For some browsers, `attr` is undefined; for others, `attr` is false.  Check for both.
-        if (typeof attr !== typeof undefined && attr !== false) {
-            $(select).removeAttr("required");
-            $(input).attr("required", "required");
-        }
-
-        //
-        // Switch the validation class from the select to the materizlise input
-        if ($(select).hasClass("validate")) $(select).removeClass("validate")
-        if (!$(input).hasClass("validate")) $(input).addClass("validate")
-       
-        //
-        // Switch the validation messages
-        $(select[0].attributes).each(function () {
-            if (!this.nodeName.startsWith("data-val-")) return;
-
-            $(input).attr(this.nodeName, this.nodeValue);
-        });
-
-        //
-        // Switch selected option based on selected li item
-        $(ul).find("li").on("click", function (event) {
-
-            var ulSelectedItem = event.target.textContent;
-            var tempValue = $(this).val();
-
-            $(select).find('option').filter(function () {
-                return ($(this).text() !== ulSelectedItem);
-            }).attr('selected', false);
-
-            $(select).find('option').filter(function () {
-                return ($(this).text() === ulSelectedItem);
-            }).attr('selected', true);
-
-            $(input).attr("value", ulSelectedItem);
-
-            if ($(select).find("option:selected").val() === "") {
-                jalidate.setInvalidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
-            } else {                
-                jalidate.setValidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
-            }            
-        });
-        
-        // Switch the data-help toggle switch
-        if ($(select).data("help") !== "undefined") {
-            var help = $(select).data("help");
-            //$(select).removeAttr("data-help");
-
-            $(input).data("help", help);            
-        }
-    });
-}
-
-/**************************************************************************************************
- * Creates an event that will add the touched class to required fields
- * This is required as the :visited pseudo class only applies to anchor tags
- *
- * NOTE: This must be run after the validation has been wired up
- *************************************************************************************************/
-function handleCssHtmlRestriction() {
-
-    // use $.fn.one here to fire the event only once.    
-    $(':required').on('focus keydown', function () {
-    //$(':required').on('blur keydown, focus, mousedown', function () {
-        if ($(this).hasClass("touched")) return;
-        $(this).addClass('touched');
-    });
-}
+    //intializeValidation();
+});
 
 /**************************************************************************************************
 *
@@ -227,12 +73,10 @@ function validateForm(event) {
             label = $(field).closest("div").next();
         }
 
-        if (field.validity.valid) {
-            //jalidate.setValidDisplay(field);
+        if (field.validity.valid) {            
             jalidate.setValidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
         }
-        else {
-            //jalidate.setInvalidDisplay(field);
+        else {            
             jalidate.setInvalidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
 
             // Form is invalid
@@ -247,6 +91,153 @@ function validateForm(event) {
 
     //return formvalid;
     return false;
+}
+
+/**************************************************************************************************
+*
+ *************************************************************************************************/
+function intializeValidation() {
+
+    var form = document.getElementById("frm-quote");
+
+    // Turn or native validation for compatibilty
+    form.noValidate = true;
+
+    // Set handler to validate the form
+    // Onsubmit used for easier cross-browser compatibility
+    form.onsubmit = validateForm;
+
+    // Loop all fields
+    for (f = 0; f < form.elements.length; f++) {
+
+        // Get the field from the form collection
+        var field = form.elements[f];
+        
+        // If the field is not required we stop processing
+        if (!field.required) continue;
+
+        // Ignore hidden fields
+        if (field.type === "hidden") continue;
+
+        // Ignore buttons, fieldsets, etc.
+        if (field.nodeName !== "INPUT" && field.nodeName !== "TEXTAREA" && field.nodeName !== "SELECT") continue;
+                
+        var isDropDown = false;
+        if (field.nodeName === "SELECT") isDropDown = true;
+        
+        bindValidators(field, isDropDown);
+    }
+}
+
+/**************************************************************************************************
+*
+ *************************************************************************************************/
+function bindValidators(field, isDropDown) {
+
+    // Bind focus for when the user clicks on the input
+    //jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus", ["valid", "invalid"]);
+
+    // Bind blur for when the user leave the input
+    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur", ["valid", "invalid"]);
+
+    // Bind keyup for when the user presses a key
+    // This has special processing which will not trigger invalid styles on keyup, only valid events
+    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "keyup", ["valid"]);
+
+    // Bind
+    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "mousedown", ["valid", "invalid"]);
+    
+    // Bind the change event.
+    // This enables the number input type to function correctly
+    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "change", ["valid"]);
+
+    // TODO: validation is currently not working on the materizlize select if the change event is not fired
+}
+
+/**************************************************************************************************
+* This needs to be put into a materialize work arounds file with all other functions like it
+* or they at least need to be in the same location in all of the files - depends on bundle findings
+ *************************************************************************************************/
+function handleMaterializeSelectJankyness() {
+
+    $(".select-wrapper").each(function () {
+
+        var select = $(this).find("select");
+        var ul = $(this).find("ul");
+        var input = $(this).find("input");
+        var icon = $(this).prev();
+        var label = $(this).next()
+
+        //
+        // Switch the required attribute
+        var attr = $(select).attr("required");
+
+        // For some browsers, `attr` is undefined; for others, `attr` is false.  Check for both.
+        if (typeof attr !== typeof undefined && attr !== false) {
+            //$(select).removeAttr("required");
+            $(input).attr("required", "required");
+        }
+
+        //
+        // Switch the validation class from the select to the materizlise input
+        //if ($(select).hasClass("validate")) $(select).removeClass("validate")
+        if (!$(input).hasClass("validate")) $(input).addClass("validate")
+       
+        //
+        // Switch the validation messages
+        $(select[0].attributes).each(function () {
+            if (!this.nodeName.startsWith("data-val-")) return;
+
+            $(input).attr(this.nodeName, this.nodeValue);
+        });
+
+        //
+        // Switch selected option based on selected li item
+        $(ul).find("li").on("click", function (event) {
+
+            var ulSelectedItem = event.target.textContent;
+            var tempValue = $(this).val();
+
+            $(select).find('option').filter(function () {
+                return ($(this).text() !== ulSelectedItem);
+            }).attr('selected', false);
+
+            $(select).find('option').filter(function () {
+                return ($(this).text() === ulSelectedItem);
+            }).attr('selected', true);
+
+            $(input).attr("value", ulSelectedItem);
+
+            if ($(select).find("option:selected").val() === "") {
+                jalidate.setInvalidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
+            } else {                
+                jalidate.setValidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
+            }            
+        });
+        
+        // Switch the data-help toggle switch
+        if ($(select).data("help") !== "undefined") {
+            var help = $(select).data("help");
+            //$(select).removeAttr("data-help");
+
+            $(input).data("help", help);            
+        }
+    });
+}
+
+/**************************************************************************************************
+ * Creates an event that will add the touched class to required fields
+ * This is required as the :visited pseudo class only applies to anchor tags
+ *
+ * NOTE: This must be run after the validation has been wired up
+ *************************************************************************************************/
+function handleCssHtmlRestriction() {
+
+    // use $.fn.one here to fire the event only once.    
+    $(':required').on('focus keydown', function () {    
+        if ($(this).hasClass("touched")) return;
+        $(this).addClass('touched');
+    });
 }
 
 /**************************************************************************************************

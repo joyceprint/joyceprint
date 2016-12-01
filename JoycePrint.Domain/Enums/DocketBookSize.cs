@@ -6,7 +6,7 @@ namespace JoycePrint.Domain.Enums
     {
         [Display(Name = "A4")]
         A4,
-        [Display(Name = "A6")]
+        [Display(Name = "A5")]
         A5,
         [Display(Name = "A6")]
         A6,
