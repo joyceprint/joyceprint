@@ -25,6 +25,7 @@ namespace JoycePrint.UI
         public static List<string> BaseBundle => new List<string> {
             "~/Scripts/jquery-3.1.1.js",
             "~/Scripts/materialize.min.js",
+            "~/Scripts/joyceprint/joyceprint-extensions.js",
             "~/Scripts/joyceprint/joyceprint-nav.js",
             "~/Scripts/joyceprint/joyceprint.js"
         };

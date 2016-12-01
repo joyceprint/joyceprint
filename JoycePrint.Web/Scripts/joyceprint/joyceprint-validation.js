@@ -2,14 +2,12 @@
  * Validation
  *
  *************************************************************************************************/
-$(document).ready(function () {
+function initializeValidation() {
    
-    intializeValidation();
+    initializeFormValidation();
 
-    handleCssHtmlRestriction();
-    
-    //intializeValidation();
-});
+    handleCssHtmlRestriction(); 
+}
 
 /**************************************************************************************************
 *
@@ -35,6 +33,7 @@ function validateForm(event) {
         if (field.type === "hidden") continue;
 
         // Is native browser validation available?
+        // May have to change this to use the property - undefined
         if (typeof field.willValidate !== "undefined") {
 
             // Native validation available
@@ -96,7 +95,7 @@ function validateForm(event) {
 /**************************************************************************************************
 *
  *************************************************************************************************/
-function intializeValidation() {
+function initializeFormValidation() {
 
     var form = document.getElementById("frm-quote");
 
@@ -123,7 +122,7 @@ function intializeValidation() {
         if (field.nodeName !== "INPUT" && field.nodeName !== "TEXTAREA" && field.nodeName !== "SELECT") continue;
                 
         var isDropDown = false;
-        if (field.nodeName === "SELECT") isDropDown = true;
+        if (field.className.contains("select-dropdown")) isDropDown = true;
         
         bindValidators(field, isDropDown);
     }
@@ -137,6 +136,12 @@ function bindValidators(field, isDropDown) {
     // Bind focus for when the user clicks on the input
     //jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus", ["valid", "invalid"]);
 
+    // Since we are working off the click event of a ul element, we cannot add the blur event for the input as it will
+    // break the validation for the materialize selects
+    if (!isDropDown) {
+        
+    }
+
     // Bind blur for when the user leave the input
     jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur", ["valid", "invalid"]);
 
@@ -149,80 +154,7 @@ function bindValidators(field, isDropDown) {
     
     // Bind the change event.
     // This enables the number input type to function correctly
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "change", ["valid"]);
-
-    // TODO: validation is currently not working on the materizlize select if the change event is not fired
-}
-
-/**************************************************************************************************
-* This needs to be put into a materialize work arounds file with all other functions like it
-* or they at least need to be in the same location in all of the files - depends on bundle findings
- *************************************************************************************************/
-function handleMaterializeSelectJankyness() {
-
-    $(".select-wrapper").each(function () {
-
-        var select = $(this).find("select");
-        var ul = $(this).find("ul");
-        var input = $(this).find("input");
-        var icon = $(this).prev();
-        var label = $(this).next()
-
-        //
-        // Switch the required attribute
-        var attr = $(select).attr("required");
-
-        // For some browsers, `attr` is undefined; for others, `attr` is false.  Check for both.
-        if (typeof attr !== typeof undefined && attr !== false) {
-            //$(select).removeAttr("required");
-            $(input).attr("required", "required");
-        }
-
-        //
-        // Switch the validation class from the select to the materizlise input
-        //if ($(select).hasClass("validate")) $(select).removeClass("validate")
-        if (!$(input).hasClass("validate")) $(input).addClass("validate")
-       
-        //
-        // Switch the validation messages
-        $(select[0].attributes).each(function () {
-            if (!this.nodeName.startsWith("data-val-")) return;
-
-            $(input).attr(this.nodeName, this.nodeValue);
-        });
-
-        //
-        // Switch selected option based on selected li item
-        $(ul).find("li").on("click", function (event) {
-
-            var ulSelectedItem = event.target.textContent;
-            var tempValue = $(this).val();
-
-            $(select).find('option').filter(function () {
-                return ($(this).text() !== ulSelectedItem);
-            }).attr('selected', false);
-
-            $(select).find('option').filter(function () {
-                return ($(this).text() === ulSelectedItem);
-            }).attr('selected', true);
-
-            $(input).attr("value", ulSelectedItem);
-
-            if ($(select).find("option:selected").val() === "") {
-                jalidate.setInvalidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
-            } else {                
-                jalidate.setValidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
-            }            
-        });
-        
-        // Switch the data-help toggle switch
-        if ($(select).data("help") !== "undefined") {
-            var help = $(select).data("help");
-            //$(select).removeAttr("data-help");
-
-            $(input).data("help", help);            
-        }
-    });
+    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "change", ["valid"]);    
 }
 
 /**************************************************************************************************
