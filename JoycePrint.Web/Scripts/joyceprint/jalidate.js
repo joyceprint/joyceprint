@@ -133,16 +133,26 @@
     }
 
     // Bind an event listener to perform validation
-    jalidate.bindValidator = function (field, additionalFields, listener, validationEvents) {
+    jalidate.bindValidator = function (field, additionalFields, listener, validationEvents, preEventFunction) {
 
         field.addEventListener(listener, function (event) {
-            console.log("1 event type: " + event.type);
+console.log(event.type);
+            var runDefault = true;
 
-            if (event.target.checkValidity()) {
-                jalidate.setValidDisplay(event.target, additionalFields, validationEvents);
+            if (preEventFunction !== undefined && preEventFunction !== "") {
+                // Runnin this prevent can break us out of the validation and allow us to call the functions directly
+                // This is only in use for materialize
+
+                runDefault = preEventFunction(field, additionalFields); // or we can use -> preEventFunction.call(); 
             }
-            else {
-                jalidate.setInvalidDisplay(event.target, additionalFields, validationEvents);
+
+            if (runDefault) {
+                if (event.target.checkValidity()) {
+                    jalidate.setValidDisplay(event.target, additionalFields, validationEvents);
+                }
+                else {
+                    jalidate.setInvalidDisplay(event.target, additionalFields, validationEvents);
+                }
             }
         });
     }

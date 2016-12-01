@@ -173,6 +173,8 @@ function handleMaterializeSelectJankyness() {
         // Switch selected option based on selected li item
         $(ul).find("li").on("click", function (event) {
             
+console.log("click");
+
             var ulSelectedItem = event.target.textContent;
             var tempValue = $(this).val();
 
@@ -184,8 +186,11 @@ function handleMaterializeSelectJankyness() {
                 return ($(this).text() === ulSelectedItem);
             }).attr('selected', true);
 
-            $(input).attr("value", ulSelectedItem);
-
+            // TODO: we need to get the option here and if the value is "" [blank] we dont set the input
+            // this will fix our display issue
+            if ($(select).find("option:not([value])").text() !== ulSelectedItem)
+                $(input).attr("value", ulSelectedItem);
+            
             if ($(select).find("option:selected").val() === "") {
                 jalidate.setInvalidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
             } else {

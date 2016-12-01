@@ -3,10 +3,10 @@
  *
  *************************************************************************************************/
 function initializeValidation() {
-   
+
     initializeFormValidation();
 
-    handleCssHtmlRestriction(); 
+    handleCssHtmlRestriction();
 }
 
 /**************************************************************************************************
@@ -72,10 +72,10 @@ function validateForm(event) {
             label = $(field).closest("div").next();
         }
 
-        if (field.validity.valid) {            
+        if (field.validity.valid) {
             jalidate.setValidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
         }
-        else {            
+        else {
             jalidate.setInvalidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
 
             // Form is invalid
@@ -111,7 +111,7 @@ function initializeFormValidation() {
 
         // Get the field from the form collection
         var field = form.elements[f];
-        
+
         // If the field is not required we stop processing
         if (!field.required) continue;
 
@@ -120,12 +120,32 @@ function initializeFormValidation() {
 
         // Ignore buttons, fieldsets, etc.
         if (field.nodeName !== "INPUT" && field.nodeName !== "TEXTAREA" && field.nodeName !== "SELECT") continue;
-                
+
         var isDropDown = false;
         if (field.className.contains("select-dropdown")) isDropDown = true;
-        
+
         bindValidators(field, isDropDown);
     }
+}
+
+/**************************************************************************************************
+ * Global variable to hold the function that will fix the materialize select valiadation
+ * issue.
+ * This will be called in the jalidate.js script
+ *************************************************************************************************/
+var handleMaterializeSelectFeature = function (field, additionalFields) {
+
+    var ul = additionalFields[1];
+    $(ul).find("li.active").addClass("selected");
+
+    if ($(field).val() === "Type") {
+        jalidate.setInvalidDisplay(field, additionalFields, ["valid", "invalid"]);
+    } else {
+        jalidate.setValidDisplay(field, additionalFields, ["valid", "invalid"]);
+    }
+
+    // This instructs the jalidate function to not run it's validation as we've done it here
+    return false;
 }
 
 /**************************************************************************************************
@@ -133,17 +153,13 @@ function initializeFormValidation() {
  *************************************************************************************************/
 function bindValidators(field, isDropDown) {
 
-    // Bind focus for when the user clicks on the input
-    //jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "focus", ["valid", "invalid"]);
-
-    // Since we are working off the click event of a ul element, we cannot add the blur event for the input as it will
-    // break the validation for the materialize selects
-    if (!isDropDown) {
-        
+    var preEventFunction = "";
+    if (isDropDown) {
+        preEventFunction = handleMaterializeSelectFeature;
     }
 
     // Bind blur for when the user leave the input
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur", ["valid", "invalid"]);
+    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "blur", ["valid", "invalid"], preEventFunction);
 
     // Bind keyup for when the user presses a key
     // This has special processing which will not trigger invalid styles on keyup, only valid events
@@ -151,10 +167,10 @@ function bindValidators(field, isDropDown) {
 
     // Bind
     jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "mousedown", ["valid", "invalid"]);
-    
+
     // Bind the change event.
     // This enables the number input type to function correctly
-    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "change", ["valid"]);    
+    jalidate.bindValidator(field, [field.previousElementSibling, field.nextElementSibling], "change", ["valid"]);
 }
 
 /**************************************************************************************************
@@ -166,7 +182,7 @@ function bindValidators(field, isDropDown) {
 function handleCssHtmlRestriction() {
 
     // use $.fn.one here to fire the event only once.    
-    $(':required').on('focus keydown', function () {    
+    $(':required').on('focus keydown', function () {
         if ($(this).hasClass("touched")) return;
         $(this).addClass('touched');
     });
