@@ -38,17 +38,21 @@ function initializeExtendHtml5ResetEvent() {
     // Remove the touched, invalid and valid classes
     $("button[type='reset']").on("click", function () {
         var autoFocusField = null;
-
+        
         $(".touched").each(function () {
             var field = this;
 
-            if ($(field).hasClass("valid")) {
-                $(field).removeClass("valid");
-            }
+            var additionalFields = getAdditionalFields(field);
+            var icon = additionalFields[0];
+            var label = additionalFields[1];
 
-            if ($(field).hasClass("invalid")) {
-                $(field).removeClass("invalid");
-            }
+            if ($(field).hasClass("valid")) $(field).removeClass("valid");
+            if ($(icon).hasClass("valid")) $(icon).removeClass("valid");
+            if ($(label).hasClass("valid")) $(label).removeClass("valid");
+            
+            if ($(field).hasClass("invalid")) $(field).removeClass("invalid");
+            if ($(icon).hasClass("invalid")) $(icon).removeClass("invalid");
+            if ($(label).hasClass("invalid")) $(label).removeClass("invalid");            
 
             if ($(field).hasClass("validate")) {
                 if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA" || field.nodeName === "SELECT") {

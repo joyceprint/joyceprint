@@ -127,21 +127,22 @@ function initializeFormValidation() {
 function bindValidators(field, isDropDown) {
 
     var additionalFields = getAdditionalFields(field);
-
+    
     var preEventFunction = "";
     if (isDropDown) {
-        preEventFunction = handleMaterializeSelectFeature;
+        // Here the pre event function will readd the selected class to the active li element, materialize removes it for some reason
+        preEventFunction = handleMaterializeSelectFeatureForBlurEvent;
     }
 
-    // Bind blur for when the user leave the input
+    // Bind blur for when the user leave the input    
     jalidate.bindValidator(field, additionalFields, "blur", ["valid", "invalid"], preEventFunction);
 
     // Bind keyup for when the user presses a key
-    // This has special processing which will not trigger invalid styles on keyup, only valid events
-    jalidate.bindValidator(field, additionalFields, "keyup", ["valid"]);
+    // This has special processing which will not trigger invalid styles on keyup, only valid events    
+    jalidate.bindValidator(field, additionalFields, "keyup", ["valid"], preEventFunction);
 
     // Bind
-    jalidate.bindValidator(field, additionalFields, "mousedown", ["valid", "invalid"]);
+    jalidate.bindValidator(field, additionalFields, "mousedown", ["valid", "invalid"], preEventFunction);
 
     // Bind the change event.
     // This enables the number input type to function correctly
@@ -181,7 +182,7 @@ function getAdditionalFields(field) {
  * issue.
  * This will be called in the jalidate.js script
  *************************************************************************************************/
-var handleMaterializeSelectFeature = function (field, additionalFields) {
+var handleMaterializeSelectFeatureForBlurEvent = function (field, additionalFields) {
     
     var ul = $(field).next();
     var initialSelection = $(ul).find("li:first").text();
@@ -205,7 +206,7 @@ function switchToRequiredDisplay(field) {
     
     var additionalFields = getAdditionalFields(field);
 
-    jalidate.setRequiredDisplay($(field)[0], [additionalFields], ["valid", "invalid"]);
+    jalidate.setRequiredDisplay($(field)[0], additionalFields, ["valid", "invalid"]);
 }
 
 /**************************************************************************************************
