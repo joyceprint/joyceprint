@@ -24,18 +24,9 @@
 
     <div class="input-field col s12 m12 l4">
         <i class="material-icons prefix orange-text text-accent-4">label</i>
-        <input type="number" inputmode="numeric" class="validate" id="DocketBook_Quantity" name="DocketBook.Quantity" min="1" max="1000000" required data-val-req-msg="How many?">
+        <input type="number" inputmode="numeric" class="validate" id="DocketBook_Quantity" name="DocketBook.Quantity" min="1" max="1000000" maxlength="7" required data-val-req-msg="How many?">
         <label for="DocketBook_Quantity">Quantity</label>
         <label for="DocketBook_Quantity" class="val-msg"></label>
-    </div>     
-
-    <div class="clearfix"></div>
-
-    <div class="input-field col s12">
-        <i class="material-icons prefix orange-text text-accent-4">message</i>
-        <textarea rows="10" class="materialize-textarea validate" id="DocketBook_Message" name="DocketBook.Message" wrap="hard" required data-val-req-msg="Any additional information"></textarea>
-        <label for="DocketBook_Message">Message</label>
-        <label for="DocketBook_Message" class="val-msg"></label>
-    </div>
+    </div>         
 
 </section>
