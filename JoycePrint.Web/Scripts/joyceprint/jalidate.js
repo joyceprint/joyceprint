@@ -136,10 +136,10 @@
     jalidate.bindValidator = function (field, additionalFields, listener, validationEvents, preEventFunction) {
 
         field.addEventListener(listener, function (event) {
-console.log(event.type);
+            
             var runDefault = true;
-
-            if (preEventFunction !== undefined && preEventFunction !== "") {
+            
+            if (typeof preEventFunction !== typeof undefined && preEventFunction !== "") {
                 // Runnin this prevent can break us out of the validation and allow us to call the functions directly
                 // This is only in use for materialize
 
@@ -266,14 +266,12 @@ console.log(event.type);
         } else {
             getValidationMessage();
         }
-
-        // TODO: figure out how to use javascript global variables - can we or do i have to pass everything
+        
         jalidate.label = $(jalidate.input).nextUntil(jalidate.validationMessageLabelName);
 
         for (var index = 0; index < jalidate.label.length; index++) {
             if (hasClass(jalidate.validationMessageLabelName, jalidate.label[index])) {
-                jalidate.label[index].textContent = jalidate.message;
-                //Materialize.updateTextFields();                
+                jalidate.label[index].textContent = jalidate.message;                
                 break;
             }
         }
