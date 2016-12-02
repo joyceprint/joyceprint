@@ -19,8 +19,9 @@ namespace JoycePrint.UI.Controllers
         {
             // TODO: ::BUG:: Enums not getting passed back
             //model.SendEmail();
-            
-            return View("Index", model);
+
+            // Here I want to return a partial view that can be used as a modal              
+            return View("Index");
         }
     }
 }
