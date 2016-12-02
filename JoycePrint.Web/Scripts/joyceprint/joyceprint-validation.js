@@ -76,12 +76,11 @@ function validateForm(event) {
     }
 
     // Cancel form submit if validation fails
-    if (!formvalid) {
-        if (event.preventDefault) event.preventDefault();
-    }
+    //if (!formvalid) {
+    //    if (event.preventDefault) event.preventDefault();
+    //}
 
-    //return formvalid;
-    return false;
+    return true;//formvalid;
 }
 
 /**************************************************************************************************
@@ -135,11 +134,7 @@ function bindValidators(field, isDropDown) {
     }
 
     // Bind blur for when the user leave the input    
-    jalidate.bindValidator(field, additionalFields, "blur", ["valid", "invalid"], preEventFunction);
-
-    // Bind keyup for when the user presses a key
-    // This has special processing which will not trigger invalid styles on keyup, only valid events    
-    jalidate.bindValidator(field, additionalFields, "keyup", ["valid"], preEventFunction);
+    jalidate.bindValidator(field, additionalFields, "blur", ["valid", "invalid"], preEventFunction);    
 
     // Bind
     jalidate.bindValidator(field, additionalFields, "mousedown", ["valid", "invalid"], preEventFunction);

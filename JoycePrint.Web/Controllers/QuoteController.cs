@@ -17,9 +17,10 @@ namespace JoycePrint.UI.Controllers
         [HttpPost]
         public ActionResult Index(QuoteRequest model)
         {
+            // TODO: ::BUG:: Enums not getting passed back
             //model.SendEmail();
-
-            return View("Index");
+            
+            return View("Index", model);
         }
     }
 }
