@@ -52,10 +52,10 @@
     jalidate.invalidCSS = "invalid";
 
     // Css class name of the touched state
-    jalidate.touched = "touched";
+    jalidate.touchedCss = "touched";
 
-    // Css class name of the touched state
-    jalidate.validationMessageLabelName = "val-msg";
+    // Css class name of the label for displaying the validation message
+    jalidate.validationMessageCss = "val-msg";
 
     // *************************************************************************
     // Public Methods Start
@@ -69,7 +69,7 @@
             jalidate.input = field;
 
             if (!runEvent(validationEvents, jalidate.validEvent)) return;
-            if (!hasClass(jalidate.touched, jalidate.input)) return;
+            if (!hasClass(jalidate.touchedCss, jalidate.input)) return;
 
             switchValidationMessage();
 
@@ -92,7 +92,7 @@
             jalidate.input = field;
 
             if (!runEvent(validationEvents, jalidate.invalidEvent)) return;
-            if (!hasClass(jalidate.touched, jalidate.input)) return;
+            if (!hasClass(jalidate.touchedCss, jalidate.input)) return;
 
             switchValidationMessage();
 
@@ -116,7 +116,7 @@
             jalidate.input = field;
 
             if (!runEvent(validationEvents, jalidate.validEvent)) return;
-            if (!hasClass(jalidate.touched, jalidate.input)) return;
+            if (!hasClass(jalidate.touchedCss, jalidate.input)) return;
 
             switchValidationMessage(true);
 
@@ -140,9 +140,8 @@
             var runDefault = true;
             
             if (typeof preEventFunction !== typeof undefined && preEventFunction !== "") {
-                // Runnin this prevent can break us out of the validation and allow us to call the functions directly
-                // This is only in use for materialize
-
+                // Running this pre event can break us out of the validation and allow us to call the functions directly
+                // This is only in use for the materialize select
                 runDefault = preEventFunction(field, additionalFields); // or we can use -> preEventFunction.call(); 
             }
 
@@ -157,6 +156,7 @@
         });
     }
 
+    // TODO: This is not complete!!!
     // Basic legacy validation checking
     jalidate.legacyValidation = function (field) {
 
@@ -198,25 +198,6 @@
     // Private Methods Start
     // *************************************************************************    
 
-    //// Check if the field is valid
-    //function validate(field, additionalFields) {
-
-    //    // Have to get the group fields for select inputs differently due to using the materialize select control
-    //    if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA") {
-    //        icon = $(field).prev();
-    //        label = $(field).next();
-    //    } else if (field.nodeName === "SELECT") {
-    //        icon = $(field).closest("div").prev();
-    //        label = $(field).closest("div").next();
-    //    }
-
-    //    if (field.checkValidity()) {                        
-    //        jalidate.setValidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
-    //    } else {            
-    //        jalidate.setInvalidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
-    //    }
-    //}
-
     // Check if the class is present and if not, add it
     function addClass(ccsClass, element) {
         if (!$(element).hasClass(ccsClass))
@@ -238,6 +219,7 @@
     }
 
     // Get the validation message to display based on the type of validation that failed
+    // Here we access the HTML 5 validation object to see what part of the validation failed so we can display a more specific message
     function getValidationMessage() {
 
         if (jalidate.input.checkValidity()) {
@@ -253,7 +235,7 @@
         // This is a catch all that will return the default message
     }
 
-    // Get the validation message to display based on the type of validation that failed
+    // Determines if the validation event shoul be run
     function runEvent(validationEvents, event) {
         return validationEvents.includes(event);
     }
@@ -267,14 +249,34 @@
             getValidationMessage();
         }
         
-        jalidate.label = $(jalidate.input).nextUntil(jalidate.validationMessageLabelName);
+        jalidate.label = $(jalidate.input).nextUntil(jalidate.validationMessageCss);
 
+        // We get more than one label returned in the array so we have to look for the label with the validation css class
         for (var index = 0; index < jalidate.label.length; index++) {
-            if (hasClass(jalidate.validationMessageLabelName, jalidate.label[index])) {
+            if (hasClass(jalidate.validationMessageCss, jalidate.label[index])) {
                 jalidate.label[index].textContent = jalidate.message;                
                 break;
             }
         }
     }
+
+    //// Check if the field is valid
+    //function validate(field, additionalFields) {
+
+    //    // Have to get the group fields for select inputs differently due to using the materialize select control
+    //    if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA") {
+    //        icon = $(field).prev();
+    //        label = $(field).next();
+    //    } else if (field.nodeName === "SELECT") {
+    //        icon = $(field).closest("div").prev();
+    //        label = $(field).closest("div").next();
+    //    }
+
+    //    if (field.checkValidity()) {                        
+    //        jalidate.setValidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
+    //    } else {            
+    //        jalidate.setInvalidDisplay($(field)[0], [icon[0], label[0]], ["valid", "invalid"]);
+    //    }
+    //}
 
 }(window.jalidate = window.jalidate || {}, jQuery));
