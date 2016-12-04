@@ -4,9 +4,9 @@
  *************************************************************************************************/
 (function (jalidate, $, undefined) {
 
-    // *************************************************************************
-    // Private Properties Start
-    // *************************************************************************
+    // *******************************************************************************************
+    // Private Properties
+    // *******************************************************************************************
 
     // This will be used to abort operations
     var jbort = false;
@@ -23,9 +23,9 @@
     // The validation message label
     var label;
 
-    // *************************************************************************
-    // Public Properties Start
-    // *************************************************************************    
+    // *******************************************************************************************
+    // Public Properties
+    // *******************************************************************************************
 
     // The valid event name
     jalidate.validEvent = "valid";
@@ -57,19 +57,20 @@
     // Css class name of the label for displaying the validation message
     jalidate.validationMessageCss = "val-msg";
 
-    // *************************************************************************
-    // Public Methods Start
-    // *************************************************************************    
+    // *******************************************************************************************
+    // Public Methods
+    // *******************************************************************************************
 
     // Set the display using the valid styles
-    jalidate.setValidDisplay = function (field, additionalFields, validationEvents) {
+    jalidate.setValidDisplay = function (field, additionalFields, validationEvents, ignoreTouched) {
         try {
 
             jalidate.icon = additionalFields[0];
             jalidate.input = field;
 
             if (!runEvent(validationEvents, jalidate.validEvent)) return;
-            if (!hasClass(jalidate.touchedCss, jalidate.input)) return;
+
+            if (!ignoreTouched && !hasClass(jalidate.touchedCss, jalidate.input)) return;
 
             switchValidationMessage();
 
@@ -86,13 +87,13 @@
     }
 
     // Set the display using the invalid styles
-    jalidate.setInvalidDisplay = function (field, additionalFields, validationEvents) {
+    jalidate.setInvalidDisplay = function (field, additionalFields, validationEvents, ignoreTouched) {
         try {
             jalidate.icon = additionalFields[0];
             jalidate.input = field;
 
             if (!runEvent(validationEvents, jalidate.invalidEvent)) return;
-            if (!hasClass(jalidate.touchedCss, jalidate.input)) return;
+            if (!ignoreTouched && !hasClass(jalidate.touchedCss, jalidate.input)) return;
 
             switchValidationMessage();
 
@@ -194,9 +195,9 @@
         return valid;
     }
 
-    // *************************************************************************
-    // Private Methods Start
-    // *************************************************************************    
+    // *******************************************************************************************
+    // Private Methods
+    // *******************************************************************************************
 
     // Check if the class is present and if not, add it
     function addClass(ccsClass, element) {

@@ -1,5 +1,5 @@
 ﻿/**************************************************************************************************
- * Validation
+ * Validation --- MOVE ALL OF THESE FUNCTION TO THE JALIDATE FILE
  *
  * Call this function to initialize the javascript required for validation
  *************************************************************************************************/
@@ -14,6 +14,8 @@ function initializeValidation(formId) {
  * Validate the form and prevent the submission to the server if it's invalid
  *
  * TODO: This function is not complete
+ *
+ * move all of this into the jalidate - split this up into global vars and functions
  *************************************************************************************************/
 function validateForm(event) {
 
@@ -29,15 +31,17 @@ function validateForm(event) {
         // Get the field from the form collection
         field = form.elements[f];
 
-        // Ignore buttons, fieldsets, etc.
-        if (field.nodeName !== "INPUT" && field.nodeName !== "TEXTAREA" && field.nodeName !== "SELECT") continue;
+        // If the field is not required we stop processing
+        if (!field.required) continue;
 
         // Ignore hidden fields
         if (field.type === "hidden") continue;
 
-        // Is native browser validation available?
-        // May have to change this to use the property - undefined
-        if (typeof field.willValidate !== "undefined") {
+        // Ignore buttons, fieldsets, etc.
+        if (field.nodeName !== "INPUT" && field.nodeName !== "TEXTAREA" && field.nodeName !== "SELECT") continue;
+        
+        // Is native browser validation available?        
+        if (typeof field.willValidate !== typeof undefined) {
 
             // Native validation available
             if (field.nodeName === "INPUT" && field.type !== field.getAttribute("type")) {
@@ -64,26 +68,35 @@ function validateForm(event) {
             // Not sure what to do here yet            
         }
 
-        // TODO: There may be a bug here
-        var additionalFields = getAdditionalFields(field);
-        
-        if (field.validity.valid) {
-            jalidate.setValidDisplay($(field)[0], additionalFields, ["valid", "invalid"]);
-        }
-        else {
-            jalidate.setInvalidDisplay($(field)[0], additionalFields, ["valid", "invalid"]);
+        var runDefault = true;
+        var ignoreTouchedClass = true;
 
-            // Form is invalid
-            formvalid = false;
+        var additionalFields = getAdditionalFields(field);
+
+        // If this is a drop down we need to perform special logic for the materialize select        
+        if (field.className.contains("select-dropdown")) {
+            runDefault = handleMaterializeSelectFeature(field, additionalFields);
+        }
+
+        if (runDefault) {
+            if (field.validity.valid) {
+                jalidate.setValidDisplay(field, additionalFields, ["valid", "invalid"], ignoreTouchedClass);
+            }
+            else {
+                jalidate.setInvalidDisplay(field, additionalFields, ["valid", "invalid"], ignoreTouchedClass);
+
+                // Form is invalid
+                formvalid = false;
+            }
         }
     }
 
     // Cancel form submit if validation fails
-    //if (!formvalid) {
-    //    if (event.preventDefault) event.preventDefault();
-    //}
+    if (!formvalid) {
+        if (event.preventDefault) event.preventDefault();
+    }
 
-    return true;//formvalid;
+    return formvalid;
 }
 
 /**************************************************************************************************
@@ -139,7 +152,7 @@ function bindValidators(field, isDropDown) {
     var preEventFunction = "";
     if (isDropDown) {
         // Here the pre event function will readd the selected class to the active li element, materialize removes it for some reason
-        preEventFunction = handleMaterializeSelectFeatureForBlurEvent;
+        preEventFunction = handleMaterializeSelectFeature;
     }
 
     // Bind blur for when the user leave the input    
@@ -191,7 +204,7 @@ function getAdditionalFields(field) {
  * will ensure that if the selected item is the option label that the input will be correctly 
  * set to invalid.
  *************************************************************************************************/
-var handleMaterializeSelectFeatureForBlurEvent = function (field, additionalFields) {
+var handleMaterializeSelectFeature = function (field, additionalFields) {
     
     var ul = $(field).next();
     var initialSelection = $(ul).find("li:first").text();
