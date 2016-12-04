@@ -8,29 +8,18 @@ function initializeAboutUs() {
     initializeMaterializeParallax();   
 }
 
-// This is how to ensure 1 function will run after another in javascript, due to it's bs
-//    function doFirst(myCallback) {
-//        console.log("first");
-//        console.log("second")
-//        mycallback();
-//    };
+/**************************************************************************************************
+ * Initialize the materialize parallax functionality
+ *************************************************************************************************/
+function initializeMaterializeParallax() {
+    $('.parallax').parallax();
+}
 
-//    function doLast() {
-
-//        console.log("third")
-
-//    }
-
-//    doFirst(doLast);
-
-// This is called an iffi function and it will run first
-//(function () {
-// Your code
-//}());
-///**************************************************************************************************
-// * For now this function has to be on the page or the map will not work
-// *
-// *************************************************************************************************/
+/**************************************************************************************************
+ * Initialize the google map api, and set the marker.
+ *
+ * For now this function has to be on the page or the map will not work
+ *************************************************************************************************/
 //function initMap() {
 
 //    var uluru = { lat: 53.9807771, lng: -9.113247 };
@@ -43,13 +32,3 @@ function initializeAboutUs() {
 //        map: map
 //    });
 //}
-
-/**************************************************************************************************
- *
- *
- *************************************************************************************************/
-function initializeMaterializeParallax() {
-    $(document).ready(function () {
-        $('.parallax').parallax();
-    });
-}

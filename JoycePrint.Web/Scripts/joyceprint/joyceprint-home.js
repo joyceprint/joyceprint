@@ -9,15 +9,10 @@ function initializeHomeFunctionality() {
 }
 
 /**************************************************************************************************
- *
+ * Initialize the carousel for the home page
  *
  *************************************************************************************************/
 function initializeMaterializeCarousel() {
+    // Carousel init
     $('.carousel.carousel-slider').carousel({ full_width: true });
-
-    //// Carousel init
-    //$('.carousel').carousel();
-    //// Slider init
-    //$('.carousel-slider').slider({ full_width: true });
-    ////$('.carousel.carousel-slider').carousel({ full_width: true });
 }

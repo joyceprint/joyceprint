@@ -13,18 +13,16 @@ function initializeQuote() {
     handleMaterializeSelectJankyness();
 
     initializeDocketHelp();
-
-    // Calls the entry point for the validation script
-    initializeValidation();
 }
 
 /**************************************************************************************************
- *
+ * Initialize the materialize select functionality
  *************************************************************************************************/
 function initializeMaterializeSelect() {
-    // Select - Single
+    // Select - Single Initialize
     $('select:not([multiple])').material_select();
 
+    // Select - Multiple Initialize
     //$('select').material_select();
 }
 
@@ -38,7 +36,7 @@ function initializeExtendHtml5ResetEvent() {
     // Remove the touched, invalid and valid classes
     $("button[type='reset']").on("click", function () {
         var autoFocusField = null;
-        
+
         $(".touched").each(function () {
             var field = this;
 
@@ -49,13 +47,14 @@ function initializeExtendHtml5ResetEvent() {
             if ($(field).hasClass("valid")) $(field).removeClass("valid");
             if ($(icon).hasClass("valid")) $(icon).removeClass("valid");
             if ($(label).hasClass("valid")) $(label).removeClass("valid");
-            
+
             if ($(field).hasClass("invalid")) $(field).removeClass("invalid");
             if ($(icon).hasClass("invalid")) $(icon).removeClass("invalid");
-            if ($(label).hasClass("invalid")) $(label).removeClass("invalid");            
+            if ($(label).hasClass("invalid")) $(label).removeClass("invalid");
 
             if ($(field).hasClass("validate")) {
                 if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA" || field.nodeName === "SELECT") {
+                    if ($(field).hasClass("select-dropdown")) resetMaterializeSelectToInitialValue(field); 
                     switchToRequiredDisplay(field);
                 }
             }
@@ -74,8 +73,11 @@ function initializeExtendHtml5ResetEvent() {
 }
 
 /**************************************************************************************************
-* This needs to be put into a materialize work arounds file with all other functions like it
-* or they at least need to be in the same location in all of the files - depends on bundle findings
+ * This function transfers the select tag attributes to the ul and input that the materialize
+ * select will generate.
+ * 
+ * The onlclick event for li items has been setup to update the select tag with the chosen li data
+ * as well as updating the value of the input to the enum value
  *************************************************************************************************/
 function handleMaterializeSelectJankyness() {
 
@@ -93,13 +95,11 @@ function handleMaterializeSelectJankyness() {
 
         // For some browsers, `attr` is undefined; for others, `attr` is false.  Check for both.
         if (typeof attr !== typeof undefined && attr !== false) {
-            //$(select).removeAttr("required");
             $(input).attr("required", "required");
         }
 
         //
-        // Switch the validation class from the select to the materizlise input
-        //if ($(select).hasClass("validate")) $(select).removeClass("validate")
+        // Switch the validation class from the select to the materizlise input        
         if (!$(input).hasClass("validate")) $(input).addClass("validate")
 
         //
@@ -114,7 +114,6 @@ function handleMaterializeSelectJankyness() {
         if ($(select).data("help") !== "undefined") {
             var help = $(select).data("help");
 
-            //$(select).removeAttr("data-help");
             $(input).data("help", help);
         }
 
@@ -134,8 +133,11 @@ function handleMaterializeSelectJankyness() {
             }).attr('selected', true);
 
             // We need to get the option here and if the value is "" [blank] we dont set the input            
-            if ($(select).find("option:not([value])").text() !== ulSelectedItem)
-                $(input).attr("value", ulSelectedItem);
+            if ($(select).find("option:not([value])").text() !== ulSelectedItem) {
+                var selectedEnumValue = $(select).find("option:selected").val();
+                $(input).attr("value", selectedEnumValue); // Sets the input to the enum numeric value
+                //$(input).attr("value", ulSelectedItem); // Sets the input to the enum text value
+            }
 
             if ($(select).find("option:selected").val() === "") {
                 jalidate.setInvalidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
@@ -147,9 +149,12 @@ function handleMaterializeSelectJankyness() {
 }
 
 /**************************************************************************************************
+ * Initialize the help for the docket book.
  *
+ * This ensure that the help information is set to display when the user has focus on the correct
+ * input
  *************************************************************************************************/
-function initializeDocketHelp() {    
+function initializeDocketHelp() {
 
     $("#docket-book input").each(function () {
         if ($(this).data("help") !== undefined && $(this).data("help").length > 0) {

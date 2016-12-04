@@ -11,17 +11,17 @@ function initializeNavFunctionality() {
 }
 
 /**************************************************************************************************
- * Initialize the side navigation menu
- *
+ * Initialize the side navigation menu for use on small screens and mobiles
  *************************************************************************************************/
 function initializeMobileMenu() {
     $(".button-collapse").sideNav();
 }
 
 /**************************************************************************************************
- * Toggle the navigation menu so the active page reflects the page the user is currently on
+ * Toggle the navigation menu so the active page menu link reflects the page the user is currently 
+ * on. This is done by changing the text color.
+ * 
  * This will also handle the side navigiation menu
- *
  *************************************************************************************************/
 function toggleNavigationMenu() {
 

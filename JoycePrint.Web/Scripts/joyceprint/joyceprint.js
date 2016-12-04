@@ -1,4 +1,10 @@
-﻿$(document).ready(function () {
+﻿/**************************************************************************************************
+ * Document Ready 
+ *
+ * Runs the initialization function for the different javascript files based on the page
+ * that has been loaded
+ *************************************************************************************************/
+$(document).ready(function () {
     
     initializeNavFunctionality();
 
@@ -8,6 +14,8 @@
 
     if ($("#quote").length > 0) {
         initializeQuote();
+        
+        initializeValidation("frm-quote");
     }
 
     if ($("#aboutus").length > 0) {

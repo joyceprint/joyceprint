@@ -1,16 +1,19 @@
 ﻿/**************************************************************************************************
  * Validation
  *
+ * Call this function to initialize the javascript required for validation
  *************************************************************************************************/
-function initializeValidation() {
+function initializeValidation(formId) {
 
-    initializeFormValidation();
+    initializeFormValidation(formId);
 
     handleCssHtmlRestriction();
 }
 
 /**************************************************************************************************
-*
+ * Validate the form and prevent the submission to the server if it's invalid
+ *
+ * TODO: This function is not complete
  *************************************************************************************************/
 function validateForm(event) {
 
@@ -84,11 +87,13 @@ function validateForm(event) {
 }
 
 /**************************************************************************************************
-*
+ * Initialize the validation for the form
+ *
+ * This uses the onsubmit for better compatiblity with browsers
  *************************************************************************************************/
-function initializeFormValidation() {
+function initializeFormValidation(formId) {
 
-    var form = document.getElementById("frm-quote");
+    var form = document.getElementById(formId);
 
     // Turn or native validation for compatibilty
     form.noValidate = true;
@@ -121,7 +126,11 @@ function initializeFormValidation() {
 }
 
 /**************************************************************************************************
-*
+ * Bind the validation events to the field
+ *
+ * A pre event function can be passed into the bindValidator function. 
+ * This pre event function will run before the validation event is run. 
+ * This helps with the materialize select control
  *************************************************************************************************/
 function bindValidators(field, isDropDown) {
 
@@ -145,7 +154,9 @@ function bindValidators(field, isDropDown) {
 }
 
 /**************************************************************************************************
- * Gets the icon and label for the input group
+ * Get the additional fields the input uses to display notifications to the user
+ * 
+ * Gets the icon and label for the input group based on the field passed in
  *************************************************************************************************/
 function getAdditionalFields(field) {
     var icon = null;
@@ -159,10 +170,7 @@ function getAdditionalFields(field) {
         // Handle the materialize drop downs
         if ($(field).hasClass("select-dropdown")) {
             icon = $(field).closest("div").prev();
-            label = $(field).closest("div").next();
-
-            // Why are we doing this?
-            clearMaterializeSelections(field);
+            label = $(field).closest("div").next();                       
         } else {
             icon = $(field).prev();
             label = $(field).next();
@@ -173,9 +181,15 @@ function getAdditionalFields(field) {
 }
 
 /**************************************************************************************************
- * Global variable to hold the function that will fix the materialize select valiadation
- * issue.
- * This will be called in the jalidate.js script
+ * Global variable to hold the function that will fix the materialize select valiadation issue.
+ *
+ * This will be called in the jalidate.js script by the bindValidator function
+ *
+ * The select needs to be validated in this way, due to the way materialize works
+ * When an item is selected, it will be set on the input control, as the validation is being
+ * performed on the input, if the input has a value it will be set to a valid state, this function
+ * will ensure that if the selected item is the option label that the input will be correctly 
+ * set to invalid.
  *************************************************************************************************/
 var handleMaterializeSelectFeatureForBlurEvent = function (field, additionalFields) {
     
@@ -190,12 +204,15 @@ var handleMaterializeSelectFeatureForBlurEvent = function (field, additionalFiel
         jalidate.setValidDisplay(field, additionalFields, ["valid", "invalid"]);
     }
 
-    // This instructs the jalidate function to not run it's validation as we've done it here
+    // This instructs the jalidate function to not run it's validation, as we've done it here
     return false;
 }
 
 /**************************************************************************************************
+ * Set the field and it's additional elements used to display notifications to the user
+ * to their initial required display
  *
+ * This is used when clearing the form
  *************************************************************************************************/
 function switchToRequiredDisplay(field) {
     
@@ -205,9 +222,11 @@ function switchToRequiredDisplay(field) {
 }
 
 /**************************************************************************************************
+ * Resets the materialize select control to it's initial value
  *
+ * To accomplish this the input, ul and select elements need to be reset
  *************************************************************************************************/
-function clearMaterializeSelections(field) {
+function resetMaterializeSelectToInitialValue(field) {
     var ul = $(field).next("ul");
     $(ul).find("li.active.selected").removeClass("active selected");
     $(ul).find("li:first").addClass("active selected");
@@ -233,22 +252,4 @@ function handleCssHtmlRestriction() {
         if ($(this).hasClass("touched")) return;
         $(this).addClass('touched');
     });
-}
-
-/**************************************************************************************************
-* jQuery Regular Expression Filter - 3rd Party
-*
-* http://james.padolsey.com/javascript/regex-selector-for-jquery/
- *************************************************************************************************/
-jQuery.expr[':'].regex = function (elem, index, match) {
-    var matchParams = match[3].split(','),
-        validLabels = /^(data|css):/,
-        attr = {
-            method: matchParams[0].match(validLabels) ?
-                        matchParams[0].split(':')[0] : 'attr',
-            property: matchParams.shift().replace(validLabels, '')
-        },
-        regexFlags = 'ig',
-        regex = new RegExp(matchParams.join('').replace(/^\s+|\s+$/g, ''), regexFlags);
-    return regex.test(jQuery(elem)[attr.method](attr.property));
 }
