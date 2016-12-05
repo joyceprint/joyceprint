@@ -14,8 +14,8 @@ $(document).ready(function () {
 
     if ($("#quote").length > 0) {
         initializeQuote();
-        
-        initializeValidation("frm-quote");
+
+        jalidate.initializeValidation("frm-quote");
     }
 
     if ($("#aboutus").length > 0) {
