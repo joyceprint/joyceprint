@@ -171,14 +171,14 @@
      * We don't change the color of the input label / text to orange as it would reduce 
      * readability
      *******************************************************************************************/
-    jalidate.setRequiredDisplay = function (field, additionalFields, validationEvents) {
+    jalidate.setRequiredDisplay = function (field, additionalFields, validationEvents, ignoreTouched) {
         try {
 
             jalidate.icon = additionalFields[0];
             jalidate.input = field;
 
             if (!runEvent(validationEvents, jalidate.validEvent)) return;
-            if (!hasClass(jalidate.touchedCss, jalidate.input)) return;
+            if (!ignoreTouched && !hasClass(jalidate.touchedCss, jalidate.input)) return;
 
             switchValidationMessage(true);
 
@@ -370,11 +370,9 @@
      *
      * This is used when clearing the form
      *******************************************************************************************/
-    function switchToRequiredDisplay(field) {
+    function switchToRequiredDisplay(field, additionalFields, ignoreTouched) {
 
-        var additionalFields = getAdditionalFields(field);
-
-        jalidate.setRequiredDisplay($(field)[0], additionalFields, ["valid", "invalid"]);
+        jalidate.setRequiredDisplay($(field)[0], additionalFields, ["valid", "invalid"], ignoreTouched);
     }
 
     /********************************************************************************************
@@ -418,7 +416,6 @@
      * If a button element exists on the page with a type of reset, this function will handle the 
      * materialize select and refocus on the element with the autofocus field
      *
-     * TODO: clear the materialize select functions
      *******************************************************************************************/
     function initializeExtendHtml5ResetEvent() {
 
@@ -430,38 +427,42 @@
             $("button[type='reset']").on("click", function () {
                 var autoFocusField = null;
 
-                $(".touched").each(function () {
+                $(".validate:not(.initialized)").each(function () {
                     var field = this;
+                    var ignoreTouched = true;
 
-                    var additionalFields = getAdditionalFields(field);
-                    var icon = additionalFields[0];
-                    var label = additionalFields[1];
+                    var requiredAttr = $(field).attr("required");
 
-                    if ($(field).hasClass("valid")) $(field).removeClass("valid");
-                    if ($(icon).hasClass("valid")) $(icon).removeClass("valid");
-                    if ($(label).hasClass("valid")) $(label).removeClass("valid");
+                    // For some browsers, `requiredAttr` is undefined; for others, `requiredAttr` is false.  Check for both.
+                    if (typeof requiredAttr !== typeof undefined && requiredAttr !== false && requiredAttr == "required") {
 
-                    if ($(field).hasClass("invalid")) $(field).removeClass("invalid");
-                    if ($(icon).hasClass("invalid")) $(icon).removeClass("invalid");
-                    if ($(label).hasClass("invalid")) $(label).removeClass("invalid");
+                        var additionalFields = getAdditionalFields(field);
+                        var icon = additionalFields[0];
+                        var label = additionalFields[1];
 
-                    if ($(field).hasClass("validate")) {
-                        if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA" || field.nodeName === "SELECT") {
-                            if ($(field).hasClass("select-dropdown")) resetMaterializeSelectToInitialValue(field);
-                            switchToRequiredDisplay(field);
+                        if ($(field).hasClass("valid")) $(field).removeClass("valid");
+                        if ($(field).hasClass("invalid")) $(field).removeClass("invalid");
+
+                        if ($(field).hasClass("validate")) {
+                            if (field.nodeName === "INPUT" || field.nodeName === "TEXTAREA" || field.nodeName === "SELECT") {
+                                if ($(field).hasClass("select-dropdown")) resetMaterializeSelectToInitialValue(field);
+                                switchToRequiredDisplay(field, additionalFields, ignoreTouched);
+                            }
                         }
+
+                        $(field).removeClass("touched");
+
+                        var autoFocusAttr = $(field).attr("autofocus");
+
+                        // For some browsers, `autoFocusAttr` is undefined; for others, `autoFocusAttr` is false.  Check for both.
+                        if (typeof autoFocusAttr !== typeof undefined && autoFocusAttr !== false) {
+                            autoFocusAttr.length > 0;
+                            autoFocusField = field;
+                        }                        
                     }
-
-                    $(field).removeClass("touched");
-
-                    //// TODO: Fix this - exception being thrown
-                    //if ($(field).attr("autofocus").length > 0) {
-                    //    autoFocusField = field;
-                    //}
                 });
 
-                //$(autoFocusField).focus();
-                $("#Contact_Company").focus();
+                $(autoFocusField).focus();                
             });
         }
     }
@@ -529,7 +530,7 @@
 
             // If this is a drop down we need to perform special logic for the materialize select        
             if (field.className.contains("select-dropdown")) {
-                runDefault = handleMaterializeSelectFeature(field, additionalFields);
+                runDefault = handleMaterializeSelectFeature(field, additionalFields, ignoreTouchedClass);
             }
 
             if (runDefault) {
@@ -548,6 +549,8 @@
         // Cancel form submit if validation fails
         if (!formvalid) {
             if (event.preventDefault) event.preventDefault();
+
+            Materialize.toast("Validation errors occurred. Please confirm the fields and submit it again.", 4000);
         }
 
         return formvalid;
@@ -644,7 +647,7 @@
      * will ensure that if the selected item is the option label that the input will be correctly 
      * set to invalid.
      *******************************************************************************************/
-    var handleMaterializeSelectFeature = function (field, additionalFields) {
+    var handleMaterializeSelectFeature = function (field, additionalFields, ignoreTouchedClass) {
 
         var ul = $(field).next();
         var initialSelection = $(ul).find("li:first").text();
@@ -652,9 +655,9 @@
         $(ul).find("li.active").addClass("selected");
 
         if ($(field).val() === initialSelection) {
-            jalidate.setInvalidDisplay(field, additionalFields, ["valid", "invalid"]);
+            jalidate.setInvalidDisplay(field, additionalFields, ["valid", "invalid"], ignoreTouchedClass);
         } else {
-            jalidate.setValidDisplay(field, additionalFields, ["valid", "invalid"]);
+            jalidate.setValidDisplay(field, additionalFields, ["valid", "invalid"], ignoreTouchedClass);
         }
 
         // This instructs the jalidate function to not run it's validation, as we've done it here
