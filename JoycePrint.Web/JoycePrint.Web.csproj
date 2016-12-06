@@ -165,6 +165,7 @@
     <Content Include="Scripts\joyceprint\joyceprint-home.js" />
     <Content Include="Scripts\joyceprint\joyceprint-nav.js" />
     <Content Include="Scripts\joyceprint\jalidate.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-recaptcha.js" />
     <Content Include="Scripts\joyceprint\joyceprint.js" />
     <Content Include="Content\fonts\roboto\Roboto-Bold.eot" />
     <Content Include="Content\fonts\roboto\Roboto-Bold.ttf" />
@@ -186,6 +187,8 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Extensions\ComposableBundle.cs" />
     <None Include="Properties\PublishProfiles\JoycePrint Materialize.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
@@ -251,7 +254,9 @@
       <Name>JoycePrint.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

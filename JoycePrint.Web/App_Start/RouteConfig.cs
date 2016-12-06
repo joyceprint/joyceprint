@@ -11,12 +11,15 @@ namespace JoycePrint.UI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}",
-                defaults: new { controller = "Home", action = "Index" },
-                namespaces: JoycePrintNamespace
-            );
+            // Enabling attribute routing
+            routes.MapMvcAttributeRoutes();
+
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}",
+            //    defaults: new { controller = "Home", action = "Index" },
+            //    namespaces: JoycePrintNamespace
+            //);
 
             // This is the catch all route
             routes.MapRoute(

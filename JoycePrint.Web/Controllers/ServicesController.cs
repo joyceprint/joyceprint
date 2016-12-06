@@ -2,7 +2,7 @@
 
 namespace JoycePrint.UI.Controllers
 {
-    [Route("/")]
+    [Route("services")]
     public class ServicesController : Controller
     {
         [HttpGet]

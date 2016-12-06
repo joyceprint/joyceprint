@@ -95,6 +95,7 @@ namespace JoycePrint.UI
                 case PageBundle.Quote:
                     additionalScript.Add("~/Scripts/joyceprint/jalidate.js");              
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
                     break;
                 case PageBundle.AboutUs:
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-aboutus.js");

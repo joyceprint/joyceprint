@@ -1,4 +1,5 @@
-﻿/**************************************************************************************************
+﻿"use strict";
+/**************************************************************************************************
  * Navigation Menu Javascript Functionality
  *
  * Call this function to initialize the javascript required for the navigation menu

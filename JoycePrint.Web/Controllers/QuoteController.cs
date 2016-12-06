@@ -4,7 +4,7 @@ using JoycePrint.Domain.Models;
 
 namespace JoycePrint.UI.Controllers
 {
-    [Route("/")]
+    [Route("quote")]
     public class QuoteController : Controller
     {
         [HttpGet]
