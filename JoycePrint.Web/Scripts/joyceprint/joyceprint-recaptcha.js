@@ -30,12 +30,16 @@ function handleCaptcha(captchaResponse) {
         dataType: "json"
     })
         .done(function (data, textStatus, jqXHR) {
-            if (data && data.success) {
-                // Allow the onsubmit function
+            if (data) {
+                var jsonData = JSON.parse(data);
+
+                if (jsonData && jsonData.success) {
+                    jalidate.captchaResponse = jsonData;
+                }
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
-            // Cancel the onsubmit function
+
         });
 }
 

@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using System.Net;
+using System.Web.Mvc;
+
 using JoycePrint.Domain.Config;
 
 namespace JoycePrint.Domain.Security
@@ -16,24 +18,25 @@ namespace JoycePrint.Domain.Security
             SecretKey = config.RecaptchaSecretKey;
         }
 
+        [HttpGet]
         public string Verify(string captchaResponse)
         {
             var queryString = $"?secret={SecretKey}&response={captchaResponse}";
 
-            var req = (HttpWebRequest)WebRequest.Create(Url + queryString);
+            var req = (HttpWebRequest) WebRequest.Create(Url + queryString);
 
             req.Method = "POST";
             req.ContentLength = 0;
             req.Expect = "application/json";
 
-            var res = (HttpWebResponse)req.GetResponse();
+            var res = (HttpWebResponse) req.GetResponse();
             string result;
 
             using (var streamReader = new StreamReader(res.GetResponseStream()))
             {
                 result = streamReader.ReadToEnd();
             }
-
+            
             return result;
         }
     }

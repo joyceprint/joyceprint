@@ -27,6 +27,9 @@
      * PUBLIC PROPERTIES ************************************************************************
      *******************************************************************************************/
 
+    // The response from the captcha
+    jalidate.captchaResponse = "";
+
     // The valid event name
     jalidate.validEvent = "valid";
 
@@ -94,7 +97,7 @@
 
             // Ignore buttons, fieldsets, etc.
             if (field.nodeName !== "INPUT" && field.nodeName !== "TEXTAREA" && field.nodeName !== "SELECT") continue;
-            
+
             // If this is a drop down we need to perform special logic for the materialize select
             var isDropDown = false;
             var preEvent = "";
@@ -263,7 +266,7 @@
     /********************************************************************************************
      * PRIVATE METHODS **************************************************************************
      *******************************************************************************************/
-  
+
     /********************************************************************************************
      * Check if the class is present and if not, add it
      *******************************************************************************************/
@@ -316,7 +319,7 @@
     function getAdditionalFields(field) {
         var icon = null;
         var label = null;
-        
+
         // If we get the select tag that has been initialized by materialize we have all ready accounted for it's input tag
         if (field.className.contains("initialized")) return;
 
@@ -458,19 +461,38 @@
                         if (typeof autoFocusAttr !== typeof undefined && autoFocusAttr !== false) {
                             autoFocusAttr.length > 0;
                             autoFocusField = field;
-                        }                        
+                        }
                     }
                 });
 
-                $(autoFocusField).focus();                
+                $(autoFocusField).focus();
             });
         }
     }
 
     /********************************************************************************************
-     * Validate the form and prevent the submission to the server if it's invalid
+     * Check the recaptcha
      *
-     * TODO: This function is not complete
+     * Since the user may have already performed the recaptcha before clicking the submit
+     * button, we check the stored recatpcha response
+     *******************************************************************************************/
+    function checkRecaptcha() {
+        if (jalidate.captchaResponse && jalidate.captchaResponse.success) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /********************************************************************************************
+     * Display a toast holding the error message if the recaptcha fails
+     *******************************************************************************************/
+    function displayRecaptchaError() {
+        Materialize.toast("Please complete the recaptcha", 4000);
+    }
+
+    /********************************************************************************************
+     * Validate the form and prevent the submission to the server if it's invalid         
      *******************************************************************************************/
     function validateForm(event) {
 
@@ -551,6 +573,11 @@
             if (event.preventDefault) event.preventDefault();
 
             Materialize.toast("Validation errors occurred. Please confirm the fields and submit it again.", 4000);
+        } else if (!checkRecaptcha()) {
+            // Form is invalid, recaptcha check not completed
+            formvalid = false;
+
+            displayRecaptchaError();
         }
 
         return formvalid;
@@ -559,7 +586,7 @@
     /********************************************************************************************
     * MATERIALIZE METHODS ***********************************************************************
     *******************************************************************************************/
-    
+
     /********************************************************************************************
      * This function transfers the select tag attributes to the ul and input that the materialize
      * select will generate.
