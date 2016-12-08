@@ -474,14 +474,35 @@
      * Check the recaptcha
      *
      * Since the user may have already performed the recaptcha before clicking the submit
-     * button, we check the stored recatpcha response
+     * button, we check the stored recatpcha response by sending it to our security controller
      *******************************************************************************************/
     function checkRecaptcha() {
-        if (jalidate.captchaResponse && jalidate.captchaResponse.success) {
-            return true;
-        }
 
-        return false;
+        var validRecaptcha = false;
+
+        $.ajax({
+            url: "/security/recaptcha",
+            method: "POST",
+            cache: false,
+            data: {
+                "captchaResponse": jalidate.captchaResponse
+            },
+            dataType: "json",
+            async: false
+        })
+            .done(function (data, textStatus, jqXHR) {
+                if (data) {
+                    var jsonData = JSON.parse(data);
+
+                    if (jsonData && jsonData.success) {
+                        validRecaptcha = true;
+                    }                    
+                }
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {                
+            });
+
+        return validRecaptcha;
     }
 
     /********************************************************************************************
@@ -574,6 +595,7 @@
 
             Materialize.toast("Validation errors occurred. Please confirm the fields and submit it again.", 4000);
         } else if (!checkRecaptcha()) {
+
             // Form is invalid, recaptcha check not completed
             formvalid = false;
 

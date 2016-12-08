@@ -19,28 +19,7 @@
  * 
  *************************************************************************************************/
 function handleCaptcha(captchaResponse) {
-
-    $.ajax({
-        url: "/security/recaptcha",
-        method: "POST",
-        cache: false,
-        data: {
-            "captchaResponse": captchaResponse
-        },
-        dataType: "json"
-    })
-        .done(function (data, textStatus, jqXHR) {
-            if (data) {
-                var jsonData = JSON.parse(data);
-
-                if (jsonData && jsonData.success) {
-                    jalidate.captchaResponse = jsonData;
-                }
-            }
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-
-        });
+    jalidate.captchaResponse = captchaResponse;   
 }
 
 /**************************************************************************************************
