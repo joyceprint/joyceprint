@@ -20,8 +20,7 @@ namespace Analytics
             Analyzers = new AnalyzerProvider[analyzers.Count];
             analyzers.CopyTo(Analyzers, 0);
 
-            var section =
-                (AnalysisEngineConfigurationSection) ConfigurationManager.GetSection(Config.EngineConfigSectionName);
+            var section = (AnalysisEngineConfigurationSection) ConfigurationManager.GetSection(Config.EngineConfigSectionName);
 
             Enabled = null == section ? false : section.Enabled;
         }

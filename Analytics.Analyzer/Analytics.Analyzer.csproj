@@ -51,6 +51,9 @@
       <Name>Analytics</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="JoycePrint-a2bed6e24c0f.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -9,9 +9,9 @@ namespace Analytics.Analyzer
 {
     public class Analyzer : AnalyzerProvider
     {
-        private int Version = 1;
-
-        private string TrackingId = "";
+        private string Version = "1";
+        
+        private string TrackingId = "UA-88639794-1";
 
         private int Timeout = 500;
 
@@ -24,11 +24,17 @@ namespace Analytics.Analyzer
             if (config["version"] == null)
                 throw new Exception($"Error reading version configuration setting. Default of {Version} will be used on the web site {ApplicationName}");
 
+            Version = config["version"];
+
             if (config["trackingId"] == null)
                 throw new Exception($"Error reading trackingId configuration setting. Default of {TrackingId} will be used on the web site {ApplicationName}");
 
+            TrackingId = config["trackingId"];
+
             if (config["timeout"] == null)
                 throw new Exception($"Error reading timeout configuration setting. Default of {Timeout} will be used on the web site {ApplicationName}");
+
+            Timeout = int.Parse(config["timeout"]);
         }
 
         public override void Analyze(HttpContext context)
@@ -54,7 +60,8 @@ namespace Analytics.Analyzer
             var data = Encoding.ASCII.GetBytes($"v={Version}" +
                                                $"&tid={TrackingId}" +
                                                $"&cid={(context.Request.UserHostAddress.IsNullOrEmpty() ? "unknown" : context.Request.UserHostAddress)}" +
-                                               $"&t=pageview&dp%2F {page.Trim()}");
+                                               $"&t=pageview" +
+                                               $"&dp%2F {page.Trim()}");
 
             req.ContentLength = data.Length;
             req.Timeout = Timeout;
