@@ -9,7 +9,7 @@ namespace Analytics.Analyzer
     {        
         private readonly ConfigurationProperty _enabled = new ConfigurationProperty("enabled", typeof(bool), false);
 
-        private readonly ConfigurationProperty _analysers = new ConfigurationProperty("analyzers",
+        private readonly ConfigurationProperty _analyzers = new ConfigurationProperty("analyzers",
             typeof(ProviderSettingsCollection), null);        
 
         private ConfigurationPropertyCollection _properties = new ConfigurationPropertyCollection();
@@ -24,7 +24,7 @@ namespace Analytics.Analyzer
         [ConfigurationProperty("analyzers", IsRequired = true)]
         public ProviderSettingsCollection Providers
         {
-            get { return (ProviderSettingsCollection)base[_analysers]; }
+            get { return (ProviderSettingsCollection)base[_analyzers]; }
         }
 
         protected override ConfigurationPropertyCollection Properties
@@ -35,7 +35,7 @@ namespace Analytics.Analyzer
         public AnalysisEngineConfigurationSection()
         {
             _properties.Add(_enabled);
-            _properties.Add(_analysers);
+            _properties.Add(_analyzers);
         }
     }
 }
