@@ -10,7 +10,7 @@ namespace Analytics.Analyzer
     public class Analyzer : AnalyzerProvider
     {
         private string Version = "1";
-        
+
         private string TrackingId = "UA-88639794-1";
 
         private int Timeout = 500;
@@ -41,7 +41,7 @@ namespace Analytics.Analyzer
         {
             if (!Enabled || TrackingId.IsNullOrEmpty()) return;
 
-            var req = (HttpWebRequest) WebRequest.Create("http:www.google-analytics.com.collect");
+            var req = (HttpWebRequest)WebRequest.Create("http://www.google-analytics.com/debug/collect");
 
             var page = context.Request.Url.AbsoluteUri;
             string soapAction;
@@ -68,7 +68,7 @@ namespace Analytics.Analyzer
 
             using (var stream = req.GetRequestStream())
             {
-                stream.Write(data, 0 , data.Length);
+                stream.Write(data, 0, data.Length);
             }
         }
     }
