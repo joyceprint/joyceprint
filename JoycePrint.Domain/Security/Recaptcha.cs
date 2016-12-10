@@ -2,7 +2,7 @@
 using System.Net;
 using System.Web.Mvc;
 
-using JoycePrint.Domain.Config;
+using JoycePrint.Domain.Configuration;
 
 namespace JoycePrint.Domain.Security
 {

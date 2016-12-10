@@ -1,11 +1,11 @@
-﻿namespace JoycePrint.Domain.Config
+﻿namespace JoycePrint.Domain.Configuration
 {
     public interface IConfig
     {        
-        string RecaptchaUrl { get; set; }
+        string RecaptchaUrl { get;  }
         
-        string RecaptchaSecretKey { get; set; }
+        string RecaptchaSecretKey { get; }
 
-        string RecaptchaPublicKey { get; set; }
+        string RecaptchaPublicKey { get; }
     }
 }

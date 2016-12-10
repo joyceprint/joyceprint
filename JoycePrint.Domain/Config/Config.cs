@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JoycePrint.Domain.Config
+namespace JoycePrint.Domain.Configuration
 {
     public class Config : IConfig
     {
@@ -9,12 +9,7 @@ namespace JoycePrint.Domain.Config
             get
             {
                 return "https://www.google.com/recaptcha/api/siteverify";
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            }            
         }
 
         public string RecaptchaSecretKey
@@ -23,11 +18,6 @@ namespace JoycePrint.Domain.Config
             {
                 return "6LcC2Q0UAAAAALvPAkBtQT2a5AE8DUCotVfQu04t";
             }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
         }
 
         public string RecaptchaPublicKey
@@ -35,12 +25,7 @@ namespace JoycePrint.Domain.Config
             get
             {
                 return "6LcC2Q0UAAAAADtadrrG_FTRs82tvd2J1fOwK-KW";
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            }           
         }
     }
 }
