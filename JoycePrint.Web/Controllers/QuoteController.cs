@@ -16,9 +16,8 @@ namespace JoycePrint.UI.Controllers
 
         [HttpPost]
         public ActionResult Index(QuoteRequest model)
-        {
-            // TODO: ::BUG:: Enums not getting passed back
-            //model.SendEmail();
+        {            
+            model.SendEmail();
 
             // Here I want to return a partial view that can be used as a modal              
             return View("Index");

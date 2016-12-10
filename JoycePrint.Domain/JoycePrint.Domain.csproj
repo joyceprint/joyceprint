@@ -76,7 +76,9 @@
   <ItemGroup>
     <Compile Include="Config\Config.cs" />
     <Compile Include="Config\IConfig.cs" />
-    <Compile Include="Email.cs" />
+    <Compile Include="Email\IEmailConverter.cs" />
+    <Compile Include="Email\IEmail.cs" />
+    <Compile Include="Email\Email.cs" />
     <Compile Include="Enums\DocketBookSize.cs" />
     <Compile Include="Enums\DocketBookType.cs" />
     <Compile Include="Models\Contact.cs" />
