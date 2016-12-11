@@ -10,13 +10,6 @@ namespace JoycePrint.Web.Tests.Tests
     {
         #region Base Properties & Functions
 
-        /// <summary>
-        /// Test constructor        
-        /// </summary>
-        public HomePageTest()
-        {            
-        }
-
         protected override void RunTest(IWebDriver driver)
         {
             HomePom = new HomePom(driver);           

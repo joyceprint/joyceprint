@@ -140,10 +140,7 @@ namespace JoycePrint.Web.Tests
         /// </summary>
         public void WaitForPopup()
         {
-            Wait1Sec.Until<bool>((d) =>
-            {
-                return (d.WindowHandles.Count == 2);
-            });
+            Wait1Sec.Until((d) => (d.WindowHandles.Count == 2));
         }
 
         /// <summary>
