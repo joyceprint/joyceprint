@@ -1,9 +1,11 @@
 ﻿using System.Configuration;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Web;
 using System.Web.Hosting;
 using Analytics.Analyzer;
 
+// ReSharper disable CoVariantArrayConversion
 namespace Analytics
 {
     public class AnalysisEngine
@@ -12,6 +14,10 @@ namespace Analytics
 
         private AnalyzerProvider[] Analyzers { get; set; }
 
+        /// <summary>
+        /// The application name that will be used when logging
+        /// </summary>
+        [SuppressMessage("ReSharper", "UnusedMember.Local")]
         private static string _applicationName = HostingEnvironment.SiteName;
 
         public AnalysisEngine()
@@ -22,7 +28,7 @@ namespace Analytics
 
             var section = (AnalysisEngineConfigurationSection) ConfigurationManager.GetSection(Config.EngineConfigSectionName);
 
-            Enabled = null == section ? false : section.Enabled;
+            Enabled = null != section && section.Enabled;
         }
 
         public void CaptureAnalysis(HttpContext context)

@@ -12,7 +12,7 @@ namespace Analytics.Analyzer
         private readonly ConfigurationProperty _analyzers = new ConfigurationProperty("analyzers",
             typeof(ProviderSettingsCollection), null);        
 
-        private ConfigurationPropertyCollection _properties = new ConfigurationPropertyCollection();
+        private readonly ConfigurationPropertyCollection _properties = new ConfigurationPropertyCollection();
 
         [ConfigurationProperty("enabled", IsRequired = true)]
         public bool Enabled

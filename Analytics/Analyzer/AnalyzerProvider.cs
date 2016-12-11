@@ -11,7 +11,7 @@ namespace Analytics.Analyzer
         /// </summary>
         private bool _enabled;
 
-        public bool Enabled
+        protected bool Enabled
         {
             get { return _enabled; }
         }

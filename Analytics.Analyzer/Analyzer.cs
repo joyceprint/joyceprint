@@ -9,39 +9,41 @@ namespace Analytics.Analyzer
 {
     public class Analyzer : AnalyzerProvider
     {
-        private string Version = "1";
+        private string _version = "1";
 
-        private string TrackingId = "UA-88639794-1";
+        private string _trackingId = "UA-88639794-1";
 
-        private int Timeout = 500;
+        private int _timeout = 500;
 
-        private static string ApplicationName = HostingEnvironment.SiteName;
+        private static readonly string ApplicationName = HostingEnvironment.SiteName;
+
+        private const string Url = "http://www.google-analytics.com/debug/collect";
 
         public override void Initialize(string name, NameValueCollection config)
         {
             base.Initialize(name, config);
 
             if (config["version"] == null)
-                throw new Exception($"Error reading version configuration setting. Default of {Version} will be used on the web site {ApplicationName}");
+                throw new Exception($"Error reading version configuration setting. Default of {_version} will be used on the web site {ApplicationName}");
 
-            Version = config["version"];
+            _version = config["version"];
 
             if (config["trackingId"] == null)
-                throw new Exception($"Error reading trackingId configuration setting. Default of {TrackingId} will be used on the web site {ApplicationName}");
+                throw new Exception($"Error reading trackingId configuration setting. Default of {_trackingId} will be used on the web site {ApplicationName}");
 
-            TrackingId = config["trackingId"];
+            _trackingId = config["trackingId"];
 
             if (config["timeout"] == null)
-                throw new Exception($"Error reading timeout configuration setting. Default of {Timeout} will be used on the web site {ApplicationName}");
+                throw new Exception($"Error reading timeout configuration setting. Default of {_timeout} will be used on the web site {ApplicationName}");
 
-            Timeout = int.Parse(config["timeout"]);
+            _timeout = int.Parse(config["timeout"]);
         }
 
         public override void Analyze(HttpContext context)
         {
-            if (!Enabled || TrackingId.IsNullOrEmpty()) return;
+            if (!Enabled || _trackingId.IsNullOrEmpty()) return;
 
-            var req = (HttpWebRequest)WebRequest.Create("http://www.google-analytics.com/debug/collect");
+            var req = (HttpWebRequest)WebRequest.Create(Url);
 
             var page = context.Request.Url.AbsoluteUri;
             string soapAction;
@@ -57,14 +59,14 @@ namespace Analytics.Analyzer
             req.ContentType = "text/xml";
             req.KeepAlive = false;
 
-            var data = Encoding.ASCII.GetBytes($"v={Version}" +
-                                               $"&tid={TrackingId}" +
+            var data = Encoding.ASCII.GetBytes($"v={_version}" +
+                                               $"&tid={_trackingId}" +
                                                $"&cid={(context.Request.UserHostAddress.IsNullOrEmpty() ? "unknown" : context.Request.UserHostAddress)}" +
                                                $"&t=pageview" +
                                                $"&dp%2F {page.Trim()}");
 
             req.ContentLength = data.Length;
-            req.Timeout = Timeout;
+            req.Timeout = _timeout;
 
             using (var stream = req.GetRequestStream())
             {

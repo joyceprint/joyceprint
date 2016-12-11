@@ -6,7 +6,7 @@ namespace Analytics.Analyzer
 {
     public static class AnalyzerProviderFactory
     {
-        internal static readonly object MyLock = new object();
+        private static readonly object MyLock = new object();
 
         private static bool _isInitialized;
 
