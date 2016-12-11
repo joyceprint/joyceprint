@@ -17,7 +17,7 @@ namespace Analytics.Analyzer
 
         private static readonly string ApplicationName = HostingEnvironment.SiteName;
 
-        private const string Url = "http://www.google-analytics.com/debug/collect";
+        private const string Url = "http://www.google-analytics.com/collect";
 
         public override void Initialize(string name, NameValueCollection config)
         {
