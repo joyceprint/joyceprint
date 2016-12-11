@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace JoycePrint.UI
+namespace JoycePrint.Web
 {
-    public class RouteConfig
+    public static class RouteConfig
     {
         private static readonly string[] JoycePrintNamespace = { "JoycePrint.UI.Controller" };
 

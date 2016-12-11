@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace JoycePrint.UI.Controllers
+namespace JoycePrint.Web.Controllers
 {
     [Route("")]
     public class HomeController : Controller

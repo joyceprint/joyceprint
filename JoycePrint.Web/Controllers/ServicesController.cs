@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace JoycePrint.UI.Controllers
+namespace JoycePrint.Web.Controllers
 {
     [Route("services")]
     public class ServicesController : Controller

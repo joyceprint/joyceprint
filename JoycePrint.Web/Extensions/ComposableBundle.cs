@@ -1,30 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Web.Optimization;
-
-using JoycePrint.UI;
 
 namespace JoycePrint.Web.Extensions
 {
     public class ComposableBundle<T> where T : Bundle
     {
-        private T _bundle;
-        private List<string> _virtualPaths = new List<string>();
+        private readonly T _bundle;
+
+        [SuppressMessage("ReSharper", "ConvertToAutoPropertyWhenPossible")]
+        public T Bundle => _bundle;
+
+        private readonly List<string> _virtualPaths = new List<string>();
 
         public ComposableBundle(T bundle)
         {
             _bundle = bundle;
         }
 
-        public string[] VirtualPaths
-        {
-            get { return _virtualPaths.ToArray(); }
-        }
-
-        public T Bundle
-        {
-            get { return _bundle; }
-        }
+        private IEnumerable<string> VirtualPaths => _virtualPaths.ToArray();        
 
         public ComposableBundle<T> Include(params string[] virtualPaths)
         {
@@ -32,25 +27,24 @@ namespace JoycePrint.Web.Extensions
             _bundle.Include(virtualPaths);
             return this;
         }
-       
-        public ComposableBundle<T> UseBundle(ComposableBundle<T> bundle)
+               
+        public void UseBundle(ComposableBundle<T> bundle)
         {
+            // ReSharper disable once UseObjectOrCollectionInitializer
             var collection = new BundleCollection();
             collection.Add(_bundle);
 
             var resolver = new BundleResolver(collection);
-            List<string> content = resolver.GetBundleContents(_bundle.Path)?.ToList();
+            var content = resolver.GetBundleContents(_bundle.Path)?.ToList();
 
             RemoveScripts(content);
 
             foreach (var virtualPath in bundle.VirtualPaths)
             {
                 // Stop the script from being added twice
-                if (content.Contains(virtualPath)) continue;
+                if (content != null && content.Contains(virtualPath)) continue;
                 _bundle.Include(virtualPath);
             }
-
-            return this;
         }
 
         /// <summary>
@@ -64,14 +58,15 @@ namespace JoycePrint.Web.Extensions
         ///     ie the bundle is shared between all instances of the site - so changing one could screw someone else up?????????????
         /// </summary>
         /// <param name="content"></param>
-        private void RemoveScripts(List<string> content)
+        private void RemoveScripts(IEnumerable<string> content)
         {
             foreach (var file in content)
             {
                 if (!BundleConfig.BaseBundle.Contains(file))
                 {
                     
-                    //content.Remove(file);
+                    // content.Remove(file);
+                    // ReSharper disable once UnusedVariable
                     var bundlefiles = _bundle;
                 }
             }

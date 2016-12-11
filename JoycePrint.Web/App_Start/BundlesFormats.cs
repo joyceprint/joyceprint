@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 
 // ReSharper disable once CheckNamespace
-namespace JoycePrint.UI
+namespace JoycePrint.Web
 {
-    public class BundlesFormats
+    public static class BundlesFormats
     {
         [Description("Renders the style bundle with [media = print]")]
         public const string Print = @"<link href=""{0}"" rel=""stylesheet"" type=""text/css"" media=""print"" />";

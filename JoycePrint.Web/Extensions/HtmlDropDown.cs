@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Mvc.Html;
 
 namespace JoycePrint.Web.Extensions
 {
@@ -59,7 +56,7 @@ namespace JoycePrint.Web.Extensions
 
         #endregion
 
-        private static readonly SelectListItem[] SingleEmptyItem = new[] { new SelectListItem { Text = "", Value = "" } };
+        private static readonly SelectListItem[] SingleEmptyItem = { new SelectListItem { Text = "", Value = "" } };
 
         public static string GetEnumDescription<TEnum>(TEnum value)
         {
@@ -73,16 +70,16 @@ namespace JoycePrint.Web.Extensions
                 return value.ToString();
         }
 
-        public static string GetEnumDisplay<TEnum>(TEnum value)
+        private static string GetEnumDisplay<TEnum>(TEnum value)
         {
-            FieldInfo fi = value.GetType().GetField(value.ToString());
+            var fi = value.GetType().GetField(value.ToString());
 
-            DisplayNameAttribute[] attributes = (DisplayNameAttribute[])fi.GetCustomAttributes(typeof(DisplayNameAttribute), false);
+            var attributes = (DisplayNameAttribute[])fi.GetCustomAttributes(typeof(DisplayNameAttribute), false);
 
             if ((attributes != null) && (attributes.Length > 0))
                 return attributes[0].DisplayName;
-            else
-                return value.ToString();
+
+            return value.ToString();
         }
 
         public static MvcHtmlString MaterializeEnumDropDownListFor<TModel, TEnum>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TEnum>> expression, string optionLabel)
@@ -92,12 +89,12 @@ namespace JoycePrint.Web.Extensions
 
         public static MvcHtmlString MaterializeEnumDropDownListFor<TModel, TEnum>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TEnum>> expression, string optionLabel, object htmlAttributes, object optionAttributes = null)
         {
-            ModelMetadata metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
-            Type enumType = GetNonNullableModelType(metadata);
-            IEnumerable<TEnum> values = Enum.GetValues(enumType).Cast<TEnum>();
+            var metadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
+            var enumType = GetNonNullableModelType(metadata);
+            var values = Enum.GetValues(enumType).Cast<TEnum>();
 
-            string htmlFieldName = ExpressionHelper.GetExpressionText(expression);
-            string id = htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId(htmlFieldName);
+            var htmlFieldName = ExpressionHelper.GetExpressionText(expression);
+            var id = htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId(htmlFieldName);
 
             if (string.IsNullOrEmpty(optionLabel))
                 optionLabel = "Please select an option";
@@ -165,13 +162,15 @@ namespace JoycePrint.Web.Extensions
 
         private static Type GetNonNullableModelType(ModelMetadata modelMetadata)
         {
-            Type realModelType = modelMetadata.ModelType;
+            var realModelType = modelMetadata.ModelType;
 
-            Type underlyingType = Nullable.GetUnderlyingType(realModelType);
+            var underlyingType = Nullable.GetUnderlyingType(realModelType);
+
             if (underlyingType != null)
             {
                 realModelType = underlyingType;
             }
+
             return realModelType;
         }
     }

@@ -1,12 +1,11 @@
-﻿using System.Web.Optimization;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
+using System.Web.Optimization;
 using JoycePrint.Web.Extensions;
 
-namespace JoycePrint.UI
+namespace JoycePrint.Web
 {
     // TODO: Static classes here will cause an issue - fix this
-    public class BundleConfig
+    public static class BundleConfig
     {
         /// <summary>
         /// Page enum to specific which additional script bundles are required
@@ -57,7 +56,7 @@ namespace JoycePrint.UI
         /// <param name="bundles"></param>
         private static void AddScriptComposableBundles(BundleCollection bundles)
         {
-            ComposableBundle<ScriptBundle> baseBundle = new ScriptBundle("~/js/joyceprintjs")
+            var baseBundle = new ScriptBundle("~/js/joyceprintjs")
                                             .AsComposable()
                                             .Include(BaseBundle.ToArray());
                         
@@ -100,12 +99,9 @@ namespace JoycePrint.UI
                 case PageBundle.AboutUs:
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-aboutus.js");
                     break;
-                default:
-                    break;
-
             }
 
-            ComposableBundle<Bundle> additionalBundle = new Bundle("~/js/validationjs")
+            var additionalBundle = new Bundle("~/js/validationjs")
                                     .AsComposable()
                                     .Include(additionalScript.ToArray());
 

@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 
 // ReSharper disable once CheckNamespace
-namespace JoycePrint.UI
+namespace JoycePrint.Web
 {
     public class ViewEngine : RazorViewEngine
     {

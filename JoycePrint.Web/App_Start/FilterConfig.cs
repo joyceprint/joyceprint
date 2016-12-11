@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
 
-namespace JoycePrint.UI
+namespace JoycePrint.Web
 {
-    public class FilterConfig
+    public static class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {

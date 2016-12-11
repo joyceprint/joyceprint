@@ -1,8 +1,7 @@
 ﻿using System.Web.Mvc;
-
 using JoycePrint.Domain.Models;
 
-namespace JoycePrint.UI.Controllers
+namespace JoycePrint.Web.Controllers
 {
     [Route("quote")]
     public class QuoteController : Controller
