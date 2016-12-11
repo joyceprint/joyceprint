@@ -5,8 +5,8 @@
  * Call this function to initialize the javascript required for the home page
  *************************************************************************************************/
 function initializeHomeFunctionality() {
-        
-    initializeMaterializeCarousel()
+
+    initializeMaterializeCarousel();
 }
 
 /**************************************************************************************************

@@ -74,6 +74,9 @@
         // We have to setup the drop down materialize created to be used with our validation
         handleMaterializeSelectJankyness();
 
+        // Wire up the help information to the controls
+        initializeDocketHelp();
+
         var form = document.getElementById(formId);
 
         // Turn or native validation for compatibilty
@@ -624,7 +627,7 @@
             var ul = $(this).find("ul");
             var input = $(this).find("input");
             var icon = $(this).prev();
-            var label = $(this).next()
+            var label = $(this).next();
 
             //
             // Switch the required attribute
@@ -637,7 +640,7 @@
 
             //
             // Switch the validation class from the select to the materizlise input        
-            if (!$(input).hasClass("validate")) $(input).addClass("validate")
+            if (!$(input).hasClass("validate")) $(input).addClass("validate");
 
             //
             // Switch the validation messages
@@ -648,10 +651,10 @@
 
             // Switch the data-help toggle switch
             // May have to change this to use the property - undefined
-            if ($(select).data("help") !== "undefined") {
-                var help = $(select).data("help");
+            if ($(select).attr("data-help") !== "undefined") {
+                var help = $(select).attr("data-help");
 
-                $(input).data("help", help);
+                $(input).attr("data-help", help);
             }
 
             //
@@ -682,6 +685,25 @@
                     jalidate.setValidDisplay($(input)[0], [icon[0], label[0]], ["valid", "invalid"]);
                 }
             });
+        });
+    }
+
+    /**************************************************************************************************
+    * Initialize the help for the docket book.
+    *
+    * This ensure that the help information is set to display when the user has focus on the correct
+    * input
+    *************************************************************************************************/
+    function initializeDocketHelp() {
+
+        $("#docket-book input").each(function () {
+            if ($(this).data("help") !== undefined && $(this).data("help").length > 0) {
+                $(this).on("focus", function (e) {
+                    if (!$("#" + $(this).data("help")).hasClass("active")) {
+                        $("#" + $(this).data("help")).trigger("click");
+                    }
+                });
+            }
         });
     }
 
@@ -730,7 +752,6 @@
         var selectedOption = $(ul).find("li.active.selected").text();
         $(field).attr("value", selectedOption);
     }
-
 
     //// Check if the field is valid
     //function validate(field, additionalFields) {
