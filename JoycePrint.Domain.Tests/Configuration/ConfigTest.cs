@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JoycePrint.Domain.Configuration;
+﻿using JoycePrint.Domain.Configuration;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JoycePrint.Domain.Tests
+namespace JoycePrint.Domain.Tests.Configuration
 {
     [TestClass]
     public class ConfigTest : BaseTest
@@ -12,11 +12,11 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetRecaptchaUrlTest()
         {
-            IConfig Config = new Config();
+            IConfig config = new Config();
 
             var expectedRecaptchaUrl = "https://www.google.com/recaptcha/api/siteverify";
 
-            AssertAreEqual(expectedRecaptchaUrl, Config.RecaptchaUrl, "Recaptcha Url");
+            AssertAreEqual(expectedRecaptchaUrl, config.RecaptchaUrl, "Recaptcha Url");
         }
 
         /// <summary>
@@ -25,11 +25,11 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetRecaptchaSecretKeyTest()
         {
-            IConfig Config = new Config();
+            IConfig config = new Config();
 
-            var expectedRecaptchaSecretKey = "6LcC2Q0UAAAAALvPAkBtQT2a5AE8DUCotVfQu04t";
+            const string expectedRecaptchaSecretKey = "6LcC2Q0UAAAAALvPAkBtQT2a5AE8DUCotVfQu04t";
 
-            AssertAreEqual(expectedRecaptchaSecretKey, Config.RecaptchaSecretKey, "Recaptcha Secret Key");
+            AssertAreEqual(expectedRecaptchaSecretKey, config.RecaptchaSecretKey, "Recaptcha Secret Key");
         }
 
         /// <summary>
@@ -38,11 +38,11 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetRecaptchaPublicKeyTest()
         {
-            IConfig Config = new Config();
+            IConfig config = new Config();
 
-            var expectedRecaptchaPublicKey = "6LcC2Q0UAAAAADtadrrG_FTRs82tvd2J1fOwK-KW";
+            const string expectedRecaptchaPublicKey = "6LcC2Q0UAAAAADtadrrG_FTRs82tvd2J1fOwK-KW";
 
-            AssertAreEqual(expectedRecaptchaPublicKey, Config.RecaptchaPublicKey, "Recaptcha Public Key");
+            AssertAreEqual(expectedRecaptchaPublicKey, config.RecaptchaPublicKey, "Recaptcha Public Key");
         }
     }
 }

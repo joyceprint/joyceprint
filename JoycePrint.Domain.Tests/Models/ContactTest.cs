@@ -1,7 +1,7 @@
 ﻿using JoycePrint.Domain.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JoycePrint.Domain.Tests
+namespace JoycePrint.Domain.Tests.Models
 {
     [TestClass]
     public class ContactTest : BaseTest
@@ -12,13 +12,13 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void CreateContactModelTest()
         {
-            var ContactModel = new Contact();
+            var contactModel = new Contact();
 
-            AssertAreEqual(null, ContactModel.Company, "Contact Company");
-            AssertAreEqual(null, ContactModel.Position, "Contact Position");
-            AssertAreEqual(null, ContactModel.Name, "Contact Name");
-            AssertAreEqual(null, ContactModel.Phone, "Contact Company");
-            AssertAreEqual(null, ContactModel.Email, "Contact Email");
+            AssertAreEqual(null, contactModel.Company, "Contact Company");
+            AssertAreEqual(null, contactModel.Position, "Contact Position");
+            AssertAreEqual(null, contactModel.Name, "Contact Name");
+            AssertAreEqual(null, contactModel.Phone, "Contact Company");
+            AssertAreEqual(null, contactModel.Email, "Contact Email");
         }
 
         /// <summary>
@@ -27,27 +27,27 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void ContactPropertiesTest()
         {
-            var ContactModel = new Contact();
+            var contactModel = new Contact();
 
-            var CompanyTestValue = "Company";
-            ContactModel.Company = CompanyTestValue;
-            AssertAreEqual(CompanyTestValue, ContactModel.Company, "Contact Company");
+            const string companyTestValue = "Company";
+            contactModel.Company = companyTestValue;
+            AssertAreEqual(companyTestValue, contactModel.Company, "Contact Company");
 
-            var PositionTestValue = "Position";
-            ContactModel.Position = PositionTestValue;
-            AssertAreEqual(PositionTestValue, ContactModel.Position, "Contact Position");
+            const string positionTestValue = "Position";
+            contactModel.Position = positionTestValue;
+            AssertAreEqual(positionTestValue, contactModel.Position, "Contact Position");
 
-            var NameTestValue = "Firstname Lastname";
-            ContactModel.Name = NameTestValue;
-            AssertAreEqual(NameTestValue, ContactModel.Name, "Contact Name");
+            const string nameTestValue = "Firstname Lastname";
+            contactModel.Name = nameTestValue;
+            AssertAreEqual(nameTestValue, contactModel.Name, "Contact Name");
 
-            var PhoneTestValue = "3033033003";
-            ContactModel.Phone = PhoneTestValue;
-            AssertAreEqual(PhoneTestValue, ContactModel.Phone, "Contact Phone");
+            const string phoneTestValue = "3033033003";
+            contactModel.Phone = phoneTestValue;
+            AssertAreEqual(phoneTestValue, contactModel.Phone, "Contact Phone");
 
-            var EmailTestValue = "testemail@host.com";
-            ContactModel.Email = EmailTestValue;
-            AssertAreEqual(EmailTestValue, ContactModel.Email, "Contact Email");
+            const string emailTestValue = "testemail@host.com";
+            contactModel.Email = emailTestValue;
+            AssertAreEqual(emailTestValue, contactModel.Email, "Contact Email");
         }
     }
 }

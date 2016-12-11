@@ -1,10 +1,10 @@
-﻿using JoycePrint.Domain.Business;
+﻿using System;
+using System.Text;
+using JoycePrint.Domain.Mail;
 using JoycePrint.Domain.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Text;
 
-namespace JoycePrint.Domain.Tests
+namespace JoycePrint.Domain.Tests.Models
 {
     [TestClass]
     public class QuoteRequestTest : BaseTest
@@ -15,19 +15,19 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void CreateContactModelTest()
         {
-            var QuoteRequestModel = new QuoteRequest();
+            var quoteRequestModel = new QuoteRequest();
 
-            AssertAreEqual(null, QuoteRequestModel.Contact.Company, "Contact Company");
-            AssertAreEqual(null, QuoteRequestModel.Contact.Position, "Contact Position");
-            AssertAreEqual(null, QuoteRequestModel.Contact.Name, "Contact Name");
-            AssertAreEqual(null, QuoteRequestModel.Contact.Phone, "Contact Company");
-            AssertAreEqual(null, QuoteRequestModel.Contact.Email, "Contact Email");
+            AssertAreEqual(null, quoteRequestModel.Contact.Company, "Contact Company");
+            AssertAreEqual(null, quoteRequestModel.Contact.Position, "Contact Position");
+            AssertAreEqual(null, quoteRequestModel.Contact.Name, "Contact Name");
+            AssertAreEqual(null, quoteRequestModel.Contact.Phone, "Contact Company");
+            AssertAreEqual(null, quoteRequestModel.Contact.Email, "Contact Email");
 
-            AssertAreEqual(null, QuoteRequestModel.DocketBook.Type, "Docket Book Type");
-            AssertAreEqual(null, QuoteRequestModel.DocketBook.Size, "Docket Book Size");
-            AssertAreEqual(0, QuoteRequestModel.DocketBook.Quantity, "Docket Book Quantity");
+            AssertAreEqual(null, quoteRequestModel.DocketBook.Type, "Docket Book Type");
+            AssertAreEqual(null, quoteRequestModel.DocketBook.Size, "Docket Book Size");
+            AssertAreEqual(0, quoteRequestModel.DocketBook.Quantity, "Docket Book Quantity");
 
-            AssertAreEqual(null, QuoteRequestModel.Message, "Message");
+            AssertAreEqual(null, quoteRequestModel.Message, "Message");
         }
 
         /// <summary>
@@ -36,11 +36,11 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void QuotePropertiesTest()
         {
-            var QuoteRequestModel = new QuoteRequest();
+            var quoteRequestModel = new QuoteRequest();
 
-            var MessageTestValue = "Message";
-            QuoteRequestModel.Message = MessageTestValue;
-            AssertAreEqual(MessageTestValue, QuoteRequestModel.Message, "Message");
+            const string messageTestValue = "Message";
+            quoteRequestModel.Message = messageTestValue;
+            AssertAreEqual(messageTestValue, quoteRequestModel.Message, "Message");
         }
 
         /// <summary>
@@ -49,14 +49,14 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetSubjectLineGoodTest()
         {
-            var QuoteRequestModel = new QuoteRequest();
+            var quoteRequestModel = new QuoteRequest();
 
-            var NameTestValue = "First Last";
-            var expected = $"Docket Book Quote : {NameTestValue}";
+            const string nameTestValue = "First Last";
+            var expected = $"Docket Book Quote : {nameTestValue}";
 
-            QuoteRequestModel.Contact.Name = NameTestValue;
+            quoteRequestModel.Contact.Name = nameTestValue;
 
-            var actual = QuoteRequestModel.GetSubjectLine();
+            var actual = quoteRequestModel.GetSubjectLine();
 
             AssertAreEqual(expected, actual, "Subject Line");
         }
@@ -67,14 +67,14 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetSubjectLineEmptyContactNameTest()
         {
-            var QuoteRequestModel = new QuoteRequest();
+            var quoteRequestModel = new QuoteRequest();
 
-            var NameTestValue = string.Empty;
-            var expected = $"Docket Book Quote : {NameTestValue}";
+            var nameTestValue = string.Empty;
+            var expected = $"Docket Book Quote : {nameTestValue}";
 
-            QuoteRequestModel.Contact.Name = NameTestValue;
+            quoteRequestModel.Contact.Name = nameTestValue;
 
-            var actual = QuoteRequestModel.GetSubjectLine();
+            var actual = quoteRequestModel.GetSubjectLine();
 
             AssertAreEqual(expected, actual, "Subject Line");
         }
@@ -85,14 +85,17 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetSubjectLineNullContactNameTest()
         {
-            var QuoteRequestModel = new QuoteRequest();
+            var quoteRequestModel = new QuoteRequest();
 
-            string NameTestValue = null;
-            var expected = $"Docket Book Quote : {NameTestValue}";
+            string nameTestValue = null;
 
-            QuoteRequestModel.Contact.Name = NameTestValue;
+            // ReSharper disable once ExpressionIsAlwaysNull
+            var expected = $"Docket Book Quote : {nameTestValue}";
 
-            var actual = QuoteRequestModel.GetSubjectLine();
+            // ReSharper disable once ExpressionIsAlwaysNull
+            quoteRequestModel.Contact.Name = nameTestValue;
+
+            var actual = quoteRequestModel.GetSubjectLine();
 
             AssertAreEqual(expected, actual, "Subject Line");
         }
@@ -103,12 +106,12 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetMessageAttachementsTest()
         {
-            var QuoteRequestModel = new QuoteRequest();
-            var expected = "Attachments are not currently unavailable on the site";
+            var quoteRequestModel = new QuoteRequest();
+            const string expected = "Attachments are not currently unavailable on the site";
 
             try
             {
-                QuoteRequestModel.GetMessageAttachments();
+                quoteRequestModel.GetMessageAttachments();
             }
             catch (NotImplementedException ex)
             {
@@ -122,11 +125,11 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetMessageBody_EmptyModelTest()
         {
-            var QuoteRequestModel = GenerateEmptyQuoteRequestModel();
+            var quoteRequestModel = GenerateEmptyQuoteRequestModel();
 
             var expectedMessageBody = GenerateExpectedMessageBodyForEmptyQuoteRequestModel();
 
-            var actualMessageBody = QuoteRequestModel.GetMessageBody();
+            var actualMessageBody = quoteRequestModel.GetMessageBody();
 
             AssertAreEqual(expectedMessageBody, actualMessageBody, "email message");
         }
@@ -137,14 +140,14 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetMessageBody_RealModelTest()
         {
-            RealQuote_DocketType = Enums.DocketBookType.Duplicate;
-            RealQuote_DocketSize = Enums.DocketBookSize.A4;
+            _realQuoteDocketType = Enums.DocketBookType.Duplicate;
+            _realQuoteDocketSize = Enums.DocketBookSize.A4;
 
-            var QuoteRequestModel = GenerateRealQuoteRequestModel();
+            var quoteRequestModel = GenerateRealQuoteRequestModel();
 
             var expectedMessageBody = GenerateExpectedMessageBodyForRealQuoteRequestModel();
 
-            var actualMessageBody = QuoteRequestModel.GetMessageBody();
+            var actualMessageBody = quoteRequestModel.GetMessageBody();
 
             AssertAreEqual(expectedMessageBody, actualMessageBody, "email message");
         }
@@ -155,17 +158,17 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetMessageBody_DocketTypeTest()
         {
-            RealQuote_DocketSize = Enums.DocketBookSize.A4;
+            _realQuoteDocketSize = Enums.DocketBookSize.A4;
 
             foreach (var docketType in Enum.GetValues(typeof(Enums.DocketBookType)))
             {
-                RealQuote_DocketType = (Enums.DocketBookType)Enum.Parse(typeof(Enums.DocketBookType), docketType.ToString());
+                _realQuoteDocketType = (Enums.DocketBookType)Enum.Parse(typeof(Enums.DocketBookType), docketType.ToString());
 
-                var QuoteRequestModel = GenerateRealQuoteRequestModel();
+                var quoteRequestModel = GenerateRealQuoteRequestModel();
 
                 var expectedMessageBody = GenerateExpectedMessageBodyForRealQuoteRequestModel();
 
-                var actualMessageBody = QuoteRequestModel.GetMessageBody();
+                var actualMessageBody = quoteRequestModel.GetMessageBody();
 
                 AssertAreEqual(expectedMessageBody, actualMessageBody, "email message");
             }
@@ -177,17 +180,17 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void GetMessageBody_DocketSizeTest()
         {
-            RealQuote_DocketType = Enums.DocketBookType.Duplicate;
+            _realQuoteDocketType = Enums.DocketBookType.Duplicate;
 
             foreach (var docketSize in Enum.GetValues(typeof(Enums.DocketBookSize)))
             {
-                RealQuote_DocketSize = (Enums.DocketBookSize)Enum.Parse(typeof(Enums.DocketBookSize), docketSize.ToString());
+                _realQuoteDocketSize = (Enums.DocketBookSize)Enum.Parse(typeof(Enums.DocketBookSize), docketSize.ToString());
 
-                var QuoteRequestModel = GenerateRealQuoteRequestModel();
+                var quoteRequestModel = GenerateRealQuoteRequestModel();
 
                 var expectedMessageBody = GenerateExpectedMessageBodyForRealQuoteRequestModel();
 
-                var actualMessageBody = QuoteRequestModel.GetMessageBody();
+                var actualMessageBody = quoteRequestModel.GetMessageBody();
 
                 AssertAreEqual(expectedMessageBody, actualMessageBody, "email message");
             }
@@ -200,51 +203,56 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void ConvertModelToEmailTest()
         {
-            IEmail Email = new Email();
+            IEmail email = new Email();
 
-            RealQuote_DocketType = Enums.DocketBookType.Duplicate;
-            RealQuote_DocketSize = Enums.DocketBookSize.A4;
+            _realQuoteDocketType = Enums.DocketBookType.Duplicate;
+            _realQuoteDocketSize = Enums.DocketBookSize.A4;
 
-            var QuoteRequestModel = GenerateRealQuoteRequestModel();
+            var quoteRequestModel = GenerateRealQuoteRequestModel();
 
-            var mailMessage = QuoteRequestModel.ConvertModelToEmail(Email);
+            var mailMessage = quoteRequestModel.ConvertModelToEmail(email);
         }
 
         #region Test Helper Functions
 
-        private string RealQuote_Company => "Company";
+        private static string RealQuoteCompany => "Company";
 
-        private string RealQuote_Position => "Position";
+        private static string RealQuotePosition => "Position";
 
-        private string RealQuote_Name => "Firstname Lastname";
+        private static string RealQuoteName => "Firstname Lastname";
 
-        private string RealQuote_Phone => "3033033003";
+        private static string RealQuotePhone => "3033033003";
 
-        private string RealQuote_Email => "email@host.com";
+        private static string RealQuoteEmail => "email@host.com";
 
-        private int RealQuote_Quantity => 100;
+        private static int RealQuoteQuantity => 100;
+        
+        private static string RealQuoteMessage => "Can I get a quote before the end of the week, there's a real rush on this job.";
 
-        private string RealQuote_Message => "Can I get a quote before the end of the week, there's a real rush on this job.";
+        private Enums.DocketBookType _realQuoteDocketType;
 
-        private Enums.DocketBookType RealQuote_DocketType;
-
-        private Enums.DocketBookSize RealQuote_DocketSize;
+        private Enums.DocketBookSize _realQuoteDocketSize;
 
         private QuoteRequest GenerateRealQuoteRequestModel()
         {
-            var quoteRequest = new QuoteRequest();
-
-            quoteRequest.Contact.Company = RealQuote_Company;
-            quoteRequest.Contact.Position = RealQuote_Position;
-            quoteRequest.Contact.Name = RealQuote_Name;
-            quoteRequest.Contact.Phone = RealQuote_Phone;
-            quoteRequest.Contact.Email = RealQuote_Email;
-
-            quoteRequest.DocketBook.Type = RealQuote_DocketType;
-            quoteRequest.DocketBook.Size = RealQuote_DocketSize;
-            quoteRequest.DocketBook.Quantity = RealQuote_Quantity;
-
-            quoteRequest.Message = RealQuote_Message;
+            var quoteRequest = new QuoteRequest
+            {
+                Contact =
+                {
+                    Company = RealQuoteCompany,
+                    Position = RealQuotePosition,
+                    Name = RealQuoteName,
+                    Phone = RealQuotePhone,
+                    Email = RealQuoteEmail
+                },
+                DocketBook =
+                {
+                    Type = _realQuoteDocketType,
+                    Size = _realQuoteDocketSize,
+                    Quantity = RealQuoteQuantity
+                },
+                Message = RealQuoteMessage
+            };
 
             return quoteRequest;
         }
@@ -256,37 +264,37 @@ namespace JoycePrint.Domain.Tests
             messageBody.Append("<h1>Client Information</h1>");
             messageBody.Append("<dl>");
             messageBody.Append("<dt><strong>Company<strong></dt>");
-            messageBody.Append($"<dd>{RealQuote_Company}</dd>");
+            messageBody.Append($"<dd>{RealQuoteCompany}</dd>");
             messageBody.Append("<dt><strong>Position</strong></dt>");
-            messageBody.Append($"<dd>{RealQuote_Position}</dd>");
+            messageBody.Append($"<dd>{RealQuotePosition}</dd>");
             messageBody.Append("<dt><strong>Name</strong></dt>");
-            messageBody.Append($"<dd>{RealQuote_Name}</dd>");
+            messageBody.Append($"<dd>{RealQuoteName}</dd>");
             messageBody.Append("<dt><strong>Telephone</strong></dt>");
-            messageBody.Append($"<dd>{RealQuote_Phone}</dd>");
+            messageBody.Append($"<dd>{RealQuotePhone}</dd>");
             messageBody.Append("<dt><strong>Email</strong></dt>");
-            messageBody.Append($"<dd>{RealQuote_Email}</dd>");
+            messageBody.Append($"<dd>{RealQuoteEmail}</dd>");
             messageBody.Append("</dl>");
             messageBody.Append("<h1>Product Information</h1>");
             messageBody.Append("<dl>");
             messageBody.Append("<dt><strong>Docket Type</strong></dt>");
-            messageBody.Append($"<dd>{RealQuote_DocketType}</dd>");
+            messageBody.Append($"<dd>{_realQuoteDocketType}</dd>");
             messageBody.Append("<dt><strong>Docket Size</strong></dt>");
-            messageBody.Append($"<dd>{RealQuote_DocketSize}</dd>");
+            messageBody.Append($"<dd>{_realQuoteDocketSize}</dd>");
             messageBody.Append("<dt><strong>Quantity</strong></dt>");
-            messageBody.Append($"<dd>{RealQuote_Quantity}</dd>");
+            messageBody.Append($"<dd>{RealQuoteQuantity}</dd>");
             messageBody.Append("</dl>");
-            messageBody.Append($"<div><strong>User message</strong><p>{RealQuote_Message}</p></div>");
+            messageBody.Append($"<div><strong>User message</strong><p>{RealQuoteMessage}</p></div>");
 
             return messageBody.ToString();
         }
-
-        private QuoteRequest GenerateEmptyQuoteRequestModel()
+        
+        private static QuoteRequest GenerateEmptyQuoteRequestModel()
         {
             var quoteRequest = new QuoteRequest();
             return quoteRequest;
         }
-
-        private string GenerateExpectedMessageBodyForEmptyQuoteRequestModel()
+       
+        private static string GenerateExpectedMessageBodyForEmptyQuoteRequestModel()
         {
             var messageBody = new StringBuilder();
 

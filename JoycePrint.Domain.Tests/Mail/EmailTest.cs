@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JoycePrint.Domain.Configuration;
-using JoycePrint.Domain.Business;
-using System.Net.Configuration;
+﻿using System.Net.Configuration;
 using System.Net.Mail;
+using JoycePrint.Domain.Mail;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JoycePrint.Domain.Tests
+namespace JoycePrint.Domain.Tests.Mail
 {
     [TestClass]
     public class EmailTest : BaseTest
@@ -12,20 +11,19 @@ namespace JoycePrint.Domain.Tests
         /// <summary>
         /// This is the To Email Address that will be used to test the working email
         /// </summary>
-        private readonly string EmailToAddress = "polydegmon@gmail.com";
+        private const string EmailToAddress = "polydegmon@gmail.com";
 
         /// <summary>
-        /// Test the smtpConfig is return the correct settings
+        /// Test the SmtpConfig is return the correct settings
         /// </summary>
         [TestMethod]
         public void GetSmtpConfig()
         {
-            IEmail Email = new Email();
+            IEmail email = new Email();
 
-            var actualSmtpConfig = Email.smtpConfig;
+            var actualSmtpConfig = email.SmtpConfig;
 
-            var expectedSmptConfig = new SmtpSection();
-            expectedSmptConfig.From = "some@email.com";
+            var expectedSmptConfig = new SmtpSection {From = "some@email.com"};
             expectedSmptConfig.Network.Host = "myhost";
             expectedSmptConfig.Network.Port = 25;
             expectedSmptConfig.Network.UserName = "";
@@ -44,11 +42,11 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void SendEmailBadMailMessageTest()
         {
-            IEmail Email = new Email();
+            IEmail email = new Email();
 
-            var expectedEmailSent = false;
+            const bool expectedEmailSent = false;
 
-            var actualEmailSent = Email.SendEmail(null, Email.smtpConfig);
+            var actualEmailSent = email.SendEmail(null, email.SmtpConfig);
 
             AssertAreEqual(expectedEmailSent, actualEmailSent, "Email Sent Flag"); 
         }
@@ -59,12 +57,12 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void SendEmailBadSmptSectionTest()
         {
-            IEmail Email = new Email();
+            IEmail email = new Email();
 
-            var expectedEmailSent = false;
+            const bool expectedEmailSent = false;
             var mailMessage = new MailMessage();
 
-            var actualEmailSent = Email.SendEmail(mailMessage, null);
+            var actualEmailSent = email.SendEmail(mailMessage, null);
 
             AssertAreEqual(expectedEmailSent, actualEmailSent, "Email Sent Flag");
         }
@@ -75,14 +73,14 @@ namespace JoycePrint.Domain.Tests
         [TestMethod]
         public void SendEmailGoodTest()
         {
-            IEmail Email = new Email();
+            IEmail email = new Email();
             
-            var expectedEmailSent = true;
+            const bool expectedEmailSent = true;
 
-            var mailMessage = new MailMessage(Email.smtpConfig.From, EmailToAddress);
-            var smptConfig = Email.smtpConfig;
+            var mailMessage = new MailMessage(email.SmtpConfig.From, EmailToAddress);
+            var smptConfig = email.SmtpConfig;
 
-            var actualEmailSent = Email.SendEmail(mailMessage, smptConfig);
+            var actualEmailSent = email.SendEmail(mailMessage, smptConfig);
 
             AssertAreEqual(expectedEmailSent, actualEmailSent, "Email Sent Flag");
         }
