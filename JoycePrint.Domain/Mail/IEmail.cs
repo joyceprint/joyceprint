@@ -1,11 +1,11 @@
 ﻿using System.Net.Configuration;
 using System.Net.Mail;
 
-namespace JoycePrint.Domain.Business
+namespace JoycePrint.Domain.Mail
 {
     public interface IEmail
     {
-        SmtpSection smtpConfig { get; }
+        SmtpSection SmtpConfig { get; }
 
         bool SendEmail(MailMessage message, SmtpSection smtpConfig);        
     }    

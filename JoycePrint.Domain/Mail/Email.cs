@@ -3,9 +3,7 @@ using System.Configuration;
 using System.Net.Configuration;
 using System.Net.Mail;
 
-using JoycePrint.Domain.Models;
-
-namespace JoycePrint.Domain.Business
+namespace JoycePrint.Domain.Mail
 {
     public class Email : IEmail
     {
@@ -15,7 +13,7 @@ namespace JoycePrint.Domain.Business
         /// <returns></returns>
         private SmtpClient CreateSmtpClient(SmtpSection smtpConfig)
         {
-            SmtpClient smtp = new SmtpClient
+            var smtp = new SmtpClient
             {
                 Host = smtpConfig.Network.Host,
                 Port = smtpConfig.Network.Port
@@ -29,7 +27,7 @@ namespace JoycePrint.Domain.Business
         /// <summary>
         /// Get the smtp configuration section from the web config file
         /// </summary>
-        public SmtpSection smtpConfig
+        public SmtpSection SmtpConfig
         {
             get
             {
@@ -39,7 +37,7 @@ namespace JoycePrint.Domain.Business
                 {
                     smtpConfig = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // Log the exception using the ILog
                 }
@@ -57,15 +55,14 @@ namespace JoycePrint.Domain.Business
         public bool SendEmail(MailMessage message, SmtpSection smtpConfig)
         {
             var emailSent = false;
-            SmtpClient smtpClient = null;
 
             try
             {
-                smtpClient = CreateSmtpClient(smtpConfig);
+                var smtpClient = CreateSmtpClient(smtpConfig);
                 smtpClient.Send(message);
                 emailSent = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // Log the exception using ILog
             }

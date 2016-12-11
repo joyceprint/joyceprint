@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JoycePrint.Domain.Configuration
+﻿namespace JoycePrint.Domain.Configuration
 {
     public class Config : IConfig
     {

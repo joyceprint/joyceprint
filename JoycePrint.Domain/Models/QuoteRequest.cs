@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Net.Mail;
-using JoycePrint.Domain.Business;
+using JoycePrint.Domain.Mail;
 
 namespace JoycePrint.Domain.Models
 {
@@ -31,18 +31,18 @@ namespace JoycePrint.Domain.Models
         public void SendEmail()
         {
             IEmail email = new Email();
-            email.SendEmail(ConvertModelToEmail(email), email.smtpConfig);
+            email.SendEmail(ConvertModelToEmail(email), email.SmtpConfig);
         }
 
         #region Interface Definitions
 
         public MailMessage ConvertModelToEmail(IEmail email)
         {
-            MailMessage message = new MailMessage(Contact.Email, email.smtpConfig.From);
-            
-            message.Body = GetMessageBody();
-
-            message.Subject = GetSubjectLine();
+            var message = new MailMessage(Contact.Email, email.SmtpConfig.From)
+            {
+                Body = GetMessageBody(),
+                Subject = GetSubjectLine()
+            };
 
             return message;
         }
@@ -51,8 +51,8 @@ namespace JoycePrint.Domain.Models
         {
             var messageBody = new StringBuilder();
 
-            messageBody.Append("<h1>Client Information</h1>");	
-	        messageBody.Append("<dl>");
+            messageBody.Append("<h1>Client Information</h1>");
+            messageBody.Append("<dl>");
             messageBody.Append("<dt><strong>Company<strong></dt>");
             messageBody.Append($"<dd>{Contact.Company}</dd>");
             messageBody.Append("<dt><strong>Position</strong></dt>");
@@ -62,7 +62,7 @@ namespace JoycePrint.Domain.Models
             messageBody.Append("<dt><strong>Telephone</strong></dt>");
             messageBody.Append($"<dd>{Contact.Phone}</dd>");
             messageBody.Append("<dt><strong>Email</strong></dt>");
-            messageBody.Append($"<dd>{Contact.Email}</dd>");            
+            messageBody.Append($"<dd>{Contact.Email}</dd>");
             messageBody.Append("</dl>");
             messageBody.Append("<h1>Product Information</h1>");
             messageBody.Append("<dl>");
@@ -80,11 +80,7 @@ namespace JoycePrint.Domain.Models
 
         public string GetSubjectLine()
         {
-            var subjectLine = string.Empty;
-
-            subjectLine = $"Docket Book Quote : {Contact.Name}";
-
-            return subjectLine;
+            return $"Docket Book Quote : {Contact.Name}";
         }
 
         public AttachmentCollection GetMessageAttachments()

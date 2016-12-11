@@ -74,11 +74,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\Config.cs" />
-    <Compile Include="Config\IConfig.cs" />
-    <Compile Include="Email\IEmailConverter.cs" />
-    <Compile Include="Email\IEmail.cs" />
-    <Compile Include="Email\Email.cs" />
+    <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\IConfig.cs" />
+    <Compile Include="Mail\IEmailConverter.cs" />
+    <Compile Include="Mail\IEmail.cs" />
+    <Compile Include="Mail\Email.cs" />
     <Compile Include="Enums\DocketBookSize.cs" />
     <Compile Include="Enums\DocketBookType.cs" />
     <Compile Include="Models\Contact.cs" />

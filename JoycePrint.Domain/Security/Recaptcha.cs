@@ -30,13 +30,16 @@ namespace JoycePrint.Domain.Security
             req.Expect = "application/json";
 
             var res = (HttpWebResponse) req.GetResponse();
-            string result;
+            var result = string.Empty;
+            var responseStream = res.GetResponseStream();
 
-            using (var streamReader = new StreamReader(res.GetResponseStream()))
+            if (responseStream == null) return result;
+
+            using (var streamReader = new StreamReader(responseStream))
             {
                 result = streamReader.ReadToEnd();
             }
-            
+
             return result;
         }
     }
