@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
-using JoycePrint.Web.Tests.PageObjectModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+
 using JoycePrint.Web.Tests.Enums;
-using System.Drawing;
 using JoycePrint.Web.Tests.Helpers;
+using JoycePrint.Web.Tests.PageObjectModels;
+using JoycePrint.Web.Tests.TestData;
 
 namespace JoycePrint.Web.Tests
 {
@@ -176,6 +178,72 @@ namespace JoycePrint.Web.Tests
             var screenSize = Supported.GetScreenSize(screenType);
 
             CurrentDriver.Manage().Window.Size = new Size(screenSize.Width, screenSize.Height);
+        }
+
+        #endregion
+
+        #region Materialize Functions
+
+        /// <summary>
+        /// Verfiy the materialize fields state when the page is loaded       
+        /// </summary>
+        /// <param name="inputGroupContainer">The materialize input group container that is used to get the elements that need to be checked</param>
+        /// <param name="testData">The test data to be used for the comparision</param>
+        public void VerifyMaterializeFieldOnLoad(IWebElement inputGroupContainer, MaterializeTestData testData)
+        {
+            IWebElement iconElement = null;
+            IWebElement inputElement = null;
+            IWebElement labelElement = null;
+            IWebElement validationLabelElement = null;
+            string fieldName = null;
+
+            GetMaterializeWebElements(inputGroupContainer, ref iconElement, ref inputElement, ref labelElement, ref validationLabelElement, ref fieldName, "textarea");
+
+            AssertAreEqual(testData.IconClasses, iconElement.GetAttribute("class"), $"{fieldName} Icon Classes");
+            AssertAreEqual(testData.IconText, iconElement.Text, $"{fieldName} Icon Text");
+
+            AssertAreEqual(testData.InputClasses, inputElement.GetAttribute("class"), $"{fieldName} Input Classes");
+
+            if (testData.InputText != null)
+                AssertAreEqual(testData.InputText, inputElement.Text, $"{fieldName} Input Text");
+
+            if (testData.LabelClasses != null)
+                AssertAreEqual(testData.LabelClasses, labelElement.GetAttribute("class"), $"{fieldName} Label Classes");
+
+            if (testData.LabelText != null)
+                AssertAreEqual(testData.LabelText, labelElement.Text, $"{fieldName} Label Text");
+
+            if (null == validationLabelElement) return;
+
+            AssertAreEqual(testData.ValidationLabelClasses, validationLabelElement.GetAttribute("class"), $"{fieldName} Validation Label Classes");
+
+            // We only check the validation if it's displayed
+            if (validationLabelElement.Displayed)
+                AssertAreEqual(testData.ValidationLabelText, validationLabelElement.Text, $"{fieldName} Validation Label Text");
+        }
+
+        /// <summary>
+        /// This method gets the input group fields for the inputGroupContainer passed in
+        /// The input arguments are passed in as references so we don't have to use globals or multiple returns
+        /// </summary>
+        /// <param name="inputGroupContainer">The materialize input group container that is used to get the elements that need to be checked</param>
+        /// <param name="iconElement">The icon element will be stored here</param>
+        /// <param name="inputElement">The input element will be stored here</param>
+        /// <param name="labelElement">The label element will be stored here</param>
+        /// <param name="validationLabelElement">The validation label element will be stored here</param>
+        /// <param name="inputTag">The input tag name to look for when setting the input element</param>
+        public void GetMaterializeWebElements(IWebElement inputGroupContainer, ref IWebElement iconElement, ref IWebElement inputElement, ref IWebElement labelElement, ref IWebElement validationLabelElement, ref string fieldName, string inputTag)
+        {
+            iconElement = inputGroupContainer.FindElement(By.TagName("i"));
+            inputElement = inputGroupContainer.FindElement(By.TagName(inputTag));
+
+            var labelElements = inputGroupContainer.FindElements(By.TagName("label"));
+            labelElement = labelElements[0];
+
+            fieldName = labelElement.Text;
+
+            if (labelElements.Count != 2) return;
+            validationLabelElement = labelElements[1];
         }
 
         #endregion

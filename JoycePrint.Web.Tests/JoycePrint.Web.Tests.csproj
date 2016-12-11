@@ -72,6 +72,7 @@
     <Compile Include="PageObjectModels\FooterPom.cs" />
     <Compile Include="PageObjectModels\HomePom.cs" />
     <Compile Include="Helpers\SupportedBrowsers.cs" />
+    <Compile Include="TestData\MaterializeTestData.cs" />
     <Compile Include="TestData\FooterTestData.cs" />
     <Compile Include="TestData\HeaderTestData.cs" />
     <Compile Include="TestData\AboutUsTestData.cs" />

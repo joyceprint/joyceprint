@@ -1,4 +1,5 @@
 ﻿using JoycePrint.Web.Tests.PageObjectModels;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 
 namespace JoycePrint.Web.Tests.Tests
@@ -12,6 +13,9 @@ namespace JoycePrint.Web.Tests.Tests
 
         protected override void RunTest(IWebDriver driver)
         {
+            HeaderPom = new HeaderPom(driver);
+            HeaderPom.NavQuote.Click();
+            
             QuotePom = new QuotePom(driver);
 
             VerifyDisplay();
@@ -24,7 +28,53 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyDisplay()
         {
-            
+            VerifyQuoteDisplay();
+
+            VerifyHelpDisplay();
+
+            VerifyContactFormDisplay();
+
+            VerifyProductFormDisplay();            
         }
+
+        /// <summary>
+        /// Verify the help that's displayed on the form
+        /// </summary>
+        private void VerifyHelpDisplay()
+        {
+
+        }
+
+        /// <summary>
+        /// Verify the contact form fields that are displayed
+        /// </summary>
+        private void VerifyContactFormDisplay()
+        {
+
+        }
+
+        /// <summary>
+        /// Verify the product form fields that are displayed
+        /// </summary>
+        private void VerifyProductFormDisplay()
+        {
+
+        }
+
+        /// <summary>
+        /// Verify the quote form fields that are displayed
+        /// </summary>
+        private void VerifyQuoteDisplay()
+        {
+            AssertAreEqual(QuotePom.QuoteTestData.BannerTopText, QuotePom.BannerTop.Text, "Top Banner");
+            AssertAreEqual(QuotePom.QuoteTestData.BannerBottomText, QuotePom.BannerBottom.Text, "Bottom Banner");
+
+            AssertAreEqual(QuotePom.QuoteTestData.ClearText, QuotePom.Clear.Text, "Clear Button");
+            AssertAreEqual(QuotePom.QuoteTestData.SubmitText, QuotePom.Submit.Text, "Submit Button");
+
+            Assert.IsTrue(QuotePom.Recaptcha.Displayed, "Recaptcha Missing");
+
+            VerifyMaterializeFieldOnLoad(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message);
+        }        
     }
 }
