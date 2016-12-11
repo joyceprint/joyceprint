@@ -4,6 +4,9 @@ using JoycePrint.Web.Tests.PageObjectModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using JoycePrint.Web.Tests.Enums;
+using System.Drawing;
+using JoycePrint.Web.Tests.Helpers;
 
 namespace JoycePrint.Web.Tests
 {
@@ -29,7 +32,7 @@ namespace JoycePrint.Web.Tests
         /// <summary>
         /// The Url to hit for the tests
         /// </summary>
-        protected string Url { get; } = "http://www.dev.joyceprint.com";
+        protected string Url { get; } = Urls.UrlDellDev;
 
         /// <summary>
         /// A 10 second delay
@@ -57,6 +60,11 @@ namespace JoycePrint.Web.Tests
         /// Common POM Objects that will be used throughout the application
         /// </summary>
         public HomePom HomePom;
+        public QuotePom QuotePom;
+        public AboutUsPom AboutUsPom;
+
+        public HeaderPom HeaderPom;
+        public FooterPom FooterPom;
 
         #endregion
 
@@ -68,6 +76,8 @@ namespace JoycePrint.Web.Tests
         {
             foreach (var driver in drivers)
             {
+                CurrentDriver = driver;
+
                 Assert.IsNotNull(driver);
                 Wait10Sec = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
                 Wait1Sec = new WebDriverWait(driver, TimeSpan.FromSeconds(1));
@@ -86,7 +96,7 @@ namespace JoycePrint.Web.Tests
 
             try
             {
-                RunTest(driver);                
+                RunTest(driver);
             }
             catch (Exception ex)
             {
@@ -94,9 +104,9 @@ namespace JoycePrint.Web.Tests
             }
             finally
             {
-                driver.Close();
-                driver.Quit();
-                driver.Dispose();
+                //driver.Close();
+                //driver.Quit();
+                //driver.Dispose();
             }
 
             if (caughtException != null)
@@ -112,6 +122,9 @@ namespace JoycePrint.Web.Tests
         private void Go(IWebDriver driver)
         {
             driver.Navigate().GoToUrl(Url);
+
+            // Maximize the window here so it's done for every test
+            driver.Manage().Window.Maximize();
         }
 
         #region Helper Functions
@@ -133,7 +146,7 @@ namespace JoycePrint.Web.Tests
 
             wait.Until(wd => (DateTime.Now - now) - TimeSpan.FromMilliseconds(delay) > TimeSpan.Zero);
         }
-        
+
         /// <summary>
         /// Waits until the popup window has appeared
         /// This will check for 2 window handles
@@ -152,6 +165,17 @@ namespace JoycePrint.Web.Tests
         public void AssertAreEqual(string expected, string actual, string field)
         {
             Assert.AreEqual(expected, actual, $"The expected {field} text [{expected}] differs from the actual {field} text [{actual}]");
+        }
+
+        /// <summary>
+        /// Changes the screen size to the bounds specified for the enum value
+        /// </summary>
+        /// <param name="screenSize"></param>
+        public void ResizeScreen(ScreenType screenType)
+        {
+            var screenSize = Supported.GetScreenSize(screenType);
+
+            CurrentDriver.Manage().Window.Size = new Size(screenSize.Width, screenSize.Height);
         }
 
         #endregion

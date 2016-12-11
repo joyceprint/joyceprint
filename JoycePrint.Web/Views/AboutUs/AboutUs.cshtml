@@ -6,12 +6,12 @@
     BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.AboutUs);
 }
 
-<section id="aboutus" role="main">
+<section id="aboutus" role="main" data-test-form-id="frmAboutUs">
 
     <div class="parallax-container aboutBanner">
         <div class="parallax">
             <!-- This should be a picture of foxford mountain view from house -->
-            <img src="~/Content/images/jp-about-top.jpg" alt="Nephin View" class="responsive-img" />
+            <img src="~/Content/images/jp-about-top.jpg" alt="Nephin View" class="responsive-img" data-test-parallax-top/>
         </div>
     </div>
 
@@ -19,7 +19,7 @@
         <div class="col s12 m6 l6 valign">
             <div class="row">
                 <div class="col s12 m10 offset-m1 l10 offset-l1">
-                    <article id="companyHistory">
+                    <article id="companyHistory" data-test-company-history>
                         Our goal is to create an online resource for the printing, graphics and communications trade in Ireland, which will become the first port of call for industry people seeking news, information, products, technical support, employment, new business and much more.
 
 
@@ -45,7 +45,7 @@
         <div class="col s12 m6 l6 valign">
             <div class="row">
                 <div class="col s12 m10 offset-m1 l10 offset-l1" id="companyHistoryImgCont">
-                    <img src="~/Content/images/jp-company-information.jpg" alt="Company Information" class="responsive-img" />
+                    <img src="~/Content/images/jp-company-information.jpg" alt="Company Information" class="responsive-img" data-test-history-img/>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
     <div class="parallax-container aboutBanner">
         <div class="parallax">
             <!-- This should be a picture of foxford mountain view from house -->
-            <img src="~/Content/images/jp-about-bottom.jpg" alt="Nephin View" class="responsive-img" />
+            <img src="~/Content/images/jp-about-bottom.jpg" alt="Nephin View" class="responsive-img" data-test-parallax-middle/>
         </div>
     </div>
 
@@ -62,8 +62,8 @@
         <div class="col s12 m4 l4">
             <div class="row">
                 <article class="col s12 m10 offset-m2 l10 offset-l2" id="companyInformation">
-                    <h5 class="primary-text">Address</h5>
-                    <address class="about-information">
+                    <h5 class="primary-text" data-test-address-label>Address</h5>
+                    <address class="about-information" data-test-address-text>
                         Castlebar Road,<br />
                         Foxford,<br />
                         Co Mayo,<br />
@@ -71,23 +71,23 @@
                     </address>
                     
                     <div class="about-information">
-                        <h5 class="primary-text">Telephone</h5>
-                        <a href="tel:353949256876" title="Click to call us">+353-94-9256876</a>
+                        <h5 class="primary-text" data-test-phone-label>Telephone</h5>
+                        <a href="tel:353949256876" title="Click to call us" data-test-phone-text>+353-94-9256876</a>
                     </div>
 
                     <div class="about-information">
-                        <h5 class="primary-text">Fax</h5>
-                        <span>+353-94-9256876</span>
+                        <h5 class="primary-text" data-test-fax-label>Fax</h5>
+                        <span data-test-fax-text>+353-94-9256876</span>
                     </div>
 
                     <div class="about-information">
-                        <h5 class="primary-text">Email</h5>
-                        <a href="mailto:info@yourdomain.com" title="Click to email us">joyceprintitsup@gmail.com</a>
+                        <h5 class="primary-text" data-test-email-label>Email</h5>
+                        <a href="mailto:info@yourdomain.com" title="Click to email us" data-test-email-text>joyceprintitsup@gmail.com</a>
                     </div>
 
                     <div class="about-information">
-                        <h5 class="primary-text">Skype</h5>
-                        <a href="skype:joyceprintitsup?call" title="Click to call us on Skype">joyceprintitsup</a>
+                        <h5 class="primary-text" data-test-skype-label>Skype</h5>
+                        <a href="skype:joyceprintitsup?call" title="Click to call us on Skype" data-test-skype-text>joyceprintitsup</a>
                     </div>
                 </article>
             </div>
@@ -96,7 +96,7 @@
         <div class="col s12 m8 l8">
             <div class="row">
                 <div class="col s12 m10 offset-m1 l10 offset-l1">
-                    <div id="map"></div>
+                    <div id="map" data-test-map></div>
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@
     <div class="parallax-container aboutBanner">
         <div class="parallax">
             <!-- This should be a picture of foxford mountain view from house -->
-            <img src="~/Content/images/jp-about-bottom.jpg" alt="Nephin View" class="responsive-img" />
+            <img src="~/Content/images/jp-about-bottom.jpg" alt="Nephin View" class="responsive-img" data-test-parallax-bottom/>
         </div>
     </div>
 

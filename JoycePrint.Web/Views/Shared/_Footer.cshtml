@@ -1,14 +1,13 @@
-﻿<footer class="page-footer">
+﻿<footer class="page-footer" data-test-form-id="frmFooter">
 
     <div class="row">
-        <img src="~/Content/images/jp-logo-footer.jpg" class="responsive-img center-block" alt="JoycePrint Footer Logo" />
+        <img src="~/Content/images/jp-logo-footer.jpg" class="responsive-img center-block" alt="JoycePrint Footer Logo" data-test-logo />
     </div>
 
     <div class="footer-copyright">
         <div class="row">
             <div class="col s10 offset-s1">
-                © JoycePrint Ltd @DateTime.Now.Year, All rights reserved
-                @*<a href="@Url.Action("Index", "ContactUs")" class="right">Contact Us</a>*@
+                <span data-test-copyright>© JoycePrint Ltd @DateTime.Now.Year, All rights reserved</span>                
             </div>
         </div>
     </div>

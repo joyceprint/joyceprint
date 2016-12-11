@@ -4,19 +4,19 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace JoycePrint.Web.Tests.PageObjectModels
 {
-    public class HomePom : BasePom
+    public class QuotePom : BasePom
     {
         /// <summary>
-        /// The object containing all the test data required for the home page
+        /// The object containing all the test data required for the quote page
         /// </summary>
-        public HomeTestData HomeTestData { get; set; }
+        public QuoteTestData QuoteTestData { get; set; }
 
         #region Selenium Properties
 
         /// <summary>
         /// The by form element for the page
         /// </summary>
-        public static string ByForm => "[data-test-form-id='frmHome']";
+        public static string ByForm => "[data-test-form-id='frmQuote']";
 
         /// <summary>
         /// The form element for the page
@@ -26,9 +26,9 @@ namespace JoycePrint.Web.Tests.PageObjectModels
 
         #endregion
 
-        public HomePom(IWebDriver driver) : base(driver, By.CssSelector(ByForm))
+        public QuotePom(IWebDriver driver) : base(driver, By.CssSelector(ByForm))
         {
-            HomeTestData = new HomeTestData();
+            QuoteTestData = new QuoteTestData();
         }
     }
 }

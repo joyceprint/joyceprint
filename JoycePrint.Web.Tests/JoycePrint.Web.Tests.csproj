@@ -61,12 +61,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DevelopementTests.cs" />
-    <Compile Include="DriverSelector.cs" />
+    <Compile Include="Helpers\DriverSelector.cs" />
+    <Compile Include="Enums\ScreenType.cs" />
+    <Compile Include="Helpers\ScreenSize.cs" />
+    <Compile Include="Helpers\Urls.cs" />
     <Compile Include="PageObjectModels\BasePom.cs" />
+    <Compile Include="PageObjectModels\HeaderPom.cs" />
+    <Compile Include="PageObjectModels\AboutUsPom.cs" />
+    <Compile Include="PageObjectModels\QuotePom.cs" />
+    <Compile Include="PageObjectModels\FooterPom.cs" />
     <Compile Include="PageObjectModels\HomePom.cs" />
-    <Compile Include="SupportedBrowsers.cs" />
+    <Compile Include="Helpers\SupportedBrowsers.cs" />
+    <Compile Include="TestData\FooterTestData.cs" />
+    <Compile Include="TestData\HeaderTestData.cs" />
+    <Compile Include="TestData\AboutUsTestData.cs" />
+    <Compile Include="TestData\QuoteTestData.cs" />
     <Compile Include="TestData\HomeTestData.cs" />
     <Compile Include="TestRunner.cs" />
+    <Compile Include="Tests\HeaderControlTest.cs" />
+    <Compile Include="Tests\FooterControlTest.cs" />
+    <Compile Include="Tests\AboutUsPageTest.cs" />
+    <Compile Include="Tests\QuotePageTest.cs" />
     <Compile Include="Tests\HomePageTest.cs" />
     <Compile Include="WebDriverTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

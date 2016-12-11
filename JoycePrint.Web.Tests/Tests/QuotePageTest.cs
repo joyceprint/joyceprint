@@ -6,13 +6,13 @@ namespace JoycePrint.Web.Tests.Tests
     /// <summary>
     /// Performs a simple login logout test and checks the users first, last and company name
     /// </summary>
-    public class HomePageTest : WebDriverTestBase
+    public class QuotePageTest : WebDriverTestBase
     {
         #region Base Properties & Functions
 
         protected override void RunTest(IWebDriver driver)
         {
-            HomePom = new HomePom(driver);
+            QuotePom = new QuotePom(driver);
 
             VerifyDisplay();
         }
