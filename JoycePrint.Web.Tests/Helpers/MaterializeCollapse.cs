@@ -2,6 +2,7 @@
 using JoycePrint.Web.Tests.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace JoycePrint.Web.Tests.TestData
 {
@@ -65,7 +66,7 @@ namespace JoycePrint.Web.Tests.TestData
         /// </summary>
         /// <param name="inputGroupContainer">The materialize input group container that is used to get the elements that need to be checked</param>
         /// <param name="testData">The test data to be used for the comparision</param>
-        public static void VerifyMaterializeCollapse(IWebElement headerContainer, IWebElement bodyContainer, MaterializeCollapse testData, FieldCss updateCssTo)
+        public static void VerifyMaterializeCollapse(IWebElement headerContainer, IWebElement bodyContainer, MaterializeCollapse testData, FieldCss updateCssTo, WebDriverWait wait)
         {
             IWebElement iconElement = null;
             IWebElement headerText = null;
@@ -76,8 +77,7 @@ namespace JoycePrint.Web.Tests.TestData
             GetHeaderElements(headerContainer, ref iconElement, ref headerText);
             GetBodyElements(bodyContainer, ref imageElement, ref bodyTitleText, ref bodyText);
 
-            // TODO we have to wait for the evet animation to finish
-            //Wait1Sec.Until(ExpectedConditions.TextToBePresentInElement(bodyTitleText, testData.InformationTitleText);
+            wait.Until(ExpectedConditions.TextToBePresentInElement(bodyTitleText, testData.InformationTitleText));
 
             testData.HeaderCss.MatchesActual(headerContainer.GetAttribute("class").ToString(), "Header Classes");
 
