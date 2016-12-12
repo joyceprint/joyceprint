@@ -22,9 +22,9 @@ namespace JoycePrint.Web.Tests.Helpers
         /// <param name="actual">The object the method is called on</param>
         /// <param name="expected">The expected value</param>
         /// <param name="field">The field being asserted on</param>
-        public static void AssertAreEqual(this string actual, string expected, string field)
+        public static void MatchesActual(this string expected, string actual, string field)
         {
-            Assert.AreEqual(expected, actual, $"The expected {field} text [{expected}] differs from the actual {field} text [{actual}]");
+            Assert.AreEqual(expected, actual, $"The expected {field} [{expected}] differs from the actual {field} [{actual}]");
         }
     }
 }

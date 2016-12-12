@@ -3,6 +3,7 @@ using JoycePrint.Web.Tests.PageObjectModels;
 using JoycePrint.Web.Tests.TestData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using JoycePrint.Web.Tests.Enums;
 
 namespace JoycePrint.Web.Tests.Tests
 {
@@ -62,7 +63,27 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyHelpDisplay()
         {
+            var t = QuotePom.HelpTitles;
 
+            var collapseHeaders = QuotePom.HelpTitles.Count;
+            var collapseBodies = QuotePom.HelpInformation.Count;
+
+            if (collapseHeaders != collapseBodies)
+                Assert.Fail($"Colapseable header count, differs for body count. Header Count : {collapseHeaders} - Body Count : {collapseBodies}");
+
+            // The first collapsable control is active on page load
+            FieldCss updateCssTo;
+            for (int activeIndex = 0; activeIndex < collapseHeaders; activeIndex++)
+            {
+                if (activeIndex != 0)
+                    QuotePom.HelpTitles[activeIndex].Click();
+                
+                for (var index = 0; index < collapseHeaders; index++)
+                {
+                    updateCssTo = index == activeIndex ? FieldCss.Active : FieldCss.Initial;
+                    MaterializeCollapse.VerifyMaterializeCollapse(QuotePom.HelpTitles[index], QuotePom.HelpInformation[index], QuotePom.QuoteTestData.Help[index], updateCssTo);
+                }
+            }
         }
 
         /// <summary>

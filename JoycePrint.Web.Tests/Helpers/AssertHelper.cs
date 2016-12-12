@@ -11,7 +11,7 @@ namespace JoycePrint.Web.Tests.Helpers
         /// <param name="expected">The expected string</param>
         /// <param name="actual">The actual string</param>
         /// <param name="field">The field being tested</param>
-        [Obsolete("Use Extensions AssertAreEqual Method")]
+        [Obsolete("Use Extensions MatchesActual Method")]
         public static void AssertAreEqual(string expected, string actual, string field)
         {
             Assert.AreEqual(expected, actual, $"The expected {field} text [{expected}] differs from the actual {field} text [{actual}]");

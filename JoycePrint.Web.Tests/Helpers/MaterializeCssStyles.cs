@@ -2,6 +2,8 @@
 {
     public static class MaterializeCssStyles
     {
+        #region Materialize Input Group
+
         #region FieldCss Initial
 
         public static string MaterializeInputGroupIconClassesInitial => "material-icons prefix orange-text text-accent-4";
@@ -59,6 +61,28 @@
         public static string MaterializeInputGroupLabelClassesOptional => null;
 
         public static string MaterializeInputGroupValidationLabelClassesOptional => "val-msg";
+
+        #endregion
+
+        #endregion
+
+        #region Materialize Collapse
+
+        #region FieldCss Initial
+
+        public static string MaterializeCollapseHeaderCssInitial => "collapsible-header primary-text valign-wrapper";
+
+        public static string MaterializeCollapseBodyCssInitial => "collapsible-body";
+
+        #endregion
+
+        #region FieldCss Active
+
+        public static string MaterializeCollapseHeaderCssActive => "collapsible-header primary-text valign-wrapper active";
+        
+        public static string MaterializeCollapseBodyCssActive => "collapsible-body";
+
+        #endregion
 
         #endregion
     }
