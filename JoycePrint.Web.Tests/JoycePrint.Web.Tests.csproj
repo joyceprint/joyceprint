@@ -61,10 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DevelopementTests.cs" />
+    <Compile Include="Enums\FieldCss.cs" />
     <Compile Include="Helpers\DriverSelector.cs" />
     <Compile Include="Enums\ScreenType.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\AssertHelper.cs" />
+    <Compile Include="Helpers\MaterializeCssStyles.cs" />
+    <Compile Include="Helpers\MaterializeCollapse.cs" />
     <Compile Include="Helpers\ScreenSize.cs" />
     <Compile Include="Helpers\Urls.cs" />
+    <Compile Include="Helpers\MaterializeHelper.cs" />
     <Compile Include="PageObjectModels\BasePom.cs" />
     <Compile Include="PageObjectModels\HeaderPom.cs" />
     <Compile Include="PageObjectModels\AboutUsPom.cs" />
@@ -72,7 +78,7 @@
     <Compile Include="PageObjectModels\FooterPom.cs" />
     <Compile Include="PageObjectModels\HomePom.cs" />
     <Compile Include="Helpers\SupportedBrowsers.cs" />
-    <Compile Include="TestData\MaterializeTestData.cs" />
+    <Compile Include="Helpers\MaterializeInputGroup.cs" />
     <Compile Include="TestData\FooterTestData.cs" />
     <Compile Include="TestData\HeaderTestData.cs" />
     <Compile Include="TestData\AboutUsTestData.cs" />

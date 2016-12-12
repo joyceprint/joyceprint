@@ -1,6 +1,7 @@
 ﻿using JoycePrint.Web.Tests.TestData;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using System.Collections.Generic;
 
 namespace JoycePrint.Web.Tests.PageObjectModels
 {
@@ -61,8 +62,25 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-submit]")]
         public IWebElement Submit { get; set; }
-       
+
         #endregion
+
+        #region Docket Help Partial View 
+
+        /// <summary>
+        /// A list of all the help titles on the page
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-help-title]")]
+        public IList<IWebElement> HelpTitles { get; set; }
+
+
+        /// <summary>
+        /// The submit button element for the page
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-help-information]")]
+        public IList<IWebElement> HelpInformation { get; set; }
+
+        #endregion        
 
         #endregion
 

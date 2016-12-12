@@ -1,4 +1,5 @@
-﻿using JoycePrint.Web.Tests.PageObjectModels;
+﻿using JoycePrint.Web.Tests.Helpers;
+using JoycePrint.Web.Tests.PageObjectModels;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -25,7 +26,7 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyDisplay()
         {
-            AssertAreEqual(FooterPom.FooterTestData.CopyrightText, FooterPom.Copyright.Text, "Copyright Information");
+            AssertHelper.AssertAreEqual(FooterPom.FooterTestData.CopyrightText, FooterPom.Copyright.Text, "Copyright Information");
 
             Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(FooterPom.ByLogo)));            
         }

@@ -1,4 +1,5 @@
 ﻿using JoycePrint.Web.Tests.Enums;
+using JoycePrint.Web.Tests.Helpers;
 using JoycePrint.Web.Tests.PageObjectModels;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -39,13 +40,13 @@ namespace JoycePrint.Web.Tests.Tests
             Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(HeaderPom.ByNavLogo)));
             Wait1Sec.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(HeaderPom.BySideNavLogo)));
 
-            AssertAreEqual(HeaderPom.HeaderTestData.HomeText, HeaderPom.NavHome.Text, "Nav Home");
-            AssertAreEqual(HeaderPom.HeaderTestData.QuoteText, HeaderPom.NavQuote.Text, "Nav Quote");
-            AssertAreEqual(HeaderPom.HeaderTestData.AboutUsText, HeaderPom.NavAboutUs.Text, "Nav About Us");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.HomeText, HeaderPom.NavHome.Text, "Nav Home");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.QuoteText, HeaderPom.NavQuote.Text, "Nav Quote");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.AboutUsText, HeaderPom.NavAboutUs.Text, "Nav About Us");
 
-            AssertAreEqual(HeaderPom.HeaderTestData.HomeLink, HeaderPom.NavHome.GetAttribute("href"), "Nav Home Link");
-            AssertAreEqual(HeaderPom.HeaderTestData.QuoteLink, HeaderPom.NavQuote.GetAttribute("href"), "Nav Quote Link");
-            AssertAreEqual(HeaderPom.HeaderTestData.AboutUsLink, HeaderPom.NavAboutUs.GetAttribute("href"), "Nav About Us Link");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.HomeLink, HeaderPom.NavHome.GetAttribute("href"), "Nav Home Link");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.QuoteLink, HeaderPom.NavQuote.GetAttribute("href"), "Nav Quote Link");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.AboutUsLink, HeaderPom.NavAboutUs.GetAttribute("href"), "Nav About Us Link");
         }
 
         /// <summary>
@@ -61,13 +62,13 @@ namespace JoycePrint.Web.Tests.Tests
             Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(HeaderPom.BySideNavLogo)));
             Wait1Sec.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(HeaderPom.ByNavLogo)));
 
-            AssertAreEqual(HeaderPom.HeaderTestData.HomeText, HeaderPom.SideNavHome.Text, "Side Nav Home");
-            AssertAreEqual(HeaderPom.HeaderTestData.QuoteText, HeaderPom.SideNavQuote.Text, "Side Nav Quote");
-            AssertAreEqual(HeaderPom.HeaderTestData.AboutUsText, HeaderPom.SideNavAboutUs.Text, "Side Nav About Us");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.HomeText, HeaderPom.SideNavHome.Text, "Side Nav Home");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.QuoteText, HeaderPom.SideNavQuote.Text, "Side Nav Quote");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.AboutUsText, HeaderPom.SideNavAboutUs.Text, "Side Nav About Us");
 
-            AssertAreEqual(HeaderPom.HeaderTestData.HomeLink, HeaderPom.SideNavHome.GetAttribute("href"), "Side Nav Home Link");
-            AssertAreEqual(HeaderPom.HeaderTestData.QuoteLink, HeaderPom.SideNavQuote.GetAttribute("href"), "Side Nav Quote Link");
-            AssertAreEqual(HeaderPom.HeaderTestData.AboutUsLink, HeaderPom.SideNavAboutUs.GetAttribute("href"), "Side Nav About Us Link");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.HomeLink, HeaderPom.SideNavHome.GetAttribute("href"), "Side Nav Home Link");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.QuoteLink, HeaderPom.SideNavQuote.GetAttribute("href"), "Side Nav Quote Link");
+            AssertHelper.AssertAreEqual(HeaderPom.HeaderTestData.AboutUsLink, HeaderPom.SideNavAboutUs.GetAttribute("href"), "Side Nav About Us Link");
 
             ResizeScreen(ScreenType.Large);
         }

@@ -1,4 +1,5 @@
-﻿using JoycePrint.Web.Tests.PageObjectModels;
+﻿using JoycePrint.Web.Tests.Helpers;
+using JoycePrint.Web.Tests.PageObjectModels;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -54,7 +55,7 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyCompanyHistory()
         {
-            AssertAreEqual(AboutUsPom.AboutUsTestData.CompanyHistoryText, AboutUsPom.CompanyHistory.Text, "Company History");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.CompanyHistoryText, AboutUsPom.CompanyHistory.Text, "Company History");
             Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(AboutUsPom.ByCompanyHistoryImage)));
         }
 
@@ -63,20 +64,20 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyCompanyInformation()
         {
-            AssertAreEqual(AboutUsPom.AboutUsTestData.AddressLabel, AboutUsPom.AddressLabel.Text, "Address Label");
-            AssertAreEqual(AboutUsPom.AboutUsTestData.AddressText, AboutUsPom.AddressText.Text, "Address Text");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.AddressLabel, AboutUsPom.AddressLabel.Text, "Address Label");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.AddressText, AboutUsPom.AddressText.Text, "Address Text");
 
-            AssertAreEqual(AboutUsPom.AboutUsTestData.PhoneLabel, AboutUsPom.PhoneLabel.Text, "Phone Label");
-            AssertAreEqual(AboutUsPom.AboutUsTestData.PhoneText, AboutUsPom.PhoneText.Text, "Phone Text");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.PhoneLabel, AboutUsPom.PhoneLabel.Text, "Phone Label");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.PhoneText, AboutUsPom.PhoneText.Text, "Phone Text");
 
-            AssertAreEqual(AboutUsPom.AboutUsTestData.FaxLabel, AboutUsPom.FaxLabel.Text, "Fax Label");
-            AssertAreEqual(AboutUsPom.AboutUsTestData.FaxText, AboutUsPom.FaxText.Text, "Fax Text");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.FaxLabel, AboutUsPom.FaxLabel.Text, "Fax Label");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.FaxText, AboutUsPom.FaxText.Text, "Fax Text");
 
-            AssertAreEqual(AboutUsPom.AboutUsTestData.EmailLabel, AboutUsPom.EmailLabel.Text, "Email Label");
-            AssertAreEqual(AboutUsPom.AboutUsTestData.EmailText, AboutUsPom.EmailText.Text, "Email Text");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.EmailLabel, AboutUsPom.EmailLabel.Text, "Email Label");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.EmailText, AboutUsPom.EmailText.Text, "Email Text");
 
-            AssertAreEqual(AboutUsPom.AboutUsTestData.SkypeLabel, AboutUsPom.SkypeLabel.Text, "Skype Label");
-            AssertAreEqual(AboutUsPom.AboutUsTestData.SkypeText, AboutUsPom.SkypeText.Text, "Skype Text");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.SkypeLabel, AboutUsPom.SkypeLabel.Text, "Skype Label");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.SkypeText, AboutUsPom.SkypeText.Text, "Skype Text");
 
             Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(AboutUsPom.ByMap)));
         }
@@ -86,9 +87,9 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyAnchorLinksToApplications()
         {
-            AssertAreEqual(AboutUsPom.AboutUsTestData.PhoneLink, AboutUsPom.PhoneText.GetAttribute("href"), "Phone Link");
-            AssertAreEqual(AboutUsPom.AboutUsTestData.EmailLink, AboutUsPom.EmailText.GetAttribute("href"), "Email Link");
-            AssertAreEqual(AboutUsPom.AboutUsTestData.SkypeLink, AboutUsPom.SkypeText.GetAttribute("href"), "Skype Link");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.PhoneLink, AboutUsPom.PhoneText.GetAttribute("href"), "Phone Link");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.EmailLink, AboutUsPom.EmailText.GetAttribute("href"), "Email Link");
+            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.SkypeLink, AboutUsPom.SkypeText.GetAttribute("href"), "Skype Link");
         }
     }
 }

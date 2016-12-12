@@ -1,4 +1,6 @@
-﻿namespace JoycePrint.Web.Tests.TestData
+﻿using System.Configuration;
+
+namespace JoycePrint.Web.Tests.TestData
 {
     public class QuoteTestData
     {
@@ -10,21 +12,23 @@
 
         public string SubmitText => "SUBMIT";
 
-        public MaterializeTestData Message
+        public string RecaptchaSiteKey => ConfigurationManager.AppSettings.Get("RecaptchaSiteKey");
+
+        public MaterializeInputGroup Message
         {
-            get
+            get//moe the strings to a static class
             {
-                var messageTestData = new MaterializeTestData();
-                messageTestData.IconClasses = "material-icons prefix orange-text text-accent-4";
+                var messageTestData = new MaterializeInputGroup();
+                messageTestData.IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesInitial;
                 messageTestData.IconText = "message";
 
-                messageTestData.InputClasses = "materialize-textarea validate";
+                messageTestData.InputClasses = MaterializeCssStyles.MaterializeInputGroupInputClassesInitial;
                 messageTestData.InputText = null;
 
-                messageTestData.LabelClasses = null;
+                messageTestData.LabelClasses = MaterializeCssStyles.MaterializeInputGroupLabelClassesInitial;
                 messageTestData.LabelText = "Message";
 
-                messageTestData.ValidationLabelClasses = "val-msg";
+                messageTestData.ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial;
                 messageTestData.ValidationLabelText = "Any additional information";
 
                 return messageTestData;
