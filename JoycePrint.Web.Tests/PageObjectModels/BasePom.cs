@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.PageObjects;
@@ -16,6 +17,7 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// <summary>
         /// 1 Second Wait - Use this through out the POM classes to pause while items are created
         /// </summary>
+        [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
         protected WebDriverWait Wait1Sec { get; }
 
         /// <summary>

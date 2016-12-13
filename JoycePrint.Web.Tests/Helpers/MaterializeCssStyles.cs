@@ -1,4 +1,4 @@
-﻿namespace JoycePrint.Web.Tests.TestData
+﻿namespace JoycePrint.Web.Tests.Helpers
 {
     public static class MaterializeCssStyles
     {

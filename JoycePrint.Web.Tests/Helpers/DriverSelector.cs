@@ -5,7 +5,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 
-namespace JoycePrint.Web.Tests
+namespace JoycePrint.Web.Tests.Helpers
 {
     public static class DriverSelector
     {

@@ -55,7 +55,7 @@ namespace JoycePrint.Web.Tests.Tests
             AssertHelper.AssertAreEqual(QuotePom.Recaptcha.GetAttribute("data-sitekey"), QuotePom.QuoteTestData.RecaptchaSiteKey, "Recaptcha Site Key");
 
             // Verify the message field
-            MaterializeInputGroup.VerifyMaterializeField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, Enums.FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);
         }
 
         /// <summary>

@@ -1,8 +1,7 @@
-﻿using JoycePrint.Web.Tests.Enums;
-using JoycePrint.Web.Tests.Helpers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using JoycePrint.Web.Tests.Enums;
 
-namespace JoycePrint.Web.Tests
+namespace JoycePrint.Web.Tests.Helpers
 {
     public static class Supported
     {
@@ -18,7 +17,7 @@ namespace JoycePrint.Web.Tests
         /// </summary>
         public static ScreenSize GetScreenSize (ScreenType screenType)
         {
-            ScreenSize screenSize = null;
+            ScreenSize screenSize;
 
             switch(screenType)
             {

@@ -1,9 +1,10 @@
-﻿using JoycePrint.Web.Tests.Enums;
-using JoycePrint.Web.Tests.Helpers;
+﻿using System.Diagnostics.CodeAnalysis;
+using JoycePrint.Web.Tests.Enums;
 using OpenQA.Selenium;
 
-namespace JoycePrint.Web.Tests.TestData
+namespace JoycePrint.Web.Tests.Helpers
 {
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public class MaterializeInputGroup
     {
         #region Properties
@@ -31,6 +32,7 @@ namespace JoycePrint.Web.Tests.TestData
         /// </summary>
         /// <param name="inputGroupContainer">The materialize input group container that is used to get the elements that need to be checked</param>
         /// <param name="testData">The test data to be used for the comparision</param>
+        /// <param name="updateCssTo">The css style required, the field will have it's css updated to this type</param>
         public static void VerifyMaterializeField(IWebElement inputGroupContainer, MaterializeInputGroup testData, FieldCss updateCssTo)
         {
             IWebElement iconElement = null;
@@ -73,7 +75,9 @@ namespace JoycePrint.Web.Tests.TestData
         /// <param name="inputElement">The input element will be stored here</param>
         /// <param name="labelElement">The label element will be stored here</param>
         /// <param name="validationLabelElement">The validation label element will be stored here</param>
+        /// <param name="fieldName">The name of the input field for the input group</param>
         /// <param name="inputTag">The input tag name to look for when setting the input element</param>
+        [SuppressMessage("ReSharper", "RedundantAssignment")]
         public static void GetMaterializeWebElements(IWebElement inputGroupContainer, ref IWebElement iconElement, ref IWebElement inputElement, ref IWebElement labelElement, ref IWebElement validationLabelElement, ref string fieldName, string inputTag)
         {
             iconElement = inputGroupContainer.FindElement(By.TagName("i"));

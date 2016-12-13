@@ -1,9 +1,11 @@
-﻿using JoycePrint.Web.Tests.TestData;
+﻿using System.Diagnostics.CodeAnalysis;
+using JoycePrint.Web.Tests.TestData;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace JoycePrint.Web.Tests.PageObjectModels
 {
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
     public class HeaderPom : BasePom
     {
         /// <summary>

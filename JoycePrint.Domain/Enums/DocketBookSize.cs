@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JoycePrint.Domain.Enums
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public enum DocketBookSize
     {
         [Display(Name = "A4")]
