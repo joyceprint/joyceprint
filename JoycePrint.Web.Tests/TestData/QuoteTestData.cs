@@ -65,7 +65,8 @@ namespace JoycePrint.Web.Tests.TestData
                     HeaderIconText = "filter_drama",
                     InformationTitleText = "Available Sizes",
                     InformationImage = $"{Urls.UrlDellDev}/Content/images/jp-card-paper-size.jpg",
-                    InformationBodyText = $"A4 - 210 x 297mm{Environment.NewLine}A5 - Half A4 - 148.5 x 210mm{Environment.NewLine}A6 - Quarter A4 - 105 x 148.5mm{Environment.NewLine}DL - Third A4 - 99 x 210mm"
+                    InformationBodyText = $"A4 - 210 x 297mm{Environment.NewLine}A5 - Half A4 - 148.5 x 210mm{Environment.NewLine}A6 - Quarter A4 - 105 x 148.5mm{Environment.NewLine}DL - Third A4 - 99 x 210mm",
+                    CollapseWaitForId = "img-paper-size"
                 });
 
                 helpTestData.Add(new MaterializeCollapse
@@ -77,7 +78,8 @@ namespace JoycePrint.Web.Tests.TestData
                     HeaderIconText = "filter_drama",
                     InformationTitleText = "Paper Orientation",
                     InformationImage = $"{Urls.UrlDellDev}/Content/images/jp-card-paper-orientation.jpg",
-                    InformationBodyText = $"A6 - Shape: Protrait Size: 105 x 148.5mm{Environment.NewLine}A6 - Shape: Landscape Size: 148.5 x 105mm{Environment.NewLine}DL - Shape: Protrait Size: 99 x 210mm{Environment.NewLine}DL - Shape: Landscape Size: 210 x 99mm{Environment.NewLine}A5 - Shape: Protrait Size: 148.5 x 210mm{Environment.NewLine}A5 - Shape: Landscape Size: 210 x 148.5mm{Environment.NewLine}A4 - Shape: Protrait Size: 210 x 297mm{Environment.NewLine}A4 - Shape: Landscape Size: 297 x 210mm{Environment.NewLine}A3 - Shape: Landscape Size: 400 x 297mm"
+                    InformationBodyText = $"A6 - Shape: Protrait Size: 105 x 148.5mm{Environment.NewLine}A6 - Shape: Landscape Size: 148.5 x 105mm{Environment.NewLine}DL - Shape: Protrait Size: 99 x 210mm{Environment.NewLine}DL - Shape: Landscape Size: 210 x 99mm{Environment.NewLine}A5 - Shape: Protrait Size: 148.5 x 210mm{Environment.NewLine}A5 - Shape: Landscape Size: 210 x 148.5mm{Environment.NewLine}A4 - Shape: Protrait Size: 210 x 297mm{Environment.NewLine}A4 - Shape: Landscape Size: 297 x 210mm{Environment.NewLine}A3 - Shape: Landscape Size: 400 x 297mm",
+                    CollapseWaitForId = "img-paper-orientation"
                 });
 
                 helpTestData.Add(new MaterializeCollapse
@@ -89,7 +91,8 @@ namespace JoycePrint.Web.Tests.TestData
                     HeaderIconText = "filter_drama",
                     InformationTitleText = "Book Type",
                     InformationImage = $"{Urls.UrlDellDev}/Content/images/jp-card-book-type.jpg",
-                    InformationBodyText = $"Duplicate (2 sheets in a Set - 100 sets per book){Environment.NewLine}Triplicate (3 sheets in a Set - 50 sets per book){Environment.NewLine}Quad (4 sheets in a Set - 50 sets per book)"
+                    InformationBodyText = $"Duplicate (2 sheets in a Set - 100 sets per book){Environment.NewLine}Triplicate (3 sheets in a Set - 50 sets per book){Environment.NewLine}Quad (4 sheets in a Set - 50 sets per book)",
+                    CollapseWaitForId = "img-book-type"
                 });
 
                 return helpTestData;

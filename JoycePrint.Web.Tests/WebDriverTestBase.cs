@@ -36,6 +36,11 @@ namespace JoycePrint.Web.Tests
         protected string Url { get; } = Urls.UrlDellDev;
 
         /// <summary>
+        /// A 20 second delay, used for controls with animations
+        /// </summary>
+        protected WebDriverWait Wait20Sec;
+
+        /// <summary>
         /// A 10 second delay
         /// </summary>
         protected WebDriverWait Wait10Sec;
@@ -80,6 +85,7 @@ namespace JoycePrint.Web.Tests
                 CurrentDriver = driver;
 
                 Assert.IsNotNull(driver);
+                Wait20Sec = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
                 Wait10Sec = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
                 Wait1Sec = new WebDriverWait(driver, TimeSpan.FromSeconds(1));
                 Go(driver);

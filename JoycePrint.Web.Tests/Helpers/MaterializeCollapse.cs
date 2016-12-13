@@ -27,6 +27,8 @@ namespace JoycePrint.Web.Tests.Helpers
 
         public string InformationBodyText { get; set; }
 
+        public string CollapseWaitForId { get; set; }
+
         #endregion
 
         /// <summary>
@@ -88,6 +90,7 @@ namespace JoycePrint.Web.Tests.Helpers
 
             if (updateCssTo == FieldCss.Active)
             {
+                // Wait for the animation to finish
                 wait.Until(ExpectedConditions.TextToBePresentInElement(bodyTitleText, testData.InformationTitleText));
 
                 testData.InformationTitleText.MatchesActual(bodyTitleText.Text, "Body Title Text");
@@ -96,6 +99,9 @@ namespace JoycePrint.Web.Tests.Helpers
             }
             else if (updateCssTo == FieldCss.Initial)
             {
+                // Wait for the animation to finish
+                wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.Id(testData.CollapseWaitForId)));
+
                 Assert.IsFalse(bodyTitleText.Displayed, $"The Body Title for {testData.InformationTitleText} should be hidden");
                 Assert.IsFalse(imageElement.Displayed, $"The Body Image for {testData.InformationImage} should be hidden");
                 Assert.IsFalse(bodyText.Displayed, $"The Body Text for {testData.InformationBodyText} should be hidden");
