@@ -15,7 +15,7 @@ namespace JoycePrint.Web.Tests.TestData
 
         public string SubmitText => "SUBMIT";
 
-        public string RecaptchaSiteKey => ConfigurationManager.AppSettings.Get("RecaptchaSiteKey");
+        public string RecaptchaPublicKey => ConfigurationManager.AppSettings.Get("RecaptchaPublicKey");
 
         /// <summary>
         /// 

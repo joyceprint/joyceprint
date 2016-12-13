@@ -52,7 +52,7 @@ namespace JoycePrint.Web.Tests.Tests
             AssertHelper.AssertAreEqual(QuotePom.QuoteTestData.SubmitText, QuotePom.Submit.Text, "Submit Button");
 
             Assert.IsTrue(QuotePom.Recaptcha.Displayed, "Recaptcha Missing");
-            AssertHelper.AssertAreEqual(QuotePom.Recaptcha.GetAttribute("data-sitekey"), QuotePom.QuoteTestData.RecaptchaSiteKey, "Recaptcha Site Key");
+            AssertHelper.AssertAreEqual(QuotePom.Recaptcha.GetAttribute("data-sitekey"), QuotePom.QuoteTestData.RecaptchaPublicKey, "Recaptcha Public Key");
 
             // Verify the message field
             MaterializeInputGroup.VerifyMaterializeField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);

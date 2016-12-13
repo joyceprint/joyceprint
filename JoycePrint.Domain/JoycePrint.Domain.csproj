@@ -75,7 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\Config.cs" />
-    <Compile Include="Configuration\IConfig.cs" />
     <Compile Include="Mail\IEmailConverter.cs" />
     <Compile Include="Mail\IEmail.cs" />
     <Compile Include="Mail\Email.cs" />

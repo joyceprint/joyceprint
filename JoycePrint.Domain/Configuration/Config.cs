@@ -1,28 +1,30 @@
-﻿namespace JoycePrint.Domain.Configuration
-{
-    public class Config : IConfig
+﻿using System.Configuration;
+
+namespace JoycePrint.Domain.Configuration
+{       
+    public static class Config
     {
-        public string RecaptchaUrl
+        public static string RecaptchaUrl
         {
             get
             {
-                return "https://www.google.com/recaptcha/api/siteverify";
+                return ConfigurationManager.AppSettings.Get("RecaptchaUrl");
             }            
         }
 
-        public string RecaptchaSecretKey
+        public static string RecaptchaSecretKey
         {
             get
             {
-                return "6LcC2Q0UAAAAALvPAkBtQT2a5AE8DUCotVfQu04t";
+                return ConfigurationManager.AppSettings.Get("RecaptchaSecretKey");
             }
         }
-
-        public string RecaptchaPublicKey
+        
+        public static string RecaptchaPublicKey
         {
             get
             {
-                return "6LcC2Q0UAAAAADtadrrG_FTRs82tvd2J1fOwK-KW";
+                return ConfigurationManager.AppSettings.Get("RecaptchaPublicKey");
             }           
         }
     }

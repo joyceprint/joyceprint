@@ -12,10 +12,10 @@ namespace JoycePrint.Domain.Security
 
         private string SecretKey { get; }
 
-        public Recaptcha(IConfig config)
+        public Recaptcha()
         {
-            Url = config.RecaptchaUrl;
-            SecretKey = config.RecaptchaSecretKey;
+            Url = Config.RecaptchaUrl;
+            SecretKey = Config.RecaptchaSecretKey;
         }
 
         [HttpGet]
