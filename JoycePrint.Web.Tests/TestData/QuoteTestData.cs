@@ -89,7 +89,7 @@ namespace JoycePrint.Web.Tests.TestData
                     HeaderIconText = "filter_drama",
                     InformationTitleText = "Book Type",
                     InformationImage = $"{Urls.UrlDellDev}/Content/images/jp-card-book-type.jpg",
-                    InformationBodyText = $"Duplicate (2 sheets in a Set - 100 sets per book){Environment.NewLine}Triplicate(3 sheets in a Set - 50 sets per book){Environment.NewLine}Quad(4 sheets in a Set - 50 sets per book)"
+                    InformationBodyText = $"Duplicate (2 sheets in a Set - 100 sets per book){Environment.NewLine}Triplicate (3 sheets in a Set - 50 sets per book){Environment.NewLine}Quad (4 sheets in a Set - 50 sets per book)"
                 });
 
                 return HelpTestData;

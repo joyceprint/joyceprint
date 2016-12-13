@@ -76,10 +76,7 @@ namespace JoycePrint.Web.Tests.TestData
 
             GetHeaderElements(headerContainer, ref iconElement, ref headerText);
             GetBodyElements(bodyContainer, ref imageElement, ref bodyTitleText, ref bodyText);
-
-            wait.Until(ExpectedConditions.TextToBePresentInElement(bodyTitleText, testData.InformationTitleText));
-
-            testData.HeaderCss.MatchesActual(headerContainer.GetAttribute("class").ToString(), "Header Classes");
+            testData.HeaderCss.UpdateCssTo(updateCssTo).MatchesActual(headerContainer.GetAttribute("class").ToString(), "Header Classes");
 
             testData.HeaderIconClasses.MatchesActual(iconElement.GetAttribute("class").ToString(), "Header Icon Classes");
             testData.HeaderIconText.MatchesActual(iconElement.Text, "Header Icon Text");
@@ -89,6 +86,8 @@ namespace JoycePrint.Web.Tests.TestData
 
             if (updateCssTo == FieldCss.Active)
             {
+                wait.Until(ExpectedConditions.TextToBePresentInElement(bodyTitleText, testData.InformationTitleText));
+
                 testData.InformationTitleText.MatchesActual(bodyTitleText.Text, "Body Title Text");
                 testData.InformationImage.MatchesActual(imageElement.GetAttribute("src"), "Body Image Src");
                 testData.InformationBodyText.MatchesActual(bodyText.Text, "Body Text");
