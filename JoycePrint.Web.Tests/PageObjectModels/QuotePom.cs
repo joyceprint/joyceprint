@@ -2,9 +2,11 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace JoycePrint.Web.Tests.PageObjectModels
 {
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
     public class QuotePom : BasePom
     {
         /// <summary>
@@ -71,6 +73,7 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// A list of all the help titles on the page
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-help-title]")]
+        [SuppressMessage("ReSharper", "CollectionNeverUpdated.Global")]
         public IList<IWebElement> HelpTitles { get; set; }
 
 
@@ -78,6 +81,7 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// The submit button element for the page
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-help-information]")]
+        [SuppressMessage("ReSharper", "CollectionNeverUpdated.Global")]
         public IList<IWebElement> HelpInformation { get; set; }
 
         #endregion        

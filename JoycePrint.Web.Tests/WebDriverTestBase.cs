@@ -8,7 +8,6 @@ using OpenQA.Selenium.Support.UI;
 using JoycePrint.Web.Tests.Enums;
 using JoycePrint.Web.Tests.Helpers;
 using JoycePrint.Web.Tests.PageObjectModels;
-using JoycePrint.Web.Tests.TestData;
 
 namespace JoycePrint.Web.Tests
 {
@@ -104,12 +103,6 @@ namespace JoycePrint.Web.Tests
             {
                 caughtException = ex;
             }
-            finally
-            {
-                //driver.Close();
-                //driver.Quit();
-                //driver.Dispose();
-            }
 
             if (caughtException != null)
             {
@@ -156,12 +149,11 @@ namespace JoycePrint.Web.Tests
         public void WaitForPopup()
         {
             Wait1Sec.Until((d) => (d.WindowHandles.Count == 2));
-        }        
+        }
 
         /// <summary>
         /// Changes the screen size to the bounds specified for the enum value
         /// </summary>
-        /// <param name="screenSize"></param>
         public void ResizeScreen(ScreenType screenType)
         {
             var screenSize = Supported.GetScreenSize(screenType);

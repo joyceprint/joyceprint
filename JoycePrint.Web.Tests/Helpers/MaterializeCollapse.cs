@@ -1,11 +1,12 @@
-﻿using JoycePrint.Web.Tests.Enums;
-using JoycePrint.Web.Tests.Helpers;
+﻿using System.Diagnostics.CodeAnalysis;
+using JoycePrint.Web.Tests.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace JoycePrint.Web.Tests.TestData
+namespace JoycePrint.Web.Tests.Helpers
 {
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public class MaterializeCollapse
     {
         #region Properties
@@ -26,18 +27,16 @@ namespace JoycePrint.Web.Tests.TestData
 
         public string InformationBodyText { get; set; }
 
-        #endregion        
+        #endregion
 
         /// <summary>
-        /// This method gets the input group fields for the inputGroupContainer passed in
+        /// This method gets the collapse group fields for the headerContainer passed in
         /// The input arguments are passed in as references so we don't have to use globals or multiple returns
         /// </summary>
-        /// <param name="inputGroupContainer">The materialize input group container that is used to get the elements that need to be checked</param>
-        /// <param name="iconElement">The icon element will be stored here</param>
-        /// <param name="inputElement">The input element will be stored here</param>
-        /// <param name="labelElement">The label element will be stored here</param>
-        /// <param name="validationLabelElement">The validation label element will be stored here</param>
-        /// <param name="inputTag">The input tag name to look for when setting the input element</param>
+        /// <param name="headerContainer">The materialize header container that is used to get the elements that need to be checked</param>
+        /// <param name="iconElement">The header icon element</param>
+        /// <param name="headerText">The header element containing the header text</param>        
+        [SuppressMessage("ReSharper", "RedundantAssignment")]
         public static void GetHeaderElements(IWebElement headerContainer, ref IWebElement iconElement, ref IWebElement headerText)
         {
             iconElement = headerContainer.FindElement(By.TagName("i"));
@@ -48,12 +47,11 @@ namespace JoycePrint.Web.Tests.TestData
         /// This method gets the input group fields for the inputGroupContainer passed in
         /// The input arguments are passed in as references so we don't have to use globals or multiple returns
         /// </summary>
-        /// <param name="inputGroupContainer">The materialize input group container that is used to get the elements that need to be checked</param>
-        /// <param name="iconElement">The icon element will be stored here</param>
-        /// <param name="inputElement">The input element will be stored here</param>
-        /// <param name="labelElement">The label element will be stored here</param>
-        /// <param name="validationLabelElement">The validation label element will be stored here</param>
-        /// <param name="inputTag">The input tag name to look for when setting the input element</param>
+        /// <param name="bodyContainer">The materialize body container that is used to get the elements that need to be checked</param>
+        /// <param name="imageElement">The image element will be stored here</param>
+        /// <param name="bodyTitleText">The body title text element will be stored here</param>
+        /// <param name="bodyText">The body text element will be stored here</param>        
+        [SuppressMessage("ReSharper", "RedundantAssignment")]
         public static void GetBodyElements(IWebElement bodyContainer, ref IWebElement imageElement, ref IWebElement bodyTitleText, ref IWebElement bodyText)
         {
             imageElement = bodyContainer.FindElement(By.TagName("img"));
@@ -64,8 +62,11 @@ namespace JoycePrint.Web.Tests.TestData
         /// <summary>
         /// Verfiy the materialize fields state when the page is loaded       
         /// </summary>
-        /// <param name="inputGroupContainer">The materialize input group container that is used to get the elements that need to be checked</param>
+        /// <param name="headerContainer">The materialize header container that is used to get the elements that need to be checked</param>
+        /// <param name="bodyContainer">The materialize body container that is used to get the elements that need to be checked</param>
         /// <param name="testData">The test data to be used for the comparision</param>
+        /// <param name="updateCssTo">The css style required, the field will have it's css updated to this type</param>
+        /// <param name="wait">A wait used to wait for the collapse animation to complete</param>
         public static void VerifyMaterializeCollapse(IWebElement headerContainer, IWebElement bodyContainer, MaterializeCollapse testData, FieldCss updateCssTo, WebDriverWait wait)
         {
             IWebElement iconElement = null;
@@ -79,13 +80,13 @@ namespace JoycePrint.Web.Tests.TestData
 
             wait.Until(ExpectedConditions.TextToBePresentInElement(bodyTitleText, testData.InformationTitleText));
 
-            testData.HeaderCss.MatchesActual(headerContainer.GetAttribute("class").ToString(), "Header Classes");
+            testData.HeaderCss.MatchesActual(headerContainer.GetAttribute("class"), "Header Classes");
 
-            testData.HeaderIconClasses.MatchesActual(iconElement.GetAttribute("class").ToString(), "Header Icon Classes");
+            testData.HeaderIconClasses.MatchesActual(iconElement.GetAttribute("class"), "Header Icon Classes");
             testData.HeaderIconText.MatchesActual(iconElement.Text, "Header Icon Text");
             testData.HeaderTitleText.MatchesActual(headerText.Text, "Header Title Text");
 
-            testData.BodyCss.MatchesActual(bodyContainer.GetAttribute("class").ToString(), "Body Css Classes");
+            testData.BodyCss.MatchesActual(bodyContainer.GetAttribute("class"), "Body Css Classes");
 
             if (updateCssTo == FieldCss.Active)
             {

@@ -54,9 +54,9 @@ namespace JoycePrint.Web.Tests.TestData
         {
             get
             {
-                var HelpTestData = new List<MaterializeCollapse>();
+                var helpTestData = new List<MaterializeCollapse>();
 
-                HelpTestData.Add(new MaterializeCollapse
+                helpTestData.Add(new MaterializeCollapse
                 {
                     HeaderCss = MaterializeCssStyles.MaterializeCollapseHeaderCssActive,
                     BodyCss = MaterializeCssStyles.MaterializeCollapseBodyCssActive,
@@ -68,7 +68,7 @@ namespace JoycePrint.Web.Tests.TestData
                     InformationBodyText = $"A4 - 210 x 297mm{Environment.NewLine}A5 - Half A4 - 148.5 x 210mm{Environment.NewLine}A6 - Quarter A4 - 105 x 148.5mm{Environment.NewLine}DL - Third A4 - 99 x 210mm"
                 });
 
-                HelpTestData.Add(new MaterializeCollapse
+                helpTestData.Add(new MaterializeCollapse
                 {
                     HeaderCss = MaterializeCssStyles.MaterializeCollapseHeaderCssInitial,
                     BodyCss = MaterializeCssStyles.MaterializeCollapseBodyCssInitial,
@@ -80,7 +80,7 @@ namespace JoycePrint.Web.Tests.TestData
                     InformationBodyText = $"A6 - Shape: Protrait Size: 105 x 148.5mm{Environment.NewLine}A6 - Shape: Landscape Size: 148.5 x 105mm{Environment.NewLine}DL - Shape: Protrait Size: 99 x 210mm{Environment.NewLine}DL - Shape: Landscape Size: 210 x 99mm{Environment.NewLine}A5 - Shape: Protrait Size: 148.5 x 210mm{Environment.NewLine}A5 - Shape: Landscape Size: 210 x 148.5mm{Environment.NewLine}A4 - Shape: Protrait Size: 210 x 297mm{Environment.NewLine}A4 - Shape: Landscape Size: 297 x 210mm{Environment.NewLine}A3 - Shape: Landscape Size: 400 x 297mm"
                 });
 
-                HelpTestData.Add(new MaterializeCollapse
+                helpTestData.Add(new MaterializeCollapse
                 {
                     HeaderCss = MaterializeCssStyles.MaterializeCollapseHeaderCssInitial,
                     BodyCss = MaterializeCssStyles.MaterializeCollapseBodyCssInitial,
@@ -92,7 +92,7 @@ namespace JoycePrint.Web.Tests.TestData
                     InformationBodyText = $"Duplicate (2 sheets in a Set - 100 sets per book){Environment.NewLine}Triplicate(3 sheets in a Set - 50 sets per book){Environment.NewLine}Quad(4 sheets in a Set - 50 sets per book)"
                 });
 
-                return HelpTestData;
+                return helpTestData;
             }
         }
     }
