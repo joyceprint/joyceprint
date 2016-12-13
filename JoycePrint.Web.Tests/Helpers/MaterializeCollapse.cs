@@ -78,7 +78,7 @@ namespace JoycePrint.Web.Tests.Helpers
             GetHeaderElements(headerContainer, ref iconElement, ref headerText);
             GetBodyElements(bodyContainer, ref imageElement, ref bodyTitleText, ref bodyText);
             
-            testData.HeaderCss.MatchesActual(headerContainer.GetAttribute("class"), "Header Classes");
+            testData.HeaderCss.UpdateCssTo(updateCssTo).MatchesActual(headerContainer.GetAttribute("class"), "Header Classes");
 
             testData.HeaderIconClasses.MatchesActual(iconElement.GetAttribute("class"), "Header Icon Classes");
             testData.HeaderIconText.MatchesActual(iconElement.Text, "Header Icon Text");
