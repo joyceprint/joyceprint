@@ -11,7 +11,7 @@ namespace JoycePrint.Web.Controllers
         [HttpPost]        
         public ActionResult ProcessRecaptcha(string captchaResponse)
         {
-            var recaptcha = new Recaptcha(Config);
+            var recaptcha = new Recaptcha();
             var result = recaptcha.Verify(captchaResponse);
 
             return Json(result);
