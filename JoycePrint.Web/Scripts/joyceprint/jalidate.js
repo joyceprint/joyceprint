@@ -468,7 +468,8 @@
                     }
                 });
 
-                $(autoFocusField).focus();
+                if (autoFocusField != null && typeof autoFocusField !== typeof undefined)
+                    $(autoFocusField).focus();
             });
         }
     }

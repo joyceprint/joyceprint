@@ -1,5 +1,7 @@
 ﻿using JoycePrint.Web.Tests.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
 
 namespace JoycePrint.Web.Tests.Helpers
 {
@@ -24,6 +26,12 @@ namespace JoycePrint.Web.Tests.Helpers
                 default:
                     return value;
             }
+        }
+
+        public static string UpdateCssTo(this string value, FieldCss getFor, FieldCss abortFor)
+        {
+            if (getFor == abortFor) return value;
+            return value.UpdateCssTo(getFor);
         }
 
         /// <summary>
@@ -55,6 +63,28 @@ namespace JoycePrint.Web.Tests.Helpers
         public static void MatchesActual(this string expected, string actual, string field)
         {
             Assert.AreEqual(expected, actual, $"The expected {field} [{expected}] differs from the actual {field} [{actual}]");
+        }
+
+        /// <summary>
+        /// Assert Extension to assert that css classes are the same
+        /// This will handle a list of single whitespace seperated css class names
+        /// </summary>
+        /// <param name="actual">The object the method is called on</param>
+        /// <param name="expected">The expected value</param>
+        /// <param name="field">The field being asserted on</param>
+        public static void MatchesActualCss(this string expected, string actual, string field)
+        {            
+            char SPACE = ' ';
+
+            var expectedCss = expected.Split(SPACE);
+            var actualCss = actual.Split(SPACE);
+
+            // Loop through all the classes and check 1 by 1 here
+            foreach (var css in expectedCss)
+            {
+                if (!actualCss.Contains(css))
+                    Assert.AreEqual(expected, actual, $"The expected {field} [{expected}] differs from the actual {field} [{actual}]");
+            }
         }
     }
 }

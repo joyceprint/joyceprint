@@ -17,21 +17,177 @@ namespace JoycePrint.Web.Tests.TestData
 
         public string RecaptchaPublicKey => ConfigurationManager.AppSettings.Get("RecaptchaPublicKey");
 
+        #region Contact Form Input
+
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
         /// The Extension Method UpdateCssTo is used to change the css classes for this object
+        /// If there are validation label(s) the required label text is the default
         /// </remarks>
-        public MaterializeInputGroup Message
+        public MaterializeInputGroup Company
+        {
+            get
+            {
+                return new MaterializeInputGroup
+                {
+                    IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesActive,
+                    IconText = "business",
+
+                    InputClasses = MaterializeCssStyles.MaterializeInputGroupInputClassesActive,
+                    InputText = null,
+
+                    LabelClasses = MaterializeCssStyles.MaterializeInputGroupLabelClassesActive,
+                    LabelText = "Company",
+
+                    ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesActive,
+                    ValidationLabelText = "Please enter the company name",
+
+                    FieldInputType = "input"
+                };
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// The Extension Method UpdateCssTo is used to change the css classes for this object
+        /// If there are validation label(s) the required label text is the default
+        /// </remarks>
+        public MaterializeInputGroup Position
+        {
+            get
+            {
+                var messageTestData = new MaterializeInputGroup();
+                messageTestData.IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesOptional;
+                messageTestData.IconText = "recent_actors";
+
+                messageTestData.InputClasses = MaterializeCssStyles.MaterializeInputGroupInputClassesOptional;
+                messageTestData.InputText = null;
+
+                messageTestData.LabelClasses = MaterializeCssStyles.MaterializeInputGroupLabelClassesOptional;
+                messageTestData.LabelText = "Position";
+
+                messageTestData.ValidationLabelClasses = null;
+                messageTestData.ValidationLabelText = null;
+
+                messageTestData.FieldInputType = "input";
+
+                return messageTestData;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// The Extension Method UpdateCssTo is used to change the css classes for this object
+        /// If there are validation label(s) the required label text is the default
+        /// </remarks>
+        public MaterializeInputGroup Name
         {
             get
             {
                 var messageTestData = new MaterializeInputGroup();
                 messageTestData.IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesInitial;
-                messageTestData.IconText = "message";
+                messageTestData.IconText = "perm_identity";
 
                 messageTestData.InputClasses = MaterializeCssStyles.MaterializeInputGroupInputClassesInitial;
+                messageTestData.InputText = null;
+
+                messageTestData.LabelClasses = MaterializeCssStyles.MaterializeInputGroupLabelClassesInitial;
+                messageTestData.LabelText = "Name";
+
+                messageTestData.ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial;
+                messageTestData.ValidationLabelText = "Please enter your name";
+
+                messageTestData.FieldInputType = "input";
+
+                return messageTestData;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// The Extension Method UpdateCssTo is used to change the css classes for this object
+        /// If there are validation label(s) the required label text is the default
+        /// </remarks>
+        public MaterializeInputGroup Phone
+        {
+            get
+            {
+                var messageTestData = new MaterializeInputGroup();
+                messageTestData.IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesInitial;
+                messageTestData.IconText = "phone";
+
+                messageTestData.InputClasses = MaterializeCssStyles.MaterializeInputGroupInputClassesInitial;
+                messageTestData.InputText = null;
+
+                messageTestData.LabelClasses = MaterializeCssStyles.MaterializeInputGroupLabelClassesInitial;
+                messageTestData.LabelText = "Telephone Number";
+
+                messageTestData.ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial;
+                messageTestData.ValidationLabelText = "Please enter a contact number";
+
+                messageTestData.FieldInputType = "input";
+
+                return messageTestData;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// The Extension Method UpdateCssTo is used to change the css classes for this object
+        /// If there are validation label(s) the required label text is the default
+        /// </remarks>
+        public MaterializeInputGroup Email
+        {
+            get
+            {
+                var messageTestData = new MaterializeInputGroup();
+                messageTestData.IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesInitial;
+                messageTestData.IconText = "email";
+
+                messageTestData.InputClasses = MaterializeCssStyles.MaterializeInputGroupInputClassesInitial;
+                messageTestData.InputText = null;
+
+                messageTestData.LabelClasses = MaterializeCssStyles.MaterializeInputGroupLabelClassesInitial;
+                messageTestData.LabelText = "Email";
+
+                messageTestData.ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial;
+                messageTestData.ValidationLabelText = "Did you forget your email";
+
+                messageTestData.FieldInputType = "input";
+
+                return messageTestData;
+            }
+        }
+
+        #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// The Extension Method UpdateCssTo is used to change the css classes for this object
+        /// If there are validation label(s) the required label text is the default
+        /// </remarks>
+        public MaterializeInputGroup Message
+        {
+            get
+            {
+                var cssTextarea = " materialize-textarea";
+
+                var messageTestData = new MaterializeInputGroup();
+                messageTestData.IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesInitial;
+                messageTestData.IconText = "message";
+
+                messageTestData.InputClasses = MaterializeCssStyles.MaterializeInputGroupInputClassesInitial + cssTextarea;
                 messageTestData.InputText = null;
 
                 messageTestData.LabelClasses = MaterializeCssStyles.MaterializeInputGroupLabelClassesInitial;
@@ -39,6 +195,8 @@ namespace JoycePrint.Web.Tests.TestData
 
                 messageTestData.ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial;
                 messageTestData.ValidationLabelText = "Any additional information";
+
+                messageTestData.FieldInputType = "textarea";
 
                 return messageTestData;
             }

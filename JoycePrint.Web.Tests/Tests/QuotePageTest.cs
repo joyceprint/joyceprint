@@ -45,17 +45,17 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyQuoteDisplay()
         {
-            AssertHelper.AssertAreEqual(QuotePom.QuoteTestData.BannerTopText, QuotePom.BannerTop.Text, "Top Banner");
-            AssertHelper.AssertAreEqual(QuotePom.QuoteTestData.BannerBottomText, QuotePom.BannerBottom.Text, "Bottom Banner");
+            QuotePom.QuoteTestData.BannerTopText.MatchesActual(QuotePom.BannerTop.Text, "Top Banner");
+            QuotePom.QuoteTestData.BannerBottomText.MatchesActual(QuotePom.BannerBottom.Text, "Bottom Banner");
 
-            AssertHelper.AssertAreEqual(QuotePom.QuoteTestData.ClearText, QuotePom.Clear.Text, "Clear Button");
-            AssertHelper.AssertAreEqual(QuotePom.QuoteTestData.SubmitText, QuotePom.Submit.Text, "Submit Button");
+            QuotePom.QuoteTestData.ClearText.MatchesActual(QuotePom.Clear.Text, "Clear Button");
+            QuotePom.QuoteTestData.SubmitText.MatchesActual(QuotePom.Submit.Text, "Submit Button");
 
             Assert.IsTrue(QuotePom.Recaptcha.Displayed, "Recaptcha Missing");
-            AssertHelper.AssertAreEqual(QuotePom.Recaptcha.GetAttribute("data-sitekey"), QuotePom.QuoteTestData.RecaptchaPublicKey, "Recaptcha Public Key");
+            QuotePom.Recaptcha.GetAttribute("data-sitekey").MatchesActual(QuotePom.QuoteTestData.RecaptchaPublicKey, "Recaptcha Public Key");
 
             // Verify the message field
-            MaterializeInputGroup.VerifyMaterializeField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);
         }
 
         /// <summary>
@@ -91,7 +91,11 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyContactFormDisplay()
         {
-
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.PositionInputGroup, QuotePom.QuoteTestData.Position, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.NameInputGroup, QuotePom.QuoteTestData.Name, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.PhoneInputGroup, QuotePom.QuoteTestData.Phone, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.EmailInputGroup, QuotePom.QuoteTestData.Email, FieldCss.Initial);
         }
 
         /// <summary>

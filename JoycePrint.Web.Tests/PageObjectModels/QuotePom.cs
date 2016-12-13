@@ -67,6 +67,40 @@ namespace JoycePrint.Web.Tests.PageObjectModels
 
         #endregion
 
+        #region Contact Form Elements
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-company]")]
+        public IWebElement CompanyInputGroup { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-position]")]
+        public IWebElement PositionInputGroup { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-name]")]
+        public IWebElement NameInputGroup { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-phone]")]
+        public IWebElement PhoneInputGroup { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-email]")]
+        public IWebElement EmailInputGroup { get; set; }
+
+        #endregion
+
         #region Docket Help Partial View 
 
         /// <summary>

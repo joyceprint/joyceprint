@@ -25,6 +25,8 @@ namespace JoycePrint.Web.Tests.Helpers
 
         public string ValidationLabelClasses { get; set; }
 
+        public string FieldInputType { get; set; }
+
         #endregion
 
         /// <summary>
@@ -33,7 +35,7 @@ namespace JoycePrint.Web.Tests.Helpers
         /// <param name="inputGroupContainer">The materialize input group container that is used to get the elements that need to be checked</param>
         /// <param name="testData">The test data to be used for the comparision</param>
         /// <param name="updateCssTo">The css style required, the field will have it's css updated to this type</param>
-        public static void VerifyMaterializeField(IWebElement inputGroupContainer, MaterializeInputGroup testData, FieldCss updateCssTo)
+        public static void VerifyMaterializeInputField(IWebElement inputGroupContainer, MaterializeInputGroup testData, FieldCss updateCssTo)
         {
             IWebElement iconElement = null;
             IWebElement inputElement = null;
@@ -41,29 +43,31 @@ namespace JoycePrint.Web.Tests.Helpers
             IWebElement validationLabelElement = null;
             string fieldName = null;
 
-            GetMaterializeWebElements(inputGroupContainer, ref iconElement, ref inputElement, ref labelElement, ref validationLabelElement, ref fieldName, "textarea");
+            GetMaterializeWebElements(inputGroupContainer, ref iconElement, ref inputElement, ref labelElement, ref validationLabelElement, ref fieldName, testData.FieldInputType);
 
-            AssertHelper.AssertAreEqual(testData.IconClasses.UpdateCssTo(updateCssTo), iconElement.GetAttribute("class"), $"{fieldName} Icon Classes");
-            AssertHelper.AssertAreEqual(testData.IconText, iconElement.Text, $"{fieldName} Icon Text");
+            testData.IconClasses.UpdateCssTo(updateCssTo).MatchesActualCss(iconElement.GetAttribute("class"), $"{fieldName} Icon Classes");
+            testData.IconText.MatchesActual(iconElement.Text, $"{fieldName} Icon Text");
 
-            AssertHelper.AssertAreEqual(testData.InputClasses.UpdateCssTo(updateCssTo), inputElement.GetAttribute("class"), $"{fieldName} Input Classes");
+            if (testData.InputClasses != null)
+                testData.InputClasses.UpdateCssTo(updateCssTo).MatchesActualCss(inputElement.GetAttribute("class"), $"{fieldName} Input Classes");
 
             if (testData.InputText != null)
-                AssertHelper.AssertAreEqual(testData.InputText, inputElement.Text, $"{fieldName} Input Text");
+                testData.InputText.MatchesActual(inputElement.Text, $"{fieldName} Input Text");
 
             if (testData.LabelClasses != null)
-                AssertHelper.AssertAreEqual(testData.LabelClasses.UpdateCssTo(updateCssTo), labelElement.GetAttribute("class"), $"{fieldName} Label Classes");
+                testData.LabelClasses.UpdateCssTo(updateCssTo).MatchesActualCss(labelElement.GetAttribute("class"), $"{fieldName} Label Classes");
 
             if (testData.LabelText != null)
-                AssertHelper.AssertAreEqual(testData.LabelText, labelElement.Text, $"{fieldName} Label Text");
+                testData.LabelText.MatchesActual(labelElement.Text, $"{fieldName} Label Text");
 
+            // Return here is there's no validation label associated with the control
             if (null == validationLabelElement) return;
 
-            AssertHelper.AssertAreEqual(testData.ValidationLabelClasses.UpdateCssTo(updateCssTo), validationLabelElement.GetAttribute("class"), $"{fieldName} Validation Label Classes");
+            testData.ValidationLabelClasses.UpdateCssTo(updateCssTo).MatchesActualCss(validationLabelElement.GetAttribute("class"), $"{fieldName} Validation Label Classes");
 
             // We only check the validation if it's displayed
             if (validationLabelElement.Displayed)
-                AssertHelper.AssertAreEqual(testData.ValidationLabelText, validationLabelElement.Text, $"{fieldName} Validation Label Text");
+                testData.ValidationLabelText.MatchesActual(validationLabelElement.Text, $"{fieldName} Validation Label Text");
         }
 
         /// <summary>
