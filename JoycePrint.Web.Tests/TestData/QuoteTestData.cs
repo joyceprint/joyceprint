@@ -17,6 +17,8 @@ namespace JoycePrint.Web.Tests.TestData
 
         public string RecaptchaPublicKey => ConfigurationManager.AppSettings.Get("RecaptchaPublicKey");
 
+        private MaterializeInputGroup _message;
+
         /// <summary>
         /// 
         /// </summary>
@@ -27,24 +29,35 @@ namespace JoycePrint.Web.Tests.TestData
         public MaterializeInputGroup Message
         {
             get
-            {                
-                var messageTestData = new MaterializeInputGroup();
-                messageTestData.IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesInitial;
-                messageTestData.IconText = "message";
+            {
+                if (_message == null || !_message.Initialized)
+                {
+                    _message = new MaterializeInputGroup();
 
-                messageTestData.InputClasses = MaterializeCssStyles.MaterializeInputGroupInputClassesInitial;
-                messageTestData.InputText = null;
+                    InitializeMessage(_message);
+                }
 
-                messageTestData.LabelClasses = MaterializeCssStyles.MaterializeInputGroupLabelClassesInitial;
-                messageTestData.LabelText = "Message";
-
-                messageTestData.ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial;
-                messageTestData.ValidationLabelText = "Any additional information";
-
-                messageTestData.FieldInputType = "textarea";
-
-                return messageTestData;
+                return _message;
             }
+        }
+        
+        private void InitializeMessage(MaterializeInputGroup messageTestData)
+        {
+            messageTestData.IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesInitial;
+            messageTestData.IconText = "message";
+
+            messageTestData.InputClasses = MaterializeCssStyles.MaterializeInputGroupInputClassesInitial;
+            messageTestData.InputText = null;
+
+            messageTestData.LabelClasses = MaterializeCssStyles.MaterializeInputGroupLabelClassesInitial;
+            messageTestData.LabelText = "Message";
+
+            messageTestData.ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial;
+            messageTestData.ValidationLabelText = "Any additional information";
+
+            messageTestData.FieldInputType = "textarea";
+
+            messageTestData.Initialized = true;
         }
 
         /// <summary>

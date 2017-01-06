@@ -72,38 +72,38 @@ namespace JoycePrint.Web.Tests.Helpers
             liElement = updateCssTo.HasFlag(FieldCss.Initial) ? ulElement.FindElement(By.CssSelector("li:first-child")) : ulElement.FindElement(By.CssSelector("li[actve]"));
             optionElement = selectElement.FindElement(By.CssSelector("option[selected='selected']"));
 
-            testData.UpdateCssTo(testData.IconClasses, updateCssTo).MatchesActualCss(iconElement.GetAttribute("class"), $"{fieldName} Icon Classes");
+            testData.UpdateCssForIcon(testData.IconClasses, updateCssTo).MatchesActualCss(iconElement.GetAttribute("class"), $"{fieldName} Icon Classes");
             testData.IconText.MatchesActual(iconElement.Text, $"{fieldName} Icon Text");
 
             if (testData.InputClasses != null)
-                testData.UpdateCssTo(testData.InputClasses, updateCssTo).MatchesActualCss(inputElement.GetAttribute("class"), $"{fieldName} Input Classes");
+                testData.UpdateCssForInput(testData.InputClasses, updateCssTo).MatchesActualCss(inputElement.GetAttribute("class"), $"{fieldName} Input Classes");
 
             if (testData.InputText != null)
                 testData.InputText.MatchesActual(inputElement.Text, $"{fieldName} Input Text");
 
             if (testData.LabelClasses != null)
-                testData.UpdateCssTo(testData.LabelClasses, updateCssTo).MatchesActualCss(labelElement.GetAttribute("class"), $"{fieldName} Label Classes");
+                testData.UpdateCssForLabel(testData.LabelClasses, updateCssTo).MatchesActualCss(labelElement.GetAttribute("class"), $"{fieldName} Label Classes");
 
             if (testData.LabelText != null)
                 testData.LabelText.MatchesActual(labelElement.Text, $"{fieldName} Label Text");
 
             if (testData.SpanClasses != null)
-                testData.UpdateCssTo(testData.SpanClasses, updateCssTo).MatchesActualCss(spanElement.GetAttribute("class"), $"{fieldName} Span Classes");
+                testData.UpdateCssForSpan(testData.SpanClasses, updateCssTo).MatchesActualCss(spanElement.GetAttribute("class"), $"{fieldName} Span Classes");
 
             if (testData.SpanText != null)
                 testData.SpanText.MatchesActual(spanElement.Text, $"{fieldName} Span Text");
 
             if (testData.UnOrderedClasses != null)
-                testData.UpdateCssTo(testData.UnOrderedClasses, updateCssTo).MatchesActualCss(ulElement.GetAttribute("class"), $"{fieldName} UnOrderList Classes");
+                testData.UpdateCssForUnOrderedList(testData.UnOrderedClasses, updateCssTo).MatchesActualCss(ulElement.GetAttribute("class"), $"{fieldName} UnOrderList Classes");
 
             if (testData.UnOrderedSelectItemClasses != null)
-                testData.UpdateCssTo(testData.UnOrderedSelectItemClasses, updateCssTo).MatchesActualCss(liElement.GetAttribute("class"), $"{fieldName} UnOrderList Selected Item Classes");
+                testData.UpdateCssForUnOrderedListSelectedItem(testData.UnOrderedSelectItemClasses, updateCssTo).MatchesActualCss(liElement.GetAttribute("class"), $"{fieldName} UnOrderList Selected Item Classes");
 
             if (testData.UnOrderedSelectedItemText != null)
                 testData.UnOrderedSelectedItemText.MatchesActual(liElement.GetAttribute("innerText"), $"{fieldName} UnOrderList Selected Item Text");            
 
             if (testData.SelectListClasses != null)
-                testData.UpdateCssTo(testData.SelectListClasses, updateCssTo).MatchesActualCss(selectElement.GetAttribute("class"), $"{fieldName} SelectList Classes");
+                testData.UpdateCssForSelectList(testData.SelectListClasses, updateCssTo).MatchesActualCss(selectElement.GetAttribute("class"), $"{fieldName} SelectList Classes");
             
             if (testData.SelectListSelectedItemText != null)
                 testData.SelectListSelectedItemText.MatchesActual(optionElement.GetAttribute("innerText"), $"{fieldName} SelectList Selected Item Text");
@@ -111,7 +111,7 @@ namespace JoycePrint.Web.Tests.Helpers
             // Return here is there's no validation label associated with the control
             if (null == validationLabelElement) return;
 
-            testData.UpdateCssTo(testData.ValidationLabelClasses, updateCssTo).MatchesActualCss(validationLabelElement.GetAttribute("class"), $"{fieldName} Validation Label Classes");
+            testData.UpdateCssForValidationLabel(testData.ValidationLabelClasses, updateCssTo).MatchesActualCss(validationLabelElement.GetAttribute("class"), $"{fieldName} Validation Label Classes");
 
             // We only check the validation if it's displayed
             if (validationLabelElement.Displayed)

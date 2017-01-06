@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using JoycePrint.Web.Tests.Enums;
 using OpenQA.Selenium;
 
@@ -27,6 +28,8 @@ namespace JoycePrint.Web.Tests.Helpers
 
         public string FieldInputType { get; set; }
 
+        public bool Initialized { get; set; }        
+
         #endregion
 
         /// <summary>
@@ -45,17 +48,17 @@ namespace JoycePrint.Web.Tests.Helpers
 
             GetMaterializeWebElements(inputGroupContainer, ref iconElement, ref inputElement, ref labelElement, ref validationLabelElement, ref fieldName, testData.FieldInputType);
 
-            testData.UpdateCssTo(testData.IconClasses, updateCssTo).MatchesActualCss(iconElement.GetAttribute("class"), $"{fieldName} Icon Classes");
+            testData.UpdateCssForIcon(testData.IconClasses, updateCssTo).MatchesActualCss(iconElement.GetAttribute("class"), $"{fieldName} Icon Classes");
             testData.IconText.MatchesActual(iconElement.Text, $"{fieldName} Icon Text");
-
+            
             if (testData.InputClasses != null)
-                testData.UpdateCssTo(testData.InputClasses, updateCssTo, testData.FieldInputType.Equals("textarea", System.StringComparison.OrdinalIgnoreCase)).MatchesActualCss(inputElement.GetAttribute("class"), $"{fieldName} Input Classes");
+                testData.UpdateCssForTextarea(testData.InputClasses, updateCssTo).MatchesActualCss(inputElement.GetAttribute("class"), $"{fieldName} Input Classes");
 
             if (testData.InputText != null)
                 testData.InputText.MatchesActual(inputElement.Text, $"{fieldName} Input Text");
 
             if (testData.LabelClasses != null)
-                testData.UpdateCssTo(testData.LabelClasses, updateCssTo).MatchesActualCss(labelElement.GetAttribute("class"), $"{fieldName} Label Classes");
+                testData.UpdateCssForLabel(testData.LabelClasses, updateCssTo).MatchesActualCss(labelElement.GetAttribute("class"), $"{fieldName} Label Classes");
 
             if (testData.LabelText != null)
                 testData.LabelText.MatchesActual(labelElement.Text, $"{fieldName} Label Text");
@@ -63,7 +66,7 @@ namespace JoycePrint.Web.Tests.Helpers
             // Return here is there's no validation label associated with the control
             if (null == validationLabelElement) return;
 
-            testData.UpdateCssTo(testData.ValidationLabelClasses, updateCssTo).MatchesActualCss(validationLabelElement.GetAttribute("class"), $"{fieldName} Validation Label Classes");
+            testData.UpdateCssForValidationLabel(testData.ValidationLabelClasses, updateCssTo).MatchesActualCss(validationLabelElement.GetAttribute("class"), $"{fieldName} Validation Label Classes");
 
             // We only check the validation if it's displayed
             if (validationLabelElement.Displayed)
