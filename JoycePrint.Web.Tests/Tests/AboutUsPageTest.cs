@@ -21,10 +21,10 @@ namespace JoycePrint.Web.Tests.Tests
 
             AboutUsPom = new AboutUsPom(driver);
 
-            VerifyDisplay();        
+            VerifyDisplay();
         }
-        
-        #endregion        
+
+        #endregion
 
         /// <summary>
         /// Verify the display of the page, all display checks will be called from here
@@ -55,7 +55,8 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyCompanyHistory()
         {
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.CompanyHistoryText, AboutUsPom.CompanyHistory.Text, "Company History");
+            AboutUsPom.AboutUsTestData.CompanyHistoryText.MatchesActual(AboutUsPom.CompanyHistory.Text, "Company History");
+
             Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(AboutUsPom.ByCompanyHistoryImage)));
         }
 
@@ -64,20 +65,20 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyCompanyInformation()
         {
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.AddressLabel, AboutUsPom.AddressLabel.Text, "Address Label");
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.AddressText, AboutUsPom.AddressText.Text, "Address Text");
+            AboutUsPom.AboutUsTestData.AddressLabel.MatchesActual(AboutUsPom.AddressLabel.Text, "Address Label");
+            AboutUsPom.AboutUsTestData.AddressText.MatchesActual(AboutUsPom.AddressText.Text, "Address Text");
 
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.PhoneLabel, AboutUsPom.PhoneLabel.Text, "Phone Label");
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.PhoneText, AboutUsPom.PhoneText.Text, "Phone Text");
+            AboutUsPom.AboutUsTestData.PhoneLabel.MatchesActual(AboutUsPom.PhoneLabel.Text, "Phone Label");
+            AboutUsPom.AboutUsTestData.PhoneText.MatchesActual(AboutUsPom.PhoneText.Text, "Phone Text");
 
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.FaxLabel, AboutUsPom.FaxLabel.Text, "Fax Label");
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.FaxText, AboutUsPom.FaxText.Text, "Fax Text");
+            AboutUsPom.AboutUsTestData.FaxLabel.MatchesActual(AboutUsPom.FaxLabel.Text, "Fax Label");
+            AboutUsPom.AboutUsTestData.FaxText.MatchesActual(AboutUsPom.FaxText.Text, "Fax Text");
 
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.EmailLabel, AboutUsPom.EmailLabel.Text, "Email Label");
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.EmailText, AboutUsPom.EmailText.Text, "Email Text");
+            AboutUsPom.AboutUsTestData.EmailLabel.MatchesActual(AboutUsPom.EmailLabel.Text, "Email Label");
+            AboutUsPom.AboutUsTestData.EmailText.MatchesActual(AboutUsPom.EmailText.Text, "Email Text");
 
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.SkypeLabel, AboutUsPom.SkypeLabel.Text, "Skype Label");
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.SkypeText, AboutUsPom.SkypeText.Text, "Skype Text");
+            AboutUsPom.AboutUsTestData.SkypeLabel.MatchesActual(AboutUsPom.SkypeLabel.Text, "Skype Label");
+            AboutUsPom.AboutUsTestData.SkypeText.MatchesActual(AboutUsPom.SkypeText.Text, "Skype Text");
 
             Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(AboutUsPom.ByMap)));
         }
@@ -87,9 +88,9 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyAnchorLinksToApplications()
         {
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.PhoneLink, AboutUsPom.PhoneText.GetAttribute("href"), "Phone Link");
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.EmailLink, AboutUsPom.EmailText.GetAttribute("href"), "Email Link");
-            AssertHelper.AssertAreEqual(AboutUsPom.AboutUsTestData.SkypeLink, AboutUsPom.SkypeText.GetAttribute("href"), "Skype Link");
+            AboutUsPom.AboutUsTestData.PhoneLink.MatchesActual(AboutUsPom.PhoneText.GetAttribute("href"), "Phone Link");
+            AboutUsPom.AboutUsTestData.EmailLink.MatchesActual(AboutUsPom.EmailText.GetAttribute("href"), "Email Link");
+            AboutUsPom.AboutUsTestData.SkypeLink.MatchesActual(AboutUsPom.SkypeText.GetAttribute("href"), "Skype Link");
         }
     }
 }

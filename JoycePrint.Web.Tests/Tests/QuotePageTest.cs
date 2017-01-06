@@ -18,14 +18,16 @@ namespace JoycePrint.Web.Tests.Tests
         {
             HeaderPom = new HeaderPom(driver);
             HeaderPom.NavQuote.Click();
-            
+
             QuotePom = new QuotePom(driver);
 
             VerifyDisplay();
+
+            VerifyValidation();
         }
 
         #endregion
-              
+
         /// <summary>
         /// Verify the display of the page, all display checks will be called from here        
         /// </summary>
@@ -71,8 +73,8 @@ namespace JoycePrint.Web.Tests.Tests
 
             // The first collapsable control is active on page load
             FieldCss updateCssTo;
-           
-            for (int activeIndex = 0; activeIndex < collapseHeaders; activeIndex++)            
+
+            for (int activeIndex = 0; activeIndex < collapseHeaders; activeIndex++)
             {
                 if (activeIndex != 0)
                     QuotePom.HelpTitles[activeIndex].Click();
@@ -103,7 +105,62 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyProductFormDisplay()
         {
+            MaterializeSelectGroup.VerifyMaterializeSelectField(QuotePom.DocketTypeSelectGroup, QuotePom.QuoteTestData.DocketType, FieldCss.Initial);
 
-        }        
+            MaterializeSelectGroup.VerifyMaterializeSelectField(QuotePom.DocketSizeSelectGroup, QuotePom.QuoteTestData.DocketSize, FieldCss.Initial);
+
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.DocketQuantityInputGroup, QuotePom.QuoteTestData.DocketQuantity, FieldCss.Initial);
+        }
+
+        private void VerifyValidation()
+        {
+            ///
+            /// this needs to be repeated for each group 
+            var input = MaterializeInputGroup.GetMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message);
+
+            // Click in the field to make it active
+            input.Click();
+
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Touched);
+
+            // Enter a valid value
+            input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo("This is a test message"));
+            input.Click();
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Valid);
+
+            // Enter an invalid value
+            input.Clear();
+            input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo(string.Empty));
+
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Invalid);
+
+            // Clear the fields
+            QuotePom.Clear.Click();
+
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);
+
+            // Enter an invalid value
+            input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo(null));
+
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Invalid);
+
+            // Enter a valid value
+            input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo("This is a test message"));
+
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Valid);
+
+            // Clear the fields
+            QuotePom.Clear.Click();
+
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);
+
+            // Enter an invalid value
+            input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo(null));
+
+            // Submit the form
+            QuotePom.Submit.Click();
+
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Invalid);
+        }
     }
 }

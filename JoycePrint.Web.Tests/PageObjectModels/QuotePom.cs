@@ -101,6 +101,27 @@ namespace JoycePrint.Web.Tests.PageObjectModels
 
         #endregion
 
+        #region Docket Form Elements
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-docket-type")]
+        public IWebElement DocketTypeSelectGroup { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-docket-size]")]
+        public IWebElement DocketSizeSelectGroup { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-docket-quantity]")]
+        public IWebElement DocketQuantityInputGroup { get; set; }
+        #endregion
+
         #region Docket Help Partial View 
 
         /// <summary>

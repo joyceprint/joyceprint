@@ -16,7 +16,7 @@ namespace JoycePrint.Web.Tests.Tests
         {
             FooterPom = new FooterPom(driver);
 
-            VerifyDisplay();           
+            VerifyDisplay();
         }
 
         #endregion
@@ -26,9 +26,9 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyDisplay()
         {
-            AssertHelper.AssertAreEqual(FooterPom.FooterTestData.CopyrightText, FooterPom.Copyright.Text, "Copyright Information");
+            FooterPom.FooterTestData.CopyrightText.MatchesActual(FooterPom.Copyright.Text, "Copyright Information");
 
-            Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(FooterPom.ByLogo)));            
+            Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(FooterPom.ByLogo)));
         }
     }
 }

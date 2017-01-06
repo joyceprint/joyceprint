@@ -8,6 +8,9 @@ namespace JoycePrint.Web.Tests.Helpers
     static class Extensions
     {
         public static string Active = "active";
+        public static string ValidText = "success-text";
+        public static string InvalidText = "danger-text";
+        public static string RequiredText = "orange-text";
 
         /// <summary>
         /// Update the css to the FieldCss type for the string this method is called on
@@ -15,23 +18,66 @@ namespace JoycePrint.Web.Tests.Helpers
         /// <param name="value">The value this method is called on</param>
         /// <param name="getFor">The css class to add</param>
         /// <returns></returns>
-        public static string UpdateCssTo(this string value, FieldCss getFor)
+        public static string UpdateCssTo(this IMaterializeGroup value, string css, FieldCss getFor)
         {
             switch (getFor)
             {
                 case FieldCss.Initial:
-                    return value.Contains(Active) ? value.RemoveCss(Active) : value;
+                    return css;
                 case FieldCss.Active:
-                    return value.Contains(Active) ? value : value + " active";
+                    return css.Contains(Active) ? css : $"{css} {Active}";
+                case FieldCss.Valid:
+                    // We need to remove the orange-text class
+                    css = css.Contains(RequiredText) ? css.RemoveCss(RequiredText) : css;
+                    css = $"{css} {ValidText}";
+                    return css;
+                case FieldCss.Invalid:
+                    // We need to remove the orange-text class
+                    css = css.Contains(RequiredText) ? $"{css.RemoveCss(RequiredText)}" : css;
+                    css = css.Contains(ValidText) ? $"{css.RemoveCss(ValidText)}" : css;
+                    css = $"{css} {InvalidText}";
+                    return css;
                 default:
-                    return value;
+                    return css;
             }
         }
 
-        public static string UpdateCssTo(this string value, FieldCss getFor, FieldCss abortFor)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="getFor"></param>
+        /// <param name="isTextarea"></param>
+        /// <returns></returns>
+        public static string UpdateCssTo(this IMaterializeGroup value, string css, FieldCss getFor, bool isTextarea)
         {
-            if (getFor == abortFor) return value;
-            return value.UpdateCssTo(getFor);
+            if (isTextarea) css += MaterializeCssStyles.MaterializeTextarea;
+            return value.UpdateCssTo(css, getFor);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="getFor"></param>
+        /// <param name="abortFor"></param>
+        /// <returns></returns>
+        public static string UpdateCssTo(this IMaterializeGroup value, string css, FieldCss getFor, FieldCss abortFor)
+        {
+            if (getFor == abortFor) return css;
+            return value.UpdateCssTo(css, getFor);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="inputGroup"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string UpdateTextTo(this MaterializeInputGroup inputGroup, string value)
+        {
+            inputGroup.InputText = value;
+            return inputGroup.InputText;
         }
 
         /// <summary>
@@ -73,7 +119,7 @@ namespace JoycePrint.Web.Tests.Helpers
         /// <param name="expected">The expected value</param>
         /// <param name="field">The field being asserted on</param>
         public static void MatchesActualCss(this string expected, string actual, string field)
-        {            
+        {
             char SPACE = ' ';
 
             var expectedCss = expected.Split(SPACE);
