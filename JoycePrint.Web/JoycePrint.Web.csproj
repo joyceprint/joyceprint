@@ -152,6 +152,8 @@
     <Content Include="Content\images\jp-company-information.jpg" />
     <Content Include="Content\images\jp-logo-footer.jpg" />
     <Content Include="Content\images\jp-logo.jpg" />
+    <Content Include="Content\images\jp-logo-bw.png" />
+    <Content Include="Content\images\jp-logo-rgb.png" />
     <Content Include="Content\images\jp-press-ink.jpg" />
     <Content Include="Content\images\jp-press-inspect.jpg" />
     <Content Include="Content\images\jp-press-rollers.jpg" />
