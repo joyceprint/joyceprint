@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using JoycePrint.Web.Tests.Helpers.Materialize;
 
 namespace JoycePrint.Web.Tests.TestData
 {
@@ -40,7 +41,11 @@ namespace JoycePrint.Web.Tests.TestData
                 return _message;
             }
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="messageTestData"></param>
         private void InitializeMessage(MaterializeInputGroup messageTestData)
         {
             messageTestData.IconClasses = MaterializeCssStyles.MaterializeInputGroupIconClassesInitial;

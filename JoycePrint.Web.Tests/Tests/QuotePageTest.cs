@@ -1,9 +1,12 @@
-﻿using JoycePrint.Web.Tests.Helpers;
+﻿using System.Reflection;
+using System.Threading;
+using JoycePrint.Web.Tests.Helpers;
 using JoycePrint.Web.Tests.PageObjectModels;
 using JoycePrint.Web.Tests.TestData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using JoycePrint.Web.Tests.Enums;
+using JoycePrint.Web.Tests.Helpers.Materialize;
 
 namespace JoycePrint.Web.Tests.Tests
 {
@@ -23,7 +26,7 @@ namespace JoycePrint.Web.Tests.Tests
 
             VerifyDisplay();
 
-            //VerifyValidation();
+            VerifyValidation();
         }
 
         #endregion
@@ -39,7 +42,7 @@ namespace JoycePrint.Web.Tests.Tests
 
             VerifyContactFormDisplay();
 
-            VerifyProductFormDisplay();            
+            VerifyProductFormDisplay();
         }
 
         /// <summary>
@@ -94,7 +97,7 @@ namespace JoycePrint.Web.Tests.Tests
         private void VerifyContactFormDisplay()
         {
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Initial);
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.PositionInputGroup, QuotePom.QuoteTestData.Position, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.PositionInputGroup, QuotePom.QuoteTestData.Position, FieldCss.Optional);
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.NameInputGroup, QuotePom.QuoteTestData.Name, FieldCss.Initial);
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.PhoneInputGroup, QuotePom.QuoteTestData.Phone, FieldCss.Initial);
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.EmailInputGroup, QuotePom.QuoteTestData.Email, FieldCss.Initial);
@@ -112,15 +115,26 @@ namespace JoycePrint.Web.Tests.Tests
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.DocketQuantityInputGroup, QuotePom.QuoteTestData.DocketQuantity, FieldCss.Initial);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// The input needs to have it's clicked function called to make the validation fire
+        /// TODO check if validate on change is turned off or is broken
+        /// </remarks>
         private void VerifyValidation()
         {
             ///
-            /// this needs to be repeated for each group 
+            /// this needs to be repeated for each group
+            /// 
+
+            // Clear the fields to reset everything
+            QuotePom.Clear.Click();
+
             var input = MaterializeInputGroup.GetMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message);
 
             // Click in the field to make it active
             input.Click();
-
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Touched);
 
             // Enter a valid value
@@ -131,35 +145,39 @@ namespace JoycePrint.Web.Tests.Tests
             // Enter an invalid value
             input.Clear();
             input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo(string.Empty));
-
+            input.Click();
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Invalid);
 
             // Clear the fields
             QuotePom.Clear.Click();
-
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);
 
             // Enter an invalid value
-            input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo(null));
-
+            input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo(string.Empty));
+            input.Click();
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Invalid);
 
             // Enter a valid value
             input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo("This is a test message"));
-
+            input.Click();
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Valid);
 
+            // Clear out the test value
+            QuotePom.QuoteTestData.Message.InputText = null;
             // Clear the fields
             QuotePom.Clear.Click();
-
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);
 
             // Enter an invalid value
-            input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo(null));
+            input.SendKeys(QuotePom.QuoteTestData.Message.UpdateTextTo(string.Empty));
 
-            // Submit the form
+            // Submit the form and check the validation display
             QuotePom.Submit.Click();
-
+            // because we're not active here we don't want to compare the validation label text
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Invalid | FieldCss.Active);
+                        
+            // Check in validation message
+            input.Click();
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Invalid);
         }
     }

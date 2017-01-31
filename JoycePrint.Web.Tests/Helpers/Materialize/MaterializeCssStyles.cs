@@ -1,8 +1,8 @@
-﻿namespace JoycePrint.Web.Tests.Helpers
+﻿namespace JoycePrint.Web.Tests.Helpers.Materialize
 {
     public static class MaterializeCssStyles
     {
-        public static string MaterializeTextarea = " materialize-textarea";
+        public const string MaterializeTextarea = " materialize-textarea";
 
         #region Materialize Input Group
 
@@ -32,25 +32,25 @@
 
         #region FieldCss Valid
 
-        public static string MaterializeInputGroupIconClassesValid => null;
+        public static string MaterializeInputGroupIconClassesValid => "material-icons prefix text-accent-4 success-text";
 
-        public static string MaterializeInputGroupInputClassesValid => null;
+        public static string MaterializeInputGroupInputClassesValid => "validate touched valid";
 
-        public static string MaterializeInputGroupLabelClassesValid => null;
+        public static string MaterializeInputGroupLabelClassesValid => "active";
 
-        public static string MaterializeInputGroupValidationLabelClassesValid => null;
+        public static string MaterializeInputGroupValidationLabelClassesValid => "val-msg active";
 
         #endregion
 
         #region FieldCss InValid
 
-        public static string MaterializeInputGroupIconClassesInValid => null;
+        public static string MaterializeInputGroupIconClassesInValid => "material-icons prefix text-accent-4 danger-text";
 
-        public static string MaterializeInputGroupInputClassesInValid => null;
+        public static string MaterializeInputGroupInputClassesInValid => "validate touched invalid";
 
-        public static string MaterializeInputGroupLabelClassesInValid => null;
+        public static string MaterializeInputGroupLabelClassesInValid => "active";
 
-        public static string MaterializeInputGroupValidationLabelClassesInValid => null;
+        public static string MaterializeInputGroupValidationLabelClassesInValid => "val-msg active";
 
         #endregion
 

@@ -66,12 +66,12 @@
     <Compile Include="Enums\ScreenType.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Helpers\AssertHelper.cs" />
-    <Compile Include="Helpers\IMaterializeGroup.cs" />
-    <Compile Include="Helpers\MaterializeCssStyles.cs" />
-    <Compile Include="Helpers\MaterializeCollapse.cs" />
+    <Compile Include="Helpers\Materialize\IMaterializeGroup.cs" />
+    <Compile Include="Helpers\Materialize\MaterializeCssStyles.cs" />
+    <Compile Include="Helpers\Materialize\MaterializeCollapse.cs" />
     <Compile Include="Helpers\ScreenSize.cs" />
     <Compile Include="Helpers\Urls.cs" />
-    <Compile Include="Helpers\MaterializeSelectGroup.cs" />
+    <Compile Include="Helpers\Materialize\MaterializeSelectGroup.cs" />
     <Compile Include="PageObjectModels\BasePom.cs" />
     <Compile Include="PageObjectModels\HeaderPom.cs" />
     <Compile Include="PageObjectModels\AboutUsPom.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="PageObjectModels\FooterPom.cs" />
     <Compile Include="PageObjectModels\HomePom.cs" />
     <Compile Include="Helpers\SupportedBrowsers.cs" />
-    <Compile Include="Helpers\MaterializeInputGroup.cs" />
+    <Compile Include="Helpers\Materialize\MaterializeInputGroup.cs" />
     <Compile Include="TestData\FooterTestData.cs" />
     <Compile Include="TestData\HeaderTestData.cs" />
     <Compile Include="TestData\AboutUsTestData.cs" />

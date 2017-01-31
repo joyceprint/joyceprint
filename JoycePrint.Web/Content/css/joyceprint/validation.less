@@ -1,0 +1,114 @@
+﻿/**************************************************************************************
+ * Validation
+ * --------------------------------------------------
+ * 
+ * This file contains the styles for validation
+ *
+ * Active, Required, Valid and Invalid styles are contained in this file
+**************************************************************************************/
+
+
+/* Active Extensions *****************************************************************/
+.prefix.active.success-text {
+    color: @color-success;
+}
+
+.prefix.success-text {
+    color: @color-success-dark;
+}
+
+.prefix.active.danger-text {
+    color: @color-danger;
+}
+
+.prefix.danger-text {
+    color: @color-danger-dark;
+}
+
+/* Required Field Extensions *********************************************************/
+input:focus:not([readonly])[required],
+textarea.materialize-textarea:focus:not([readonly])[required] {
+    border-bottom-color: @color-warning;
+    box-shadow: 0 1px 0 0 @color-warning;
+}
+
+input:focus:not([readonly])[required] + label,
+textarea.materialize-textarea:focus:not([readonly])[required] + label {
+    color: @color-warning;
+}
+
+/* Valid Field Extensions ************************************************************/
+input:focus:not([readonly])[required][class~=valid],
+textarea.materialize-textarea:focus:not([readonly])[required][class~=valid] {
+    border-bottom-color: @color-success;
+    box-shadow: 0 1px 0 0 @color-success;
+}
+
+input:focus:not([readonly])[required][class~=valid] + label,
+textarea.materialize-textarea:focus:not([readonly])[required][class~=valid] + label {
+    color: @color-success;
+}
+
+input:not([readonly])[required][class~=valid],
+textarea.materialize-textarea:not([readonly])[required][class~=valid] {
+    border-bottom-color: @color-success-dark;
+    box-shadow: 0 1px 0 0 @color-success-dark;
+}
+
+input:not([readonly])[required][class~=valid] + label,
+textarea.materialize-textarea:not([readonly])[required][class~=valid] + label {
+    color: @color-success-dark;
+}
+
+/* Invalid Field Extensions **********************************************************/
+input:focus:not([readonly])[required][class~=invalid],
+textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid] {
+    border-bottom-color: @color-danger;
+    box-shadow: 0 1px 0 0 @color-danger;
+}
+
+input:focus:not([readonly])[required][class~=invalid] + label,
+textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid] + label {
+    color: @color-danger;
+}
+
+input:not([readonly])[required][class~=invalid],
+textarea.materialize-textarea:not([readonly])[required][class~=invalid] {
+    border-bottom-color: @color-danger-dark;
+    box-shadow: 0 1px 0 0 @color-danger-dark;
+}
+
+input:not([readonly])[required][class~=invalid] + label,
+textarea.materialize-textarea:not([readonly])[required][class~=invalid] + label {
+    color: @color-danger-dark;
+}
+
+// The text has to fit in the column at it's lowest pixel width or the tranform value will not work
+label.val-msg.active {
+    display: block;
+    font-size: 0.8rem;
+    color: @color-danger;
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
+}
+
+// The text has to fit in the column at it's lowest pixel width or the tranform value will not work
+textarea.materialize-textarea + label + label.val-msg.active {
+    display: block;
+    font-size: 0.8rem;
+    color: @color-danger;
+    -webkit-transform: translateY(400%);
+    transform: translateY(400%);
+}
+
+label.val-msg,
+i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class~=active]) i.material-icons:not([class~=active]) + input + label + label.val-msg[class~=active] {
+    display: none;
+}
+
+/*transform {
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: ease-out;
+}*/

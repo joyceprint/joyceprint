@@ -2,6 +2,6 @@
 {
     public static class Urls
     {
-        public static string UrlDellDev => "http://joyceprint.com";
+        public static string UrlDellDev => "http://www.dev.joyceprint.com";
     }
 }

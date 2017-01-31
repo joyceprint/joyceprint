@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace JoycePrint.Web.Tests.Helpers
+namespace JoycePrint.Web.Tests.Helpers.Materialize
 {
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public class MaterializeCollapse : IMaterializeGroup
@@ -80,7 +80,7 @@ namespace JoycePrint.Web.Tests.Helpers
             GetHeaderElements(headerContainer, ref iconElement, ref headerText);
             GetBodyElements(bodyContainer, ref imageElement, ref bodyTitleText, ref bodyText);
             
-            testData.UpdateCssTo(testData.HeaderCss, updateCssTo).MatchesActual(headerContainer.GetAttribute("class"), "Header Classes");
+            testData.UpdateCssForCollapse(testData.HeaderCss, updateCssTo).MatchesActual(headerContainer.GetAttribute("class"), "Header Classes");
 
             testData.HeaderIconClasses.MatchesActual(iconElement.GetAttribute("class"), "Header Icon Classes");
             testData.HeaderIconText.MatchesActual(iconElement.Text, "Header Icon Text");

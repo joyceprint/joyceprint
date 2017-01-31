@@ -1,0 +1,58 @@
+﻿/**************************************************************************************
+ * Materialize Class Extensions
+ * --------------------------------------------------
+ *
+ * Classes required that materialize does not have by default
+ *
+ * Classes required for overriding materialize styles that are not accessable 
+ * using the site customizations
+**************************************************************************************/
+
+/* Row Extensions ********************************************************************/
+.row.eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.eq-height > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.row.no-pad {
+    margin-bottom: 0px;
+}
+
+/*.row.eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.eq-height > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.row.eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.eq-height > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}*/

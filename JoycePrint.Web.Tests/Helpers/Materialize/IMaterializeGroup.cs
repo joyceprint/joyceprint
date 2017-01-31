@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JoycePrint.Web.Tests.Helpers
+﻿namespace JoycePrint.Web.Tests.Helpers.Materialize
 {
     public enum MaterializeTag
     {
@@ -21,7 +15,7 @@ namespace JoycePrint.Web.Tests.Helpers
         Option
     }
 
-    interface IMaterializeGroup
+    public interface IMaterializeGroup
     {
         //MaterializeTag Tag { get; set; }
     }
