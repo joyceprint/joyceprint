@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Optimization;
+using System.Web.UI;
 using JoycePrint.Web.Extensions;
 
 namespace JoycePrint.Web
@@ -14,8 +15,11 @@ namespace JoycePrint.Web
         {
             None,
             Home,
+            Services,            
+            AboutUs,
+            ContactUs,
             Quote,
-            AboutUs
+            All
         }
 
         /// <summary>
@@ -91,13 +95,26 @@ namespace JoycePrint.Web
                 case PageBundle.Home:
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-home.js");
                     break;
+                case PageBundle.Services:
+                    break;
+                case PageBundle.AboutUs:
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-aboutus.js");
+                    break;
+                case PageBundle.ContactUs:
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-contactus.js");
+                    break;
                 case PageBundle.Quote:
                     additionalScript.Add("~/Scripts/joyceprint/jalidate.js");              
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
-                    break;
-                case PageBundle.AboutUs:
+                    break;  
+                case PageBundle.All:
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-home.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-aboutus.js");
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-contactus.js");
+                    additionalScript.Add("~/Scripts/joyceprint/jalidate.js");
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
                     break;
             }
 

@@ -1,62 +1,17 @@
 ﻿@using JoycePrint.Web
+
 @{
     ViewBag.Title = "Home";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-
+    //Layout = "~/Views/Shared/_Layout.cshtml";
     BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.Home);
 }
 
-<section id="home" class="row" data-test-form-id="frmHome">
+<section id="home" class="row no-pad" data-test-form-id="frmHome">
 
-    <div class="carousel carousel-slider center">
-
-        <div class="carousel-fixed-item center">            
-            <a class="btn waves-effect primary warning-text open-sans" href="/quote">Get A Quote</a>
+    <div class="parallax-container">
+        <div class="parallax">            
+            <img src="~/Content/images/homepage2.jpg" alt="Trade Docket Books"/>
         </div>
-
-        <img src="~/Content/images/jp-press-ink.jpg" class="carousel-item responsive-img" href="#one!" />
-        <img src="~/Content/images/jp-press-inspect.jpg" class="carousel-item" href="#two!" />
-        <img src="~/Content/images/jp-press-rollers.jpg" class="carousel-item" href="#three!" />
     </div>
 
 </section>
-
-@*<div class="clearfix"></div>
-
-    <section id="home-information" class="col-xs-12">
-        <div class="row">
-            <section id="home-products" class="col-xs-4 bg-info">
-                <div class="panel panel-info">
-                    <div class="panel-heading">Products Offered</div>
-                    <div class="panel-body">
-                        Docket Books <br />
-                        Business Cards <br />
-                        Letterheads <br />
-                        Brouchers <br />
-                    </div>
-                </div>
-            </section>
-
-            <section id="home-paper-sizes" class="col-xs-4 bg-danger">
-                <div class="panel panel-danger">
-                    <div class="panel-heading">Paper Sizes</div>
-                    <div class="panel-body">
-                        A4 <br />
-                        A5 <br />
-                        A6 <br />
-                    </div>
-                </div>
-            </section>
-
-            <section id="home-services" class="col-xs-4 bg-success">
-                <div class="panel panel-success">
-                    <div class="panel-heading">Services Offered</div>
-                    <div class="panel-body">
-                        Design <br />
-                        Printing <br />
-                        Finishing <br />
-                    </div>
-                </div>
-            </section>
-        </div>
-    </section>*@

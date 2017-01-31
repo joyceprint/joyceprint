@@ -1,9 +1,12 @@
-﻿@{
+﻿@using JoycePrint.Web
+
+@{
     ViewBag.Title = "Contact Us";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.ContactUs);
 }
 
-<section id="contactus" class="row" role="main">
+<section id="contactus" class="row bg-light-grey" role="main">
     Contact Us
 
     <!--
@@ -82,4 +85,3 @@
     </div>
 
 </section>
-

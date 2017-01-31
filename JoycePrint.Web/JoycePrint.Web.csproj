@@ -143,11 +143,13 @@
   <ItemGroup>
     <Content Include="Content\css\materialize.css" />
     <Content Include="Content\css\materialize.min.css" />
+    <Content Include="Content\images\aboutusexample.jpg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\homepage.jpg" />
+    <Content Include="Content\images\homepage2.jpg" />
     <Content Include="Content\images\jp-logo-bw.png" />
     <Content Include="Content\images\jp-logo-rbg.png" />
-    <Content Include="Content\images\jp-logo-rbg2.png" />
+    <Content Include="Content\images\servicesexample.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
@@ -180,6 +182,7 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
     <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\SinglePageController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Extensions\ComposableBundle.cs" />
     <Content Include="Content\css\joyceprint\nav.less" />
@@ -192,6 +195,7 @@
     <Content Include="Content\css\joyceprint\layout.less" />
     <Content Include="Content\css\joyceprint\html-tag.less" />
     <Content Include="Content\css\joyceprint\color.less" />
+    <Content Include="Content\css\joyceprint\services.less" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -232,8 +236,8 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\ContactUs\ContactUs.cshtml" />
-    <Content Include="Views\AboutUs\AboutUs.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Quote\Index.cshtml" />
@@ -243,6 +247,10 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Shared\_NavigationSide.cshtml" />
+    <Content Include="Views\Services\Partial\DocketBooks.cshtml" />
+    <Content Include="Views\Services\Partial\Stationery.cshtml" />
+    <Content Include="Views\Services\Partial\DesignService.cshtml" />
+    <Content Include="Views\SinglePage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

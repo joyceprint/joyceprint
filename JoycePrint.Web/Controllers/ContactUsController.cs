@@ -8,7 +8,7 @@ namespace JoycePrint.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View("ContactUs");
+            return View("Index");
         }
     }
 }

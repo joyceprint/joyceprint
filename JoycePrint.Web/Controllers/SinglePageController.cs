@@ -2,8 +2,8 @@
 
 namespace JoycePrint.Web.Controllers
 {
-    [Route("home")]
-    public class HomeController : Controller
+    [Route("")]
+    public class SinglePageController : Controller
     {
         [HttpGet]
         public ActionResult Index()

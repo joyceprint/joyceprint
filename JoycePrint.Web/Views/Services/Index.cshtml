@@ -1,10 +1,21 @@
-﻿
+﻿@using JoycePrint.Web
+
 @{
     ViewBag.Title = "Services";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.Home);
 }
 
-<section id="services" class="row" role="main">
-    Services
+<section id="services" class="row no-pad bg-light-grey" role="main" data-test-form-id="frmServices">    
+    <div class="col offset-s2 s8">
+        
+        <h1 class="services-header center-align">OUR SERVICES</h1>
+
+        <div class="row eq-height">
+            @Html.Partial("Partial/DocketBooks")
+            @Html.Partial("Partial/Stationery")
+            @Html.Partial("Partial/DesignService")
+        </div>
+    </div>
 </section>
 

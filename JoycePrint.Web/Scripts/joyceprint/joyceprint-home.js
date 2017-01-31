@@ -7,6 +7,8 @@
 function initializeHomeFunctionality() {
 
     initializeMaterializeCarousel();
+
+    initializeMaterializeCarousel();
 }
 
 /**************************************************************************************************
@@ -16,4 +18,13 @@ function initializeHomeFunctionality() {
 function initializeMaterializeCarousel() {
     // Carousel init
     $('.carousel.carousel-slider').carousel({ full_width: true });
+}
+
+/**************************************************************************************************
+ * Initialize the parallax functionality for the home page
+ *
+ *************************************************************************************************/
+function initializeMaterializeCarousel() {
+    // Parallax init
+    $('.parallax').parallax();
 }

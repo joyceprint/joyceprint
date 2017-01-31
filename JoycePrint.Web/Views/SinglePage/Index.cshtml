@@ -1,0 +1,16 @@
+﻿@using JoycePrint.Web
+
+@{
+    ViewBag.Title = "Single Page Site";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.All);
+}
+
+<div>
+    @{ Html.RenderAction("Index", "Home"); }
+
+    @{ Html.RenderAction("Index", "Services"); }
+
+    @{ Html.RenderAction("Index", "AboutUs"); }    
+</div>
