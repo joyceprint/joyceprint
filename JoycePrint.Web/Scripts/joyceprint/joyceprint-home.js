@@ -6,25 +6,25 @@
  *************************************************************************************************/
 function initializeHomeFunctionality() {
 
-    initializeMaterializeCarousel();
+    //initializeMaterializeCarousel();
 
-    initializeMaterializeCarousel();
+    initializeMaterializeParallax();
 }
 
-/**************************************************************************************************
- * Initialize the carousel for the home page
- *
- *************************************************************************************************/
-function initializeMaterializeCarousel() {
-    // Carousel init
-    $('.carousel.carousel-slider').carousel({ full_width: true });
-}
+///**************************************************************************************************
+// * Initialize the carousel for the home page
+// *
+// *************************************************************************************************/
+//function initializeMaterializeCarousel() {
+//    // Carousel init
+//    $('.carousel.carousel-slider').carousel({ full_width: true });
+//}
 
 /**************************************************************************************************
  * Initialize the parallax functionality for the home page
  *
  *************************************************************************************************/
-function initializeMaterializeCarousel() {
+function initializeMaterializeParallax() {
     // Parallax init
-    $('.parallax').parallax();
+    $(".parallax").parallax();
 }

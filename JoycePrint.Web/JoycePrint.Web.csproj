@@ -146,7 +146,6 @@
     <Content Include="Content\images\aboutusexample.jpg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\homepage.jpg" />
-    <Content Include="Content\images\homepage2.jpg" />
     <Content Include="Content\images\jp-logo-bw.png" />
     <Content Include="Content\images\jp-logo-rbg.png" />
     <Content Include="Content\images\servicesexample.jpg" />
@@ -196,6 +195,7 @@
     <Content Include="Content\css\joyceprint\html-tag.less" />
     <Content Include="Content\css\joyceprint\color.less" />
     <Content Include="Content\css\joyceprint\services.less" />
+    <Content Include="Content\css\joyceprint\home.less" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />

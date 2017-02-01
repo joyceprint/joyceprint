@@ -6,21 +6,22 @@
  *************************************************************************************************/
 function initializeAboutUs() {
 
-    initializeMaterializeParallax();   
+    // TODO: All of these materialize initialize functions can be moved into the same script file
+    //initializeMaterializeParallax();   
 }
 
-/**************************************************************************************************
- * Initialize the materialize parallax functionality
- *************************************************************************************************/
-function initializeMaterializeParallax() {
-    $('.parallax').parallax();
-}
+///**************************************************************************************************
+// * Initialize the materialize parallax functionality
+// *************************************************************************************************/
+//function initializeMaterializeParallax() {
+//    $('.parallax').parallax();   
+//}
 
-/**************************************************************************************************
- * Initialize the google map api, and set the marker.
- *
- * For now this function has to be on the page or the map will not work
- *************************************************************************************************/
+///**************************************************************************************************
+// * Initialize the google map api, and set the marker.
+// *
+// * For now this function has to be on the page or the map will not work
+// *************************************************************************************************/
 //function initMap() {
 
 //    var uluru = { lat: 53.9807771, lng: -9.113247 };
