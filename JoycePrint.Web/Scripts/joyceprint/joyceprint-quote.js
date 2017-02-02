@@ -1,4 +1,5 @@
 ﻿"use strict";
+
 /**************************************************************************************************
  * Quote Page Javascript Functionality
  *
@@ -14,7 +15,7 @@ function initializeQuote() {
  *************************************************************************************************/
 function initializeMaterializeSelect() {
     // Select - Single Initialize
-    $('select:not([multiple])').material_select();
+    $("select:not([multiple])").material_select();
 
     // Select - Multiple Initialize
     //$('select').material_select();

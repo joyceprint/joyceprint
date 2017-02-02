@@ -1,4 +1,5 @@
 ﻿"use strict";
+
 /**************************************************************************************************
  *  Javascript Extensions Functionality
  *
@@ -19,9 +20,9 @@
 })();
 
 /**************************************************************************************************
-* jQuery Regular Expression Filter - 3rd Party
-*
-* http://james.padolsey.com/javascript/regex-selector-for-jquery/
+ * jQuery Regular Expression Filter - 3rd Party
+ *
+ * http://james.padolsey.com/javascript/regex-selector-for-jquery/
  *************************************************************************************************/
 jQuery.expr[':'].regex = function (elem, index, match) {
     var matchParams = match[3].split(','),
@@ -35,3 +36,24 @@ jQuery.expr[':'].regex = function (elem, index, match) {
         regex = new RegExp(matchParams.join('').replace(/^\s+|\s+$/g, ''), regexFlags);
     return regex.test(jQuery(elem)[attr.method](attr.property));
 }
+
+/**************************************************************************************************
+ * jQuery Element In Viewport Check
+ *
+ * This is used to check where the user has scrolled to 
+ *
+ * NOTE: This needs to be updated to not change on the scroll up until the item is in view
+ * currently it works when the bottom of the element is visible / or the top depending on the 
+ * scroll direction
+ *************************************************************************************************/
+$.fn.isInViewport = function () {
+    var menuHeight = 110;
+
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+
+    var viewportTop = $(window).scrollTop() + menuHeight;
+    var viewportBottom = viewportTop + $(window).height();
+
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+};

@@ -1,4 +1,5 @@
 ﻿"use strict";
+
 /**************************************************************************************************
  * Navigation Menu Javascript Functionality
  *
@@ -6,12 +7,31 @@
  *************************************************************************************************/
 function initializeNavFunctionality() {
 
-    //toggleNavigationMenu();
-
     initializeMobileMenu();
 
-    initializeScrollFireMenu();
+    initializeScrollMenu();
+
+    // Add the hashchange event listener, this event fires when the windows hash changes [location.hash]    
+    window.addEventListener("hashchange", shiftWindow);    
 }
+
+/**************************************************************************************************
+ * Sets up the hashchange function when the body loads
+ *************************************************************************************************/
+function loadHashChange() {
+    if (window.location.hash)
+        shiftWindow();
+}
+
+/**************************************************************************************************
+ * Shitfs the scroll position down by the height of the fixed menu
+ *
+ * This allows href to point to an element location without having the top section covered
+ * by the fixed menu
+ *************************************************************************************************/
+var shiftWindow = function () {
+    scrollBy(0, -110);
+};
 
 /**************************************************************************************************
  * Initialize the side navigation menu for use on small screens and mobiles
@@ -21,47 +41,30 @@ function initializeMobileMenu() {
 }
 
 /**************************************************************************************************
- * Initialize the scroll fire for the navigation menu
+ * Initialize the scroll and resize events to toggle the navigation menu to the correct link
  *************************************************************************************************/
-function initializeScrollFireMenu() {
-    Materialize.scrollFire(getScrollFireOptions());
-}
+function initializeScrollMenu() {
+    $(window).on("resize scroll", function () {
 
-/**************************************************************************************************
- * This sets up the elements to watch and scroll fire on
- *************************************************************************************************/
-function getScrollFireOptions() {
-    var options = [
-      {
-          selector: '#home', offset: 50, callback: function (el) {
-              toggleNavigationMenuWithScrollFire(el.id);              
-          }
-      },
-      {
-          selector: '#services', offset: 600, callback: function (el) {
-              toggleNavigationMenuWithScrollFire(el.id);              
-          }
-      },
-      {
-          selector: '#aboutus', offset: 600, callback: function (el) {
-              toggleNavigationMenuWithScrollFire(el.id);              
-          }
-      }
-    ];
-
-    return options;
+        if ($("#home").isInViewport()) {
+            toggleNavigationMenu("home");
+        } else if ($("#services").isInViewport()) {
+            toggleNavigationMenu("services");
+        } else if ($("#aboutus").isInViewport()) {
+            toggleNavigationMenu("aboutus");
+        } else if ($("#quote").isInViewport()) {
+            toggleNavigationMenu("quote");
+        }
+    });
 }
 
 /**************************************************************************************************
  * Toggle the navigation menu so the active page menu link reflects the view the user has currently 
  * scrolled on to. This is done by changing the text color.
  * 
- * This will also handle the side navigiation menu
- * 
- * Because we re-initialize the scroll fire with each run of this function, the scroll fire will
- * run multiple times for the same offset, this is currently not an issue
+ * This will also handle the side navigiation menu 
  *************************************************************************************************/
-function toggleNavigationMenuWithScrollFire(id) {
+function toggleNavigationMenu(id) {
 
     // Find and remove the active class
     $("#nav").find(".active").removeClass("active");
@@ -92,8 +95,6 @@ function toggleNavigationMenuWithScrollFire(id) {
         $("#nav-mobile #liAboutUs").addClass("active");
         $("#nav-mobile #liAboutUs a").addClass("active-text");
     }
-
-    initializeScrollFireMenu();
 }
 
 ///**************************************************************************************************
