@@ -148,7 +148,9 @@
     <Content Include="Content\images\homepage.jpg" />
     <Content Include="Content\images\jp-logo-bw.png" />
     <Content Include="Content\images\jp-logo-rbg.png" />
-    <Content Include="Content\images\servicesexample.jpg" />
+    <Content Include="Content\images\services-stationery.jpg" />
+    <Content Include="Content\images\services-docketbooks.jpg" />
+    <Content Include="Content\images\services-design.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
