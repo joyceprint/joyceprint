@@ -11,6 +11,8 @@ function initializeNavFunctionality() {
 
     initializeScrollMenu();
 
+    document.body.addEventListener("load", toggleNavigationMenu(getElementIdInViewport()));
+
     // Add the hashchange event listener, this event fires when the windows hash changes [location.hash]    
     window.addEventListener("hashchange", shiftWindow);    
 }
@@ -30,6 +32,9 @@ function loadHashChange() {
  * by the fixed menu
  *************************************************************************************************/
 var shiftWindow = function () {
+
+    // BUG: We need to check if we are on the element we think we are on here
+    // otherwise a double click will result in the this being applied a second time
     scrollBy(0, -110);
 };
 
@@ -44,18 +49,31 @@ function initializeMobileMenu() {
  * Initialize the scroll and resize events to toggle the navigation menu to the correct link
  *************************************************************************************************/
 function initializeScrollMenu() {
-    $(window).on("resize scroll", function () {
-
-        if ($("#home").isInViewport()) {
-            toggleNavigationMenu("home");
-        } else if ($("#services").isInViewport()) {
-            toggleNavigationMenu("services");
-        } else if ($("#aboutus").isInViewport()) {
-            toggleNavigationMenu("aboutus");
-        } else if ($("#quote").isInViewport()) {
-            toggleNavigationMenu("quote");
-        }
+    $(window).on("resize scroll", function () {        
+        toggleNavigationMenu(getElementIdInViewport());
     });
+
+    toggleNavigationMenu(getElementIdInViewport());
+}
+
+/**************************************************************************************************
+ * 
+ *************************************************************************************************/
+function getElementIdInViewport() {
+
+    var id = null;
+
+    if ($("#home").isInViewport()) {
+        id = "home";
+    } else if ($("#services").isInViewport()) {
+        id = "services";
+    } else if ($("#aboutus").isInViewport()) {
+        id = "aboutus";
+    } else if ($("#quote").isInViewport()) {
+        id = "quote";
+    }
+
+    return id;
 }
 
 /**************************************************************************************************

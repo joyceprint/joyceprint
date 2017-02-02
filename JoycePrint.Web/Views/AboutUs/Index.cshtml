@@ -6,10 +6,10 @@
     //BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.AboutUs);
 }
 
-<section id="aboutus" role="main" class="bg-light-grey" data-test-form-id="frmAboutUs">
+<section id="aboutus" role="main" class="bg-light-grey-off" data-test-form-id="frmAboutUs">
 
     <div class="row eq-height">        
-        <div class="col s4 offset-s2" style="border: 1px solid blue">             
+        <div class="col s4 offset-s2">             
             <article id="companyHistory" data-test-company-history>
                 <h1 class="about-header">ABOUT US</h1>
                 <p>
@@ -33,12 +33,16 @@
             </article>
         </div>
 
-        <div class="col s6" style="border: 1px solid red">            
-            <img src="~/Content/images/aboutusexample.jpg" alt="Company Story" class="responsive-img" data-test-history-img />
+        <div class="col s6 no-pad-side">
+            <div class="parallax-container" id="aboutus-parallax-container">
+                <div class="parallax">
+                    <img src="~/Content/images/aboutus.jpg" alt="Company Story" data-test-history-img />
+                </div>
+            </div>
         </div>
     </div>    
 
-    @*<div class="row no-pad">
+    @*<div class="row no-mar-bot">
         <div class="col s6">
             <div class="row">
                 <div class="col offset-s4 s8">
@@ -66,7 +70,7 @@
                         <a href="tel:353949256876" title="Click to call us" data-test-phone-text>+353-94-9256876</a>
                     </div>
 
-                    
+
                 </article>
             </div>
         </div>

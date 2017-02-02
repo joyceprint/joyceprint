@@ -49,10 +49,20 @@ jQuery.expr[':'].regex = function (elem, index, match) {
 $.fn.isInViewport = function () {
     var menuHeight = 110;
 
+    // TODO: this is broken and causing the navigation menu display errors
+
+    // $(this).offset() - Get the current coordinates of the first element in the set of matched 
+    // elements, relative to the document. Offset returns top and left
     var elementTop = $(this).offset().top;
+
+    // $(this).outerHeight(); - Gets the outer height of an element including [padding, border, margin:optional(defaults:false)]
     var elementBottom = elementTop + $(this).outerHeight();
 
+    // $(window).scrollTop() - Get the current vertical position of the scroll bar for the first 
+    // element in the set of matched elements
     var viewportTop = $(window).scrollTop() + menuHeight;
+
+    // $(window).height() - The height of the window element
     var viewportBottom = viewportTop + $(window).height();
 
     return elementBottom > viewportTop && elementTop < viewportBottom;
