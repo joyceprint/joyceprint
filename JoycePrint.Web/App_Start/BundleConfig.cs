@@ -78,6 +78,7 @@ namespace JoycePrint.Web
             bundles.Add(new Bundle("~/css/joyceprintcss",
                                 new IBundleTransform[] { new LessTransform(), new CssMinify() })
                                 .Include("~/Content/css/materialize.min.css",
+                                    "~/Content/css/open-sans.less",
                                     "~/Content/css/joyceprint/joyceprint.less")
                                     );
         }

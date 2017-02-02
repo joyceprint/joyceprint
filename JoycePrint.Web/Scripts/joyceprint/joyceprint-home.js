@@ -11,24 +11,27 @@ function initializeHomeFunctionality() {
 
     initializeMaterializeParallax();
 
-    positionParallaxContent();
+    //positionParallaxContent();
 }
 
-function positionParallaxContent() {
-    var content = $("#parallax-content");
+///**************************************************************************************************
+// *
+// *************************************************************************************************/
+//function positionParallaxContent() {
+//    var content = $("#parallax-content");
     
-    var homeTop = $("#home").offset().top;
+//    var homeTop = $("#home").offset().top;
 
-    var viewportTop = $(window).scrollTop();
+//    var viewportTop = $(window).scrollTop();
 
-    var viewportBottom = viewportTop + $(window).height();
+//    var viewportBottom = viewportTop + $(window).height();
 
-    var heightOnScreen = viewportBottom - homeTop;
+//    var heightOnScreen = viewportBottom - homeTop;
 
-    var paddingTop = heightOnScreen / 3;
+//    var paddingTop = heightOnScreen / 3;
 
-    $(content).css("padding-top", paddingTop);
-}
+//    $(content).css("padding-top", paddingTop);
+//}
 
 ///**************************************************************************************************
 // * Initialize the carousel for the home page
