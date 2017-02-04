@@ -11,6 +11,8 @@ function initializeNavFunctionality() {
 
     initializeScrollMenu();
 
+    initializeAnimatedMenu();
+
     document.body.addEventListener("load", toggleNavigationMenu(getElementIdInViewport()));
 
     // Add the hashchange event listener, this event fires when the windows hash changes [location.hash]    
@@ -43,6 +45,28 @@ var shiftWindow = function () {
  *************************************************************************************************/
 function initializeMobileMenu() {
     $(".button-collapse").sideNav();
+}
+
+/**************************************************************************************************
+ * 
+ *************************************************************************************************/
+function initializeAnimatedMenu() {
+
+    //$('a[href*=#]').on('click', function (event) {
+    //event.preventDefault();
+    //$('html,body').animate({
+    //    scrollTop: $(this.hash).offset().top
+    //}, 500);
+    //});
+
+
+    //$("ul li a[href*=\\#]").on("click", function(e) {
+    //    e.preventDefault();
+
+    //    var id = $(this).attr("href");
+            
+    //    $("html,body").animate({ scrollTop: $(this).offset().top }, "slow");
+    //});            
 }
 
 /**************************************************************************************************
