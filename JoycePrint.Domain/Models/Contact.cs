@@ -1,4 +1,8 @@
-﻿namespace JoycePrint.Domain.Models
+﻿using System;
+using System.Configuration;
+using System.Runtime.InteropServices;
+
+namespace JoycePrint.Domain.Models
 {
     public class Contact
     {
@@ -10,6 +14,7 @@
         /// <summary>
         /// The position held by the contact at the company
         /// </summary>
+        [Obsolete("This property is currently not in use")]
         public string Position { get; set; }
 
         /// <summary>

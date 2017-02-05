@@ -201,7 +201,7 @@
     <Content Include="Content\css\joyceprint\variables.less" />
     <Content Include="Content\css\joyceprint\font.less" />
     <Content Include="Content\css\joyceprint\about-us.less" />
-    <Content Include="Content\css\joyceprint\get-a-quote.less" />
+    <Content Include="Content\css\joyceprint\quote.less" />
     <Content Include="Content\css\joyceprint\validation.less" />
     <Content Include="Content\css\joyceprint\materialize-extensions.less" />
     <Content Include="Content\css\joyceprint\layout.less" />
@@ -255,6 +255,7 @@
     <Content Include="Content\fonts\avenir\Light\Avenir-Light.woff" />
     <Content Include="Content\fonts\avenir\Light\Avenir-Light.woff2" />
     <Content Include="Content\css\avenir.less" />
+    <Content Include="Content\css\joyceprint\print-checklist.less" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -310,7 +311,7 @@
     <Content Include="Views\Services\Partial\Stationery.cshtml" />
     <Content Include="Views\Services\Partial\DesignService.cshtml" />
     <Content Include="Views\SinglePage\Index.cshtml" />
-    <Content Include="Views\Quote\Partial\PrintCheckList.cshtml" />
+    <Content Include="Views\Quote\Partial\PrintChecklist.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

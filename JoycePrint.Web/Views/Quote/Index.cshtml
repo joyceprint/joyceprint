@@ -9,24 +9,26 @@
     //BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.Quote);
 }
 
-<section id="quote" class="row" data-test-form-id="frmQuote">
+<section id="quote" class="row no-mar-bot bg-light-grey" data-test-form-id="frmQuote">
+    
+    <h1 class="services-header center-align">Get A Quote</h1>
 
     <div class="col no-pad-side offset-s2 s4">
-        @Html.Partial("Partial/PrintCheckList")
+        @Html.Partial("Partial/PrintChecklist")
     </div>
-    
-    <div class="col s6">        
+
+    <div class="col s5">
         @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote" }))
         {
             @Html.AntiForgeryToken()
 
             @Html.EditorFor(model => model.Contact, "ContactForm")
-            
+
             <div class="row">
                 <div class="input-field col s12" data-test-message>
                     <i class="material-icons prefix orange-text text-accent-4">message</i>
-                    <textarea rows="10" class="materialize-textarea validate" id="Message" name="Message" wrap="hard" required data-val-req-msg="Any additional information"></textarea>
-                    <label for="Message">Message</label>
+                    <textarea rows="10" class="materialize-textarea validate" id="Message" name="Message" wrap="hard" required data-val-req-msg="Please provide details"></textarea>
+                    <label for="Message">Quote / Question Details</label>
                     <label for="Message" class="val-msg"></label>
                 </div>
             </div>
@@ -37,6 +39,12 @@
 
                         <div class="g-recaptcha" data-sitekey="6LcC2Q0UAAAAADtadrrG_FTRs82tvd2J1fOwK-KW" data-callback="handleCaptcha" data-expired-callback="handleExpiredCaptcha" data-test-recaptcha></div>
                     </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <small>We do not share your details with any third parties.</small>
                 </div>
             </div>
 
@@ -52,6 +60,7 @@
                         <button class="col s12 btn waves-effect waves-green green" formmethod="post" type="submit" data-test-submit>SUBMIT</button>
                     </div>
                 </div>
+
             </div>
         }
     </div>
