@@ -77,9 +77,8 @@ namespace JoycePrint.Web
             // The less file is translated to css by the LessTransform class passed into the bundle
             bundles.Add(new Bundle("~/css/joyceprintcss",
                                 new IBundleTransform[] { new LessTransform(), new CssMinify() })
-                                .Include("~/Content/css/materialize.min.css",
-                                    "~/Content/css/open-sans.less",
-                                    "~/Content/css/joyceprint/joyceprint.less")
+                                .Include("~/Content/css/materialize.min.css",                                    
+                                    "~/Content/css/joyceprint.less")
                                     );
         }
 
