@@ -7,25 +7,30 @@
  *************************************************************************************************/
 function initializeNavFunctionality() {
 
-    initializeMobileMenu();
-
-    initializeScrollMenu();
-
-    initializeAnimatedMenu();
-
+    // When the page is loaded / reloaded, this gets the section the page is on and updates the menu link
     document.body.addEventListener("load", toggleNavigationMenu(getElementIdInViewport()));
 
     // Add the hashchange event listener, this event fires when the windows hash changes [location.hash]    
-    window.addEventListener("hashchange", shiftWindow);    
+    window.addEventListener("hashchange", shiftWindow);
+
+    // Initializes the side nav menu for mobile screens
+    initializeMobileMenu();
+
+    // Sets up the scroll offset, required because of the use of a stick header
+    initializeScrollMenu();
+
+    initializeAnimatedMenu();
 }
 
 /**************************************************************************************************
  * Sets up the hashchange function when the body loads
+ * 
+ * NOT NEEDED - DON'T DELETE TILL PROD
  *************************************************************************************************/
-function loadHashChange() {
-    if (window.location.hash)
-        shiftWindow();
-}
+//function loadHashChange() {
+    //if (window.location.hash)
+        //shiftWindow();
+//}
 
 /**************************************************************************************************
  * Shitfs the scroll position down by the height of the fixed menu
@@ -33,11 +38,13 @@ function loadHashChange() {
  * This allows href to point to an element location without having the top section covered
  * by the fixed menu
  *************************************************************************************************/
+var navOffset = -($("nav").height() - 4);
+
 var shiftWindow = function () {
 
     // BUG: We need to check if we are on the element we think we are on here
     // otherwise a double click will result in the this being applied a second time
-    scrollBy(0, -110);
+    scrollBy(0, navOffset);
 };
 
 /**************************************************************************************************
@@ -48,9 +55,22 @@ function initializeMobileMenu() {
 }
 
 /**************************************************************************************************
- * 
+ * This function needs to account for the fact when you this the menu link and that menu page
+ * is at the top of the viewport, a second click will cause it to shoot up above the viewable
+ * area. This needs to be detected and prevented on the onclick function
  *************************************************************************************************/
 function initializeAnimatedMenu() {
+    
+    console.log("sdsdsdsd ----" + navOffset);
+    // This is not need, but it could be used to make the navigation have an animation
+    //$(".nav li a").click(function (event) {
+    //    event.preventDefault();
+
+    //    $($(this).attr("href"))[0].scrollIntoView();
+
+    //    scrollBy(0, -offset);
+    //});
+
 
     //$('a[href*=#]').on('click', function (event) {
     //event.preventDefault();
@@ -64,7 +84,7 @@ function initializeAnimatedMenu() {
     //    e.preventDefault();
 
     //    var id = $(this).attr("href");
-            
+
     //    $("html,body").animate({ scrollTop: $(this).offset().top }, "slow");
     //});            
 }
@@ -73,15 +93,16 @@ function initializeAnimatedMenu() {
  * Initialize the scroll and resize events to toggle the navigation menu to the correct link
  *************************************************************************************************/
 function initializeScrollMenu() {
-    $(window).on("resize scroll", function () {        
+
+    // This accounts for updating the menu link when the user is scrolling and resizing the screen
+    $(window).on("resize scroll", function () {
         toggleNavigationMenu(getElementIdInViewport());
     });
-
-    toggleNavigationMenu(getElementIdInViewport());
 }
 
 /**************************************************************************************************
- * 
+ * This needs to get the item in the center of the view port of the user is scrolling down
+ * This needs to get the item in the bottom third when scrolling up
  *************************************************************************************************/
 function getElementIdInViewport() {
 
@@ -138,6 +159,26 @@ function toggleNavigationMenu(id) {
         $("#nav-mobile #liAboutUs a").addClass("active-text");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ///**************************************************************************************************
 // * Toggle the navigation menu so the active page menu link reflects the page the user is currently 

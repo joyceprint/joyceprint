@@ -304,6 +304,7 @@
     <Content Include="Views\Services\Partial\Stationery.cshtml" />
     <Content Include="Views\Services\Partial\DesignService.cshtml" />
     <Content Include="Views\SinglePage\Index.cshtml" />
+    <Content Include="Views\Quote\Partial\PrintCheckList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

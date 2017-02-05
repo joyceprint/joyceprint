@@ -1,0 +1,43 @@
+﻿<article id="printCheckList" class="row bg-white">
+    
+    <ul class="collection with-header">
+        <li class="collection-header">
+            <h5>
+                <span class="success-text">Checklist</span> for print quotes
+            </h5>
+        </li>
+        
+        @{
+
+            // This information will eventually be moved into a model
+            // This will need to be moved to be a view in it's own right            
+            var checkListItems = new[]
+            {
+                "description of item",
+                "full color / single color / spot color",
+                "preferred stock",
+                "finished size",
+                "single-sided or double-sided",
+                "number of pages",
+                "quantity",
+                "timing",
+                "other information"
+            };
+
+            foreach (var item in checkListItems)
+            {
+               <li class="collection-item">                    
+                    <div class="valign-wrapper">                                                
+                        <i class="material-icons small success-text text-700 valign">done</i>                        
+                        <span class="valign">@item</span>
+                    </div>
+                </li>
+            }
+        }        
+        <li class="collection-header">
+            <h6>
+                Please include as many of these details as possible.
+            </h6>
+        </li>
+    </ul>
+</article>
