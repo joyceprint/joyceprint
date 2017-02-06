@@ -15,14 +15,31 @@
     height: 650px;
 }
 
-#map {
-    height: 500px;
-    width: 100%;
-    margin-bottom: 20px;    
-}
-
 .about-address {
     padding-bottom: 20px;
+}
+
+#map {
+    height: 500px;
+    width: 100%;    
+}
+
+#map-cover {
+    position: relative;
+    top: -500px;
+    margin-bottom: -500px;
+    left: 0;
+    height: 500px;
+    z-index: 2;
+    background-color: black;
+    opacity: 0.3;
+}
+
+.hide-overlay {
+    color: @color-pink;
+    cursor: pointer;
+    top: 225px;
+    position: relative;    
 }
 
 /*#aboutus {

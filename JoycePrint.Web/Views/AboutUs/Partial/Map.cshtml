@@ -1,0 +1,64 @@
+﻿<div class="col no-pad-side offset-s2 s6 valign">
+    <div id="map" data-test-map>
+        @*
+            This has to have something placed over it, so when the user is scrolling down the page they don't
+            scroll way off the location.
+            There also needs to be a button to recenter the map if the user scrolls off of it.
+            To do this we have to place a div over the map div
+                and place a button on it to interact with the map
+                this div should be trasparent but not allow the events to be passed onto the map
+                untill the button is clicked and the div is hidden
+        *@
+    </div>
+    
+    <div id="map-cover">
+        <div class="center-align">            
+            <i class="large material-icons hide-overlay" onclick="hideOverlay()">visibility_off</i>            
+        </div>
+    </div>
+</div>
+
+<script>
+    function hideOverlay() {
+        $("#map-cover").hide();
+
+        // we have to enable all the map options
+        // we have to zoom in on the map more, show more of foxford
+    }
+
+    function initMap() {
+
+        //// https://developers.google.com/maps/documentation/javascript/controls
+        //// https://developers.google.com/maps/documentation/javascript/customoverlays
+
+        var uluru = { lat: 53.9807771, lng: -9.113247 };
+
+        var options = {
+            zoom: 8,
+            center: uluru,
+            
+            draggable: false,
+            zoomControl: false,
+            scrollwheel: false,
+            disableDoubleClickZoom: true
+        };
+
+        var map = new google.maps.Map(document.getElementById('map'));
+
+        map.setOptions(options);
+
+        var markerLabel = {            
+            text: "Joyceprint"
+        };
+
+        var marker = new google.maps.Marker({
+            position: uluru,            
+            title: 'Joyceprint',
+            label: markerLabel,
+            map: map
+        });       
+    }
+</script>
+
+<!-- Create a config wrapper and put this in the config file - use an interface-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmlj3x-6ltqflvHZ1CvVjSbgOzERK85e4&callback=initMap"></script>
