@@ -316,6 +316,7 @@
     <Content Include="Views\Quote\Partial\PrintChecklist.cshtml" />
     <Content Include="Views\AboutUs\Partial\Map.cshtml" />
     <Content Include="Views\Quote\EditorTemplates\EnquiryForm.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Checkbox.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

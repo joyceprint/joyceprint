@@ -14,12 +14,18 @@
         <span class="text-700">Enquiry Type</span> <i>(required - select as many as approciate)</i>        
     </div>
 
-    <div class="col s11 offset-s1 checkbox-container-space">      
-        <input type="checkbox" id="Enquiry_IsQuote" name="Enquiry.IsQuote" />
+    <div class="col s11 offset-s1 checkbox-container-space">              
+        @*
+        If checkbox not checked, form submit only hidden (false)
+        If checked, then form submit two fields (false and true) and MVC set true for bool property
+        *@
+        <input type="checkbox" id="Enquiry_IsQuote" name="Enquiry.IsQuote" value="true" />
         <label for="Enquiry_IsQuote" class="checkbox-pad">Quote</label>
+        <input type="hidden" name="Enquiry.IsQuote" value="false" />
         
-        <input type="checkbox" id="Enquiry_IsQuestion" name="Enquiry.IsQuestion" />
-        <label for="Enquiry_IsQuestion" class="checkbox-pad">Question</label>        
+        <input type="checkbox" id="Enquiry_IsQuestion" value="true" name="Enquiry.IsQuestion" />
+        <label for="Enquiry_IsQuestion" class="checkbox-pad">Question</label>      
+        <input type="hidden" name="Enquiry.IsQuestion" value="false" />
     </div>
 
     <div class="input-field col s12" data-test-message>

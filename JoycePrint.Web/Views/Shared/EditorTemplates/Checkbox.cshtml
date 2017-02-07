@@ -1,0 +1,9 @@
+﻿@model bool
+
+@{
+    Layout = null;
+}
+
+<input type="checkbox" id="@Model" name="@Model" />
+<label id="LabelFor@{@Model}" for="@Model" class="checkbox-pad">@Model</label>
+<input type="hidden" name="@Model" value="false" />
