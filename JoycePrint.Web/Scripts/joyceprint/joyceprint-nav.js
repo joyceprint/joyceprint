@@ -28,8 +28,8 @@ function initializeNavFunctionality() {
  * NOT NEEDED - DON'T DELETE TILL PROD
  *************************************************************************************************/
 //function loadHashChange() {
-    //if (window.location.hash)
-        //shiftWindow();
+//if (window.location.hash)
+//shiftWindow();
 //}
 
 /**************************************************************************************************
@@ -60,8 +60,7 @@ function initializeMobileMenu() {
  * area. This needs to be detected and prevented on the onclick function
  *************************************************************************************************/
 function initializeAnimatedMenu() {
-    
-    console.log("sdsdsdsd ----" + navOffset);
+
     // This is not need, but it could be used to make the navigation have an animation
     //$(".nav li a").click(function (event) {
     //    event.preventDefault();
@@ -95,10 +94,26 @@ function initializeAnimatedMenu() {
 function initializeScrollMenu() {
 
     // This accounts for updating the menu link when the user is scrolling and resizing the screen
-    $(window).on("resize scroll", function () {
+    $(window).on("resize scroll", function () {        
+
+        var st = $(this).scrollTop();
+        if (st > lastScrollTop) {
+            // downscroll code
+            scrollAdjust = scrollAdjustDown;
+        } else {
+            // upscroll code
+            scrollAdjust = scrollAdjustUp;
+        }
+        lastScrollTop = st;
+
         toggleNavigationMenu(getElementIdInViewport());
     });
 }
+
+var lastScrollTop = 0;
+var scrollAdjust = 0;
+var scrollAdjustUp = -150;
+var scrollAdjustDown = -120;
 
 /**************************************************************************************************
  * This needs to get the item in the center of the view port of the user is scrolling down
@@ -108,17 +123,43 @@ function getElementIdInViewport() {
 
     var id = null;
 
-    if ($("#home").isInViewport()) {
-        id = "home";
-    } else if ($("#services").isInViewport()) {
-        id = "services";
-    } else if ($("#aboutus").isInViewport()) {
-        id = "aboutus";
-    } else if ($("#quote").isInViewport()) {
-        id = "quote";
-    }
+    id = getElementAtViewportCenter();
 
     return id;
+}
+
+function getElementAtViewportCenter() {
+    var elementId = null;
+
+    var menuHeight = 110;
+
+    // the window url using javascript and window element
+    //window.location.pathname + window.location.hash == '/index.html#contact'
+
+    // 1 - get the center of the viewport - account for the menu height
+    var windowHeight = $(window).height();
+
+    // Sub the menu height from the viewport height
+    var windowHeightWithoutMenu = windowHeight - menuHeight;
+
+    var screenCPt = (windowHeightWithoutMenu / 2) + menuHeight;
+
+    console.log("screen vcenter - " + screenCPt);
+
+    // 2 - find the element at that location
+    var offsetYPt = screenCPt;
+
+    // Get the center of hte viewport
+    var offsetXPt = $(window).width() / 2;
+
+    var elementAtCenter = document.elementFromPoint(offsetXPt, offsetYPt + scrollAdjust);
+
+    // 3 - navagiate out until you get to a section
+    var navSection = $(elementAtCenter).closest("section");
+
+    elementId = $(navSection).attr("id");
+
+    return elementId;
 }
 
 /**************************************************************************************************
@@ -167,33 +208,33 @@ function toggleNavigationMenu(id) {
 // * This will also handle the side navigiation menu
 // *************************************************************************************************/
 //function toggleNavigationMenu() {
-
+//
 //    // Find and remove the active class
 //    $("#nav").find(".active").removeClass("active");
 //    $("#nav").find(".active-text").removeClass("active-text");
-
+//
 //    if ($("#home").length > 0) {
 //        $("#nav #liHome").addClass("active");
 //        $("#nav #liHome a").addClass("active-text");
-
+//
 //        $("#nav-mobile #liHome").addClass("active");
 //        $("#nav-mobile #liHome a").addClass("active-text");
 //    } else if ($("#quote").length > 0) {
 //        $("#nav #liQuote").addClass("active");
 //        $("#nav #liQuote a").addClass("active-text");
-
+//
 //        $("#nav-mobile #liQuote").addClass("active");
 //        $("#nav-mobile #liQuote a").addClass("active-text");
 //    } else if ($("#services").length > 0) {
 //        $("#nav #liServices").addClass("active");
 //        $("#nav #liServices a").addClass("active-text");
-
+//
 //        $("#nav-mobile #liServices").addClass("active");
 //        $("#nav-mobile #liServices a").addClass("active-text");
 //    } else if ($("#aboutus").length > 0) {
 //        $("#nav #liAboutUs").addClass("active");
 //        $("#nav #liAboutUs a").addClass("active-text");
-
+//
 //        $("#nav-mobile #liAboutUs").addClass("active");
 //        $("#nav-mobile #liAboutUs a").addClass("active-text");
 //    }
