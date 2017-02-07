@@ -1,14 +1,6 @@
 ﻿<div class="col no-pad-side offset-s2 s6 valign">
     <div id="map" data-test-map>
-        @*
-            This has to have something placed over it, so when the user is scrolling down the page they don't
-            scroll way off the location.
-            There also needs to be a button to recenter the map if the user scrolls off of it.
-            To do this we have to place a div over the map div
-                and place a button on it to interact with the map
-                this div should be trasparent but not allow the events to be passed onto the map
-                untill the button is clicked and the div is hidden
-        *@
+       
     </div>
     
     <div id="map-cover">
@@ -19,17 +11,38 @@
 </div>
 
 <script>
+
+    var map;
+
     function hideOverlay() {
         $("#map-cover").hide();
 
-        // we have to enable all the map options
+        var options = {
+            draggable: true,
+            zoomControl: true,
+            scrollwheel: true,
+            disableDoubleClickZoom: false
+        };
+
+        map.setOptions(options);
+
+        // TODO: Talk with claire and dad before working on any of this - they may not want it     
+
+        // https://developers.google.com/maps/documentation/javascript/controls
+        // https://developers.google.com/maps/documentation/javascript/customoverlays
+
         // we have to zoom in on the map more, show more of foxford
+        // run alans code to put back the overlay if the user scrolls off the map
+        // add a recenter on the map
+         
+        // This has to have something placed over it, so when the user is scrolling down the page they don't
+        // scroll way off the location.
+        // There also needs to be a button to recenter the map if the user scrolls off of it.
+        // To do this we have to place a div over the map div and place a button on it to interact with the map
+        // this div should be trasparent but not allow the events to be passed onto the map  until the button is clicked and the div is hidden        
     }
 
     function initMap() {
-
-        //// https://developers.google.com/maps/documentation/javascript/controls
-        //// https://developers.google.com/maps/documentation/javascript/customoverlays
 
         var uluru = { lat: 53.9807771, lng: -9.113247 };
 
@@ -43,7 +56,7 @@
             disableDoubleClickZoom: true
         };
 
-        var map = new google.maps.Map(document.getElementById('map'));
+        map = new google.maps.Map(document.getElementById('map'));
 
         map.setOptions(options);
 

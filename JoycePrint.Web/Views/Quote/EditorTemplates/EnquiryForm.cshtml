@@ -1,0 +1,32 @@
+﻿@using JoycePrint.Domain.Models
+@model Enquiry
+
+<section id="enquiry" class="row">
+    
+    @*
+        try the following
+        move the label text over in the text box
+        move the icon to inside the input box
+        the rest of materialize should be able to stay the same - need to only do css
+        verify in chrome
+    *@
+    <div class="col s12 checkbox-container-header">                        
+        <span class="text-700">Enquiry Type</span> <i>(required - select as many as approciate)</i>        
+    </div>
+
+    <div class="col s11 offset-s1 checkbox-container-space">      
+        <input type="checkbox" id="Enquiry_IsQuote" name="Enquiry.IsQuote" />
+        <label for="Enquiry_IsQuote" class="checkbox-pad">Quote</label>
+        
+        <input type="checkbox" id="Enquiry_IsQuestion" name="Enquiry.IsQuestion" />
+        <label for="Enquiry_IsQuestion" class="checkbox-pad">Question</label>        
+    </div>
+
+    <div class="input-field col s12" data-test-message>
+        <i class="material-icons prefix orange-text text-accent-4">message</i>
+        <textarea rows="20" class="materialize-textarea validate" id="Enquiry_Message" name="Enquiry.Message" wrap="hard" required data-val-req-msg="Please provide details"></textarea>
+        <label for="Message">Quote / Question Details</label>
+        <label for="Message" class="val-msg"></label>
+    </div>
+
+</section>

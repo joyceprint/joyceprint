@@ -160,26 +160,6 @@ function toggleNavigationMenu(id) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ///**************************************************************************************************
 // * Toggle the navigation menu so the active page menu link reflects the page the user is currently 
 // * on. This is done by changing the text color.

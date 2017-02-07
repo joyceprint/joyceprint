@@ -13,14 +13,7 @@ namespace JoycePrint.Web
 
             // Enabling attribute routing
             routes.MapMvcAttributeRoutes();
-
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{controller}/{action}",
-            //    defaults: new { controller = "Home", action = "Index" },
-            //    namespaces: JoycePrintNamespace
-            //);
-
+            
             // This is the catch all route
             routes.MapRoute(
                 name: "CatchAll",

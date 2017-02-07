@@ -166,6 +166,7 @@
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\joyceprint\joyceprint-extensions.js" />
+    <Content Include="Scripts\joyceprint\materialize-extensions.js" />
     <Content Include="Scripts\joyceprint\joyceprint-quote.js" />
     <Content Include="Scripts\joyceprint\joyceprint-aboutus.js" />
     <Content Include="Scripts\joyceprint\joyceprint-home.js" />
@@ -256,6 +257,7 @@
     <Content Include="Content\fonts\avenir\Light\Avenir-Light.woff2" />
     <Content Include="Content\css\avenir.less" />
     <Content Include="Content\css\joyceprint\print-checklist.less" />
+    <Content Include="Content\css\joyceprint\enquiry-form.less" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -313,6 +315,7 @@
     <Content Include="Views\SinglePage\Index.cshtml" />
     <Content Include="Views\Quote\Partial\PrintChecklist.cshtml" />
     <Content Include="Views\AboutUs\Partial\Map.cshtml" />
+    <Content Include="Views\Quote\EditorTemplates\EnquiryForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

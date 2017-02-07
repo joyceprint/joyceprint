@@ -7,7 +7,9 @@
  * that has been loaded
  *************************************************************************************************/
 $(document).ready(function () {
-    
+
+    initializeMaterializeFunctionality();
+
     initializeNavFunctionality();
 
     // If the home view is loaded

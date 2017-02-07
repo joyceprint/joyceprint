@@ -15,17 +15,18 @@ namespace JoycePrint.Domain.Models
         /// <summary>
         /// The docket book information for the quote
         /// </summary>
-        public DocketBook DocketBook { get; set; }
+        public Enquiry Enquiry { get; set; }
 
         /// <summary>
-        /// The additional information given by the client
+        /// The docket book information for the quote
         /// </summary>
-        public string Message { get; set; }
+        public DocketBook DocketBook { get; set; }
 
         public QuoteRequest()
         {
             Contact = new Contact();
             DocketBook = new DocketBook();
+            Enquiry = new Enquiry();
         }
 
         public void SendEmail()
@@ -73,7 +74,7 @@ namespace JoycePrint.Domain.Models
             messageBody.Append("<dt><strong>Quantity</strong></dt>");
             messageBody.Append($"<dd>{DocketBook.Quantity}</dd>");
             messageBody.Append("</dl>");
-            messageBody.Append($"<div><strong>User message</strong><p>{Message}</p></div>");
+            messageBody.Append($"<div><strong>User message</strong><p>{Enquiry.Message}</p></div>");
 
             return messageBody.ToString();
         }

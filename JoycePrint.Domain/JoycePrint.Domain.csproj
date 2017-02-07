@@ -80,6 +80,7 @@
     <Compile Include="Mail\Email.cs" />
     <Compile Include="Enums\DocketBookSize.cs" />
     <Compile Include="Enums\DocketBookType.cs" />
+    <Compile Include="Models\Enquiry.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\DocketBook.cs" />
     <Compile Include="Models\QuoteRequest.cs" />
