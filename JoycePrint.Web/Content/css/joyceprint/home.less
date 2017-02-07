@@ -7,16 +7,25 @@
 
 #home {
     // This forces the top of the parallax image to under the header rather than behind it
-    margin-top: 47px;
+    margin-top: 47px;      
 }
 
 #home-parallax-container {
+    z-index: 1;
+    background-color: black; 
+}
+
+#home-parallax-container > .parallax-container {
     height: 1000px;
+    z-index: 2;
+    opacity: 0.61;
 }
 
 #home-parallax-content {
     position: relative;
-    top: 130px;
+    top: -870px;
+    text-align: center;
+    z-index: 3;        
 }
 
 #home-parallax-content > h1 {

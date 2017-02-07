@@ -8,19 +8,34 @@
 
 <section id="home" class="row no-mar-bot" data-test-form-id="frmHome">
         
-    <div class="parallax-container" id="home-parallax-container">
-                
-        <div class="parallax">
-            <img src="~/Content/images/homepage.jpg" alt="Trade Docket Books"/>
+    <div id="home-parallax-container">
+        <div class="parallax-container">
+
+            <div class="parallax">
+                <img src="~/Content/images/homepage.jpg" alt="Trade Docket Books" />
+            </div>
+
         </div>
-        
-        <div class="center-align" id="home-parallax-content">
-            <h1 class="white-text">TRADE DOCKET BOOKS</h1>
-            
-            <h4 class="white-text">High Quality Printing. Fast Reliable Service.</h4>
-            
-            <a href="#quote" class="btn btn-large pink white-text">GET A QUOTE</a>
-        </div>
+    </div>
+
+    @*
+        This content needs to be fixed in the center of the screen while the parallax is on screen
+
+        When the page scrolls we adjust the position of this content so it stays in the center of the parallax
+        when the bottom of the parallax is on the screen we allow this content to move with the image again
+        rather than being fixed
+
+        same idea for reverse scrolling - position of the content needs to be adjusted to the bottom position if the
+        parallax view is not in the view -
+            if image top is in viewport - move to top
+            if image bottom is in viewport - move to bottom
+    *@
+    <div class="center-align" id="home-parallax-content">
+        <h1 class="white-text">TRADE DOCKET BOOKS</h1>
+
+        <h4 class="white-text">High Quality Printing. Fast Reliable Service.</h4>
+
+        <a href="#quote" class="btn btn-large btn-round bg-pink white-text">GET A QUOTE</a>
     </div>
 
 </section>
