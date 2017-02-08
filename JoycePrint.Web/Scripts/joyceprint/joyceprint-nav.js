@@ -23,7 +23,7 @@ function initializeNavFunctionality() {
     // Sets up the scroll offset, required because of the use of a stick header
     initializeScrollMenu();
 
-    // TODO: This is not working yet
+    // Sets up the scroll animation when a menu link is clicked
     initializeAnimatedMenu();
 }
 
@@ -35,37 +35,25 @@ function initializeMobileMenu() {
 }
 
 /**************************************************************************************************
- * This function needs to account for the fact when you this the menu link and that menu page
- * is at the top of the viewport, a second click will cause it to shoot up above the viewable
- * area. This needs to be detected and prevented on the onclick function
+ * 
+ * 
+ * 
  *************************************************************************************************/
 function initializeAnimatedMenu() {
+    
+    $(".nav li a").click(function (event) {
+        event.preventDefault();
 
-    // This is not need, but it could be used to make the navigation have an animation
-    //$(".nav li a").click(function (event) {
-    //    event.preventDefault();
+        // The use of scrollIntoView with options is expermental WFT
+        // Now we have to do work around bull
+        //$($(this).attr("href"))[0].scrollIntoView({ block: "start", behavior: "smooth" });
 
-    //    $($(this).attr("href"))[0].scrollIntoView();
+        $($(this).attr("href"))[0].scrollIntoView();
 
-    //    scrollBy(0, -offset);
-    //});
-
-
-    //$('a[href*=#]').on('click', function (event) {
-    //event.preventDefault();
-    //$('html,body').animate({
-    //    scrollTop: $(this.hash).offset().top
-    //}, 500);
-    //});
-
-
-    //$("ul li a[href*=\\#]").on("click", function(e) {
-    //    e.preventDefault();
-
-    //    var id = $(this).attr("href");
-
-    //    $("html,body").animate({ scrollTop: $(this).offset().top }, "slow");
-    //});            
+        // This fixes the issue where the section is pushed up under the menu when the user clicks on the menu link
+        // while the section is in view
+        scrollBy(0, navOffset);
+    });
 }
 
 /**************************************************************************************************
@@ -207,42 +195,3 @@ function toggleNavigationMenu(id) {
         $("#nav-mobile #liAboutUs a").addClass("active-text");
     }
 }
-
-///**************************************************************************************************
-// * Toggle the navigation menu so the active page menu link reflects the page the user is currently 
-// * on. This is done by changing the text color.
-// * 
-// * This will also handle the side navigiation menu
-// *************************************************************************************************/
-//function toggleNavigationMenu() {
-//
-//    // Find and remove the active class
-//    $("#nav").find(".active").removeClass("active");
-//    $("#nav").find(".active-text").removeClass("active-text");
-//
-//    if ($("#home").length > 0) {
-//        $("#nav #liHome").addClass("active");
-//        $("#nav #liHome a").addClass("active-text");
-//
-//        $("#nav-mobile #liHome").addClass("active");
-//        $("#nav-mobile #liHome a").addClass("active-text");
-//    } else if ($("#quote").length > 0) {
-//        $("#nav #liQuote").addClass("active");
-//        $("#nav #liQuote a").addClass("active-text");
-//
-//        $("#nav-mobile #liQuote").addClass("active");
-//        $("#nav-mobile #liQuote a").addClass("active-text");
-//    } else if ($("#services").length > 0) {
-//        $("#nav #liServices").addClass("active");
-//        $("#nav #liServices a").addClass("active-text");
-//
-//        $("#nav-mobile #liServices").addClass("active");
-//        $("#nav-mobile #liServices a").addClass("active-text");
-//    } else if ($("#aboutus").length > 0) {
-//        $("#nav #liAboutUs").addClass("active");
-//        $("#nav #liAboutUs a").addClass("active-text");
-//
-//        $("#nav-mobile #liAboutUs").addClass("active");
-//        $("#nav-mobile #liAboutUs a").addClass("active-text");
-//    }
-//}
