@@ -1,5 +1,9 @@
 ﻿"use strict";
 
+var scrollUp;
+var lastScrollTop = 0;
+var navOffset = -($("nav").height() - 4);
+
 /**************************************************************************************************
  * Navigation Menu Javascript Functionality
  *
@@ -19,33 +23,9 @@ function initializeNavFunctionality() {
     // Sets up the scroll offset, required because of the use of a stick header
     initializeScrollMenu();
 
+    // TODO: This is not working yet
     initializeAnimatedMenu();
 }
-
-/**************************************************************************************************
- * Sets up the hashchange function when the body loads
- * 
- * NOT NEEDED - DON'T DELETE TILL PROD
- *************************************************************************************************/
-//function loadHashChange() {
-//if (window.location.hash)
-//shiftWindow();
-//}
-
-/**************************************************************************************************
- * Shitfs the scroll position down by the height of the fixed menu
- *
- * This allows href to point to an element location without having the top section covered
- * by the fixed menu
- *************************************************************************************************/
-var navOffset = -($("nav").height() - 4);
-
-var shiftWindow = function () {
-
-    // BUG: We need to check if we are on the element we think we are on here
-    // otherwise a double click will result in the this being applied a second time
-    scrollBy(0, navOffset);
-};
 
 /**************************************************************************************************
  * Initialize the side navigation menu for use on small screens and mobiles
@@ -89,7 +69,20 @@ function initializeAnimatedMenu() {
 }
 
 /**************************************************************************************************
- * Initialize the scroll and resize events to toggle the navigation menu to the correct link
+ * Shitfs the scroll position down by the height of the fixed menu
+ *
+ * This allows href to point to an element location without having the top section covered
+ * by the fixed menu. 
+ *************************************************************************************************/
+var shiftWindow = function () {    
+    scrollBy(0, navOffset);
+};
+
+/**************************************************************************************************
+ * Initializes the menu update via scrolling and resizing
+ * 
+ * Toggles the navigation menu based on where the user is on the page and which direction
+ * they are scrolling
  *************************************************************************************************/
 function initializeScrollMenu() {
 
@@ -97,38 +90,52 @@ function initializeScrollMenu() {
     $(window).on("resize scroll", function () {        
 
         var st = $(this).scrollTop();
+
         if (st > lastScrollTop) {
-            // downscroll code
-            scrollAdjust = scrollAdjustDown;
+            // downscroll code            
+            scrollUp = false;
         } else {
-            // upscroll code
-            scrollAdjust = scrollAdjustUp;
+            // upscroll code            
+            scrollUp = true;
         }
         lastScrollTop = st;
 
         toggleNavigationMenu(getElementIdInViewport());
+
+        console.log(getElementIdInViewport());
+        console.log("scroll direction : " + scrollUp);
     });
 }
 
-var lastScrollTop = 0;
-var scrollAdjust = 0;
-var scrollAdjustUp = -150;
-var scrollAdjustDown = -120;
+/**************************************************************************************************
+ * Get the scroll adjust
+ *
+ * This is the value to add to the vertical center point of the viewport
+ * The scroll direction is checked and the offset applied
+ *************************************************************************************************/
+function getScrollAdjust() {
+
+    var scrollAdjust = 0;
+
+    // TODO: This needs to adjust up or down using my screen size as a ratio
+    var scrollAdjustUp = 200;
+    var scrollAdjustDown = -200;
+    
+    if(scrollUp === true)
+        scrollAdjust = scrollAdjustUp;
+    else if (scrollUp === false)
+        scrollAdjust = scrollAdjustDown;
+
+    return scrollAdjust;
+}
 
 /**************************************************************************************************
- * This needs to get the item in the center of the view port of the user is scrolling down
- * This needs to get the item in the bottom third when scrolling up
+ * Gets the element in the viewport
+ * 
+ * This gets the Id of the section using the center of the viewport and the scroll offset
  *************************************************************************************************/
 function getElementIdInViewport() {
 
-    var id = null;
-
-    id = getElementAtViewportCenter();
-
-    return id;
-}
-
-function getElementAtViewportCenter() {
     var elementId = null;
 
     var menuHeight = 110;
@@ -152,7 +159,7 @@ function getElementAtViewportCenter() {
     // Get the center of hte viewport
     var offsetXPt = $(window).width() / 2;
 
-    var elementAtCenter = document.elementFromPoint(offsetXPt, offsetYPt + scrollAdjust);
+    var elementAtCenter = document.elementFromPoint(offsetXPt, offsetYPt + getScrollAdjust());
 
     // 3 - navagiate out until you get to a section
     var navSection = $(elementAtCenter).closest("section");
