@@ -197,6 +197,7 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
     <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\SinglePageController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Extensions\ComposableBundle.cs" />

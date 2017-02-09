@@ -20,14 +20,11 @@ namespace JoycePrint.Web.Controllers
         {            
             //model.SendEmail();
 
-            // move all this to a notification controller - and make notification it's own component
-            var notification = new Notification();
+            var notificationType = NotificationType.SUCCESS;
 
-            notification.SetNotification(NotificationType.SUCCESS);
-
-            var data = RenderPartialViewToString(ControllerContext, notification.ViewName, notification);
-        
-            return Content(data);
+            TempData["NotificationType"] = notificationType;
+            
+            return RedirectToAction("Index", "Notification");
         }
     }
 }

@@ -31,11 +31,11 @@ namespace JoycePrint.Domain.Models
             {
                 case NotificationType.SUCCESS:
                     Header = "Success";
-                    Message = "We have recieved you enquiry and will get back to you shortly";
+                    Message = "We have recieved your enquiry and will get back to you shortly";
                     break;
                 case NotificationType.FAILURE:
                     Header = "Error";
-                    Message = "Sorry, you request was not completed.";
+                    Message = "Sorry, your request was not completed.";
                     break;
                 case NotificationType.NONE:
                     Header = Message = string.Empty;
