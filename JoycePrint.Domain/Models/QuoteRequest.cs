@@ -20,7 +20,7 @@ namespace JoycePrint.Domain.Models
         /// <summary>
         /// The docket book information for the quote
         /// </summary>
-        public DocketBook DocketBook { get; set; }
+        public DocketBook DocketBook { get; set; }        
 
         public QuoteRequest()
         {
@@ -57,7 +57,7 @@ namespace JoycePrint.Domain.Models
             messageBody.Append("<dt><strong>Company<strong></dt>");
             messageBody.Append($"<dd>{Contact.Company}</dd>");
             messageBody.Append("<dt><strong>Position</strong></dt>");
-            messageBody.Append($"<dd>{Contact.Position}</dd>");
+            //messageBody.Append($"<dd>{Contact?.Position}</dd>");
             messageBody.Append("<dt><strong>Name</strong></dt>");
             messageBody.Append($"<dd>{Contact.Name}</dd>");
             messageBody.Append("<dt><strong>Telephone</strong></dt>");

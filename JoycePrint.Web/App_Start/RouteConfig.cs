@@ -5,7 +5,7 @@ namespace JoycePrint.Web
 {
     public static class RouteConfig
     {
-        private static readonly string[] JoycePrintNamespace = { "JoycePrint.UI.Controller" };
+        private static readonly string[] JoycePrintNamespace = { "JoycePrint.Web.Controller" };
 
         public static void RegisterRoutes(RouteCollection routes)
         {

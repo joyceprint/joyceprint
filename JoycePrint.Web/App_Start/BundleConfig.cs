@@ -107,6 +107,7 @@ namespace JoycePrint.Web
                     additionalScript.Add("~/Scripts/joyceprint/jalidate.js");              
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
                     break;  
                 case PageBundle.All:
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-home.js");
@@ -115,6 +116,7 @@ namespace JoycePrint.Web
                     additionalScript.Add("~/Scripts/joyceprint/jalidate.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
+                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
                     break;
             }
 

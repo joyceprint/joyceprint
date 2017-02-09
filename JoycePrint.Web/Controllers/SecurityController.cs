@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using JoycePrint.Domain.Security;
-using JoycePrint.UI.Controllers;
 
 namespace JoycePrint.Web.Controllers
 {    

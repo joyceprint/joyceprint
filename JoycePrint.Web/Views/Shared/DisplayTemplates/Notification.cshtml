@@ -1,0 +1,19 @@
+﻿@using JoycePrint.Domain.Models
+
+@model Notification
+
+<div id="notificationModal">
+    
+    <div class="modal-content">
+        <h4>@Model.Header</h4>
+        
+        <p>
+            @Model.Message
+        </p>
+    </div>
+
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+
+</div>

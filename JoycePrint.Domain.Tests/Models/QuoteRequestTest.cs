@@ -27,7 +27,7 @@ namespace JoycePrint.Domain.Tests.Models
             AssertAreEqual(null, quoteRequestModel.DocketBook.Size, "Docket Book Size");
             AssertAreEqual(0, quoteRequestModel.DocketBook.Quantity, "Docket Book Quantity");
 
-            AssertAreEqual(null, quoteRequestModel.Message, "Message");
+            AssertAreEqual(null, quoteRequestModel.Enquiry.Message, "Message");
         }
 
         /// <summary>
@@ -39,8 +39,8 @@ namespace JoycePrint.Domain.Tests.Models
             var quoteRequestModel = new QuoteRequest();
 
             const string messageTestValue = "Message";
-            quoteRequestModel.Message = messageTestValue;
-            AssertAreEqual(messageTestValue, quoteRequestModel.Message, "Message");
+            quoteRequestModel.Enquiry.Message = messageTestValue;
+            AssertAreEqual(messageTestValue, quoteRequestModel.Enquiry.Message, "Message");
         }
 
         /// <summary>
@@ -251,7 +251,10 @@ namespace JoycePrint.Domain.Tests.Models
                     Size = _realQuoteDocketSize,
                     Quantity = RealQuoteQuantity
                 },
-                Message = RealQuoteMessage
+                Enquiry =
+                {
+                  Message = RealQuoteMessage
+                } 
             };
 
             return quoteRequest;

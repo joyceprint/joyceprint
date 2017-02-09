@@ -75,11 +75,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Enums\NotificationType.cs" />
     <Compile Include="Mail\IEmailConverter.cs" />
     <Compile Include="Mail\IEmail.cs" />
     <Compile Include="Mail\Email.cs" />
     <Compile Include="Enums\DocketBookSize.cs" />
     <Compile Include="Enums\DocketBookType.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Enquiry.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\DocketBook.cs" />

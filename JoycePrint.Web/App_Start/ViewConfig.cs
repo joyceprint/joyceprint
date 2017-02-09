@@ -12,7 +12,8 @@ namespace JoycePrint.Web
             {
                 "~/Views/{1}/Partial/{0}.cshtml",
                 "~/Views/Shared/Partial/{0}.cshtml",
-                "~/Views/{0}.cshtml"                
+                "~/Views/{0}.cshtml",
+                "~/Views/Shared/DisplayTemplates/{0}.cshtml"
             };
 
             PartialViewLocationFormats = PartialViewLocationFormats.Union(newLocationFormat).ToArray();

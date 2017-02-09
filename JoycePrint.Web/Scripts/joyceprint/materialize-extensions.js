@@ -10,6 +10,8 @@ function initializeMaterializeFunctionality() {
     initializeMaterializeParallax();
 
     initializeMaterializeSelect();
+
+    initializeMaterializeModal();
 }
 
 /**************************************************************************************************
@@ -30,4 +32,11 @@ function initializeMaterializeSelect() {
 
     // Select - Multiple Initialize
     //$('select').material_select();
+}
+
+/**************************************************************************************************
+ * Initialize the materialize modal functionality
+ *************************************************************************************************/
+function initializeMaterializeModal() {
+    $(".modal").modal();
 }

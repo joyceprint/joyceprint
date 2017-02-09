@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Configuration;
-using System.Runtime.InteropServices;
 
 namespace JoycePrint.Domain.Models
 {
