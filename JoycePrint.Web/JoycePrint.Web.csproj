@@ -167,6 +167,7 @@
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\joyceprint\joyceprint-extensions.js" />
     <Content Include="Scripts\joyceprint\joyceprint-notification.js" />
+    <Content Include="Scripts\joyceprint\error.js" />
     <Content Include="Scripts\joyceprint\materialize-extensions.js" />
     <Content Include="Scripts\joyceprint\joyceprint-quote.js" />
     <Content Include="Scripts\joyceprint\joyceprint-aboutus.js" />

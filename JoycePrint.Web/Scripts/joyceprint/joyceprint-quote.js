@@ -36,22 +36,3 @@ function setupSubmitQuote() {
             });
     });
 }
-
-/**************************************************************************************************
- * TODO: Move this to an error.js file
- *
- *************************************************************************************************/
-function HandleAjaxError(jqXHR, textStatus) {
-
-    //$.ajax({
-    //    url: "/Error/AjaxError",
-    //    cache: false
-    //})
-    //    .fail(function (jqXHR, textStatus) {
-    //        HandleError(jqXHR, textStatus);
-    //    })
-    //    .done(function (data) {
-    //        $("#divAjaxError").html(data);
-    //        $("#modalAjaxError").modal("show");
-    //    });
-}
