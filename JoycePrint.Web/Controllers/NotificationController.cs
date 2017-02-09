@@ -3,23 +3,22 @@ using JoycePrint.Domain.Enums;
 using JoycePrint.Domain.Models;
 
 namespace JoycePrint.Web.Controllers
-{    
+{
     [Route("notification")]
     public class NotificationController : BaseController
-    {        
+    {
         [HttpGet]
-        public ActionResult Index()
+        public JsonResult Index()
         {
             var notification = new Notification();
 
             var notificationType = (NotificationType)TempData["NotificationType"];
 
-            notification.SetNotification(notificationType);            
+            notification.SetNotification(notificationType);
 
             var data = RenderPartialViewToString(ControllerContext, notification.ViewName, notification);
 
-            // This is correctly returning the content when the call is made with ajax            
-            return Content(data);
+            return Json(new { modalView = data }, JsonRequestBehavior.AllowGet);
         }
     }
 }
