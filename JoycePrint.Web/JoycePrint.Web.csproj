@@ -320,6 +320,7 @@
     <Content Include="Views\Quote\EditorTemplates\EnquiryForm.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Checkbox.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Notification.cshtml" />
+    <Content Include="Views\Security\Recaptcha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
