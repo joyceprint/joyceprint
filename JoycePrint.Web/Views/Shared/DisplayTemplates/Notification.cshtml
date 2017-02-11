@@ -1,15 +1,32 @@
-﻿@using JoycePrint.Domain.Models
+﻿@using JoycePrint.Domain.Enums
+@using JoycePrint.Domain.Models
 
 @model Notification
 
 <div id="notificationModal">
     
-    <div class="modal-content">
-        <h4>@Model.Header</h4>
-        
-        <p>
-            @Model.Message
-        </p>
+    <div class="modal-content">        
+        <div class=""></div>
+        <div class="row">
+            <div class="col s12">
+                @{
+                    if (Model.Type == NotificationType.SUCCESS)
+                    {
+                        <i class="material-icons large success-text">info_outline</i>
+                    }
+                    else if (Model.Type == NotificationType.FAILURE)
+                    {
+                        <i class="material-icons large danger-text">error_outline</i>
+                    }
+                }
+            </div>
+            
+            <div class="col s12">
+                <h5>@Model.Header</h5>
+
+                <p>@Model.Message</p>
+            </div>            
+        </div>
     </div>
 
     <div class="modal-footer">

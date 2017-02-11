@@ -1,4 +1,5 @@
-﻿using JoycePrint.Domain.Enums;
+﻿using JoycePrint.Domain.Configuration;
+using JoycePrint.Domain.Enums;
 
 namespace JoycePrint.Domain.Models
 {
@@ -20,22 +21,28 @@ namespace JoycePrint.Domain.Models
         public string Message { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public NotificationType Type { get; set; }
+
+        /// <summary>
         /// Sets the notification properties based on the notification type
         /// </summary>
         /// <param name="type"></param>
         public void SetNotification(NotificationType type)
         {
             ViewName = "Notification";
+            Type = type;
 
             switch (type)
             {
                 case NotificationType.SUCCESS:
-                    Header = "Success";
-                    Message = "We have recieved your enquiry and will get back to you shortly";
+                    Header = Config.NotificationHeaderSuccess;
+                    Message = Config.NotificationMessageSuccess;
                     break;
                 case NotificationType.FAILURE:
-                    Header = "Error";
-                    Message = "Sorry, your request was not completed.";
+                    Header = Config.NotificationHeaderError;
+                    Message = Config.NotificationMessageError;
                     break;
                 case NotificationType.NONE:
                     Header = Message = string.Empty;
