@@ -167,7 +167,7 @@ function getElementIdInViewport() {
 
     var screenCPt = (windowHeightWithoutMenu / 2) + menuHeight;
 
-    console.log("screen vcenter - " + screenCPt);
+    //console.log("screen vcenter - " + screenCPt);
 
     // 2 - find the element at that location
     var offsetYPt = screenCPt;
