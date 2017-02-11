@@ -3,19 +3,12 @@
 @model Enquiry
 
 <section id="enquiry" class="row">
-    
-    @*
-        try the following
-        move the label text over in the text box
-        move the icon to inside the input box
-        the rest of materialize should be able to stay the same - need to only do css
-        verify in chrome
-    *@
-    <div class="col s12 checkbox-container-header">                        
+        
+    <div class="col s12 checkbox-container-header hide">                        
         <span class="text-700">Enquiry Type</span> <i>(required - select as many as approciate)</i>        
     </div>
 
-    <div class="col s11 offset-s1 checkbox-container-space">              
+    <div class="col s11 offset-s1 checkbox-container-space hide">              
         @*
         If checkbox not checked, form submit only hidden (false)
         If checked, then form submit two fields (false and true) and MVC set true for bool property
