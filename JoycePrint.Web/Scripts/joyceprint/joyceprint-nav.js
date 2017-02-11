@@ -14,8 +14,9 @@ function initializeNavFunctionality() {
     // When the page is loaded / reloaded, this gets the section the page is on and updates the menu link
     document.body.addEventListener("load", toggleNavigationMenu(getElementIdInViewport()));
 
+    // TODO: This screws up the animation function and this also no longer appears to be needed
     // Add the hashchange event listener, this event fires when the windows hash changes [location.hash]    
-    window.addEventListener("hashchange", shiftWindow);
+    //window.addEventListener("hashchange", shiftWindow);
 
     // Initializes the side nav menu for mobile screens
     initializeMobileMenu();
@@ -35,25 +36,52 @@ function initializeMobileMenu() {
 }
 
 /**************************************************************************************************
- * 
- * 
+ * Sets up the scrolling animations when navigating around the site
  * 
  *************************************************************************************************/
 function initializeAnimatedMenu() {
-    
-    $(".nav li a").click(function (event) {
-        event.preventDefault();
 
-        // The use of scrollIntoView with options is expermental WFT
-        // Now we have to do work around bull
-        //$($(this).attr("href"))[0].scrollIntoView({ block: "start", behavior: "smooth" });
+    var $root = $("html, body");
 
-        $($(this).attr("href"))[0].scrollIntoView();
+    $(".nav li a, a").click(function () {
 
-        // This fixes the issue where the section is pushed up under the menu when the user clicks on the menu link
-        // while the section is in view
-        scrollBy(0, navOffset);
+        var href = $.attr(this, "href");
+
+        $root.animate({
+            scrollTop: $(href).offset().top + navOffset
+        }, getScrollDuration(this, $(href)), function () {
+            window.location.hash = href;
+        });
+
+        return false;
     });
+}
+
+/**************************************************************************************************
+ * Gets the duration of the scroll animation based on how far the screen needs to scroll
+ * 
+ *************************************************************************************************/
+function getScrollDuration(currertElement, destinationElement) {
+    var duration = 400;
+
+    var source = $(currertElement).offset().top;
+    var destination = $(destinationElement).offset().top;
+
+    var distance = destination - source;
+
+    if (distance < 0) distance = (distance * -1);
+
+    if (distance >= 500 && distance <= 999) {
+        duration = 600;
+    } else if (distance >= 1000 && distance <= 1499) {
+        duration = 1000;
+    } else if (distance >= 1500) {
+        duration = 1500;
+    }
+
+    //console.log("distance - " + distance + " --- duration - " + duration);
+
+    return duration;
 }
 
 /**************************************************************************************************
@@ -62,7 +90,7 @@ function initializeAnimatedMenu() {
  * This allows href to point to an element location without having the top section covered
  * by the fixed menu. 
  *************************************************************************************************/
-var shiftWindow = function () {    
+var shiftWindow = function () {
     scrollBy(0, navOffset);
 };
 
@@ -75,23 +103,23 @@ var shiftWindow = function () {
 function initializeScrollMenu() {
 
     // This accounts for updating the menu link when the user is scrolling and resizing the screen
-    $(window).on("resize scroll", function () {        
+    $(window).on("resize scroll", function () {
 
         var st = $(this).scrollTop();
 
         if (st > lastScrollTop) {
-            // downscroll code            
+            // Downscroll code            
             scrollUp = false;
         } else {
-            // upscroll code            
+            // Upscroll code            
             scrollUp = true;
         }
         lastScrollTop = st;
 
         toggleNavigationMenu(getElementIdInViewport());
 
-        console.log(getElementIdInViewport());
-        console.log("scroll direction : " + scrollUp);
+        //console.log(getElementIdInViewport());
+        //console.log("scroll direction : " + scrollUp);
     });
 }
 
@@ -108,8 +136,8 @@ function getScrollAdjust() {
     // TODO: This needs to adjust up or down using my screen size as a ratio
     var scrollAdjustUp = 200;
     var scrollAdjustDown = -200;
-    
-    if(scrollUp === true)
+
+    if (scrollUp === true)
         scrollAdjust = scrollAdjustUp;
     else if (scrollUp === false)
         scrollAdjust = scrollAdjustDown;
