@@ -7,15 +7,26 @@
  *************************************************************************************************/
 function initializeQuote() {
 
-    setupSubmitQuote();
+    setupSubmitButton();
+
+    setupClearButton();
 }
 
 /**************************************************************************************************
  *
  *************************************************************************************************/
-function setupSubmitQuote() {
+function setupClearButton() {
+    $("#frm-quote button[type='reset']").click(function(e) {
+        resetRecaptcha();
+    });
+}
 
-    $("#submitQuoteEnquiry").click(function (e) {
+/**************************************************************************************************
+ *
+ *************************************************************************************************/
+function setupSubmitButton() {
+
+    $("#frm-quote button[type='button']").click(function (e) {
         // we have to check here if the form is valid and if it is not display the message
         // it should be possible to hook into the normal validate from mvc
         //e.preventDefault();
@@ -35,7 +46,7 @@ function setupSubmitQuote() {
                 HandleAjaxError(jqXHR, textStatus);
             })
             .done(function (data) {
-                showModal(data.modalView);
+                showModal(data.modalView);                                
             });
     });
 }

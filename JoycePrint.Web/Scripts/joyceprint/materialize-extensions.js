@@ -38,5 +38,7 @@ function initializeMaterializeSelect() {
  * Initialize the materialize modal functionality
  *************************************************************************************************/
 function initializeMaterializeModal() {
-    $(".modal").modal();
+    $(".modal").modal({
+        complete: function() { resetRecaptcha(); }
+    });
 }
