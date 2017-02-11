@@ -29,10 +29,10 @@ namespace JoycePrint.Domain.Models
             Enquiry = new Enquiry();
         }
 
-        public void SendEmail()
+        public bool SendEmail()
         {
             IEmail email = new Email();
-            email.SendEmail(ConvertModelToEmail(email), email.SmtpConfig);
+            return email.SendEmail(ConvertModelToEmail(email), email.SmtpConfig);
         }
 
         #region Interface Definitions

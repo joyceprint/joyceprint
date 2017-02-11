@@ -48,8 +48,6 @@ jQuery.expr[':'].regex = function (elem, index, match) {
 $.fn.isInViewport = function () {
     var menuHeight = 110;
 
-    // TODO: this is broken and causing the navigation menu display errors
-
     // $(this).offset() - Get the current coordinates of the first element in the set of matched 
     // elements, relative to the document. Offset returns top and left
     var elementTop = $(this).offset().top;

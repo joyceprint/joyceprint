@@ -30,7 +30,8 @@ namespace JoycePrint.Web
             "~/Scripts/joyceprint/materialize-extensions.js",
             "~/Scripts/joyceprint/joyceprint-extensions.js",
             "~/Scripts/joyceprint/joyceprint-nav.js",
-            "~/Scripts/joyceprint/joyceprint.js"
+            "~/Scripts/joyceprint/joyceprint.js",
+            "~/Scripts/joyceprint/error.js"
         };
 
         /// <summary>
