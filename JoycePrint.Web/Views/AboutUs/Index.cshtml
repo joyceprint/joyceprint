@@ -4,35 +4,51 @@
     //BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.AboutUs);
 }
 
-<section id="aboutus" role="main" class="row no-mar-bot light-grey" data-test-form-id="frmAboutUs">
+<section id="aboutus" role="main" class="row no-mar-bot add-pad-bot light-grey" data-test-form-id="frmAboutUs">
 
     <div class="col s12 no-pad-right">
         <div class="row no-mar-bot eq-height">
-            <div class="col s4 offset-s2">                
+            <div class="col s4 offset-s2">
                 <div class="row no-mar-bot">
-                    <div class="col s11">
-                        <article id="companyHistory" data-test-company-history>
-                            <h1 class="about-header">ABOUT US</h1>
-                            <p class="justify-align">
-                                Based in Foxford, Co.Mayo, Joyceprint was established in 1994 and have been Print Trade suppliers for over 20 years.
-                                As a family-run Irish company, we are widely known for our extensive range of Carbonless NCR products. We offer a
-                                wide range of quality products and pride ourselves on providing a friendly and helpful service with fast turnarounds
-                                and competitive pricing. Whether you require invoice books, order books, delivery books, receipt books, restaurant
-                                books/pads, NCR sets or pads, this is the site to order them.
-                                <br />
-                                <br />
-                                Docket books are available in duplicate, triplicate and four part. All standard sizes from A6 to A3 can be purchased
-                                and custom sizes are catered for. NCR sets and pads are also available. We ship anywhere within Ireland.
-                                <br />
-                                <br />
-                                Our clients are based nationwide and our best form of advertising is, and always has been, recommendations by satisfied
-                                customers. We can guarantee our clients total security and confidentiality.
-                                <br />
-                                <br />
-                                Thank you for visiting our website. <span class="text-700">Contact us</span> today for a no obligation quote.
-                            </p>
-                        </article>
-                    </div>
+                    <article id="companyHistory" class="col s11" data-test-company-history>
+                        <h1 class="about-header">ABOUT US</h1>
+                        <p class="justify-align">
+                            Based in Foxford, Co.Mayo, Joyceprint was established in 1994 and have been Print Trade suppliers for over 20 years.
+                            As a family-run Irish company, we are widely known for our extensive range of Carbonless NCR products. We offer a
+                            wide range of quality products and pride ourselves on providing a friendly and helpful service with fast turnarounds
+                            and competitive pricing. Whether you require invoice books, order books, delivery books, receipt books, restaurant
+                            books/pads, NCR sets or pads, this is the site to order them.
+                            <br />
+                            <br />
+                            Docket books are available in duplicate, triplicate and four part. All standard sizes from A6 to A3 can be purchased
+                            and custom sizes are catered for. NCR sets and pads are also available. We ship anywhere within Ireland.
+                            <br />
+                            <br />
+                            Our clients are based nationwide and our best form of advertising is, and always has been, recommendations by satisfied
+                            customers. We can <span class="text-700">guarantee</span> our clients total <span class="text-700">security</span> and <span class="text-700">confidentiality</span>.
+                            <br />
+                            <br />
+                            Thank you for visiting our website. <span class="text-700">Contact us</span> today for a no obligation quote.
+                        </p>
+                    </article>
+
+                    <article class="col s12" id="companyInformation">
+                        <h5 class="primary-text">Joyceprint Ltd.</h5>
+
+                        <address class="about-address" data-test-address-text>
+                            Castlebar Road,<br />
+                            Foxford, Co Mayo,<br />
+                            F26HH50
+                        </address>
+                        <div>
+                            <span class="text-700 primary-text" data-test-email-label>Email</span>
+                            <a href="mailto:info@yourdomain.com" title="Click to email us" data-test-email-text>joyceprintitsup@gmail.com</a>
+                        </div>
+                        <div>
+                            <span class="text-700 primary-text" data-test-phone-label>Tel</span>
+                            <a href="tel:353949256876" title="Click to call us" data-test-phone-text>+353-94-9256876</a>
+                        </div>
+                    </article>
                 </div>
             </div>
 
@@ -45,33 +61,4 @@
             </div>
         </div>
     </div>
-
-    <div class="col s12">
-        <div class="row no-mar-bot valign-wrapper">
-            @Html.Partial("Partial/Map")
-
-            <div class="col s4 valign">
-                <div class="row">
-                    <article class="col s12" id="companyInformation">
-                        <h5 class="primary-text">Joyceprint Ltd.</h5>
-
-                        <address class="about-address" data-test-address-text>
-                            Castlebar Road,<br />
-                            Foxford, Co Mayo,<br />
-                            F26HH50
-                        </address>
-                        <div>
-                            <span class="text-500 primary-text" data-test-email-label>Email</span>
-                            <a href="mailto:info@yourdomain.com" title="Click to email us" data-test-email-text>joyceprintitsup@gmail.com</a>
-                        </div>
-                        <div>
-                            <span class="text-500 primary-text" data-test-phone-label>Tel</span>
-                            <a href="tel:353949256876" title="Click to call us" data-test-phone-text>+353-94-9256876</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </section>

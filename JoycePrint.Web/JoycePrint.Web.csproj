@@ -330,7 +330,7 @@
     <Content Include="Views\Services\Partial\DesignService.cshtml" />
     <Content Include="Views\SinglePage\Index.cshtml" />
     <Content Include="Views\Quote\Partial\PrintChecklist.cshtml" />
-    <Content Include="Views\AboutUs\Partial\Map.cshtml" />
+    <Content Include="Views\Shared\Partial\Map.cshtml" />
     <Content Include="Views\Quote\EditorTemplates\EnquiryForm.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Checkbox.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Notification.cshtml" />
