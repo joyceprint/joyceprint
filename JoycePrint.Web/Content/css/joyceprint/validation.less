@@ -96,13 +96,21 @@ textarea.materialize-textarea + label + label.val-msg.active {
     display: block;
     font-size: 0.8rem;
     color: @color-danger;
-    -webkit-transform: translateY(2300%);
-    transform: translateY(2300%);
+    -webkit-transform: translateY(1350%);
+    transform: translateY(1350%);
+    left: -2.2rem !important;
 }
 
 label.val-msg,
 i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class~=active]) i.material-icons:not([class~=active]) + input + label + label.val-msg[class~=active] {
     display: none;
+}
+
+.label-transform-stop {
+    transition: none !important;
+    transform: none !important;
+    font-size: 1rem !important;
+    top: 0rem !important;
 }
 
 /*transform {

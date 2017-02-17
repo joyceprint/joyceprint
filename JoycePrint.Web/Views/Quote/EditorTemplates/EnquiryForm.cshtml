@@ -2,7 +2,7 @@
 
 @model Enquiry
 
-<section id="enquiry" class="row no-mar-bot">
+<section id="enquiry" class="row">
         
     <div class="col s12 checkbox-container-header hide">                        
         <span class="text-700">Enquiry Type</span> <i>(required - select as many as approciate)</i>        
@@ -24,8 +24,8 @@
 
     <div class="input-field col s12" data-test-message>
         <i class="material-icons prefix orange-text text-accent-4">message</i>
-        <textarea rows="20" class="materialize-textarea validate" id="Enquiry_Message" name="Enquiry.Message" wrap="hard" required data-val-req-msg="Please provide details"></textarea>
-        <label for="Message">Quote / Question Details</label>
+        <textarea rows="20" class="materialize-textarea validate message" id="Enquiry_Message" name="Enquiry.Message" wrap="hard" required data-val-req-msg="Please provide details"></textarea>
+        <label for="Message" class="label-transform-stop">Quote / Question Details</label>
         <label for="Message" class="val-msg"></label>
     </div>
 
