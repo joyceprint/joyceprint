@@ -31,6 +31,12 @@ textarea.materialize-textarea:focus:not([readonly])[required] {
     box-shadow: 0 1px 0 0 @color-warning;
 }
 
+input:focus:not([readonly])[required].border-side,
+textarea.materialize-textarea:focus:not([readonly])[required].border-side {
+    border-left-color: @color-warning !important;
+    border-right-color: @color-warning !important;
+}
+
 input:focus:not([readonly])[required] + label,
 textarea.materialize-textarea:focus:not([readonly])[required] + label {
     color: @color-warning;
@@ -43,6 +49,12 @@ textarea.materialize-textarea:focus:not([readonly])[required][class~=valid] {
     box-shadow: 0 1px 0 0 @color-success;
 }
 
+input:focus:not([readonly])[required][class~=valid].border-side,
+textarea.materialize-textarea:focus:not([readonly])[required][class~=valid].border-side {
+    border-left-color: @color-success !important;
+    border-right-color: @color-success !important;
+}
+
 input:focus:not([readonly])[required][class~=valid] + label,
 textarea.materialize-textarea:focus:not([readonly])[required][class~=valid] + label {
     color: @color-success;
@@ -52,6 +64,12 @@ input:not([readonly])[required][class~=valid],
 textarea.materialize-textarea:not([readonly])[required][class~=valid] {
     border-bottom-color: @color-success-dark;
     box-shadow: 0 1px 0 0 @color-success-dark;
+}
+
+input:not([readonly])[required][class~=valid].border-side,
+textarea.materialize-textarea:not([readonly])[required][class~=valid].border-side {
+    border-left-color: @color-success-dark !important;
+    border-right-color: @color-success-dark !important;
 }
 
 input:not([readonly])[required][class~=valid] + label,
@@ -66,6 +84,12 @@ textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid] {
     box-shadow: 0 1px 0 0 @color-danger;
 }
 
+input:focus:not([readonly])[required][class~=invalid].border-side,
+textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid].border-side {
+    border-left-color: @color-danger !important;
+    border-right-color: @color-danger !important;
+}
+
 input:focus:not([readonly])[required][class~=invalid] + label,
 textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid] + label {
     color: @color-danger;
@@ -75,6 +99,12 @@ input:not([readonly])[required][class~=invalid],
 textarea.materialize-textarea:not([readonly])[required][class~=invalid] {
     border-bottom-color: @color-danger-dark;
     box-shadow: 0 1px 0 0 @color-danger-dark;
+}
+
+input:not([readonly])[required][class~=invalid].border-side,
+textarea.materialize-textarea:not([readonly])[required][class~=invalid].border-side {
+    border-left-color: @color-danger-dark !important;
+    border-right-color: @color-danger-dark !important;
 }
 
 input:not([readonly])[required][class~=invalid] + label,
