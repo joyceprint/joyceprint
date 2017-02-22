@@ -2,7 +2,7 @@
 
 </div>
 
-<div id="map-cover">
+<div id="map-cover" hidden>
     <div class="center-align">
         <i class="large material-icons hide-overlay" onclick="hideOverlay()">visibility_off</i>
     </div>
@@ -12,15 +12,24 @@
 
     var map;
 
+    var enableUserInteraction = {
+        draggable: true,
+        zoomControl: true,
+        scrollwheel: true,
+        disableDoubleClickZoom: false
+    };
+
+    var disableUserInteraction = {
+        draggable: false,
+        zoomControl: false,
+        scrollwheel: false,
+        disableDoubleClickZoom: true
+    };
+
     function hideOverlay() {
         $("#map-cover").hide();
 
-        var options = {
-            draggable: true,
-            zoomControl: true,
-            scrollwheel: true,
-            disableDoubleClickZoom: false
-        };
+        var options = enableUserInteraction;
 
         map.setOptions(options);
 
@@ -46,18 +55,16 @@
 
         var options = {
             zoom: 8,
-            center: uluru,
-
-            draggable: false,
-            zoomControl: false,
-            scrollwheel: false,
-            disableDoubleClickZoom: true
+            center: uluru
         };
 
         map = new google.maps.Map(document.getElementById('map'));
 
         map.setOptions(options);
 
+        // Disabled at request - 02/20/2017
+        //map.setOptions(disableUserInteraction);
+        
         var markerLabel = {
             text: "Joyceprint"
         };
