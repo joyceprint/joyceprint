@@ -28,8 +28,8 @@
             @Html.EditorFor(model => model.Enquiry, "EnquiryForm")
 
             <div class="row no-mar-bot">
-                <div class="col s10 offset-s1 m10 offset-m1">
-                    <div class="row half">
+                <div class="col s12">
+                    <div class="row half-mar">
                         @{ Html.RenderAction("Recaptcha", "Security"); }                        
                     </div>
                 </div>
@@ -40,14 +40,14 @@
                 have the image showing on page load
                 when the user scrolls over the images position on the screen display the text using an animation
             *@
-            <div class="row half">
-                <div class="col s10 offset-s1">
+            <div class="row half-mar">
+                <div class="col s12">
                     <small>We do not share your details with any third parties.</small>
                 </div>
             </div>            
 
             <div class="row">
-                <div class="col s10 offset-s1 m5 offset-m1 center">
+                <div class="col s10 offset-s1 m5 center">
                     <div class="row">
                         <button class="col s12 btn waves-effect orange" type="reset" data-test-clear>CLEAR</button>
                     </div>
