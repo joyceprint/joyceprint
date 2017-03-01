@@ -9,12 +9,12 @@
 }
 
 <section id="quote" class="row no-mar-bot light-grey" data-test-form-id="frmQuote">
-    
+
     <h1 class="quote-header center-align">Get A Quote</h1>
 
     <div class="col no-pad-side offset-s2 s4">
         @Html.Partial("Partial/PrintChecklist")
-        
+
         @Html.Partial("Partial/Map")
     </div>
 
@@ -27,39 +27,35 @@
 
             @Html.EditorFor(model => model.Enquiry, "EnquiryForm")
 
-            <div class="row no-mar-bot">
-                <div class="col s12">
-                    <div class="row half-mar">
-                        @{ Html.RenderAction("Recaptcha", "Security"); }                        
-                    </div>
-                </div>
-            </div>
-
-            @*
-                Change this to be an image - get a security type image
-                have the image showing on page load
-                when the user scrolls over the images position on the screen display the text using an animation
-            *@
-            <div class="row half-mar">
-                <div class="col s12">
-                    <small>We do not share your details with any third parties.</small>
-                </div>
-            </div>            
-
             <div class="row">
-                <div class="col s10 offset-s1 m5 center">
-                    <div class="row">
-                        <button class="col s12 btn waves-effect orange" type="reset" data-test-clear>CLEAR</button>
+                <div class="col s6">
+                    <div class="row no-mar-bot">
+                        <div class="col s12 no-pad-left">
+                            @{ Html.RenderAction("Recaptcha", "Security"); }
+                        </div>
+                        @*
+                            Change this to be an image - get a security type image
+                            have the image showing on page load
+                            when the user scrolls over the images position on the screen display the text using an animation
+                        *@
+                        <div class="col s12 no-pad-left">
+                            <small>We do not share your details with any third parties.</small>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col s10 offset-s1 m5 offset-m1 center">
+                <div class="col s6">
                     <div class="row">
-                        <button class="col s12 btn waves-effect waves-green green" type="button" data-test-submit>SUBMIT</button>
+                        <div class="col s10 offset-s2 add-pad-bot no-pad-right center">
+                            <button class="col s12 btn waves-effect orange" type="reset" data-test-clear>CLEAR</button>
+                        </div>
+
+                        <div class="col s10 offset-s2 no-pad-right center">
+                            <button class="col s12 btn waves-effect waves-green green" type="button" data-test-submit>SUBMIT</button>
+                        </div>
                     </div>
-                </div>                               
+                </div>
             </div>
         }
     </div>
-
 </section>
