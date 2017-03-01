@@ -97,6 +97,18 @@
 /* Align Extensions ********************************************************************/
 .justify-align {
     text-align: justify;
+    /* IE9 - https://msdn.microsoft.com/en-us/library/ms531172(v=vs.85).aspx 
+        Solves the issue of massive gaps between the words
+    */
+    text-justify: distribute;
+}
+
+.word-space--2px {
+    word-spacing: -2px;
+}
+
+.word-space--1px {
+    word-spacing: -1px;
 }
 
 /* Space Extensions ********************************************************************/
