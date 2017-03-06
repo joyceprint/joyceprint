@@ -4,21 +4,25 @@
     //BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.Home);
 }
 
-<section id="services" class="row no-mar-bot add-pad-bot light-grey" role="main" data-test-form-id="frmServices">    
-    @*<div class="col offset-s1 s10">*@
-    <div class="col offset-s2 s8">
+<section id="services" class="row no-mar-bot add-pad-bot light-grey" role="main" data-test-form-id="frmServices">
+    <div class="container">
 
-        <h1 class="services-header center-align">OUR SERVICES</h1>
+        <div class="row no-mar-bot">
+            <div class="col s12">
 
-        <div class="row">
-            <div class="col s4">
-                @Html.Partial("Partial/DocketBooks")
-            </div>
-            <div class="col s4">
-                @Html.Partial("Partial/Stationery")
-            </div>
-            <div class="col s4">
-                @Html.Partial("Partial/DesignService")
+                <h1 class="services-header center-align">OUR SERVICES</h1>
+
+                <div class="row no-mar-bot">
+                    <div class="col l4 m8 offset-m2 s12">
+                        @Html.Partial("Partial/DocketBooks")
+                    </div>
+                    <div class="col l4 m5 s12">
+                        @Html.Partial("Partial/Stationery")
+                    </div>
+                    <div class="col l4 m5 s12">
+                        @Html.Partial("Partial/DesignService")
+                    </div>
+                </div>
             </div>
         </div>
     </div>
