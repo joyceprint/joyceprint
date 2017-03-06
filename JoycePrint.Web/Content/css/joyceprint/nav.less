@@ -4,8 +4,57 @@
  * 
  * This file contains the styles for the navigation bar
 **************************************************************************************/
+@media only screen and (max-width: 700px) {
+    .hide-on-small-and-down {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    .show-on-medium-and-up {
+        display: block !important;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    .hide-on-med-and-up-jp {
+        display: none !important;
+    }
+}
 
 /* Nav Extensions ********************************************************************/
+@media only screen and (max-width: 860px) {
+    .logo {
+        padding-left: 0 !important;
+    }
+
+    .nav {
+        padding-right: 0 !important;
+    }
+
+    .nav li {
+        padding-left: 1vw !important;
+        padding-right: 1vw !important;
+    }
+}
+
+.logo {
+    padding-left: 5vw;
+}
+
+.nav {
+    padding-right: 5vw;
+}
+
+.nav li {
+    padding-left: 1.9vw;
+    padding-right: 1.9vw;
+}
+
+.navbar-fixed {
+    height: 110px;
+}
+
 nav {
     background-color: @color-white;
     height: 110px;
@@ -37,28 +86,19 @@ nav ul a.active-text {
     height: 110px;
 }
 
-.logo {
-    padding-left: 5vw;
-}
-
-.nav {
-    padding-right: 5vw;
-}
-
-.nav li {
-    padding-left: 1.9vw;
-    padding-right: 1.9vw;
-}
-
 /* Side Nav Extensions ***************************************************************/
 .side-nav {
-    background-color: @color-primary;
+    background-color: @color-white;
 }
 
 .side-nav a {
-    color: @color-white;
+    color: @color-primary;
 }
 
 #navSideMenu img {
-    height: 50px;
+    height: 110px;
+}
+
+.side-menu {
+    padding-top: 25px
 }
