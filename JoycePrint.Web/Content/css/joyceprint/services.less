@@ -38,6 +38,8 @@
     max-height: 80% !important;
 }
 
+/* Screen Size Extensions *************************************************************/
+
 /* 
     Font - Styles for services when the screen is ...
 */
@@ -46,16 +48,6 @@
         font-size: 14.5px;
     }
 }
-
-
-
-
-
-
-/* above here works - leave alone */
-
-
-
 
 /* 
     Large Card - Styles for services when the screen is ...
@@ -154,20 +146,19 @@
 /* 
     Styles for services when the screen is ...
 */
-@media only screen and (min-width: 601) {/*}and (max-width: 993px) {*/
+@media only screen and (min-width: 601px) and (max-width: 993px) {
 
     #services .card.large {
-        height: 570px;
-        min-height: 570px;
+        height: 540px;
+        min-height: 540px;
     }
 
     #services .card-image {
         /*Fixes the issue where the images are not the same height*/
-        height: 375px;
+        min-height: 50%;
     }
 
-    #services .card.large .card-image {
-        max-height: 70%;
+    #services .card.large .card-image {        
         overflow: hidden;
     }
 }
