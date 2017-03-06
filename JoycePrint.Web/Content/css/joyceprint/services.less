@@ -93,8 +93,8 @@
     Styles for services when the screen is ...  
 */
 @media only screen and (min-width: 1201px) and (max-width: 1400px) {
-    
-    .container {
+
+    #services > .container {
         width: 80%;
     }
 
@@ -114,14 +114,14 @@
     Makes the services view look good when the screen is a mac 11" or an ipad 9.8"
 */
 @media only screen and (min-width: 1024px) and (max-width: 1200px) {
-    
-    .container {
+
+    #services > .container {
         width: 90%;
     }
 
     #services .card.large {
-        height: 520px;
-        min-height: 520px;
+        height: 525px;
+        min-height: 525px;
     }
 
     #services .card-image {
@@ -134,9 +134,9 @@
     Styles for services when the screen is ...
     Makes the services view look good before materialize medium settings take effect when shrinking
 */
-@media only screen and (min-width: 1023px) {
-    
-    .container {
+@media only screen and (min-width: 993px) and (max-width: 1024px) {
+
+    #services > .container {
         width: 95%;
     }
 
@@ -154,21 +154,20 @@
 /* 
     Styles for services when the screen is ...
 */
-/*@media only screen and (max-width: 992px) {
+@media only screen and (min-width: 601) {/*}and (max-width: 993px) {*/
 
     #services .card.large {
-        height: 500px !important;
-        min-height: 500px !important;
-    }
-
-    #services .card.large,
-    #services .card-image + .card-content {
-        max-height: 40% !important;
+        height: 570px;
+        min-height: 570px;
     }
 
     #services .card-image {
-        Fixes the issue where the images are not the same height
-        height: 405px;
-        max-height: 60% !important;
+        /*Fixes the issue where the images are not the same height*/
+        height: 375px;
     }
-}*/
+
+    #services .card.large .card-image {
+        max-height: 70%;
+        overflow: hidden;
+    }
+}
