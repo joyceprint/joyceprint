@@ -12,6 +12,8 @@ function initializeMaterializeFunctionality() {
     initializeMaterializeSelect();
 
     initializeMaterializeModal();
+    
+    initializeMobileMenu();
 }
 
 /**************************************************************************************************
@@ -41,4 +43,12 @@ function initializeMaterializeModal() {
     $(".modal").modal({
         complete: function() { resetRecaptcha(); }
     });
+}
+
+/**************************************************************************************************
+ * Initialize the side navigation menu for use on small screens and mobiles
+ *************************************************************************************************/
+function initializeMobileMenu() {
+    // Initializes the side nav menu for mobile screens
+    $(".button-collapse").sideNav();
 }

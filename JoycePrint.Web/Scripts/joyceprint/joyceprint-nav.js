@@ -18,21 +18,11 @@ function initializeNavFunctionality() {
     // Add the hashchange event listener, this event fires when the windows hash changes [location.hash]    
     //window.addEventListener("hashchange", shiftWindow);
 
-    // Initializes the side nav menu for mobile screens
-    initializeMobileMenu();
-
     // Sets up the scroll offset, required because of the use of a stick header
     initializeScrollMenu();
 
     // Sets up the scroll animation when a menu link is clicked
     initializeAnimatedMenu();
-}
-
-/**************************************************************************************************
- * Initialize the side navigation menu for use on small screens and mobiles
- *************************************************************************************************/
-function initializeMobileMenu() {
-    $(".button-collapse").sideNav();
 }
 
 /**************************************************************************************************
@@ -192,6 +182,8 @@ function getElementIdInViewport() {
  * This will also handle the side navigiation menu 
  *************************************************************************************************/
 function toggleNavigationMenu(id) {
+
+    //TODO: make sure this works for the side menu aswel
 
     // Find and remove the active class
     $("#nav").find(".active").removeClass("active");
