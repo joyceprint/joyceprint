@@ -3,20 +3,16 @@
 
         <div class="nav-wrapper">
 
-            <a href="#" class="brand-logo">
-                <img src="~/Content/images/jp-logo-rbg.png" class="logo" alt="JoycePrint Logo" data-test-nav-logo />
+            <a href="#!" class="brand-logo">
+                <img src="~/Content/images/jp-logo-rbg.png" id="logo" alt="JoycePrint Logo" data-test-nav-logo />
             </a>
                         
             @* ReSharper disable once Html.IdNotResolved *@
-            <a href="#!" data-activates="nav-mobile" class="button-collapse" data-test-side-nav-menu>
+            <a href="#" data-activates="nav-mobile" class="button-collapse" data-test-side-nav-menu>
                 <i class="material-icons primary-text">menu</i>
             </a>
-            
-            @*<a href="#" class="brand-logo center">
-                <img src="~/Content/images/jp-logo-rbg.png" alt="JoycePrint Logo" data-test-side-nav-logo />
-            </a>*@
 
-            <ul id="nav" class="right nav hide-on-med-and-down">
+            <ul id="nav" class="right hide-on-med-and-down">
                 <li name="liHome">
                     <a href="#home" data-test-nav-home>Home</a>
                 </li>
