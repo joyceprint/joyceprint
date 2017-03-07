@@ -329,7 +329,6 @@
     <Content Include="Views\Quote\EditorTemplates\ContactForm.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
-    <Content Include="Views\Shared\_NavigationSide.cshtml" />
     <Content Include="Views\Services\Partial\DocketBooks.cshtml" />
     <Content Include="Views\Services\Partial\Stationery.cshtml" />
     <Content Include="Views\Services\Partial\DesignService.cshtml" />
