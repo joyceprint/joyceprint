@@ -156,8 +156,6 @@ function getElementIdInViewport() {
 
     var screenCPt = (windowHeightWithoutMenu / 2) + menuHeight;
 
-    //console.log("screen vcenter - " + screenCPt);
-
     // 2 - find the element at that location
     var offsetYPt = screenCPt;
 
@@ -187,6 +185,9 @@ function toggleNavigationMenu(id) {
     // Find and remove the active class
     $("#nav").find(".active").removeClass("active");
     $("#nav").find(".active-text").removeClass("active-text");
+
+    $("#nav-mobile").find(".active").removeClass("active");
+    $("#nav-mobile").find(".active-text").removeClass("active-text");
 
     if (id === "home") {
         $("#nav [name=liHome]").addClass("active");
