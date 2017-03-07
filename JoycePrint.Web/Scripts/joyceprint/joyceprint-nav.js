@@ -79,10 +79,12 @@ function getScrollDuration(currertElement, destinationElement) {
  *
  * This allows href to point to an element location without having the top section covered
  * by the fixed menu. 
+ * 
+ * THIS FUNCTION IS NOT BEING CALLED - It screws up the animation
  *************************************************************************************************/
-var shiftWindow = function () {
-    scrollBy(0, navOffset);
-};
+//var shiftWindow = function () {
+//    scrollBy(0, navOffset);
+//};
 
 /**************************************************************************************************
  * Initializes the menu update via scrolling and resizing
@@ -107,9 +109,6 @@ function initializeScrollMenu() {
         lastScrollTop = st;
 
         toggleNavigationMenu(getElementIdInViewport());
-
-        //console.log(getElementIdInViewport());
-        //console.log("scroll direction : " + scrollUp);
     });
 }
 
@@ -190,28 +189,28 @@ function toggleNavigationMenu(id) {
     $("#nav").find(".active-text").removeClass("active-text");
 
     if (id === "home") {
-        $("#nav #liHome").addClass("active");
-        $("#nav #liHome a").addClass("active-text");
+        $("#nav [name=liHome]").addClass("active");
+        $("#nav [name=liHome] a").addClass("active-text");
 
-        $("#nav-mobile #liHome").addClass("active");
-        $("#nav-mobile #liHome a").addClass("active-text");
+        $("#nav-mobile [name=liHome]").addClass("active");
+        $("#nav-mobile [name=liHome] a").addClass("active-text");
     } else if (id === "quote") {
-        $("#nav #liQuote").addClass("active");
-        $("#nav #liQuote a").addClass("active-text");
+        $("#nav [name=liQuote]").addClass("active");
+        $("#nav [name=liQuote] a").addClass("active-text");
 
-        $("#nav-mobile #liQuote").addClass("active");
-        $("#nav-mobile #liQuote a").addClass("active-text");
+        $("#nav-mobile [name=liQuote]").addClass("active");
+        $("#nav-mobile [name=liQuote] a").addClass("active-text");
     } else if (id === "services") {
-        $("#nav #liServices").addClass("active");
-        $("#nav #liServices a").addClass("active-text");
+        $("#nav [name=liServices]").addClass("active");
+        $("#nav [name=liServices] a").addClass("active-text");
 
-        $("#nav-mobile #liServices").addClass("active");
-        $("#nav-mobile #liServices a").addClass("active-text");
+        $("#nav-mobile [name=liServices]").addClass("active");
+        $("#nav-mobile [name=liServices] a").addClass("active-text");
     } else if (id === "aboutus") {
-        $("#nav #liAboutUs").addClass("active");
-        $("#nav #liAboutUs a").addClass("active-text");
+        $("#nav [name=liAboutUs]").addClass("active");
+        $("#nav [name=liAboutUs] a").addClass("active-text");
 
-        $("#nav-mobile #liAboutUs").addClass("active");
-        $("#nav-mobile #liAboutUs a").addClass("active-text");
+        $("#nav-mobile [name=liAboutUs]").addClass("active");
+        $("#nav-mobile [name=liAboutUs] a").addClass("active-text");
     }
 }

@@ -1,24 +1,51 @@
 ﻿<div class="navbar-fixed">
-    <nav data-test-nav id="navMenu">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo left">
-                <img src="~/Content/images/jp-logo-rbg.png" class="responsive-img logo" alt="JoycePrint Logo" data-test-nav-logo />
-            </a>
+    <nav data-test-nav>
 
-            <ul id="nav" class="right nav">
-                <li id="liHome">
+        <div class="nav-wrapper">
+
+            <a href="#" class="brand-logo">
+                <img src="~/Content/images/jp-logo-rbg.png" class="logo" alt="JoycePrint Logo" data-test-nav-logo />
+            </a>
+                        
+            @* ReSharper disable once Html.IdNotResolved *@
+            <a href="#!" data-activates="nav-mobile" class="button-collapse" data-test-side-nav-menu>
+                <i class="material-icons primary-text">menu</i>
+            </a>
+            
+            @*<a href="#" class="brand-logo center">
+                <img src="~/Content/images/jp-logo-rbg.png" alt="JoycePrint Logo" data-test-side-nav-logo />
+            </a>*@
+
+            <ul id="nav" class="right nav hide-on-med-and-down">
+                <li name="liHome">
                     <a href="#home" data-test-nav-home>Home</a>
                 </li>
-                <li id="liServices">
+                <li name="liServices">
                     <a href="#services" data-test-nav-services>Services</a>
                 </li>
-                <li id="liAboutUs">
+                <li name="liAboutUs">
                     <a href="#aboutus" data-test-nav-aboutus>About Us</a>
                 </li>
-                <li id="liQuote">
+                <li name="liQuote">
                     <a href="#quote" data-test-nav-quote>Get A Quote</a>
                 </li>
             </ul>
+                        
+            <ul id="nav-mobile" class="side-nav">
+                <li name="liHome">
+                    <a href="#home" data-test-side-nav-home>Home</a>
+                </li>
+                <li name="liServices">
+                    <a href="#services" data-test-side-nav-services>Services</a>
+                </li>
+                <li name="liAboutUs">
+                    <a href="#aboutus" data-test-side-nav-aboutus>About Us</a>
+                </li>
+                <li name="liQuote">
+                    <a href="#quote" data-test-side-nav-quote>Get A Quote</a>
+                </li>
+            </ul>
+
         </div>
     </nav>
 </div>

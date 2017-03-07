@@ -4,7 +4,9 @@
  * 
  * This file contains the styles for the navigation bar
 **************************************************************************************/
-@media only screen and (max-width: 700px) {
+
+/* Nav - Fixes for different screen sizes ********************************************/
+/*@media only screen and (max-width: 700px) {
     .hide-on-small-and-down {
         display: none !important;
     }
@@ -22,7 +24,6 @@
     }
 }
 
-/* Nav Extensions ********************************************************************/
 @media only screen and (max-width: 860px) {
     .logo {
         padding-left: 0 !important;
@@ -36,21 +37,9 @@
         padding-left: 1vw !important;
         padding-right: 1vw !important;
     }
-}
+}*/
 
-.logo {
-    padding-left: 5vw;
-}
-
-.nav {
-    padding-right: 5vw;
-}
-
-.nav li {
-    padding-left: 1.9vw;
-    padding-right: 1.9vw;
-}
-
+/* Nav Extensions ********************************************************************/
 .navbar-fixed {
     height: 110px;
 }
@@ -59,6 +48,10 @@ nav {
     background-color: @color-white;
     height: 110px;
     line-height: 110px;
+}
+
+nav img {
+    height: 110px;
 }
 
 nav ul a {
@@ -82,12 +75,8 @@ nav ul a.active-text {
     .active-text;
 }
 
-#navMenu img {
-    height: 110px;
-}
-
 /* Side Nav Extensions ***************************************************************/
-.side-nav {
+/*.side-nav {
     background-color: @color-white;
 }
 
@@ -95,10 +84,20 @@ nav ul a.active-text {
     color: @color-primary;
 }
 
-#navSideMenu img {
-    height: 110px;
+.button-collapse- {
+    padding-top: 25px
+}*/
+
+/* Custom Styles **********************************************************************/
+.logo {
+    padding-left: 5vw;
 }
 
-.side-menu {
-    padding-top: 25px
+.nav {
+    padding-right: 5vw;
+}
+
+.nav li {
+    padding-left: 1.9vw;
+    padding-right: 1.9vw;
 }
