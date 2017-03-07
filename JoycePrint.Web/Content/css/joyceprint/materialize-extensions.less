@@ -1,4 +1,4 @@
-﻿/**************************************************************************************
+﻿/****************************************************************************************
  * Materialize Class Extensions
  * --------------------------------------------------
  *
@@ -6,9 +6,31 @@
  *
  * Classes required for overriding materialize styles that are not accessable 
  * using the site customizations
-**************************************************************************************/
+****************************************************************************************/
 
-/* Container Extensions **************************************************************/
+/* Align Extensions ********************************************************************/
+.justify-align {
+    text-align: justify;
+    /* IE9 - https://msdn.microsoft.com/en-us/library/ms531172(v=vs.85).aspx 
+        Solves the issue of massive gaps between the words
+    */
+    text-justify: distribute;
+}
+
+.word-space--2px {
+    word-spacing: -2px;
+}
+
+.word-space--1px {
+    word-spacing: -1px;
+}
+
+/* Button Extensions *******************************************************************/
+.btn-round {
+    border-radius: 15px 15px;
+}
+
+/* Container Extensions ****************************************************************/
 @media only screen and (min-width: 1201px) and (max-width: 1400px) {
     .container {
         width: 80%;
@@ -27,7 +49,20 @@
     }
 }
 
-/* Row Extensions ********************************************************************/
+/* Font Extensions *********************************************************************/
+@media only screen and (max-width: 400px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/* Input Extensions ********************************************************************/
+.border-side {
+    border-left: 1px solid @color-grey-lighter !important;
+    border-right: 1px solid @color-grey-lighter !important;
+}
+
+/* Row Extensions **********************************************************************/
 .row.eq-height {
     display: -webkit-box;
     display: -webkit-flex;
@@ -108,26 +143,17 @@
     flex-direction: column;
 }*/
 
-/* Button Extensions ********************************************************************/
-.btn-round {
-    border-radius: 15px 15px;
+/* Show-On Extensions ******************************************************************/
+@media only screen and (max-width: 330px) {
+    .show-on-330px {
+        display: block !important;
+    }
 }
 
-/* Align Extensions ********************************************************************/
-.justify-align {
-    text-align: justify;
-    /* IE9 - https://msdn.microsoft.com/en-us/library/ms531172(v=vs.85).aspx 
-        Solves the issue of massive gaps between the words
-    */
-    text-justify: distribute;
-}
-
-.word-space--2px {
-    word-spacing: -2px;
-}
-
-.word-space--1px {
-    word-spacing: -1px;
+@media only screen and (min-width: 331px) {
+    .show-on-330px {
+        display: none !important;
+    }
 }
 
 /* Space Extensions ********************************************************************/
@@ -139,12 +165,6 @@
     content: '\00a0 ';
 }
 
-/* Input Extensions ********************************************************************/
-.border-side {
-    border-left: 1px solid @color-grey-lighter !important;
-    border-right: 1px solid @color-grey-lighter !important;
-}
-
 /* Tooltip Extensions ******************************************************************/
 .material-tooltip {
     .text-700;
@@ -152,4 +172,9 @@
 
 .backdrop {
     .primary;
+}
+
+/* Transform Extensions ****************************************************************/
+.tstop-uppercase {
+    text-transform: none;
 }

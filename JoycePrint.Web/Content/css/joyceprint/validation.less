@@ -1,13 +1,13 @@
-﻿/**************************************************************************************
+﻿/****************************************************************************************
  * Validation
  * --------------------------------------------------
  * 
  * This file contains the styles for validation
  *
  * Active, Required, Valid and Invalid styles are contained in this file
-**************************************************************************************/
+****************************************************************************************/
 
-/* Active Extensions *****************************************************************/
+/* Active Extensions *******************************************************************/
 .prefix.active.success-text {
     color: @color-success;
 }
@@ -24,7 +24,7 @@
     color: @color-danger-dark;
 }
 
-/* Required Field Extensions *********************************************************/
+/* Required Field Extensions ***********************************************************/
 input:focus:not([readonly])[required],
 textarea.materialize-textarea:focus:not([readonly])[required] {
     border-bottom-color: @color-warning;
@@ -42,7 +42,7 @@ textarea.materialize-textarea:focus:not([readonly])[required] + label {
     color: @color-warning;
 }
 
-/* Valid Field Extensions ************************************************************/
+/* Valid Field Extensions **************************************************************/
 input:focus:not([readonly])[required][class~=valid],
 textarea.materialize-textarea:focus:not([readonly])[required][class~=valid] {
     border-bottom-color: @color-success;
@@ -77,7 +77,7 @@ textarea.materialize-textarea:not([readonly])[required][class~=valid] + label {
     color: @color-success-dark;
 }
 
-/* Invalid Field Extensions **********************************************************/
+/* Invalid Field Extensions ************************************************************/
 input:focus:not([readonly])[required][class~=invalid],
 textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid] {
     border-bottom-color: @color-danger;
