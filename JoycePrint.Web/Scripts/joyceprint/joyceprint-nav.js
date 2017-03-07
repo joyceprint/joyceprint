@@ -37,6 +37,9 @@ function initializeAnimatedMenu() {
 
         var href = $.attr(this, "href");
 
+        // Break out if the link does not exist
+        if (href === "#!") return false;
+
         $root.animate({
             scrollTop: $(href).offset().top + navOffset
         }, getScrollDuration(this, $(href)), function () {
