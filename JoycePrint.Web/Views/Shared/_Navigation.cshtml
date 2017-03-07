@@ -1,14 +1,14 @@
 ﻿<div class="navbar-fixed">
     <nav data-test-nav>
-
         <div class="nav-wrapper">
 
+            @* ReSharper disable once Html.IdNotResolved *@
             <a href="#!" class="brand-logo">
                 <img src="~/Content/images/jp-logo-rbg.png" id="logo" alt="JoycePrint Logo" data-test-nav-logo />
             </a>
                         
             @* ReSharper disable once Html.IdNotResolved *@
-            <a data-activates="nav-mobile" class="button-collapse" data-test-side-nav-menu>
+            <a href="#!" data-activates="nav-mobile" class="button-collapse" data-test-side-nav-menu>
                 <i class="material-icons primary-text">menu</i>
             </a>
 
@@ -25,23 +25,23 @@
                 <li name="liQuote">
                     <a href="#quote" data-test-nav-quote>Get A Quote</a>
                 </li>
-            </ul>
-                        
-            <ul id="nav-mobile" class="side-nav">
-                <li name="liHome">
-                    <a href="#home" data-test-side-nav-home>Home</a>
-                </li>
-                <li name="liServices">
-                    <a href="#services" data-test-side-nav-services>Services</a>
-                </li>
-                <li name="liAboutUs">
-                    <a href="#aboutus" data-test-side-nav-aboutus>About Us</a>
-                </li>
-                <li name="liQuote">
-                    <a href="#quote" data-test-side-nav-quote>Get A Quote</a>
-                </li>
-            </ul>
-
+            </ul>                                    
         </div>
     </nav>
 </div>
+
+<!-- This needs to be outside the navbar-fixed container or the z-indexes will get screwed up -->
+<ul id="nav-mobile" class="side-nav">
+    <li name="liHome">
+        <a href="#home" data-test-side-nav-home>Home</a>
+    </li>
+    <li name="liServices">
+        <a href="#services" data-test-side-nav-services>Services</a>
+    </li>
+    <li name="liAboutUs">
+        <a href="#aboutus" data-test-side-nav-aboutus>About Us</a>
+    </li>
+    <li name="liQuote">
+        <a href="#quote" data-test-side-nav-quote>Get A Quote</a>
+    </li>
+</ul>

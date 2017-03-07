@@ -20,21 +20,25 @@ nav img {
     height: 110px;
 }
 
-nav ul a {
+nav ul a,
+ul#nav-mobile a {
     color: @color-text;
     font-size: 1.1rem;
 }
 
-nav ul a:hover {
+nav ul a:hover,
+ul#nav-mobile a:hover {
     background-color: transparent;
     color: @color-pink;
 }
 
-nav ul li.active {
+nav ul li.active,
+ul#nav-mobile li.active {
     background-color: transparent;
 }
 
-nav ul a.active-text {
+nav ul a.active-text,
+ul#nav-mobile a.active-text {
     .active-text;
 }
 

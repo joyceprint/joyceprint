@@ -4,6 +4,13 @@ var scrollUp;
 var lastScrollTop = 0;
 var navOffset = -($("nav").height() - 4);
 
+/*
+    This is for use with the side menu since the function [getElementIdInViewport] will not work with the side menu
+    overlay in place. We store the section we are scrolling to here and will use it in the [toggleNavigationMenu]
+    when the [id] passed in is [undefined]
+*/
+var toggleNavigationMenu_ScrollToId = null;
+
 /**************************************************************************************************
  * Navigation Menu Javascript Functionality
  *
@@ -33,12 +40,14 @@ function initializeAnimatedMenu() {
 
     var $root = $("html, body");
 
-    $(".nav li a, a").click(function () {
+    $("#nav li a, a, #nav-mobile li a").click(function () {
 
-        var href = $.attr(this, "href");
+        var href = $.attr(this, "href");        
 
         // Break out if the link does not exist
         if (href === "#!") return false;
+
+        toggleNavigationMenu_ScrollToId = href.replace("#", "");
 
         $root.animate({
             scrollTop: $(href).offset().top + navOffset
@@ -71,8 +80,6 @@ function getScrollDuration(currertElement, destinationElement) {
     } else if (distance >= 1500) {
         duration = 1500;
     }
-
-    //console.log("distance - " + distance + " --- duration - " + duration);
 
     return duration;
 }
@@ -172,6 +179,11 @@ function getElementIdInViewport() {
 
     elementId = $(navSection).attr("id");
 
+    // If the element is undefined we are in the side menu and need to use the store href for where we are going
+    if (elementId === undefined) {
+        elementId = toggleNavigationMenu_ScrollToId;        
+    }
+
     return elementId;
 }
 
@@ -182,8 +194,6 @@ function getElementIdInViewport() {
  * This will also handle the side navigiation menu 
  *************************************************************************************************/
 function toggleNavigationMenu(id) {
-
-    //TODO: make sure this works for the side menu aswel
 
     // Find and remove the active class
     $("#nav").find(".active").removeClass("active");
