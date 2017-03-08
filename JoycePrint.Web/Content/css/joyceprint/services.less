@@ -17,6 +17,11 @@
     box-shadow: 0.3rem -0.3rem 0.5rem rgba(0,0,0,0.14);
 }
 
+#services .card.large {
+    height: 550px;
+    min-height: 550px;
+}
+
 #services .card-title {
     .text-600;
     color: @color-bluegrey;
@@ -38,121 +43,3 @@
 #services .card-image + .card-content {
     max-height: 80% !important;
 }
-
-/* Screen Size Extensions **************************************************************/
-
-/* 
-    Font - Styles for services when the screen is ...
-*/
-@media only screen and (max-width: 1400px) {
-    #services .card-content p {
-        font-size: 14.5px;
-    }
-}
-
-/* 
-    Large Card - Styles for services when the screen is ...
-*/
-@media only screen and (min-width: 1601px) {
-
-    #services .card.large {
-        height: 550px;
-        min-height: 550px;
-    }
-
-    #services .card-image {
-        /* Fixes the issue where the images are not the same height */
-        height: 235px;
-    }
-}
-
-/* 
-    Large Card - Styles for services when the screen is ...
-*/
-@media only screen and (min-width: 1401px) and (max-width: 1600px) {
-
-    #services .card.large {
-        height: 530px;
-        min-height: 530px;
-    }
-
-    #services .card-image {
-        /* Fixes the issue where the images are not the same height */
-        height: 205px;
-    }
-}
-
-/* 
-    Styles for services when the screen is ...  
-*/
-@media only screen and (min-width: 1201px) and (max-width: 1400px) {
-
-    #services .card.large {
-        height: 510px;
-        min-height: 510px;
-    }
-
-    #services .card-image {
-        /* Fixes the issue where the images are not the same height */
-        height: 205px;
-    }
-}
-
-/* 
-    Styles for services when the screen is ...
-    Makes the services view look good when the screen is a mac 11" or an ipad 9.8"
-*/
-@media only screen and (min-width: 1024px) and (max-width: 1200px) {
-
-    #services .card.large {
-        height: 525px;
-        min-height: 525px;
-    }
-
-    #services .card-image {
-        /* Fixes the issue where the images are not the same height */
-        height: 195px;
-    }
-}
-
-/* 
-    Styles for services when the screen is ...
-    Makes the services view look good before materialize medium settings take effect when shrinking
-*/
-@media only screen and (min-width: 993px) and (max-width: 1024px) {
-
-    #services .card.large {
-        height: 510px !important;
-        min-height: 510px !important;
-    }
-
-    #services .card-image {
-        /* Fixes the issue where the images are not the same height */
-        height: 180px !important;
-    }
-}
-
-/* 
-    Styles for services when the screen is ...
-*/
-@media only screen and (min-width: 601px) and (max-width: 993px) {
-
-    #services .card.large {
-        height: 540px;
-        min-height: 540px;
-    }
-
-    #services .card-image {
-        /*Fixes the issue where the images are not the same height*/
-        min-height: 50%;
-    }
-
-    #services .card.large .card-image {        
-        overflow: hidden;
-    }
-}
-
-/* 
-    when the screen gets to teh point that the text is no longer viewable change the text size
-    this is primarly for the iphone 5 and down
-*/
