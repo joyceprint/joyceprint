@@ -5,7 +5,32 @@
  * This file contains the styles used on the home view
 ****************************************************************************************/
 
-#home {    
+#home-parallax-content > h1 {
+    font-size: 4.534rem;
+}
+
+@media only screen and (min-width: 1025px) {
+    #home-parallax-content > h1 {
+        font-size: 5.534rem;
+    }
+}
+
+#home-parallax-content {
+    position: absolute;
+    top: 40vh;
+    width: 100%;
+    z-index: 3;
+}
+
+/* IPad Pro */
+@media only screen and (min-width: 1024px) and (min-height: 1366px) {
+    #home-parallax-content {
+        top: 35vh;
+    }
+}
+
+
+#home {
     font-family: "Avenir Book";
 }
 
@@ -18,17 +43,6 @@
     height: 1000px;
     z-index: 2;
     opacity: 0.71;
-}
-
-#home-parallax-content {
-    position: absolute;
-    top: 40vh;
-    width: 100%;
-    z-index: 3;
-}
-
-#home-parallax-content > h1 {
-    font-size: 5.534rem;
 }
 
 #home-parallax-content > a {
