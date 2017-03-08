@@ -5,31 +5,6 @@
  * This file contains the styles used on the home view
 ****************************************************************************************/
 
-#home-parallax-content > h1 {
-    font-size: 4.534rem;
-}
-
-@media only screen and (min-width: 1025px) {
-    #home-parallax-content > h1 {
-        font-size: 5.534rem;
-    }
-}
-
-#home-parallax-content {
-    position: absolute;
-    top: 40vh;
-    width: 100%;
-    z-index: 3;
-}
-
-/* IPad Pro */
-@media only screen and (min-width: 1024px) and (min-height: 1366px) {
-    #home-parallax-content {
-        top: 35vh;
-    }
-}
-
-
 #home {
     font-family: "Avenir Book";
 }
@@ -45,10 +20,41 @@
     opacity: 0.71;
 }
 
+#home-parallax-content {
+    position: absolute;
+    top: 40vh;
+    width: 100%;
+    z-index: 3;
+}
+
+/* Phone Screens ***********************************************************************/
+@media only screen and (max-width: 600px) {
+    #home-parallax-content {
+        top: 25vh;
+    }
+}
+
 #home-parallax-content > a {
     font-size: 20px;
     margin-top: 50px;
     width: 300px;
+}
+
+/* IPad Pro ****************************************************************************/
+@media only screen and (min-width: 1024px) and (min-height: 1366px) {
+    #home-parallax-content {
+        top: 35vh;
+    }
+}
+
+#home-parallax-content > h1 {
+    font-size: 4.534rem;
+}
+
+@media only screen and (min-width: 1025px) {
+    #home-parallax-content > h1 {
+        font-size: 5.534rem;
+    }
 }
 
 .home-header {
@@ -61,6 +67,12 @@
     .white-text;
     font-family: "Avenir Heavy";
     font-weight: 600;
+}
+
+@media only screen and (max-width: 400px) {
+    .home-text {
+        font-size: 2.0rem;
+    }
 }
 
 .home-btn {
