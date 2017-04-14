@@ -22,7 +22,7 @@ namespace JoycePrint.Domain.Tests.Configuration
         /// </summary>
         [TestMethod]
         public void GetRecaptchaSecretKeyTest()
-        {            
+        {
             const string expectedRecaptchaSecretKey = "6LcC2Q0UAAAAALvPAkBtQT2a5AE8DUCotVfQu04t";
 
             AssertAreEqual(expectedRecaptchaSecretKey, Config.RecaptchaSecretKey, "Recaptcha Secret Key");
@@ -46,8 +46,6 @@ namespace JoycePrint.Domain.Tests.Configuration
         public void GetNotificationHeaderSuccessTest()
         {
             const string expectedNotificationHeaderSuccess = "We have recieved your email and will get back to you shortly";
-
-            var t = Config.NotificationHeaderSuccess;
 
             AssertAreEqual(expectedNotificationHeaderSuccess, Config.NotificationHeaderSuccess, "Notification Header Success");
         }

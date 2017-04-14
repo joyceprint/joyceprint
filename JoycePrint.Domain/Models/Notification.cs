@@ -8,22 +8,22 @@ namespace JoycePrint.Domain.Models
         /// <summary>
         /// The name of the view that will render the notification
         /// </summary>
-        public string ViewName { get; set; }
+        public string ViewName { get; private set; }
 
         /// <summary>
         /// The header for the notification
         /// </summary>       
-        public string Header { get; set; }
+        public string Header { get; private set; }
 
         /// <summary>
         /// The message for the notification
         /// </summary>
-        public string Message { get; set; }
+        public string Message { get; private set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public NotificationType Type { get; set; }
+        public NotificationType Type { get; private set; }
 
         /// <summary>
         /// Sets the notification properties based on the notification type

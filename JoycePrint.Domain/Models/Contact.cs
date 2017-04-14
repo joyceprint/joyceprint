@@ -8,13 +8,7 @@ namespace JoycePrint.Domain.Models
         /// The company the contact represents
         /// </summary>
         public string Company { get; set; }
-
-        /// <summary>
-        /// The position held by the contact at the company
-        /// </summary>
-        [Obsolete("This property is currently not in use")]
-        public string Position { get; set; }
-
+        
         /// <summary>
         /// The name of the contact
         /// </summary>

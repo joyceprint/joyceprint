@@ -15,7 +15,6 @@ namespace JoycePrint.Domain.Tests.Models
             var contactModel = new Contact();
 
             AssertAreEqual(null, contactModel.Company, "Contact Company");
-            AssertAreEqual(null, contactModel.Position, "Contact Position");
             AssertAreEqual(null, contactModel.Name, "Contact Name");
             AssertAreEqual(null, contactModel.Phone, "Contact Company");
             AssertAreEqual(null, contactModel.Email, "Contact Email");
@@ -32,10 +31,6 @@ namespace JoycePrint.Domain.Tests.Models
             const string companyTestValue = "Company";
             contactModel.Company = companyTestValue;
             AssertAreEqual(companyTestValue, contactModel.Company, "Contact Company");
-
-            const string positionTestValue = "Position";
-            contactModel.Position = positionTestValue;
-            AssertAreEqual(positionTestValue, contactModel.Position, "Contact Position");
 
             const string nameTestValue = "Firstname Lastname";
             contactModel.Name = nameTestValue;

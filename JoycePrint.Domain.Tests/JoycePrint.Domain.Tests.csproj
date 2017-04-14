@@ -54,6 +54,7 @@
     <Compile Include="BaseTest.cs" />
     <Compile Include="Mail\EmailTest.cs" />
     <Compile Include="Configuration\ConfigTest.cs" />
+    <Compile Include="Models\NotificationTest.cs" />
     <Compile Include="Models\QuoteRequestTest.cs" />
     <Compile Include="Models\DocketBookTest.cs" />
     <Compile Include="Models\ContactTest.cs" />

@@ -17,8 +17,7 @@ namespace JoycePrint.Domain.Tests.Models
         {
             var quoteRequestModel = new QuoteRequest();
 
-            AssertAreEqual(null, quoteRequestModel.Contact.Company, "Contact Company");
-            AssertAreEqual(null, quoteRequestModel.Contact.Position, "Contact Position");
+            AssertAreEqual(null, quoteRequestModel.Contact.Company, "Contact Company");            
             AssertAreEqual(null, quoteRequestModel.Contact.Name, "Contact Name");
             AssertAreEqual(null, quoteRequestModel.Contact.Phone, "Contact Company");
             AssertAreEqual(null, quoteRequestModel.Contact.Email, "Contact Email");
