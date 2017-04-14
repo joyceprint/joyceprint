@@ -11,10 +11,7 @@ namespace Analytics.Analyzer
         /// </summary>
         private bool _enabled;
 
-        protected bool Enabled
-        {
-            get { return _enabled; }
-        }
+        protected bool Enabled => _enabled;
 
         public override void Initialize(string name, NameValueCollection config)
         {

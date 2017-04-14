@@ -33,11 +33,10 @@ namespace Analytics
 
         public void CaptureAnalysis(HttpContext context)
         {
-            if (Enabled && null != Analyzers)
-            {
-                foreach(var analyzer in Analyzers.Where(e => Enabled))
-                    analyzer.Analyze(context);
-            }
+            if (!Enabled || null == Analyzers) return;
+
+            foreach(var analyzer in Analyzers.Where(e => Enabled))
+                analyzer.Analyze(context);
         }
     }
 }

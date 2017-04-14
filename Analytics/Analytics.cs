@@ -15,15 +15,11 @@ namespace Analytics
                 _engine = new AnalysisEngine();
         }
 
-        public void Dispose()
-        {
-            
-        }
+        public void Dispose() { }
 
         private void OnBeginRequest(object source, EventArgs evernArgs)
         {
-            if (null != _engine)
-                _engine.CaptureAnalysis(((HttpApplication)source).Context);
+            _engine?.CaptureAnalysis(((HttpApplication)source).Context);
         }
     }
 }
