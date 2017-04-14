@@ -55,8 +55,7 @@ namespace JoycePrint.Domain.Models
             messageBody.Append("<h1>Client Information</h1>");
             messageBody.Append("<dl>");
             messageBody.Append("<dt><strong>Company<strong></dt>");
-            messageBody.Append($"<dd>{Contact.Company}</dd>");
-            messageBody.Append("<dt><strong>Position</strong></dt>");            
+            messageBody.Append($"<dd>{Contact.Company}</dd>");            
             messageBody.Append("<dt><strong>Name</strong></dt>");
             messageBody.Append($"<dd>{Contact.Name}</dd>");
             messageBody.Append("<dt><strong>Telephone</strong></dt>");

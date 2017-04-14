@@ -215,9 +215,7 @@ namespace JoycePrint.Domain.Tests.Models
 
         #region Test Helper Functions
 
-        private static string RealQuoteCompany => "Company";
-
-        private static string RealQuotePosition => "Position";
+        private static string RealQuoteCompany => "Company";        
 
         private static string RealQuoteName => "Firstname Lastname";
 
@@ -239,8 +237,7 @@ namespace JoycePrint.Domain.Tests.Models
             {
                 Contact =
                 {
-                    Company = RealQuoteCompany,
-                    Position = RealQuotePosition,
+                    Company = RealQuoteCompany,                    
                     Name = RealQuoteName,
                     Phone = RealQuotePhone,
                     Email = RealQuoteEmail
@@ -267,9 +264,7 @@ namespace JoycePrint.Domain.Tests.Models
             messageBody.Append("<h1>Client Information</h1>");
             messageBody.Append("<dl>");
             messageBody.Append("<dt><strong>Company<strong></dt>");
-            messageBody.Append($"<dd>{RealQuoteCompany}</dd>");
-            messageBody.Append("<dt><strong>Position</strong></dt>");
-            messageBody.Append($"<dd>{RealQuotePosition}</dd>");
+            messageBody.Append($"<dd>{RealQuoteCompany}</dd>");            
             messageBody.Append("<dt><strong>Name</strong></dt>");
             messageBody.Append($"<dd>{RealQuoteName}</dd>");
             messageBody.Append("<dt><strong>Telephone</strong></dt>");
@@ -304,9 +299,7 @@ namespace JoycePrint.Domain.Tests.Models
             messageBody.Append("<h1>Client Information</h1>");
             messageBody.Append("<dl>");
             messageBody.Append("<dt><strong>Company<strong></dt>");
-            messageBody.Append($"<dd></dd>");
-            messageBody.Append("<dt><strong>Position</strong></dt>");
-            messageBody.Append($"<dd></dd>");
+            messageBody.Append($"<dd></dd>");            
             messageBody.Append("<dt><strong>Name</strong></dt>");
             messageBody.Append($"<dd></dd>");
             messageBody.Append("<dt><strong>Telephone</strong></dt>");

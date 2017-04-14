@@ -39,7 +39,7 @@ namespace JoycePrint.Domain.Mail
                 }
                 catch (Exception)
                 {
-                    // Log the exception using the ILog
+                    // TODO: Log the exception using the ILog
                 }
 
                 return smtpConfig;
@@ -64,7 +64,7 @@ namespace JoycePrint.Domain.Mail
             }
             catch (Exception)
             {
-                // Log the exception using ILog
+                // TODO: Log the exception using ILog
             }
 
             return emailSent;
