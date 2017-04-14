@@ -2,13 +2,13 @@
 
 namespace JoycePrint.Web.Controllers
 {
-    [Route("contactus")]
-    public class ContactUsController : Controller
+    [Route("contactus")]    
+    public class ContactUsController : BaseController
     {
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return View("Index");
-        }
+        //[HttpGet]
+        //public ActionResult Index()
+        //{
+        //    return View("Index");
+        //}
     }
 }
