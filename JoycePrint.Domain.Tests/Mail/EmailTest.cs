@@ -70,8 +70,7 @@ namespace JoycePrint.Domain.Tests.Mail
         /// <summary>
         /// Test the SendEmail function by passing it a good set of objects
         /// </summary>
-        [TestMethod]
-        [Ignore]
+        [TestMethod]        
         public void SendEmailGoodTest()
         {
             IEmail email = new Email();
