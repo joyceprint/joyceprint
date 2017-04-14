@@ -17,7 +17,7 @@ namespace JoycePrint.Domain.Tests.Models
         {
             var quoteRequestModel = new QuoteRequest();
 
-            AssertAreEqual(null, quoteRequestModel.Contact.Company, "Contact Company");            
+            AssertAreEqual(null, quoteRequestModel.Contact.Company, "Contact Company");
             AssertAreEqual(null, quoteRequestModel.Contact.Name, "Contact Name");
             AssertAreEqual(null, quoteRequestModel.Contact.Phone, "Contact Company");
             AssertAreEqual(null, quoteRequestModel.Contact.Email, "Contact Email");
@@ -196,12 +196,17 @@ namespace JoycePrint.Domain.Tests.Models
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// TODO: This test is currently breaking because the configuration element is not getting pulled correctly
+        /// Converts the a real world quote model to an email and checks the email body, subject, to and from properties are correct
+        /// </summary>        
         [TestMethod]
         public void ConvertModelToEmailTest()
         {
+            var expectedMessage = @"<h1>Client Information</h1><dl><dt><strong>Company<strong></dt><dd>Company</dd><dt><strong>Name</strong></dt><dd>Firstname Lastname</dd><dt><strong>Telephone</strong></dt><dd>3033033003</dd><dt><strong>Email</strong></dt><dd>email@host.com</dd></dl><h1>Product Information</h1><dl><dt><strong>Docket Type</strong></dt><dd>Duplicate</dd><dt><strong>Docket Size</strong></dt><dd>A4</dd><dt><strong>Quantity</strong></dt><dd>100</dd></dl><div><strong>User message</strong><p>Can I get a quote before the end of the week, there's a real rush on this job.</p></div>";
+            var expectedSubjectLine = "Docket Book Quote : Firstname Lastname";
+            var expectedEmailToRecipients = 1;
+            var expectedEmailTo = "some@email.com";
+            var expectedEmailFrom = "email@host.com";
+
             IEmail email = new Email();
 
             _realQuoteDocketType = Enums.DocketBookType.Duplicate;
@@ -210,11 +215,17 @@ namespace JoycePrint.Domain.Tests.Models
             var quoteRequestModel = GenerateRealQuoteRequestModel();
 
             var mailMessage = quoteRequestModel.ConvertModelToEmail(email);
+
+            AssertAreEqual(expectedEmailToRecipients, mailMessage.To.Count, "Email To Count");
+            AssertAreEqual(expectedEmailTo, mailMessage.To[0].Address, "Email To");
+            AssertAreEqual(expectedEmailFrom, mailMessage.From.Address, "Email From");
+            AssertAreEqual(expectedSubjectLine, mailMessage.Subject, "Email Subject");
+            AssertAreEqual(expectedMessage, mailMessage.Body, "Email Body");
         }
 
         #region Test Helper Functions
 
-        private static string RealQuoteCompany => "Company";        
+        private static string RealQuoteCompany => "Company";
 
         private static string RealQuoteName => "Firstname Lastname";
 
@@ -223,7 +234,7 @@ namespace JoycePrint.Domain.Tests.Models
         private static string RealQuoteEmail => "email@host.com";
 
         private static int RealQuoteQuantity => 100;
-        
+
         private static string RealQuoteMessage => "Can I get a quote before the end of the week, there's a real rush on this job.";
 
         private Enums.DocketBookType _realQuoteDocketType;
@@ -236,7 +247,7 @@ namespace JoycePrint.Domain.Tests.Models
             {
                 Contact =
                 {
-                    Company = RealQuoteCompany,                    
+                    Company = RealQuoteCompany,
                     Name = RealQuoteName,
                     Phone = RealQuotePhone,
                     Email = RealQuoteEmail
@@ -250,7 +261,7 @@ namespace JoycePrint.Domain.Tests.Models
                 Enquiry =
                 {
                   Message = RealQuoteMessage
-                } 
+                }
             };
 
             return quoteRequest;
@@ -263,7 +274,7 @@ namespace JoycePrint.Domain.Tests.Models
             messageBody.Append("<h1>Client Information</h1>");
             messageBody.Append("<dl>");
             messageBody.Append("<dt><strong>Company<strong></dt>");
-            messageBody.Append($"<dd>{RealQuoteCompany}</dd>");            
+            messageBody.Append($"<dd>{RealQuoteCompany}</dd>");
             messageBody.Append("<dt><strong>Name</strong></dt>");
             messageBody.Append($"<dd>{RealQuoteName}</dd>");
             messageBody.Append("<dt><strong>Telephone</strong></dt>");
@@ -284,13 +295,13 @@ namespace JoycePrint.Domain.Tests.Models
 
             return messageBody.ToString();
         }
-        
+
         private static QuoteRequest GenerateEmptyQuoteRequestModel()
         {
             var quoteRequest = new QuoteRequest();
             return quoteRequest;
         }
-       
+
         private static string GenerateExpectedMessageBodyForEmptyQuoteRequestModel()
         {
             var messageBody = new StringBuilder();
@@ -298,7 +309,7 @@ namespace JoycePrint.Domain.Tests.Models
             messageBody.Append("<h1>Client Information</h1>");
             messageBody.Append("<dl>");
             messageBody.Append("<dt><strong>Company<strong></dt>");
-            messageBody.Append($"<dd></dd>");            
+            messageBody.Append($"<dd></dd>");
             messageBody.Append("<dt><strong>Name</strong></dt>");
             messageBody.Append($"<dd></dd>");
             messageBody.Append("<dt><strong>Telephone</strong></dt>");
