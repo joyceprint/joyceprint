@@ -26,7 +26,11 @@ namespace Common.Logging.WindowsEventLogger
 
         public override void Log(MessageLevel messageLevel, string message)
         {
-            throw new NotImplementedException("implement this later");
+            // TODO: we need to map our messge levels to the event log
+            // Add this as an abstract method of the base class
+            // Ensure we have the correct amount of message levels
+            // Could add Verbose???? or some others?
+            EventLog.WriteEntry(Source, message, EventLogEntryType.Error);
         }
     }
 }
