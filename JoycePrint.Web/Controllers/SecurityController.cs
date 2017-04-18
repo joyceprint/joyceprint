@@ -7,6 +7,12 @@ namespace JoycePrint.Web.Controllers
     [Route("security")]
     public class SecurityController : BaseController
     {
+        /// <summary>
+        /// This returns the recaptcha security view
+        /// This is only callable from the server side
+        /// </summary>
+        /// <returns></returns>
+        [ChildActionOnly]
         [Route("security/recaptcha")]
         [HttpGet]
         public ActionResult Recaptcha()
@@ -20,6 +26,8 @@ namespace JoycePrint.Web.Controllers
         [HttpPost]        
         public ActionResult ProcessRecaptcha(string captchaResponse)
         {
+            // todo add tests around this if possible
+            // add a try catch - ensure exceptions are caught
             var recaptcha = new Recaptcha();
             var result = recaptcha.Verify(captchaResponse);
 
