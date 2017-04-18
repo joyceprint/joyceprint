@@ -75,7 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Enums\MessageLevel.cs" />
+    <Compile Include="Enums\LogLevel.cs" />
     <Compile Include="Enums\NotificationType.cs" />
+    <Compile Include="Log\LogBase.cs" />
+    <Compile Include="Log\EventLogger.cs" />
     <Compile Include="Mail\IEmailConverter.cs" />
     <Compile Include="Mail\IEmail.cs" />
     <Compile Include="Mail\Email.cs" />
