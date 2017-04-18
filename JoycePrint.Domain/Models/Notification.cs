@@ -1,4 +1,5 @@
-﻿using JoycePrint.Domain.Configuration;
+﻿using System;
+using JoycePrint.Domain.Configuration;
 using JoycePrint.Domain.Enums;
 
 namespace JoycePrint.Domain.Models
@@ -36,17 +37,19 @@ namespace JoycePrint.Domain.Models
 
             switch (type)
             {
-                case NotificationType.SUCCESS:
+                case NotificationType.Success:
                     Header = Config.NotificationHeaderSuccess;
                     Message = Config.NotificationMessageSuccess;
                     break;
-                case NotificationType.FAILURE:
+                case NotificationType.Failure:
                     Header = Config.NotificationHeaderError;
                     Message = Config.NotificationMessageError;
                     break;
-                case NotificationType.NONE:
+                case NotificationType.None:
                     Header = Message = string.Empty;
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
         }        
     }

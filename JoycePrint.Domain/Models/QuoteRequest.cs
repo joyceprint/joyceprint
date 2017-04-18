@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text;
 using System.Net.Mail;
+using Common.Logging;
+using Common.Logging.Enums;
 using JoycePrint.Domain.Mail;
 
 namespace JoycePrint.Domain.Models
@@ -20,7 +22,7 @@ namespace JoycePrint.Domain.Models
         /// <summary>
         /// The docket book information for the quote
         /// </summary>
-        public DocketBook DocketBook { get; set; }        
+        public DocketBook DocketBook { get; set; }
 
         public QuoteRequest()
         {
@@ -30,15 +32,23 @@ namespace JoycePrint.Domain.Models
         }
 
         public bool SendEmail()
-        {
-            IEmail email = new Email();
-            return email.SendEmail(ConvertModelToEmail(email), email.SmtpConfig);
+        {            
+            try
+            {
+                IEmail email = new Email();
+                return email.SendEmail(ConvertModelToEmail(email), email.SmtpConfig);
+            }
+            catch (Exception ex)
+            {
+                Logger.Provider.Log(MessageLevel.Error, ex.Message);
+                return false;
+            }            
         }
 
         #region Interface Definitions
 
         public MailMessage ConvertModelToEmail(IEmail email)
-        {
+        {            
             var message = new MailMessage(Contact.Email, email.SmtpConfig.From)
             {
                 Body = GetMessageBody(),

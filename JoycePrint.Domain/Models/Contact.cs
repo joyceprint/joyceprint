@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JoycePrint.Domain.Models
+﻿namespace JoycePrint.Domain.Models
 {
     public class Contact
     {

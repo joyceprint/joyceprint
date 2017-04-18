@@ -8,7 +8,7 @@ namespace JoycePrint.Domain.Tests.Models
     public class NotificationTest : BaseTest
     {
         /// <summary>
-        /// Test the notification that will be set when the notification type is NONE
+        /// Test the notification that will be set when the notification type is None
         /// </summary>
         [TestMethod]
         public void SetNotificationTypeNone()
@@ -16,11 +16,11 @@ namespace JoycePrint.Domain.Tests.Models
             var expectedViewName = "Notification";
             var expectedHeader = "";
             var expectedMessage = "";
-            const NotificationType expectedType = NotificationType.NONE;
+            const NotificationType expectedType = NotificationType.None;
 
             var notifiation = new Notification();
 
-            notifiation.SetNotification(NotificationType.NONE);
+            notifiation.SetNotification(NotificationType.None);
 
             AssertAreEqual(expectedViewName, notifiation.ViewName, "ViewName");
             AssertAreEqual(expectedHeader, notifiation.Header, "Header");
@@ -29,7 +29,7 @@ namespace JoycePrint.Domain.Tests.Models
         }
 
         /// <summary>
-        /// Test the notification that will be set when the notification type is SUCCESS
+        /// Test the notification that will be set when the notification type is Success
         /// </summary>
         [TestMethod]
         public void SetNotificationTypeSuccess()
@@ -37,11 +37,11 @@ namespace JoycePrint.Domain.Tests.Models
             var expectedViewName = "Notification";
             var expectedHeader = "We have recieved your email and will get back to you shortly";
             var expectedMessage = "Some body text";
-            const NotificationType expectedType = NotificationType.SUCCESS;
+            const NotificationType expectedType = NotificationType.Success;
 
             var notifiation = new Notification();
 
-            notifiation.SetNotification(NotificationType.SUCCESS);
+            notifiation.SetNotification(NotificationType.Success);
 
             AssertAreEqual(expectedViewName, notifiation.ViewName, "ViewName");
             AssertAreEqual(expectedHeader, notifiation.Header, "Header");
@@ -58,11 +58,11 @@ namespace JoycePrint.Domain.Tests.Models
             var expectedViewName = "Notification";
             var expectedHeader = "An unexpected error has occurred";
             var expectedMessage = "As the site is experiencing issues at the moment, please give us a call on +353-94-925-6876";
-            const NotificationType expectedType = NotificationType.FAILURE;
+            const NotificationType expectedType = NotificationType.Failure;
 
             var notifiation = new Notification();
 
-            notifiation.SetNotification(NotificationType.FAILURE);
+            notifiation.SetNotification(NotificationType.Failure);
 
             AssertAreEqual(expectedViewName, notifiation.ViewName, "ViewName");
             AssertAreEqual(expectedHeader, notifiation.Header, "Header");

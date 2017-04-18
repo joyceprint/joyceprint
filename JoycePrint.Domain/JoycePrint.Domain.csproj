@@ -75,11 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\Config.cs" />
-    <Compile Include="Enums\MessageLevel.cs" />
-    <Compile Include="Enums\LogLevel.cs" />
     <Compile Include="Enums\NotificationType.cs" />
-    <Compile Include="Log\LogBase.cs" />
-    <Compile Include="Log\EventLogger.cs" />
     <Compile Include="Mail\IEmailConverter.cs" />
     <Compile Include="Mail\IEmail.cs" />
     <Compile Include="Mail\Email.cs" />
@@ -96,6 +92,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Logging\Common.Logging.csproj">
+      <Project>{895bdef1-931e-48bb-b555-4155d79cab2d}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Providers\Common.Providers.csproj">
+      <Project>{a3d48ad3-3ed0-4444-a0e4-099a1114d611}</Project>
+      <Name>Common.Providers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

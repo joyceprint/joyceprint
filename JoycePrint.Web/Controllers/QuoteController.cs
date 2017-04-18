@@ -23,7 +23,7 @@ namespace JoycePrint.Web.Controllers
         [HttpPost]
         public ActionResult Index(QuoteRequest model)
         {
-            var notificationType = model.SendEmail() ? NotificationType.SUCCESS : NotificationType.FAILURE;
+            var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
 
             TempData["NotificationType"] = notificationType;
             

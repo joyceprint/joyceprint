@@ -1,12 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace JoycePrint.Domain.Enums
-{
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
+﻿namespace JoycePrint.Domain.Enums
+{    
     public enum NotificationType
     {
-        NONE,
-        SUCCESS,
-        FAILURE
+        None,
+        Success,
+        Failure
     }
 }

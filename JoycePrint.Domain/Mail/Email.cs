@@ -2,6 +2,8 @@
 using System.Configuration;
 using System.Net.Configuration;
 using System.Net.Mail;
+using Common.Logging;
+using Common.Logging.Enums;
 
 namespace JoycePrint.Domain.Mail
 {
@@ -37,9 +39,9 @@ namespace JoycePrint.Domain.Mail
                 {
                     smtpConfig = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    // TODO: Log the exception using the ILog
+                    Logger.Provider.Log(MessageLevel.Error, ex.Message);
                 }
 
                 return smtpConfig;
@@ -62,9 +64,9 @@ namespace JoycePrint.Domain.Mail
                 smtpClient.Send(message);
                 emailSent = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // TODO: Log the exception using ILog
+                Logger.Provider.Log(MessageLevel.Error, ex.Message);
             }
 
             return emailSent;
