@@ -5,7 +5,8 @@
  * This file contains the styles used with the interaction loading functionalit
 ****************************************************************************************/
 
-.interaction-load {
+/* Page Init Loader Extensions *********************************************************/
+/*.interaction-load {
     opacity: 0;
     transition: opacity 0.3s, transform 0.3s;
     transform: translateZ(0) translateY(1.8rem);
@@ -21,9 +22,9 @@
     opacity: 1;
     transform: translateZ(0) translateY(0);
     backface-visibility: hidden;
-}
+}*/
 
-.media-loader-holder {
+.loader-holder {
     position: fixed;
     display: inline-block;
     top: 50%;
@@ -34,7 +35,7 @@
     transition: opacity 0.3s;
 }
 
-.media-loader {
+.loader {
     position: absolute;
     display: inline-block;
     top: 50%;
@@ -46,7 +47,7 @@
     pointer-events: none;
 }
 
-.media-loader-outside {
+.loader-outside {
     border: 0.3em solid transparent;
     border-left-color: rgba(@color-loading, 0.7);
     border-right-color: rgba(@color-loading, 0.7);
@@ -55,7 +56,7 @@
     width: 4.5rem;    
 }
 
-.media-loader-inside {
+.loader-inside {
     border: 0.35em solid transparent;
     border-left-color: @color-loading;
     border-right-color: @color-loading;

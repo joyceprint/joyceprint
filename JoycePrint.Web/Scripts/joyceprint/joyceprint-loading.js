@@ -11,6 +11,8 @@
  *  
  * This function will only run if it detects the interaction-load on the main tag
  * 
+ * THIS IS NOT BEING USED
+ * To use it - pageFadeIn("interaction-load", "interaction-loading", "interaction-loaded");
  *************************************************************************************************/
 function pageFadeIn(load, loading, loaded) {
         
@@ -77,7 +79,7 @@ function pageFadeIn(load, loading, loaded) {
 function showLoader() {
 
     // Add the loader to the page
-    var loaderHtml = '<div class="media-loader-holder"><div class="media-loader media-loader-inside"></div><div class="media-loader media-loader-outside"></div></div>';
+    var loaderHtml = '<div class="loader-holder"><div class="loader loader-inside"></div><div class="loader loader-outside"></div></div>';
 
     // Add the loader to the page div rather than the body
     // Adding it to the body will cause the modal to stop working
@@ -86,7 +88,7 @@ function showLoader() {
 
 function hideLoader() {
     // Get the loader
-    var loader = document.querySelector(".media-loader-holder");
+    var loader = document.querySelector(".loader-holder");
 
     // Hide the loader
     loader.style.opacity = 0;
