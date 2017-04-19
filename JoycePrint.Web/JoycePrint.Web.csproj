@@ -167,6 +167,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-loading.js" />
     <Content Include="Scripts\joyceprint\joyceprint-extensions.js" />
     <Content Include="Scripts\joyceprint\joyceprint-notification.js" />
     <Content Include="Scripts\joyceprint\error.js" />
@@ -279,6 +280,7 @@
     <Content Include="Content\fonts\helvetica-light\Helvetica-Light.ttf" />
     <Content Include="Content\fonts\helvetica-light\Helvetica-Light.woff" />
     <Content Include="Content\css\helvetica-light.less" />
+    <Content Include="Content\css\joyceprint\loading.less" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
