@@ -1,4 +1,64 @@
-﻿using System.Collections.Generic;
+﻿/*
+ 
+ [1] FIX THE ABOUT US IMAGE FOR LARGE SCREENS
+
+ [1] ADD LOGGING
+
+ ******[1] UI TESTS 
+      header
+        check menu links text
+        check image - logo url and alt text
+        check navigation
+            click on each menu link and ensure that the correct page is shown
+
+     footer
+        check the text
+        check the links for phone and email
+
+     home
+        check the text
+        check the image
+        check the button brings you to the quote section
+
+     service
+        check the text
+        check the images
+
+     about us
+        check the text
+        check the image
+        check the address, phone and email links - check the attributes are correct
+
+        check the image is hidden when the screen is resized
+
+     quote
+        check the checklist text
+        check the map section is present
+        check the recaptcha is present
+
+        check the clear button
+        check validation
+        check the submit buttom
+
+        check the notifications
+            failure
+            success
+
+ [2] ADD ERROR HANDLING
+    add server error code pages
+        and 404 not found page
+    add general error pages
+
+ [3] GET A GOOD FAVICON OFF CLAIRE
+
+ [3] FIX UP THE CSS FILES
+
+ [3] FIX UP THE JAVASCRIPT FILES
+
+ [4] HANDLE THE JAVASCRIPT VALIDATION FOR LEGACY BROWSERS
+ 
+ */
+using System.Collections.Generic;
 using JoycePrint.Web.Tests.Helpers;
 using JoycePrint.Web.Tests.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

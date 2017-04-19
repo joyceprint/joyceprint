@@ -7,7 +7,7 @@
     <div class="input-field col s12" data-test-company>
         <i class="material-icons prefix orange-text text-accent-4">business</i>        
         <input type="text" inputmode="latin-prose" class="validate" id="Contact_Company" name="Contact.Company" maxlength="150" 
-               pattern="\w+" 
+               pattern="( *)((\w+)(-| *))*" 
                required 
                data-val-req-msg="Please enter the company name"/>
         <label for="Contact_Company">Company</label>
@@ -17,7 +17,7 @@
     <div class="input-field col s12" data-test-name>
         <i class="material-icons prefix orange-text text-accent-4">perm_identity</i>
         <input type="text" inputmode="latin-name" class="validate" id="Contact_Name" name="Contact.Name" maxlength="150" 
-               pattern="\w+" 
+               pattern="( *)(([A-Za-z]+)(-| *))*" 
                required 
                data-val-req-msg="Please enter your name"/>
         <label for="Contact_Name">Name</label>        
