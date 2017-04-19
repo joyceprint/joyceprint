@@ -7,23 +7,24 @@
  *************************************************************************************************/
 
 /**************************************************************************************************
- * Fade in on load
+ * Page Fade In on load
  * 
  * @param  {string} load    Class targeting elements to load
  * @param  {string} loading Class to apply when elements are loading
  * @param  {string} loaded  Class to apply when elements have loaded
  * @return {void}
  * 
+ * This function will only run if it detects the interaction-load on the main tag
  *************************************************************************************************/
-fadeIn('interaction-load', 'interaction-loading', 'interaction-loaded');
+pageFadeIn("interaction-load", "interaction-loading", "interaction-loaded");
 
-function fadeIn(load, loading, loaded) {
-    
+function pageFadeIn(load, loading, loaded) {
+        
     // Get the targeted elements
-    var targets = document.querySelectorAll("." + load);
+    var targets = document.querySelectorAll("main." + load);
     
     // Get the loader
-    var loader = document.querySelector('.media-loader-holder');
+    var loader = document.querySelector(".media-loader-holder");
     
     // Get the last index
     var last = targets.length - 1;
@@ -39,7 +40,7 @@ function fadeIn(load, loading, loaded) {
         });
 
         // Watch for window load
-        window.addEventListener('load', () => {
+        window.addEventListener("load", () => {
             
             // Item index
             var i = 0;
