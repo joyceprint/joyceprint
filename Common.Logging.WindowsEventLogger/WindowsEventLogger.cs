@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Text;
 using Common.Logging.Enums;
 
 namespace Common.Logging.WindowsEventLogger
@@ -30,7 +31,38 @@ namespace Common.Logging.WindowsEventLogger
             // Add this as an abstract method of the base class
             // Ensure we have the correct amount of message levels
             // Could add Verbose???? or some others?
-            EventLog.WriteEntry(Source, message, EventLogEntryType.Error);
+            EventLog.WriteEntry(Source, message, ConvertToEvent(messageLevel));
+        }
+
+        public override void Log(MessageLevel messageLevel, Exception ex)
+        {
+            Log(messageLevel, ConvertToMessage(ex));
+        }
+
+        private string ConvertToMessage(Exception ex)
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine($"Exception Message : {ex.Message}");
+            sb.AppendLine($"Stack Trace : {ex.StackTrace}");
+            sb.AppendLine($"Inner Exception : {ex.InnerException}");
+
+            return sb.ToString();
+        }
+
+        private EventLogEntryType ConvertToEvent(MessageLevel level)
+        {
+            switch (level)
+            {
+                case MessageLevel.Information: return EventLogEntryType.Information;
+                case MessageLevel.Security: return EventLogEntryType.SuccessAudit;
+                case MessageLevel.Warning: return EventLogEntryType.Warning;
+                case MessageLevel.Error: return EventLogEntryType.Error;
+                case MessageLevel.Fatal: return EventLogEntryType.Error;
+                case MessageLevel.Debug: return EventLogEntryType.Information;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(level), level, null);
+            }
         }
     }
 }

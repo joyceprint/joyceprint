@@ -11,7 +11,7 @@ namespace Analytics.Analyzer
     {
         private string _version = "1";
 
-        private string _trackingId = "UA-88639794-1";
+        private string _trackingId = Config.AnalyticsTrackingId;
 
         private int _timeout = 500;
 

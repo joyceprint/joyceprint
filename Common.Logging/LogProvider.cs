@@ -1,4 +1,5 @@
-﻿using System.Collections.Specialized;
+﻿using System;
+using System.Collections.Specialized;
 using Common.Logging.Enums;
 
 namespace Common.Logging
@@ -11,5 +12,7 @@ namespace Common.Logging
         }
 
         public abstract void Log(MessageLevel messageLevel, string message);
+
+        public abstract void Log(MessageLevel messageLevel, Exception message);
     }
 }

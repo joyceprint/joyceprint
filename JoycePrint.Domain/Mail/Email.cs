@@ -56,20 +56,10 @@ namespace JoycePrint.Domain.Mail
         /// <returns></returns>
         public bool SendEmail(MailMessage message, SmtpSection smtpConfig)
         {
-            var emailSent = false;
+            var smtpClient = CreateSmtpClient(smtpConfig);
+            smtpClient.Send(message);            
 
-            try
-            {
-                var smtpClient = CreateSmtpClient(smtpConfig);
-                smtpClient.Send(message);
-                emailSent = true;
-            }
-            catch (Exception ex)
-            {
-                Logger.Provider.Log(MessageLevel.Error, ex.Message);
-            }
-
-            return emailSent;
+            return true;
         }
 
         #endregion
