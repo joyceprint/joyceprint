@@ -79,16 +79,18 @@ function showLoader() {
     // Add the loader to the page
     var loaderHtml = '<div class="media-loader-holder"><div class="media-loader media-loader-inside"></div><div class="media-loader media-loader-outside"></div></div>';
 
-    document.body.innerHTML += loaderHtml;
+    // Add the loader to the page div rather than the body
+    // Adding it to the body will cause the modal to stop working
+    $("#loader-placeholder").html(loaderHtml);
 }
 
-function hideLoader(instantHide) {
+function hideLoader() {
     // Get the loader
     var loader = document.querySelector(".media-loader-holder");
 
     // Hide the loader
     loader.style.opacity = 0;
 
-    if (instantHide) loader.parentNode.removeChild(loader);
-    else setTimeout(() => loader.parentNode.removeChild(loader), 400);    
+    // Remove the loader so the browser can stop drawing the animation
+    loader.parentNode.removeChild(loader);    
 }

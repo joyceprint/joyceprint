@@ -35,10 +35,10 @@ function setupSubmitButton() {
             // Get the form
             var form = { target: $("#frm-quote")[0] };
 
+            showLoader();
+
             // Check if it's valid
             if (jalidate.validate(form)) {
-
-                showLoader();
 
                 $.ajax({
                     url: "/quote",
@@ -47,12 +47,12 @@ function setupSubmitButton() {
                     data: $("#frm-quote").serialize()
                 })
                     .fail(function (jqXHR, textStatus) {
-                        hideLoader(false);
+                        hideLoader();
 
                         HandleAjaxError(jqXHR, textStatus);
                     })
                     .done(function (data) {
-                        hideLoader(true);
+                        hideLoader();
 
                         showModal(data.modalView);
                     });
