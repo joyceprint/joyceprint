@@ -8,6 +8,8 @@
  *************************************************************************************************/
 $(document).ready(function () {
 
+    //pageFadeIn("interaction-load", "interaction-loading", "interaction-loaded");
+
     initializeMaterializeFunctionality();
 
     initializeNavFunctionality();

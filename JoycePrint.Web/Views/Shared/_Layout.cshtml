@@ -32,16 +32,11 @@
 
     @Html.Partial("_Header")
 
-    <main class="interaction-load">
+    <main>
         @RenderBody()
     </main>
 
-    @Html.Partial("_Footer")
-    
-    <div class="media-loader-holder">
-        <div class="media-loader media-loader-inside"></div>
-        <div class="media-loader media-loader-outside"></div>
-    </div>
+    @Html.Partial("_Footer")       
 
     @Scripts.Render("~/js/joyceprintjs")
 

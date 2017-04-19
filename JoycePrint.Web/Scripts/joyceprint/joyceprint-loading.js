@@ -8,16 +8,10 @@
 
 /**************************************************************************************************
  * Page Fade In on load
- * 
- * @param  {string} load    Class targeting elements to load
- * @param  {string} loading Class to apply when elements are loading
- * @param  {string} loaded  Class to apply when elements have loaded
- * @return {void}
- * 
+ *  
  * This function will only run if it detects the interaction-load on the main tag
+ * 
  *************************************************************************************************/
-pageFadeIn("interaction-load", "interaction-loading", "interaction-loaded");
-
 function pageFadeIn(load, loading, loaded) {
         
     // Get the targeted elements
@@ -78,4 +72,23 @@ function pageFadeIn(load, loading, loaded) {
             });
         });
     }
+}
+
+function showLoader() {
+
+    // Add the loader to the page
+    var loaderHtml = '<div class="media-loader-holder"><div class="media-loader media-loader-inside"></div><div class="media-loader media-loader-outside"></div></div>';
+
+    document.body.innerHTML += loaderHtml;
+}
+
+function hideLoader(instantHide) {
+    // Get the loader
+    var loader = document.querySelector(".media-loader-holder");
+
+    // Hide the loader
+    loader.style.opacity = 0;
+
+    if (instantHide) loader.parentNode.removeChild(loader);
+    else setTimeout(() => loader.parentNode.removeChild(loader), 400);    
 }

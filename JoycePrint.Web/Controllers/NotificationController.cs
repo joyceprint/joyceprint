@@ -8,12 +8,9 @@ namespace JoycePrint.Web.Controllers
     public class NotificationController : BaseController
     {
         /// <summary>
-        /// This displays the notification to the user with the result of the email send operation
-        /// 
-        /// This is only callable as a child action
+        /// This displays the notification to the user with the result of the email send operation                
         /// </summary>
-        /// <returns></returns>
-        [ChildActionOnly]
+        /// <returns></returns>        
         [HttpGet]
         public JsonResult Index()
         {

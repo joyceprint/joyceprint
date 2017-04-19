@@ -30,13 +30,15 @@ function setupSubmitButton() {
         .click(function (e) {
             // 1 - check if form is valid perform operation
             // 2 - if valid send post
-            // 3 - if invalid display validation errors
+            // 3 - if invalid display validation errors            
 
             // Get the form
             var form = { target: $("#frm-quote")[0] };
 
             // Check if it's valid
             if (jalidate.validate(form)) {
+
+                showLoader();
 
                 $.ajax({
                     url: "/quote",
@@ -45,9 +47,13 @@ function setupSubmitButton() {
                     data: $("#frm-quote").serialize()
                 })
                     .fail(function (jqXHR, textStatus) {
+                        hideLoader(false);
+
                         HandleAjaxError(jqXHR, textStatus);
                     })
                     .done(function (data) {
+                        hideLoader(true);
+
                         showModal(data.modalView);
                     });
             }
