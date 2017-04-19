@@ -36,10 +36,10 @@
     <div class="input-field col s12" data-test-phone>
         <i class="material-icons prefix orange-text text-accent-4">phone</i>
         <input type="tel" inputmode="tel" class="validate" id="Contact_Phone" name="Contact.Phone"                 
-               @*pattern="^(\d{10}|\d{9})$"*@ 
+               pattern="( *)([0-9]+[ ]*[-]?[ ]*)*"
                required 
                data-val-req-msg="Please enter a contact number" 
-               @*data-val-pat-msg="Please use numbers only"*@/>
+               data-val-pat-msg="Please use a valid phone number"/>
         <label for="Contact_Telephone">Telephone Number</label>
         <label for="Contact_Telephone" class="val-msg"></label>
     </div>
