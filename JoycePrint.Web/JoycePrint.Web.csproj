@@ -199,6 +199,7 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\SinglePageController.cs" />
@@ -341,6 +342,7 @@
     <Content Include="Views\Shared\EditorTemplates\Checkbox.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Notification.cshtml" />
     <Content Include="Views\Security\Recaptcha.cshtml" />
+    <Content Include="Views\Shared\Error\General.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

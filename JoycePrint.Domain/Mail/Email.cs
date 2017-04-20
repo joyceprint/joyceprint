@@ -41,7 +41,7 @@ namespace JoycePrint.Domain.Mail
                 }
                 catch (Exception ex)
                 {
-                    Logger.Provider.Log(MessageLevel.Error, ex.Message);
+                    Logger.Instance.Log(MessageLevel.Error, ex.Message);
                 }
 
                 return smtpConfig;

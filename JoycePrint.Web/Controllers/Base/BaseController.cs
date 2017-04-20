@@ -1,6 +1,9 @@
 ﻿using System.IO;
+using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Common.Logging;
+using Common.Logging.Enums;
 
 // ReSharper disable once CheckNamespace
 namespace JoycePrint.Web.Controllers
@@ -91,5 +94,51 @@ namespace JoycePrint.Web.Controllers
                 return sw.ToString();
             }
         }
+
+        #region Error Handling
+
+        /// <summary>
+        /// Override the OnException method to handle all MVC exceptions that can occur.
+        /// This allows us to distinguish between regular and AJAX requests
+        /// 
+        /// IIS --> ASP --> [ MVC ]
+        /// </summary>
+        /// <param name="filterContext"></param>
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            // Set the exception to handled to stop if from bubbling out of the MVC block
+            filterContext.ExceptionHandled = true;
+            
+            // Log the exception
+            Logger.Instance.Log(MessageLevel.Error, filterContext.Exception, GetContextInfo(filterContext));
+
+            // Redirect on error:
+            //filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("General", "Error");
+            filterContext.Result = RedirectToAction("General", "Error");
+
+            //// OR set the result without redirection:
+            //filterContext.Result = new ViewResult
+            //{
+            //    ViewName = "~/Views/Error/Index.cshtml"
+            //};
+        }
+
+        /// <summary>
+        /// Checks the context of the exception and returns the relevant information
+        /// </summary>
+        /// <param name="filterContext"></param>
+        /// <returns></returns>
+        private string GetContextInfo(ExceptionContext filterContext)
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine($"Exception Context Additional Information");
+            sb.AppendLine($"Child Action: [{filterContext.IsChildAction}]");
+            sb.AppendLine($"Ajax Request: [{filterContext.HttpContext.Request.IsAjaxRequest()}]");            
+
+            return sb.ToString();
+        }
+
+        #endregion
     }
 }

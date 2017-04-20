@@ -39,6 +39,13 @@ namespace Common.Logging.WindowsEventLogger
             Log(messageLevel, ConvertToMessage(ex));
         }
 
+        public override void Log(MessageLevel messageLevel, Exception ex, string additionalMessage)
+        {
+            var message = additionalMessage + Environment.NewLine + ConvertToMessage(ex);
+
+            Log(messageLevel, message);
+        }
+
         private string ConvertToMessage(Exception ex)
         {
             var sb = new StringBuilder();

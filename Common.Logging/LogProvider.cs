@@ -14,5 +14,7 @@ namespace Common.Logging
         public abstract void Log(MessageLevel messageLevel, string message);
 
         public abstract void Log(MessageLevel messageLevel, Exception message);
+
+        public abstract void Log(MessageLevel messageLevel, Exception message, string additionalMessage);
     }
 }
