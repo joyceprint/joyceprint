@@ -113,8 +113,7 @@ namespace JoycePrint.Web.Controllers
             Logger.Instance.Log(MessageLevel.Error, filterContext.Exception, GetContextInfo(filterContext));
 
             // Redirect on error:
-            //filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("General", "Error");
-            filterContext.Result = RedirectToAction("General", "Error");
+            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("General", "Error");            
 
             //// OR set the result without redirection:
             //filterContext.Result = new ViewResult
