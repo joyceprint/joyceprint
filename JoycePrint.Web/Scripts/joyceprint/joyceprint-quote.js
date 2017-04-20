@@ -33,12 +33,12 @@ function setupSubmitButton() {
             // 3 - if invalid display validation errors            
 
             // Get the form
-            var form = { target: $("#frm-quote")[0] };
-
-            showLoader();
-
+            var form = { target: $("#frm-quote")[0] };            
+            
             // Check if it's valid
             if (jalidate.validate(form)) {
+
+                showLoader();
 
                 $.ajax({
                     url: "/quote",

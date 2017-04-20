@@ -81,6 +81,9 @@ function showLoader() {
     // Add the loader to the page
     var loaderHtml = '<div class="loader-holder"><div class="loader loader-inside"></div><div class="loader loader-outside"></div></div>';
 
+    // Add the loader overlay class to ensure the user does not click on the screen
+    $("#loader-overlay").addClass("loader-overlay");
+
     // Add the loader to the page div rather than the body
     // Adding it to the body will cause the modal to stop working
     $("#loader-placeholder").html(loaderHtml);
@@ -92,6 +95,9 @@ function hideLoader() {
 
     // Hide the loader
     loader.style.opacity = 0;
+
+    // Remove the loader overlay class to allow the user access to the screen
+    $("#loader-overlay").removeClass("loader-overlay");
 
     // Remove the loader so the browser can stop drawing the animation
     loader.parentNode.removeChild(loader);    
