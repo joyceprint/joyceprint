@@ -1,61 +1,32 @@
 ﻿@using JoycePrint.Domain.Models
+
 @model DocketBook
 
-<section id="docketBook">
+<section id="docket-book" class="row">
 
-    <div class="col-sm-12 jp-header-container">
-        <h3 class="text-primary text-weight-700">Product Information</h3>
+    <div class="input-field col s12">
+        <h4 class="primary-text">Product Information</h4>
     </div>
 
-    <div class="col-sm-12 col-md-6">
-        <div class="form-group">
-            <label class="sr-only" for="docketbook-type">Docket Type</label>
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <span class="input-group-addon bg-primary" aria-hidden="true">
-                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
-                    </span>
-                    @Html.EnumDropDownListFor(model => model.Type, "Type", new { @class = "form-control", required = "required" })
-                </div>
-            </div>
-        </div>
+    <div class="input-field col s12 m12 l4" data-test-docket-type>
+        <i class="material-icons prefix orange-text text-accent-4">label</i>        
+        @Html.EnumDropDownListFor(model => model.Type, "Type", new { @class = "validate", required = "required", data_help = "help-docket-type", data_val_req_msg = "Please make a selection" })   
+        <label for="DocketBook_Type">Docket Type</label>
+        <label for="DocketBook_Type" class="val-msg"></label>
     </div>
 
-    <div class="col-sm-12 col-md-6">
-        <div class="form-group">
-            <label class="sr-only" for="docketbook-quantity">Quantity</label>
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <span class="input-group-addon" aria-hidden="true">
-                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
-                    </span>
-                    <input type="number" inputmode="numeric" class="form-control" id="DocketBook_Quantity" name="DocketBook.Quantity" placeholder="Quantity" min="1" max="1000000" required>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="input-field col s12 m12 l4" data-test-docket-size>
+        <i class="material-icons prefix orange-text text-accent-4">label</i>
+        @Html.EnumDropDownListFor(model => model.Size, "Size", new { @class = "validate", required = "required", data_help = "help-paper-size", data_val_req_msg = "Please make a selection" })
+        <label for="DocketBook_Size">Docket Size</label>
+        <label for="DocketBook_Size" class="val-msg"></label>
+    </div> 
 
-    <div class="col-sm-12 col-lg-6">
-        <div class="form-group">
-            <label class="sr-only" for="docketbook-size">Docket Size</label>
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <span class="input-group-addon" aria-hidden="true">
-                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
-                    </span>
-                    @Html.EnumDropDownListFor(model => model.Size, "Size", new { @class = "form-control", required = "required" })
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-12">
-        <div class="form-group">
-            <div class="col-xs-12">
-                <label class="sr-only" for="message">Message</label>
-                <textarea rows="10" class="form-control" id="DocketBook_Message" name="DocketBook.Message" placeholder="Any additional information" wrap="hard" required></textarea>
-            </div>
-        </div>
-    </div>
+    <div class="input-field col s12 m12 l4" data-test-docket-quantity>
+        <i class="material-icons prefix orange-text text-accent-4">label</i>
+        <input type="number" inputmode="numeric" class="validate" id="DocketBook_Quantity" name="DocketBook.Quantity" min="1" max="1000000" maxlength="7" required data-val-req-msg="How many?">
+        <label for="DocketBook_Quantity">Quantity</label>
+        <label for="DocketBook_Quantity" class="val-msg"></label>
+    </div>         
 
 </section>

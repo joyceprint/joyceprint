@@ -1,52 +1,62 @@
 ﻿@using JoycePrint.Domain.Models
+
 @model QuoteRequest
 
-@{
-    ViewBag.Title = "Quote";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<section id="quote" class="row no-mar-bot light-grey" data-test-form-id="frmQuote">
 
-<section id="quote" class="col-xs-12">
+    <div class="container">
+        <div class="row eq-height no-mar-bot">
+            <div class="col s12">
+                <h1 class="quote-header center-align">Get A Quote</h1>
+            </div>
 
-    <div class="text-center">
-        <h1 class="text-danger text-weight-900">
-            Delivery To Ireland & The UK
-        </h1>
-    </div>
+            <div class="col l5 m10 offset-m1 s12">
+                @Html.Partial("Partial/PrintChecklist")
 
-    <div class="row row-vertical-align">
-
-        <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-1">
-            @Html.Partial("DocketHelp")
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { @class = "form-horizontal", required = "true" }))
-            {
-                @Html.AntiForgeryToken()
-
-                @Html.EditorFor(model => model.Contact, "ContactForm")
-
-                <div class="clearfix"></div>
-
-                @Html.EditorFor(model => model.DocketBook, "DocketForm")
-
-                <div class="col-sm-5 col-sm-offset-1">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <button class="btn btn-success form-control" formmethod="post" type="submit">SUBMIT</button>
-                        </div>
+                <div class="row">
+                    <div class="col s12">
+                        @Html.Partial("Partial/Map")
                     </div>
                 </div>
+            </div>
 
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <button class="btn btn-warning form-control" type="reset">CLEAR</button>
+            <div class="col l6 offset-l1 m10 offset-m1 s12">
+                @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.EditorFor(model => model.Contact, "ContactForm")
+
+                    @Html.EditorFor(model => model.Enquiry, "EnquiryForm")
+
+                    <div class="row no-mar-bot">
+                        <div class="col l7 m12 s12 no-pad-right">
+                            @{ Html.RenderAction("Recaptcha", "Security"); }
+
+                            @*
+                                Change this to be an image - get a security type image
+                                have the image showing on page load
+                                when the user scrolls over the images position on the screen display the text using an animation
+                            *@
+                            <small>We do not share your details with any third parties.</small>
+                        </div>
+
+                        <div class="col s12 space-bot hide-on-large-only"></div>
+
+                        <div class="col l5 m12 s12">
+                            <div class="row">
+                                <div class="col l10 offset-l2 m6 s12 add-pad-bot center">
+                                    <button class="col s12 btn waves-effect orange" type="reset" data-test-clear>CLEAR</button>
+                                </div>
+
+                                <div class="col l10 offset-l2 m6 s12 center">
+                                    <button class="col s12 btn waves-effect waves-green green" type="button" data-test-submit>SUBMIT</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     </div>
 </section>

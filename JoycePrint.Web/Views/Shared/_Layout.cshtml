@@ -15,32 +15,32 @@
 
     <!-- This line allows sub pages to omit the Header section -->
     @RenderSection("head", false)
-   
+
     <!-- Normal browser style sheet links -->
-    @Styles.Render("~/Content/css/joyceprintcss")
-    
+    @Styles.Render("~/css/joyceprintcss")
+
     <link rel="icon" href="@Url.Content("~/Content/images/favicon.ico")" />
 
-    <!-- Including google font: Roboto -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <!-- Incuding the materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
 
     <title>@ViewBag.Title</title>
 
 </head>
 
-<body class="container-fluid">
-            
-    @Html.Partial("_Header")
-       
-    <div id="wrap">        
-        <main id="masterBody" class="row">
-            @RenderBody()
-        </main>
-    </div>
-    
-    @Html.Partial("_Footer")
+<body>
 
-    @Scripts.Render("~/Scripts/joyceprintjs")
+    @Html.Partial("_Header")
+
+    <main>
+        @RenderBody()
+    </main>
+
+    @Html.Partial("_Footer")       
+    
+    <div id="loader-overlay"></div>
+
+    @Scripts.Render("~/js/joyceprintjs")
 
 </body>
 </html>

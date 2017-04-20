@@ -1,10 +1,15 @@
 ﻿using System.Web.Mvc;
 
-namespace JoycePrint.UI.Controllers
+namespace JoycePrint.Web.Controllers
 {
-    [Route("/")]
-    public class ServicesController : Controller
+    [Route("services")]
+    public class ServicesController : BaseController
     {
+        /// <summary>
+        /// This method should only be called from the Single Page Index view, using ChildActionOnly stops this view from being called by the url
+        /// </summary>
+        /// <returns></returns>
+        [ChildActionOnly]
         [HttpGet]
         public ActionResult Index()
         {

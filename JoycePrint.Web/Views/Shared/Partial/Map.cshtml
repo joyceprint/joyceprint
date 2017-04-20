@@ -1,0 +1,80 @@
+﻿<div id="map" data-test-map></div>
+
+<div id="map-cover" hidden>
+    <div class="center-align">
+        <i class="large material-icons hide-overlay" onclick="hideOverlay()">visibility_off</i>
+    </div>
+</div>
+
+<script>
+
+    var map;
+
+    var enableUserInteraction = {
+        draggable: true,
+        zoomControl: true,
+        scrollwheel: true,
+        disableDoubleClickZoom: false
+    };
+
+    var disableUserInteraction = {
+        draggable: false,
+        zoomControl: false,
+        scrollwheel: false,
+        disableDoubleClickZoom: true
+    };
+
+    function hideOverlay() {
+        $("#map-cover").hide();
+
+        var options = enableUserInteraction;
+
+        map.setOptions(options);
+
+        // TODO: Talk with claire and dad before working on any of this - they may not want it
+
+        // https://developers.google.com/maps/documentation/javascript/controls
+        // https://developers.google.com/maps/documentation/javascript/customoverlays
+
+        // we have to zoom in on the map more, show more of foxford
+        // run alans code to put back the overlay if the user scrolls off the map
+        // add a recenter on the map
+
+        // This has to have something placed over it, so when the user is scrolling down the page they don't
+        // scroll way off the location.
+        // There also needs to be a button to recenter the map if the user scrolls off of it.
+        // To do this we have to place a div over the map div and place a button on it to interact with the map
+        // this div should be trasparent but not allow the events to be passed onto the map  until the button is clicked and the div is hidden
+    }
+
+    function initMap() {
+
+        var uluru = { lat: 53.9807771, lng: -9.113247 };
+
+        var options = {
+            zoom: 8,
+            center: uluru
+        };
+
+        map = new google.maps.Map(document.getElementById('map'));
+
+        map.setOptions(options);
+
+        // Disabled at request - 02/20/2017
+        //map.setOptions(disableUserInteraction);
+
+        var markerLabel = {
+            text: "Joyceprint"
+        };
+
+        var marker = new google.maps.Marker({
+            position: uluru,
+            title: 'Joyceprint',
+            label: markerLabel,
+            map: map
+        });
+    }
+</script>
+
+<!-- Create a config wrapper and put this in the config file - use an interface-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmlj3x-6ltqflvHZ1CvVjSbgOzERK85e4&callback=initMap"></script>

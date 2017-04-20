@@ -1,82 +1,47 @@
 ﻿@using JoycePrint.Domain.Models
+
 @model Contact
 
-<section id="contactUs" class="jp-contact-information">
-
-    <div class="col-sm-12 jp-header-container">
-        <h3 class="text-primary text-weight-700">Contact Information</h3>
+<section id="contact-us" class="row no-mar-bot">
+    
+    <div class="input-field col s12" data-test-company>
+        <i class="material-icons prefix orange-text text-accent-4">business</i>        
+        <input type="text" inputmode="latin-prose" class="validate" id="Contact_Company" name="Contact.Company" maxlength="150" 
+               pattern="( *)(([A-Za-z0-9]+)( *))*" 
+               required 
+               data-val-req-msg="Please enter the company name"/>
+        <label for="Contact_Company">Company</label>
+        <label for="Contact_Company" class="val-msg"></label>
+    </div>
+    
+    <div class="input-field col s12" data-test-name>
+        <i class="material-icons prefix orange-text text-accent-4">perm_identity</i>
+        <input type="text" inputmode="latin-name" class="validate" id="Contact_Name" name="Contact.Name" maxlength="150" 
+               pattern="( *)(([A-Za-z]+)(-| *))*" 
+               required 
+               data-val-req-msg="Please enter your name"/>
+        <label for="Contact_Name">Name</label>        
+        <label for="Contact_Name" class="val-msg"></label>
     </div>
 
-    <div class="col-sm-12 col-md-6">
-        <div class="form-group">
-            <label class="sr-only" for="company">Company</label>
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <span class="input-group-addon" aria-hidden="true">
-                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
-                    </span>
-                    <input type="text" inputmode="latin-prose" class="form-control" id="Contact_Company" name="Contact.Company" placeholder="Company" maxlength="150" autofocus required />
-                </div>
-            </div>
-        </div>
+    <div class="input-field col s12" data-test-email>
+        <i class="material-icons prefix orange-text text-accent-4">email</i>
+        <input type="email" inputmode="email" class="validate" id="Contact_Email" name="Contact.Email" maxlength="254"
+               required
+               data-val-req-msg="Did you forget your email" />
+        <label for="Contact_Email">Email</label>
+        <label for="Contact_Email" class="val-msg"></label>
     </div>
 
-    <div class="clearfix visible-sm"></div>
-
-    <div class="col-sm-12 col-md-6">
-        <div class="form-group">
-            <div class="col-xs-12">
-                <label class="sr-only" for="position">Position</label>
-                <input type="text" inputmode="latin-prose" class="form-control" id="Contact_Position" name="Contact.Position" placeholder="Position" maxlength="150" />
-            </div>
-        </div>
+    <div class="input-field col s12" data-test-phone>
+        <i class="material-icons prefix orange-text text-accent-4">phone</i>
+        <input type="tel" inputmode="tel" class="validate" id="Contact_Phone" name="Contact.Phone"                 
+               pattern="( *)([0-9]+[ ]*[-]?[ ]*)*"
+               required 
+               data-val-req-msg="Please enter a contact number" 
+               data-val-pat-msg="Please use a valid phone number"/>
+        <label for="Contact_Telephone">Telephone Number</label>
+        <label for="Contact_Telephone" class="val-msg"></label>
     </div>
 
-    <div class="clearfix visible-md visible-sm"></div>
-
-    <div class="col-sm-12 col-md-6">
-        <div class="form-group">
-            <label class="sr-only" for="name">Name</label>
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <span class="input-group-addon" aria-hidden="true">
-                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
-                    </span>
-                    <input type="text" inputmode="latin-name" class="form-control" id="Contact_Name" name="Contact.Name" placeholder="Name" maxlength="150" required />
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="clearfix visible-sm"></div>
-
-    <div class="col-sm-12 col-md-6">
-        <div class="form-group">
-            <label class="sr-only" for="telephone">Telephone Number</label>
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <span class="input-group-addon" aria-hidden="true">
-                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
-                    </span>
-                    <input type="tel" inputmode="tel" class="form-control" id="Contact_Telephone" name="Contact.Telephone" placeholder="Phone" required />
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="clearfix visible-md visible-sm"></div>
-
-    <div class="col-sm-12 col-lg-6">
-        <div class="form-group">
-            <label class="sr-only" for="email">Email</label>
-            <div class="col-xs-12">
-                <div class="input-group">
-                    <span class="input-group-addon" aria-hidden="true">
-                        <span class="glyphicon glyphicon-asterisk text-warning" aria-hidden="true"></span>
-                    </span>
-                    <input type="email" inputmode="email" class="form-control" id="Contact_Email" name="Contact.Email" placeholder="your@email.com" maxlength="254" required />
-                </div>
-            </div>
-        </div>
-    </div>
 </section>

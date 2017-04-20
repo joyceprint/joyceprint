@@ -1,31 +1,47 @@
-﻿<nav class="navbar navbar-inverse" role="navigation">
-    <div>
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
+﻿<div class="navbar-fixed">
+    <nav data-test-nav>
+        <div class="nav-wrapper">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right" id="jpNav">
-                <li id="liHome" class="h4">
-                    <a href="@Url.Action("Index", "Home")">Home</a>
+            @* ReSharper disable once Html.IdNotResolved *@
+            <a href="#!" class="brand-logo">
+                <img src="~/Content/images/jp-logo-rbg.png" id="logo" alt="JoycePrint Logo" data-test-nav-logo />
+            </a>
+                        
+            @* ReSharper disable once Html.IdNotResolved *@
+            <a href="#!" data-activates="nav-mobile" class="button-collapse" data-test-side-nav-menu>
+                <i class="material-icons primary-text">menu</i>
+            </a>
+
+            <ul id="nav" class="right hide-on-med-and-down">
+                <li name="liHome">
+                    <a href="#home" data-test-nav-home>Home</a>
                 </li>
-                <li id="liQuote" class="h4">
-                    <a href="@Url.Action("Index", "Quote")">Get A Quote</a>
+                <li name="liServices">
+                    <a href="#services" data-test-nav-services>Services</a>
                 </li>
-                <li id="liServices" class="h4">
-                    <a href="@Url.Action("Index", "Services")">Services</a>
+                <li name="liAboutUs">
+                    <a href="#aboutus" data-test-nav-aboutus>About Us</a>
                 </li>
-                <li id="liAboutUs" class="h4">
-                    <a href="@Url.Action("Index", "AboutUs")">About Us</a>
+                <li name="liQuote">
+                    <a href="#quote" data-test-nav-quote>Get A Quote</a>
                 </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+            </ul>                                    
+        </div>
+    </nav>
+</div>
+
+<!-- This needs to be outside the navbar-fixed container or the z-indexes will get screwed up -->
+<ul id="nav-mobile" class="side-nav">
+    <li name="liHome">
+        <a href="#home" data-test-side-nav-home>Home</a>
+    </li>
+    <li name="liServices">
+        <a href="#services" data-test-side-nav-services>Services</a>
+    </li>
+    <li name="liAboutUs">
+        <a href="#aboutus" data-test-side-nav-aboutus>About Us</a>
+    </li>
+    <li name="liQuote">
+        <a href="#quote" data-test-side-nav-quote>Get A Quote</a>
+    </li>
+</ul>

@@ -2,7 +2,7 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace JoycePrint.UI
+namespace JoycePrint.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {

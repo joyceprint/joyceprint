@@ -1,0 +1,65 @@
+﻿/****************************************************************************************
+ * Navigation
+ * --------------------------------------------------
+ * 
+ * This file contains the styles for the navigation bar
+****************************************************************************************/
+
+/* Nav Extensions **********************************************************************/
+.navbar-fixed {
+    height: 110px;
+}
+
+nav {
+    background-color: @color-white;
+    height: 110px;
+    line-height: 110px;
+}
+
+nav img {
+    height: 110px;
+}
+
+nav ul a {
+    color: @color-text;
+    font-size: 1.1rem;
+}
+
+nav ul a:hover,
+ul#nav-mobile a:hover {
+    background-color: transparent;
+    color: @color-pink;
+}
+
+nav ul li.active,
+ul#nav-mobile li.active {
+    background-color: transparent;
+}
+
+nav ul a.active-text,
+ul#nav-mobile a.active-text {
+    .active-text;
+}
+
+/* Side Nav Extensions *****************************************************************/
+.button-collapse {
+    .cursor-pointer;
+    margin-top: 27.5px !important;
+}
+
+ul#nav-mobile a {    
+    font-size: 1.3rem;
+}
+/* Custom Styles ***********************************************************************/
+#logo {
+    padding-left: 5vw;
+}
+
+#nav {
+    padding-right: 5vw;
+}
+
+#nav li {
+    padding-left: 1.9vw;
+    padding-right: 1.9vw;
+}

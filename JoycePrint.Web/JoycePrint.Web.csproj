@@ -141,29 +141,154 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\bootstrap-theme.css" />
-    <Content Include="Content\css\bootstrap-theme.min.css" />
-    <Content Include="Content\css\bootstrap.css" />
-    <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\materialize.css" />
+    <Content Include="Content\css\materialize.min.css" />
+    <Content Include="Content\fonts\avenir\Book\Avenir-Book.svg" />
+    <Content Include="Content\fonts\avenir\Heavy\Avenir-Heavy.svg" />
+    <Content Include="Content\fonts\avenir\Light\Avenir-Light.svg" />
+    <Content Include="Content\fonts\open-sans\BoldItalic\OpenSans-BoldItalic.svg" />
+    <Content Include="Content\fonts\open-sans\Bold\OpenSans-Bold.svg" />
+    <Content Include="Content\fonts\open-sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.svg" />
+    <Content Include="Content\fonts\open-sans\ExtraBold\OpenSans-ExtraBold.svg" />
+    <Content Include="Content\fonts\open-sans\Italic\OpenSans-Italic.svg" />
+    <Content Include="Content\fonts\open-sans\LightItalic\OpenSans-LightItalic.svg" />
+    <Content Include="Content\fonts\open-sans\Light\OpenSans-Light.svg" />
+    <Content Include="Content\fonts\open-sans\Regular\OpenSans-Regular.svg" />
+    <Content Include="Content\fonts\open-sans\SemiboldItalic\OpenSans-SemiboldItalic.svg" />
+    <Content Include="Content\fonts\open-sans\Semibold\OpenSans-Semibold.svg" />
+    <Content Include="Content\images\aboutus.jpg" />
     <Content Include="Content\images\favicon.ico" />
-    <Content Include="Content\images\jp-logo-footer.jpg" />
-    <Content Include="Content\images\jp-logo.jpg" />
+    <Content Include="Content\images\homepage.jpg" />
+    <Content Include="Content\images\jp-logo-bw.png" />
+    <Content Include="Content\images\jp-logo-rbg.png" />
+    <Content Include="Content\images\services-stationery.jpg" />
+    <Content Include="Content\images\services-docketbooks.jpg" />
+    <Content Include="Content\images\services-design.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-loading.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-extensions.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-notification.js" />
+    <Content Include="Scripts\joyceprint\error.js" />
+    <Content Include="Scripts\joyceprint\materialize-extensions.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-quote.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-aboutus.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-home.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-nav.js" />
+    <Content Include="Scripts\joyceprint\jalidate.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-recaptcha.js" />
     <Content Include="Scripts\joyceprint\joyceprint.js" />
+    <Content Include="Content\fonts\roboto\Roboto-Bold.eot" />
+    <Content Include="Content\fonts\roboto\Roboto-Bold.ttf" />
+    <Content Include="Content\fonts\roboto\Roboto-Bold.woff" />
+    <Content Include="Content\fonts\roboto\Roboto-Bold.woff2" />
+    <Content Include="Content\fonts\roboto\Roboto-Light.eot" />
+    <Content Include="Content\fonts\roboto\Roboto-Light.ttf" />
+    <Content Include="Content\fonts\roboto\Roboto-Light.woff" />
+    <Content Include="Content\fonts\roboto\Roboto-Light.woff2" />
+    <Content Include="Content\fonts\roboto\Roboto-Medium.eot" />
+    <Content Include="Content\fonts\roboto\Roboto-Medium.ttf" />
+    <Content Include="Content\fonts\roboto\Roboto-Medium.woff" />
+    <Content Include="Content\fonts\roboto\Roboto-Medium.woff2" />
+    <Content Include="Content\fonts\roboto\Roboto-Regular.eot" />
+    <Content Include="Content\fonts\roboto\Roboto-Regular.ttf" />
+    <Content Include="Content\fonts\roboto\Roboto-Regular.woff" />
+    <Content Include="Content\fonts\roboto\Roboto-Regular.woff2" />
+    <Content Include="Content\fonts\roboto\Roboto-Thin.eot" />
+    <Content Include="Content\fonts\roboto\Roboto-Thin.ttf" />
+    <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
+    <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\NotificationController.cs" />
+    <Compile Include="Controllers\SinglePageController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="Extensions\ComposableBundle.cs" />
+    <Content Include="Content\css\joyceprint\nav.less" />
+    <Content Include="Content\css\joyceprint\variables.less" />
+    <Content Include="Content\css\joyceprint\font.less" />
+    <Content Include="Content\css\joyceprint\about-us.less" />
+    <Content Include="Content\css\joyceprint\quote.less" />
+    <Content Include="Content\css\joyceprint\validation.less" />
+    <Content Include="Content\css\joyceprint\materialize-extensions.less" />
+    <Content Include="Content\css\joyceprint\layout.less" />
+    <Content Include="Content\css\joyceprint\html-tag.less" />
+    <Content Include="Content\css\joyceprint\color.less" />
+    <Content Include="Content\css\joyceprint\services.less" />
+    <Content Include="Content\css\joyceprint\home.less" />
+    <Content Include="Content\fonts\open-sans\BoldItalic\OpenSans-BoldItalic.eot" />
+    <Content Include="Content\fonts\open-sans\BoldItalic\OpenSans-BoldItalic.ttf" />
+    <Content Include="Content\fonts\open-sans\BoldItalic\OpenSans-BoldItalic.woff" />
+    <Content Include="Content\fonts\open-sans\BoldItalic\OpenSans-BoldItalic.woff2" />
+    <Content Include="Content\fonts\open-sans\Bold\OpenSans-Bold.eot" />
+    <Content Include="Content\fonts\open-sans\Bold\OpenSans-Bold.ttf" />
+    <Content Include="Content\fonts\open-sans\Bold\OpenSans-Bold.woff" />
+    <Content Include="Content\fonts\open-sans\Bold\OpenSans-Bold.woff2" />
+    <Content Include="Content\fonts\open-sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.eot" />
+    <Content Include="Content\fonts\open-sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="Content\fonts\open-sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.woff" />
+    <Content Include="Content\fonts\open-sans\ExtraBoldItalic\OpenSans-ExtraBoldItalic.woff2" />
+    <Content Include="Content\fonts\open-sans\ExtraBold\OpenSans-ExtraBold.eot" />
+    <Content Include="Content\fonts\open-sans\ExtraBold\OpenSans-ExtraBold.ttf" />
+    <Content Include="Content\fonts\open-sans\ExtraBold\OpenSans-ExtraBold.woff" />
+    <Content Include="Content\fonts\open-sans\ExtraBold\OpenSans-ExtraBold.woff2" />
+    <Content Include="Content\fonts\open-sans\Italic\OpenSans-Italic.eot" />
+    <Content Include="Content\fonts\open-sans\Italic\OpenSans-Italic.ttf" />
+    <Content Include="Content\fonts\open-sans\Italic\OpenSans-Italic.woff" />
+    <Content Include="Content\fonts\open-sans\Italic\OpenSans-Italic.woff2" />
+    <Content Include="Content\fonts\open-sans\LightItalic\OpenSans-LightItalic.eot" />
+    <Content Include="Content\fonts\open-sans\LightItalic\OpenSans-LightItalic.ttf" />
+    <Content Include="Content\fonts\open-sans\LightItalic\OpenSans-LightItalic.woff" />
+    <Content Include="Content\fonts\open-sans\LightItalic\OpenSans-LightItalic.woff2" />
+    <Content Include="Content\fonts\open-sans\Light\OpenSans-Light.eot" />
+    <Content Include="Content\fonts\open-sans\Light\OpenSans-Light.ttf" />
+    <Content Include="Content\fonts\open-sans\Light\OpenSans-Light.woff" />
+    <Content Include="Content\fonts\open-sans\Light\OpenSans-Light.woff2" />
+    <Content Include="Content\fonts\open-sans\Regular\OpenSans-Regular.eot" />
+    <Content Include="Content\fonts\open-sans\Regular\OpenSans-Regular.ttf" />
+    <Content Include="Content\fonts\open-sans\Regular\OpenSans-Regular.woff" />
+    <Content Include="Content\fonts\open-sans\Regular\OpenSans-Regular.woff2" />
+    <Content Include="Content\fonts\open-sans\SemiboldItalic\OpenSans-SemiboldItalic.eot" />
+    <Content Include="Content\fonts\open-sans\SemiboldItalic\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="Content\fonts\open-sans\SemiboldItalic\OpenSans-SemiboldItalic.woff" />
+    <Content Include="Content\fonts\open-sans\SemiboldItalic\OpenSans-SemiboldItalic.woff2" />
+    <Content Include="Content\fonts\open-sans\Semibold\OpenSans-Semibold.eot" />
+    <Content Include="Content\fonts\open-sans\Semibold\OpenSans-Semibold.ttf" />
+    <Content Include="Content\fonts\open-sans\Semibold\OpenSans-Semibold.woff" />
+    <Content Include="Content\fonts\open-sans\Semibold\OpenSans-Semibold.woff2" />
+    <Content Include="Content\css\open-sans.less" />
+    <Content Include="Content\fonts\avenir\Light\Avenir-Light.eot" />
+    <Content Include="Content\fonts\avenir\Light\Avenir-Light.ttf" />
+    <Content Include="Content\fonts\avenir\Light\Avenir-Light.woff" />
+    <Content Include="Content\fonts\avenir\Light\Avenir-Light.woff2" />
+    <Content Include="Content\css\avenir.less" />
+    <Content Include="Content\css\joyceprint\print-checklist.less" />
+    <Content Include="Content\css\joyceprint\enquiry-form.less" />
+    <Content Include="Content\fonts\avenir\Book\Avenir-Book.eot" />
+    <Content Include="Content\fonts\avenir\Book\Avenir-Book.otf" />
+    <Content Include="Content\fonts\avenir\Book\Avenir-Book.ttf" />
+    <Content Include="Content\fonts\avenir\Book\Avenir-Book.woff" />
+    <Content Include="Content\fonts\avenir\Book\Avenir-Book.woff2" />
+    <Content Include="Content\fonts\avenir\Light\Avenir-Light.otf" />
+    <Content Include="Content\fonts\avenir\Heavy\Avenir-Heavy.eot" />
+    <Content Include="Content\fonts\avenir\Heavy\Avenir-Heavy.otf" />
+    <Content Include="Content\fonts\avenir\Heavy\Avenir-Heavy.ttf" />
+    <Content Include="Content\fonts\avenir\Heavy\Avenir-Heavy.woff" />
+    <Content Include="Content\fonts\avenir\Heavy\Avenir-Heavy.woff2" />
+    <Content Include="Content\css\joyceprint\map.less" />
+    <Content Include="Content\fonts\helvetica-light\Helvetica-Light.eot" />
+    <Content Include="Content\fonts\helvetica-light\Helvetica-Light.ttf" />
+    <Content Include="Content\fonts\helvetica-light\Helvetica-Light.woff" />
+    <Content Include="Content\css\helvetica-light.less" />
+    <Content Include="Content\css\joyceprint\loading.less" />
+    <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\materialize.js" />
+    <Content Include="Scripts\materialize.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -179,6 +304,7 @@
     <Compile Include="Controllers\QuoteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Extensions\HtmlDropDown.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,14 +316,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\bootstrap-config.json" />
-    <Content Include="Content\css\joyceprint\joyceprint.less" />
+    <Content Include="Content\css\joyceprint.less" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\ContactUs\ContactUs.cshtml" />
-    <Content Include="Views\AboutUs\AboutUs.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Quote\Index.cshtml" />
@@ -206,6 +331,16 @@
     <Content Include="Views\Quote\EditorTemplates\ContactForm.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Services\Partial\DocketBooks.cshtml" />
+    <Content Include="Views\Services\Partial\Stationery.cshtml" />
+    <Content Include="Views\Services\Partial\DesignService.cshtml" />
+    <Content Include="Views\SinglePage\Index.cshtml" />
+    <Content Include="Views\Quote\Partial\PrintChecklist.cshtml" />
+    <Content Include="Views\Shared\Partial\Map.cshtml" />
+    <Content Include="Views\Quote\EditorTemplates\EnquiryForm.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Checkbox.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Notification.cshtml" />
+    <Content Include="Views\Security\Recaptcha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -214,11 +349,32 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Analytics.Analyzer\Analytics.Analyzer.csproj">
+      <Project>{07092f0d-9993-4874-90eb-10a7919bae50}</Project>
+      <Name>Analytics.Analyzer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Analytics\Analytics.csproj">
+      <Project>{5383BC90-EC8B-4503-9AB1-5A7743F9C37A}</Project>
+      <Name>Analytics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Logging.WindowsEventLogger\Common.Logging.WindowsEventLogger.csproj">
+      <Project>{dfd727b6-b98c-4533-a9a6-262596de8bc1}</Project>
+      <Name>Common.Logging.WindowsEventLogger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Logging\Common.Logging.csproj">
+      <Project>{895bdef1-931e-48bb-b555-4155d79cab2d}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Providers\Common.Providers.csproj">
+      <Project>{a3d48ad3-3ed0-4444-a0e4-099a1114d611}</Project>
+      <Name>Common.Providers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JoycePrint.Domain\JoycePrint.Domain.csproj">
       <Project>{c2c140d1-5e4e-4df3-a199-26cdb5fa530a}</Project>
       <Name>JoycePrint.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

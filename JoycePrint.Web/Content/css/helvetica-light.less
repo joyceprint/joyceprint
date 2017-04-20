@@ -1,0 +1,29 @@
+﻿/**************************************************************************************
+ * Helvetica Light Font
+ * --------------------------------------------------
+ * 
+ * This file contains the avenir font imports
+ *
+ * .eot         :   IE9+ Compat Modes
+ * .eot?#iefix  :   IE6 - IE8
+ * .woff        :   Modern Browsers
+ * .woff2       :   Super Modern Browsers
+ * .ttf         :   Safari, Andriod, iOS
+ * .svg         :   Legacy iOS
+ * 
+**************************************************************************************/
+
+@HelveticaLightPath: "../fonts/helvetica-light";
+
+/* Light *************************************************************/
+@font-face {
+  font-family: 'Helvetica Light';
+  src: url('@{HelveticaLightPath}/Helvetica-Light.eot');
+  src: url('@{HelveticaLightPath}/Helvetica-Light.eot?#iefix') format('embedded-opentype'),
+       url('@{HelveticaLightPath}/Helvetica-Light.woff') format('woff'),
+       //url('@{HelveticaLightPath}/Helvetica-Light.woff2') format('woff2'),
+       //url('@{HelveticaLightPath}/Helvetica-Light.svg#Helvetica-Light') format('svg'),     
+       url('@{HelveticaLightPath}/Helvetica-Light.ttf') format('truetype');      
+  font-weight: 300;
+  font-style: normal;
+}

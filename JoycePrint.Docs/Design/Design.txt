@@ -1,0 +1,55 @@
+TODO
+------------------------------------------------
+
+The site has to be a single page., like the wix site.
+So change the nav control to point to further down the same page
+The nav bar sections should highlight and update when the scrolled section changes
+
+Create each of the views in as is now, with different controllers and different views
+Load them all together in a master view file.
+
+----------------
+Pages Needed
+----------------
+	* Pages are also layed out in order they need to be placed on the page
+	* PV - This indicates that this should be in it's own partial view
+	
+	Header [PV]
+		As is from wix site
+		Have images
+		Needs to update for the different sections
+		Add Contact Us
+		
+	Home [PV]
+		As is from wix
+		Have images
+
+	Services [PV - Have each service is also a PV]
+		As is from wix
+		Claire sending images
+
+	About Us [PV]
+		As is from wix
+		Have images
+		
+	Move this into it's own view as we don't know where to put it yet
+		Move the old map up under the about us text [PV]
+		Move the address with postcode and email and tel to under the about us page image [PV]
+			Add the company reg number to this information
+
+	Get A Quote [PV - Other PVs from the PDF image Checklist, Personal info, quote message, enquiry type (this will be product info in future), help info] 
+		Add this to the place on the wix site where the "Clients and client logos are" include the area taken up the the image above the "Clients" section
+		Use what claire send on in the email [image]
+		Add in some of the previous more useful information
+			Paper Size
+					
+	Contact Us -- {REMOVE THIS - IT'S NOT NEEDED}
+		Have this as is from wix
+			Remove the map
+
+	Footer [PV]	
+		Have the logo
+		Have the address, company reg number, email?
+		
+		
+		

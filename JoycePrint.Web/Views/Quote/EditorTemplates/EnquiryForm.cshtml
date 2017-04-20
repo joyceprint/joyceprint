@@ -1,0 +1,32 @@
+﻿@using JoycePrint.Domain.Models
+
+@model Enquiry
+
+<section id="enquiry" class="row no-mar-bot">
+
+    <div class="col s12 checkbox-container-header hide">
+        <span class="text-700">Enquiry Type</span> <i>(required - select as many as approciate)</i>
+    </div>
+
+    <div class="col s11 offset-s1 checkbox-container-space hide">
+        @*
+            If checkbox not checked, form submit only hidden (false)
+            If checked, then form submit two fields (false and true) and MVC set true for bool property
+        *@
+        <input type="checkbox" id="Enquiry_IsQuote" name="Enquiry.IsQuote" value="true" />
+        <label for="Enquiry_IsQuote" class="checkbox-pad">Quote</label>
+        <input type="hidden" name="Enquiry.IsQuote" value="false" />
+
+        <input type="checkbox" id="Enquiry_IsQuestion" value="true" name="Enquiry.IsQuestion" />
+        <label for="Enquiry_IsQuestion" class="checkbox-pad">Question</label>
+        <input type="hidden" name="Enquiry.IsQuestion" value="false" />
+    </div>
+
+    <div class="input-field col s12" data-test-message>
+        <i class="material-icons prefix orange-text text-accent-4">message</i>
+        <textarea rows="20" class="materialize-textarea validate message border-side" id="Enquiry_Message" name="Enquiry.Message" wrap="hard" required data-val-req-msg="Please provide details"></textarea>
+        <label for="Message" class="label-transform-stop">Quote / Question Details</label>
+        <label for="Message" class="val-msg"></label>
+    </div>
+
+</section>

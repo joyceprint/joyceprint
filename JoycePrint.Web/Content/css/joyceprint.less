@@ -1,0 +1,54 @@
+﻿/**************************************************************************************
+ * JoycePrint Styles
+ * --------------------------------------------------
+ *
+ * This file all required less files for the application
+**************************************************************************************/
+
+@JpLessPath: "/Content/css/joyceprint";
+
+@import "avenir.less";
+@import "open-sans.less";
+@import "helvetica-light.less";
+
+@import "@{JpLessPath}/variables.less";
+
+@import "@{JpLessPath}/font.less";
+@import "@{JpLessPath}/color.less";
+
+@import "@{JpLessPath}/loading.less";
+@import "@{JpLessPath}/html-tag.less";
+@import "@{JpLessPath}/materialize-extensions.less";
+
+@import "@{JpLessPath}/validation.less";
+
+// Styles for the Layout View
+@import "@{JpLessPath}/layout.less";
+
+@import "@{JpLessPath}/nav.less";
+
+@import "@{JpLessPath}/home.less";
+@import "@{JpLessPath}/services.less";
+@import "@{JpLessPath}/about-us.less";
+
+@import "@{JpLessPath}/quote.less";
+@import "@{JpLessPath}/enquiry-form.less";
+@import "@{JpLessPath}/print-checklist.less";
+@import "@{JpLessPath}/map.less";
+
+
+/// DON'T KNOW THE BEST PLACE FOR THESE YET
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.section-header {
+    .text-600;
+    font-family: "Avenir Heavy";
+    color: @color-grey;
+    letter-spacing: 0.2rem;
+
+    padding-top: 50px;
+    padding-bottom: 25px;
+    margin-top: 0px;
+}
