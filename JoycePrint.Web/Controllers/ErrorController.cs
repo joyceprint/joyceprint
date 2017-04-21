@@ -13,6 +13,7 @@ namespace JoycePrint.Web.Controllers
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult Ajax()
         {
+            //todo this needs to handle all ajax screw ups
             var data = RenderPartialViewToString(ControllerContext, null, null);
 
             return Json(new { modalView = data }, JsonRequestBehavior.AllowGet);
@@ -29,7 +30,7 @@ namespace JoycePrint.Web.Controllers
             // Set this value to hide the navigation menu in hte _Navigation view
             TempData["HideNavMenuOnError"] = true;
 
-            return View("Error/General");
+            return View("Error/Error");
         }
     }
 }
