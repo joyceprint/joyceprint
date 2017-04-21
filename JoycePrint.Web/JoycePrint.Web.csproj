@@ -173,8 +173,6 @@
     <Content Include="Scripts\joyceprint\error.js" />
     <Content Include="Scripts\joyceprint\materialize-extensions.js" />
     <Content Include="Scripts\joyceprint\joyceprint-quote.js" />
-    <Content Include="Scripts\joyceprint\joyceprint-aboutus.js" />
-    <Content Include="Scripts\joyceprint\joyceprint-home.js" />
     <Content Include="Scripts\joyceprint\joyceprint-nav.js" />
     <Content Include="Scripts\joyceprint\jalidate.js" />
     <Content Include="Scripts\joyceprint\joyceprint-recaptcha.js" />

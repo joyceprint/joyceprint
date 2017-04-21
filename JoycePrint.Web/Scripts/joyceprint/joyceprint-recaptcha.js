@@ -27,9 +27,6 @@ function handleCaptcha(captchaResponse) {
  * 
  *************************************************************************************************/
 function handleExpiredCaptcha() {
-    // This function should call the reset method
-    // I am unable to get the control to time out
-
     grecaptcha.reset();
 }
 

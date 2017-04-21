@@ -76,6 +76,9 @@ function pageFadeIn(load, loading, loaded) {
     }
 }
 
+/**************************************************************************************************
+ * Show the loader and the overlay that covers the entire page
+ *************************************************************************************************/
 function showLoader() {
 
     // Add the loader to the page
@@ -89,6 +92,9 @@ function showLoader() {
     $("#loader-placeholder").html(loaderHtml);
 }
 
+/**************************************************************************************************
+ * Hide the loaded and remove the overlay
+ *************************************************************************************************/
 function hideLoader() {
     // Get the loader
     var loader = document.querySelector(".loader-holder");
