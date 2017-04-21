@@ -16,7 +16,7 @@ namespace JoycePrint.Web
         {
             None,
             Home,
-            Services,            
+            Services,
             AboutUs,
             ContactUs,
             Quote,
@@ -33,8 +33,8 @@ namespace JoycePrint.Web
             "~/Scripts/joyceprint/joyceprint-extensions.js",
             "~/Scripts/joyceprint/joyceprint-nav.js",
             "~/Scripts/joyceprint/joyceprint-loading.js",
-            "~/Scripts/joyceprint/joyceprint.js",            
-            "~/Scripts/joyceprint/error.js"
+            "~/Scripts/joyceprint/joyceprint-error.js",
+            "~/Scripts/joyceprint/joyceprint.js"
         };
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace JoycePrint.Web
 #else
             BundleTable.EnableOptimizations = true;
 #endif
-        }        
+        }
 
         /// <summary>
         /// Add the scripts to a composable bundle
@@ -67,9 +67,9 @@ namespace JoycePrint.Web
             var baseBundle = new ScriptBundle("~/js/joyceprintjs")
                                             .AsComposable()
                                             .Include(BaseBundle.ToArray());
-                        
+
             bundles.Add(baseBundle);
-        }        
+        }
 
         /// <summary>
         /// Add the styles to the style bundle
@@ -81,9 +81,8 @@ namespace JoycePrint.Web
             // The less file is translated to css by the LessTransform class passed into the bundle
             bundles.Add(new Bundle("~/css/joyceprintcss",
                                 new IBundleTransform[] { new LessTransform(), new CssMinify() })
-                                .Include("~/Content/css/materialize.min.css",                                    
-                                    "~/Content/css/joyceprint.less")
-                                    );
+                                .Include("~/Content/css/materialize.min.css",
+                                    "~/Content/css/joyceprint.less"));
         }
 
         /// <summary>
@@ -93,24 +92,24 @@ namespace JoycePrint.Web
         {
             var additionalScript = new List<string>();
 
-            switch(pageBundle)
+            switch (pageBundle)
             {
                 case PageBundle.None: break;
-                case PageBundle.Home: 
+                case PageBundle.Home:
                     break;
                 case PageBundle.Services:
                     break;
-                case PageBundle.AboutUs:                   
+                case PageBundle.AboutUs:
                     break;
-                case PageBundle.ContactUs:                    
+                case PageBundle.ContactUs:
                     break;
                 case PageBundle.Quote:
-                    additionalScript.Add("~/Scripts/joyceprint/jalidate.js");              
+                    additionalScript.Add("~/Scripts/joyceprint/jalidate.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
-                    break;  
-                case PageBundle.All:                    
+                    break;
+                case PageBundle.All:
                     additionalScript.Add("~/Scripts/joyceprint/jalidate.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");

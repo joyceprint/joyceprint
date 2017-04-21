@@ -170,7 +170,7 @@
     <Content Include="Scripts\joyceprint\joyceprint-loading.js" />
     <Content Include="Scripts\joyceprint\joyceprint-extensions.js" />
     <Content Include="Scripts\joyceprint\joyceprint-notification.js" />
-    <Content Include="Scripts\joyceprint\error.js" />
+    <Content Include="Scripts\joyceprint\joyceprint-error.js" />
     <Content Include="Scripts\joyceprint\materialize-extensions.js" />
     <Content Include="Scripts\joyceprint\joyceprint-quote.js" />
     <Content Include="Scripts\joyceprint\joyceprint-nav.js" />

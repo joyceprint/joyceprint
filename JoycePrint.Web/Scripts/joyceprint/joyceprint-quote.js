@@ -31,7 +31,7 @@ function setupSubmitButton() {
             // 1 - check if form is valid perform operation
             // 2 - if valid send post
             // 3 - if invalid display validation errors            
-
+            
             // Get the form
             var form = { target: $("#frm-quote")[0] };            
             
