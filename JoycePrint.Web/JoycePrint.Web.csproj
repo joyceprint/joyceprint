@@ -280,6 +280,7 @@
     <Content Include="Content\fonts\helvetica-light\Helvetica-Light.woff" />
     <Content Include="Content\css\joyceprint\fonts\helvetica-light.less" />
     <Content Include="Content\css\joyceprint\base\loading.less" />
+    <Content Include="Content\css\joyceprint.css" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
