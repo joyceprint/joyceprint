@@ -344,7 +344,7 @@
     <Content Include="Views\Shared\EditorTemplates\Checkbox.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Notification.cshtml" />
     <Content Include="Views\Security\Recaptcha.cshtml" />
-    <Content Include="Views\Shared\Error\General.cshtml" />
+    <Content Include="Views\Shared\Error\Error.cshtml" />
     <Content Include="Views\Shared\Error\404.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
