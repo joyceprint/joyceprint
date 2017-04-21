@@ -96,16 +96,13 @@ namespace JoycePrint.Web
             switch(pageBundle)
             {
                 case PageBundle.None: break;
-                case PageBundle.Home:
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-home.js");
+                case PageBundle.Home: 
                     break;
                 case PageBundle.Services:
                     break;
-                case PageBundle.AboutUs:
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-aboutus.js");
+                case PageBundle.AboutUs:                   
                     break;
-                case PageBundle.ContactUs:
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-contactus.js");
+                case PageBundle.ContactUs:                    
                     break;
                 case PageBundle.Quote:
                     additionalScript.Add("~/Scripts/joyceprint/jalidate.js");              
@@ -113,10 +110,7 @@ namespace JoycePrint.Web
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
                     break;  
-                case PageBundle.All:
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-home.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-aboutus.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-contactus.js");
+                case PageBundle.All:                    
                     additionalScript.Add("~/Scripts/joyceprint/jalidate.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
