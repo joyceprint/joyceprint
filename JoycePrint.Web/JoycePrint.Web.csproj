@@ -346,6 +346,7 @@
     <Content Include="Views\Security\Recaptcha.cshtml" />
     <Content Include="Views\Shared\Error\Error.cshtml" />
     <Content Include="Views\Shared\Error\404.html" />
+    <Content Include="Views\Shared\Error\Ajax.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
