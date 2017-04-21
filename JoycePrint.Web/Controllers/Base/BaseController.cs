@@ -104,6 +104,18 @@ namespace JoycePrint.Web.Controllers
         /// IIS --> ASP --> [ MVC ]
         /// </summary>
         /// <param name="filterContext"></param>
+        /// <remarks>
+        /// Handles all exceptions that are thrown within the MVC framework
+        /// 
+        /// No exception that originates outside the controller will be caught by OnException. 
+        /// An excellent example of an exception not being caught by OnException is a ‘null reference’ 
+        /// exception that results in the model-binding layer. 
+        /// Another example is ‘route not-found’ exception.
+        /// 
+        /// The Controller.OnException method gives you a little bit more flexibility than the HandleErrorAttribute, 
+        /// but it is still tied to the MVC framework. It is useful when you need to distinguish your error handling 
+        /// between regular and AJAX requests on a controller level.
+        /// </remarks>
         protected override void OnException(ExceptionContext filterContext)
         {
             // Set the exception to handled to stop if from bubbling out of the MVC block
