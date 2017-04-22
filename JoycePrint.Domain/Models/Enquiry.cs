@@ -1,4 +1,6 @@
-﻿namespace JoycePrint.Domain.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace JoycePrint.Domain.Models
 {
     public class Enquiry
     {
@@ -15,6 +17,7 @@
         /// <summary>
         /// The additional information given by the client
         /// </summary>
+        [Required(ErrorMessage = "Please provide details")]
         public string Message { get; set; }
     }
 }
