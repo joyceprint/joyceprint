@@ -23,11 +23,16 @@ namespace JoycePrint.Web.Controllers
         [HttpPost]
         public ActionResult Index(QuoteRequest model)
         {
-            var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
+            if (ModelState.IsValid)
+            {
+                var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
 
-            TempData["NotificationType"] = notificationType;
-            
-            return RedirectToAction("Index", "Notification");
+                TempData["NotificationType"] = notificationType;
+
+                return RedirectToAction("Index", "Notification");
+            }
+
+            return View("Index", model);
         }
     }
 }

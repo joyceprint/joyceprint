@@ -23,8 +23,10 @@ namespace JoycePrint.Web
             All
         }
 
+        #region Bundle Files
+
         /// <summary>
-        /// The list of base bundles to be used on each page
+        /// The list of base scripts to be used on each page
         /// </summary>
         public static List<string> BaseBundle => new List<string> {
             "~/Scripts/jquery-3.1.1.js",
@@ -36,6 +38,17 @@ namespace JoycePrint.Web
             "~/Scripts/joyceprint/joyceprint-error.js",
             "~/Scripts/joyceprint/joyceprint.js"
         };
+
+        /// <summary>
+        /// The list of validation scripts to be used on each page
+        /// </summary>
+        public static List<string> ValidationBundle => new List<string> {
+            "~/Scripts/jquery.validate.min.js",
+            "~/Scripts/jquery.validate.unobtrusive.min.js",
+            "~/Scripts/joyceprint/jalidate.js"
+        };
+
+        #endregion
 
         /// <summary>
         /// Register the bundles for the initial application start up
@@ -104,13 +117,13 @@ namespace JoycePrint.Web
                 case PageBundle.ContactUs:
                     break;
                 case PageBundle.Quote:
-                    additionalScript.Add("~/Scripts/joyceprint/jalidate.js");
+                    additionalScript.AddRange(ValidationBundle);
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
                     break;
                 case PageBundle.All:
-                    additionalScript.Add("~/Scripts/joyceprint/jalidate.js");
+                    additionalScript.AddRange(ValidationBundle);
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
                     additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
