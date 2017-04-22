@@ -13,8 +13,7 @@ namespace JoycePrint.Web.Controllers
         /// </summary>
         /// <returns></returns>
         [ChildActionOnly]
-        [Route("security/recaptcha")]
-        [HttpGet]
+        [Route("security/recaptcha")]        
         public ActionResult Recaptcha()
         {            
             var model = new Security();
