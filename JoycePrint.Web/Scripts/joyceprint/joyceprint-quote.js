@@ -36,7 +36,7 @@ function setupSubmitButton() {
             var form = { target: $("#frm-quote")[0] };            
             
             // Check if it's valid
-            if (jalidate.validate(form)) {
+            //if (jalidate.validate(form)) {
 
                 showLoader();
 
@@ -54,8 +54,11 @@ function setupSubmitButton() {
                     .done(function (data) {
                         hideLoader();
 
-                        showModal(data.modalView);
+                        if (data.modalView)
+                            showModal(data.modalView);
+                        else
+                            loadView(data.view);
                     });
-            }
+            //}
         });
 }

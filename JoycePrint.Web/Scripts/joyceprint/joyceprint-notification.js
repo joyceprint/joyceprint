@@ -33,3 +33,12 @@ function showModal(data) {
     //    complete: function () { alert('Closed'); } // Callback for Modal close
     //});
 }
+
+function loadView(data) {
+
+    var containerId = "quote";
+
+    var container = $("#" + containerId);
+
+    $(container).html(data);    
+}
