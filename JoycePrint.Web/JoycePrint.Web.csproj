@@ -167,6 +167,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Scripts\joyceprint\jalidateSAVED.js" />
     <Content Include="Scripts\joyceprint\joyceprint-loading.js" />
     <Content Include="Scripts\joyceprint\joyceprint-extensions.js" />
     <Content Include="Scripts\joyceprint\joyceprint-notification.js" />
@@ -283,6 +284,7 @@
     <Content Include="Content\css\joyceprint.css" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />

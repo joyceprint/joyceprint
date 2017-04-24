@@ -18,6 +18,10 @@ function initializeQuote() {
 function setupClearButton() {
     $("#frm-quote button[type='reset']").click(function (e) {
         resetRecaptcha();
+        
+        var listOfInputs = ["Contact_Company", "Contact_Name", "Contact_Email", "Contact_Phone", "Enquiry_Message"];
+
+        jalidate.resetValidation("frm-quote", listOfInputs);
     });
 }
 
@@ -58,6 +62,7 @@ function setupSubmitButton() {
                             showModal(data.modalView);
                         else
                             loadView(data.view);
+                            initializeQuote();
                     });
             //}
         });

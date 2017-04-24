@@ -16,6 +16,6 @@ $(document).ready(function () {
     if ($("#quote").length > 0) {
         initializeQuote();
 
-        jalidate.initializeValidation("frm-quote");
+        //jalidate.initializeValidation("frm-quote");
     }
 });
