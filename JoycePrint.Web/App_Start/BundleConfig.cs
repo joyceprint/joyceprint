@@ -29,7 +29,7 @@ namespace JoycePrint.Web
         /// The list of base scripts to be used on each page
         /// </summary>
         public static List<string> BaseBundle => new List<string> {
-            "~/Scripts/jquery-3.1.1.js",
+            "~/Scripts/jquery-3.1.1.min.js",
             "~/Scripts/materialize.min.js",
             "~/Scripts/joyceprint/materialize-extensions.js",
             "~/Scripts/joyceprint/joyceprint-extensions.js",
