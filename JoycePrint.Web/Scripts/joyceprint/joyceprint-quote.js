@@ -36,11 +36,13 @@ function setupSubmitButton() {
             // 2 - if valid send post
             // 3 - if invalid display validation errors            
             
+            var formId = "frm-quote";
+
             // Get the form
             var form = { target: $("#frm-quote")[0] };            
             
             // Check if it's valid
-            //if (jalidate.validate(form)) {
+            if (jalidate.validate(formId)) {
 
                 showLoader();
 
@@ -52,18 +54,18 @@ function setupSubmitButton() {
                 })
                     .fail(function (jqXHR, textStatus) {
                         hideLoader();
-
+                        alert("f");
                         HandleAjaxError(jqXHR, textStatus);
                     })
                     .done(function (data) {
                         hideLoader();
-
+                        alert("s");
                         if (data.modalView)
                             showModal(data.modalView);
                         else
                             loadView(data.view);
                             initializeQuote();
                     });
-            //}
+            }
         });
 }

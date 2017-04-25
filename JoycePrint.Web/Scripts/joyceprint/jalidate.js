@@ -9,6 +9,53 @@
 **************************************************************************************************/
 
     /***************************************************************************************
+     * 
+     * 
+     ***************************************************************************************/
+    jalidate.validate = function(formId) {
+        var formValid = false;
+
+        // Create the validator for the form
+        var validator = ($("#frm-quote")).validate(); //what is this calling???
+
+        // Validate the entire form
+        formValid = validator.form();
+
+        return formValid;
+    }
+
+    /***************************************************************************************
+     * jQueryValidation - Option - submitHandler:
+     * TODO: Implement this
+     ***************************************************************************************/
+    jalidate.validationSuccess = function () {
+
+    }
+    /***************************************************************************************
+     * jQueryValidation - Option - invalidHandler: $.proxy(onErrors, form)
+     * TODO: Implement this
+     ***************************************************************************************/
+    jalidate.validationError = function () {
+
+    }
+
+    /***************************************************************************************
+     * jQueryValidation - Option - errorPlacement: $.proxy(onError, form)
+     * TODO: Implement this
+     ***************************************************************************************/
+    jalidate.showValidationError = function () {
+
+    }
+
+    /***************************************************************************************
+     * jQueryValidation - Option - success: $.proxy(onSuccess, form)
+     * TODO: Implement this
+     ***************************************************************************************/
+    jalidate.showValidationSuccess = function () {
+
+    }
+
+    /***************************************************************************************
      * Resets the validation for the form and inputs supplied
      ***************************************************************************************/
     jalidate.resetValidation = function(formId, listOfInputs) {
@@ -23,7 +70,22 @@
 /**************************************************************************************************
  * PRIVATE METHODS
 **************************************************************************************************/
-   
+
+    function getValidationOptions() {
+        var options;
+
+        options.submitHandler = function() {
+            return false;
+        }
+
+        return options;
+    }
+
+    function initializeValidation(form) {
+        
+        var options = getValidationOptions();
+    }
+
     /***************************************************************************************
      * Resets the validation for a form and a list of inputs
      * 
@@ -32,15 +94,17 @@
      * reset event
      ***************************************************************************************/
     function resetValidation(formId, listOfInputs) {
+        
         removeMvcErrors(formId);
 
         $(listOfInputs).each(function () {
 
             // Clear the attribute value as this is what materialize will set
             $("#" + this).attr("value", "");
+            
+            // Trigger the reset event to reset the form, clear the unobtrusive validation objects
+            $(this).trigger("reset.unobtrusiveValidation");            
 
-            // Clear the unobtrusive validation objects
-            $(this).trigger("reset.unobtrusiveValidation");
         });
     }
 

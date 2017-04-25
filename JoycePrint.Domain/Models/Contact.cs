@@ -17,7 +17,7 @@ namespace JoycePrint.Domain.Models
         /// </summary>
         [Required(ErrorMessage = "Name is a required field")]
         [StringLength(150, MinimumLength = 1, ErrorMessage = "Please enter your name.")]
-        [RegularExpression(@"^( *)(([A-Za-z]+)(-| *))*$", ErrorMessage = "Please enter your name")]
+        [RegularExpression(@"^( *)(([A-Za-z]+)(-| *))*$", ErrorMessage = "Please check your name")]
         public string Name { get; set; }
 
         /// <summary>
