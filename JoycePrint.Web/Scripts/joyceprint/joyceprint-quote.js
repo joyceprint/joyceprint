@@ -63,7 +63,7 @@ function setupSubmitButton() {
                         if (data.modalView)
                             showModal(data.modalView);
                         else
-                            loadView(data.view);
+                            loadView(data.view, data.target);
                             initializeQuote();
                     });
             }

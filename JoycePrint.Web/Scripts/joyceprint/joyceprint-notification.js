@@ -34,11 +34,9 @@ function showModal(data) {
     //});
 }
 
-function loadView(data) {
+function loadView(data, target) {
 
-    var containerId = "quote";
-
-    var container = $("#" + containerId);
+    var container = $("#" + target);
 
     $(container).html(data);    
 }

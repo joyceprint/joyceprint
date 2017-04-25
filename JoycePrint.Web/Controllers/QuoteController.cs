@@ -33,8 +33,8 @@ namespace JoycePrint.Web.Controllers
             }
 
             var data = RenderViewToString("Index", ViewData, ControllerContext, model, "Quote", "Index");
-
-            return Json(new { view = data }, JsonRequestBehavior.AllowGet);            
+            
+            return Json(new { view = data, target = "quote" }, JsonRequestBehavior.AllowGet);            
         }
     }
 }
