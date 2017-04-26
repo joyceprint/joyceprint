@@ -93,6 +93,7 @@
                     // This removes the text in the span making it take up no space so it would be hidden
                     container.empty();
                     $(inputElement).removeClass("invalid");
+                    $(inputElement).prev().removeClass("orange-text danger-text").addClass("success-text");
                 }
             }
         };
@@ -160,6 +161,9 @@
                 // Since after is not part of the dom, we add the validation message to a data attribute, and this is picked
                 // up by the existing css and added
                 $("label[for='" + escapeAttributeValue(inputElement[0].id) + "']").attr("validation-message", errorMessage);
+
+                // Set the class on the prefix icon
+                $(inputElement).prev().removeClass("success-text orange-text").addClass("danger-text");
             }
             else {
                 error.hide();
@@ -168,6 +172,9 @@
 
                 // The valid class should be removed, but the invalid class will have to be manually removed
                 $(inputElement).removeClass("invalid");
+
+                // Set the class on the prefix icon
+                $(inputElement).prev().removeClass("success-text danger-text").addClass("orange-text");
             }
         };
 
@@ -190,6 +197,9 @@
             // Clear the attribute value as this is what materialize will set
             $("#" + this).attr("value", "");
             
+            // Reset the icon prefix
+            $("#" + this).prev().removeClass("success-text danger-text").addClass("orange-text");
+
             // Trigger the reset event to reset the form, clear the unobtrusive validation objects
             $(this).trigger("reset.unobtrusiveValidation");            
 

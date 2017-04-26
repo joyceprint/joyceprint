@@ -43,7 +43,7 @@ function setupSubmitButton() {
             
             // Check if it's valid
             if (jalidate.validate(formId)) {
-
+            
                 showLoader();
 
                 $.ajax({
@@ -64,6 +64,8 @@ function setupSubmitButton() {
                             showModal(data.modalView);
                         else
                             loadView(data.view, data.target);
+
+                            // Reinitialize the quote view if the entire view is returned from the server with validation errors
                             initializeQuote();
                     });
             }

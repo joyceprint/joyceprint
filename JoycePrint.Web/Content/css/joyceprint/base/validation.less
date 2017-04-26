@@ -18,6 +18,25 @@
 }
 
 /****************************************************************************************
+ * Prefix Icon Extensions
+****************************************************************************************/
+.prefix.active.success-text {
+    color: @color-success;
+}
+
+.prefix.success-text {
+    color: @color-success-dark;
+}
+
+.prefix.active.danger-text {
+    color: @color-danger;
+}
+
+.prefix.danger-text {
+    color: @color-danger-dark;
+}
+
+/****************************************************************************************
  * Required Field Extensions
 ****************************************************************************************/
 
@@ -110,24 +129,25 @@
     color: @color-danger;
 }
 
+/*
+    TODO: stop the error messages from transitioning and just have them appear
+    the error message is added to the label::After content - this is what we have to
+    stop the animation on
+*/
 .input-field input:focus:not([readonly])[class~=invalid] + label::after,
-.input-field textarea.materialize-textarea:focus:not([readonly])[class~=invalid] + label::after { 
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=invalid] + label::after {
     content: attr(validation-message);
- 
-    //TODO: GET THIS WORKING SO THAT THE TRANSISTION IS OK
+    display: block;
+    font-size: 0.8rem;
+    color: @color-danger;
+}
 
-    // TODO: update the transform
-    // The text has to fit in the column at it's lowest pixel width or the tranform value will not work
-    /*color: @color-danger;
-    -webkit-transform: none;
-    transform: none;*/
-
-    /*display: block;
-    content: "";
-    position: absolute;
-    top: 60px;
-    opacity: 0;
-    transition: .2s opacity ease-out, .2s color ease-out;*/
+// Set the textarea error message to transform to the bottom of the field
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=invalid] + label::after {
+    left: -2.2rem !important;
+    transform: translate(-10%, 1600%);
+    -webkit-transform: translate(-10%, 1600%);
+    transition: none !important;
 }
 
 /* Invalid Border Extensions ***********************************************************/
@@ -142,4 +162,3 @@
     border-left-color: @color-danger-dark !important;
     border-right-color: @color-danger-dark !important;
 }
-
