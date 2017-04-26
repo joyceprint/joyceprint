@@ -24,8 +24,8 @@
 
     <div class="input-field col s12" data-test-message>
         <i class="material-icons prefix orange-text text-accent-4">message</i>
-        @Html.TextAreaFor(m => m.Message, new { rows = 20, wrap = "hard", @class="materialize-textarea validate message border-side"})
-        @Html.LabelFor(m => m.Message)
+        @Html.TextAreaFor(m => m.Message, new { rows = 20, wrap = "hard", @class="materialize-textarea message border-side"})
+        @Html.LabelFor(m => m.Message, new { @class = "label-transform-stop" })
         @Html.ValidationMessageFor(m => m.Message)        
     </div>
 
