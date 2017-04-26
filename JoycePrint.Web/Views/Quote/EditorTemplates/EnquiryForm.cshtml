@@ -26,11 +26,7 @@
         <i class="material-icons prefix orange-text text-accent-4">message</i>
         @Html.TextAreaFor(m => m.Message, new { rows = 20, wrap = "hard", @class="materialize-textarea validate message border-side"})
         @Html.LabelFor(m => m.Message)
-        @Html.ValidationMessageFor(m => m.Message)
-        
-        @*<textarea rows="20" class="materialize-textarea validate message border-side" id="Enquiry_Message" name="Enquiry.Message" wrap="hard" required data-val-req-msg="Please provide details"></textarea>
-        <label for="Message" class="label-transform-stop">Quote / Question Details</label>
-        <label for="Message" class="val-msg"></label>*@
+        @Html.ValidationMessageFor(m => m.Message)        
     </div>
 
 </section>
