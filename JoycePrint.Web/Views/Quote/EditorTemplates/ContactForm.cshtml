@@ -27,53 +27,28 @@
         <i class="material-icons prefix orange-text text-accent-4">business</i>        
         @Html.TextBoxFor(m => m.Company)
         @Html.LabelFor(m => m.Company)
-        @Html.ValidationMessageFor(m => m.Company)
-
-        @*<input type="text" inputmode="latin-prose" class="validate" id="Contact_Company" name="Contact.Company" maxlength="150"
-               pattern="( *)(([A-Za-z0-9]+)( *))*"
-               required
-               data-val-req-msg="Please enter the company name"/>
-        <label for="Contact_Company">Company</label>
-        <label for="Contact_Company" class="val-msg"></label>*@
+        @Html.ValidationMessageFor(m => m.Company)        
     </div>
     
     <div class="input-field col s12" data-test-name>
         <i class="material-icons prefix orange-text text-accent-4">perm_identity</i>        
         @Html.TextBoxFor(m => m.Name)
         @Html.LabelFor(m => m.Name)
-        @Html.ValidationMessageFor(m => m.Name)
-        @*<input type="text" inputmode="latin-name" class="validate" id="Contact_Name" name="Contact.Name" maxlength="150" 
-               pattern="( *)(([A-Za-z]+)(-| *))*" 
-               required 
-               data-val-req-msg="Please enter your name"/>
-        <label for="Contact_Name" data-error="error rrrrr">Name</label>        
-        <label for="Contact_Name" class="val-msg"></label>*@
+        @Html.ValidationMessageFor(m => m.Name)        
     </div>
 
     <div class="input-field col s12" data-test-email>
         <i class="material-icons prefix orange-text text-accent-4">email</i>
         @Html.TextBoxFor(m => m.Email)
         @Html.LabelFor(m => m.Email)
-        @Html.ValidationMessageFor(m => m.Email)
-        @*<input type="email" inputmode="email" class="validate" id="Contact_Email" name="Contact.Email" maxlength="254"
-               required
-               data-val-req-msg="Did you forget your email" />
-        <label for="Contact_Email">Email</label>
-        <label for="Contact_Email" class="val-msg"></label>*@
+        @Html.ValidationMessageFor(m => m.Email)        
     </div>
 
     <div class="input-field col s12" data-test-phone>
         <i class="material-icons prefix orange-text text-accent-4">phone</i>
         @Html.TextBoxFor(m => m.Phone)
         @Html.LabelFor(m => m.Phone)
-        @Html.ValidationMessageFor(m => m.Phone)
-        @*<input type="tel" inputmode="tel" class="validate" id="Contact_Phone" name="Contact.Phone"                 
-               pattern="( *)([0-9]+[ ]*[-]?[ ]*)*"
-               required 
-               data-val-req-msg="Please enter a contact number" 
-               data-val-pat-msg="Please use a valid phone number"/>
-        <label for="Contact_Telephone">Telephone Number</label>
-        <label for="Contact_Telephone" class="val-msg"></label>*@
+        @Html.ValidationMessageFor(m => m.Phone)        
     </div>
 
 </section>

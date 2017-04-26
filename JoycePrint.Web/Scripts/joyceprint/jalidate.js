@@ -27,6 +27,16 @@
         // Override the default mvc success operation
         validator.settings.success = overrideOnSuccess();        
 
+// TODO: CHECK FOR
+// Validation is working on submit
+// when failure on submit, then corrected, the input updates without hitting submit [success when typing]
+// when failure on a good field, the input updates without hitting submit [failure when typing]
+// writing the css using the data attribute [http://stackoverflow.com/questions/5041494/selecting-and-manipulating-css-pseudo-elements-such-as-before-and-after-usin/21709814#21709814]
+// remove unused functions
+// put all in namespace, adding jquery in as itself
+// archive off the previos version of js valiation
+// PERFORM THE RECAPTCHA CHECK
+
         // Validate the entire form
         formValid = validator.form();
 
@@ -44,38 +54,7 @@
 
         resetValidation(formId, listOfInputs);
     }
-
-    /***************************************************************************************
-     * jQueryValidation - Option - submitHandler:
-     * TODO: Implement this
-     ***************************************************************************************/
-    jalidate.validationSuccess = function () {
-
-    }
-    /***************************************************************************************
-     * jQueryValidation - Option - invalidHandler: $.proxy(onErrors, form)
-     * TODO: Implement this
-     ***************************************************************************************/
-    jalidate.validationError = function () {
-
-    }
-
-    /***************************************************************************************
-     * jQueryValidation - Option - errorPlacement: $.proxy(onError, form)
-     * TODO: Implement this
-     ***************************************************************************************/
-    jalidate.showValidationError = function () {
-
-    }
-
-    /***************************************************************************************
-     * jQueryValidation - Option - success: $.proxy(onSuccess, form)
-     * TODO: Implement this
-     ***************************************************************************************/
-    jalidate.showValidationSuccess = function () {
-
-    }
-
+    
 /**************************************************************************************************
  * PRIVATE METHODS
 **************************************************************************************************/
@@ -152,6 +131,9 @@
             // Remove the inputs valid class and add the error class
             container.removeClass("field-validation-valid").addClass("field-validation-error");
 
+            // Hide the default mvc validation span
+            $(".field-validation-error").hide();
+
             // Store the span in a data element
             error.data("unobtrusiveContainer", container);
 
@@ -164,10 +146,9 @@
                 // Probably using the validatejs functions to read the rules - anyway it's faster to let it do it's thing and use the message :D
                 error.removeClass("input-validation-error").appendTo(container);
 
-                // Get the error message from the span
-                var errorMessage = $("#" + inputElement[0].name + "-error").text();
-
-                // TODO: use css to hit the rest of the elements with the valid and invalid class on the input being the driver
+                // Get the error message from the span                
+                var errorMessage = $("#" + escapeAttributeValue(inputElement[0].id) + "-error").text();
+                
                 // Add the invaid class to the input for materializecss classes to take effect
                 if ($(inputElement).hasClass("input-validation-error")) {
 
@@ -178,12 +159,12 @@
                 // Use css with the after keyword to attach it to the label
                 // Since after is not part of the dom, we add the validation message to a data attribute, and this is picked
                 // up by the existing css and added
-                $("label[for='" + escapeAttributeValue(inputElement[0].name) + "']").attr("validation-message", errorMessage);
+                $("label[for='" + escapeAttributeValue(inputElement[0].id) + "']").attr("validation-message", errorMessage);
             }
             else {
                 error.hide();
                 // Remove the css after content on the label
-                $("label[for='" + escapeAttributeValue(inputElement[0].name) + "']").attr("validation-message", "");
+                $("label[for='" + escapeAttributeValue(inputElement[0].id) + "']").attr("validation-message", "");
 
                 // The valid class should be removed, but the invalid class will have to be manually removed
                 $(inputElement).removeClass("invalid");
@@ -223,36 +204,6 @@
      ***************************************************************************************/
     function removeMvcErrors(formId) {
         $("#" + formId).find(".field-validation-error").remove();
-    }
-
-    /***************************************************************************************
-    * Get all the inputs for a form
-    * 
-    * TODO: This may be used in the future
-    ***************************************************************************************/
-    function getInputsForForm(formId) {
-        return null;
-    }
-
-    /***************************************************************************************
-     * 
-     ***************************************************************************************/
-    function getValidationOptions() {
-        var options;
-
-        options.submitHandler = function () {
-            return false;
-        }
-
-        return options;
-    }
-
-    /***************************************************************************************
-     * 
-     ***************************************************************************************/
-    function initializeValidation(form) {
-
-        var options = getValidationOptions();
-    }
+    }   
 
 }(window.jalidate = window.jalidate || {}, jQuery));
