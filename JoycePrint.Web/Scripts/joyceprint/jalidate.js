@@ -36,7 +36,7 @@
         var formValid = false;
 
         // Create the validator for the form
-        var validator = ($("#frm-quote")).validate();
+        var validator = ($("#" + formId)).validate();
 
         // Override the default mvc error operation
         validator.settings.errorPlacement = overrideErrorPlacement();
@@ -138,9 +138,10 @@
     function overrideErrorPlacement() {
         var errorPlacement = function (error, inputElement) {
             
-            // TODO: The only issue is we have to have the form hard coded
+            var formId = getFormId(inputElement);
+            
             // Find the span created by ValidationMessageFor method
-            var container = $("#frm-quote").find("[data-valmsg-for='" + escapeAttributeValue(inputElement[0].name) + "']"),
+            var container = $("#" + formId).find("[data-valmsg-for='" + escapeAttributeValue(inputElement[0].name) + "']"),
 
             // Get the replace attribute from the span
             replaceAttrValue = container.attr("data-valmsg-replace"),
@@ -198,6 +199,15 @@
         };
 
         return errorPlacement;
+    }
+
+    /***************************************************************************************
+    * Gets the form id that the input element is attached to        
+    ***************************************************************************************/
+    function getFormId(inputElement) {
+        var formId;
+        formId = $(inputElement).closest("form").attr("id");
+        return formId;
     }
 
     /***************************************************************************************
