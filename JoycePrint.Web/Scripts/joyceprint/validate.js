@@ -60,9 +60,7 @@
             // Form is invalid, recaptcha check not completed
             formValid = false;
 
-            displayRecaptchaError();
-
-            //resetRecaptcha();
+            displayRecaptchaError();            
         }
         
         return formValid;
@@ -270,12 +268,13 @@
                         validRecaptcha = true;
                     }
                 }
+
+                // Reset the recaptcha response after using it
+                jalidate.captchaResponse = "";
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
-            });
-
-        // Reset the recaptcha response after using it
-        //jalidate.captchaResponse = "";
+                // We should only end up here if our end failed
+            });        
 
         return validRecaptcha;
     }
