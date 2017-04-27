@@ -1,5 +1,10 @@
 ﻿"use strict";
 
+/**************************************************************************************************
+ * Navigation Menu Javascript Functionality
+ *
+ *************************************************************************************************/
+
 var scrollUp;
 var lastScrollTop = 0;
 var navOffset = -($("nav").height() - 4);
@@ -12,10 +17,9 @@ var navOffset = -($("nav").height() - 4);
 *************************************************************************************************/
 var toggleNavigationMenu_ScrollToId = null;
 
-/**************************************************************************************************
- * Navigation Menu Javascript Functionality
- *
+/************************************************************************************************** 
  * Call this function to initialize the javascript required for the navigation menu
+ * 
  *************************************************************************************************/
 function initializeNavFunctionality() {
 
@@ -157,7 +161,7 @@ function getElementIdInViewport() {
     var elementAtCenter = document.elementFromPoint(offsetXPt, offsetYPt + getScrollAdjust());
 
     // 3 - navagiate out until you get to a section
-    var navSection = $(elementAtCenter).closest("section");
+    var navSection = $(elementAtCenter).closest("section[data-menu-item]");
 
     elementId = $(navSection).attr("id");
 
