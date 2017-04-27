@@ -38,33 +38,37 @@ function setupSubmitButton() {
             // Get the form
             var form = { target: $("#frm-quote")[0] };            
             
+            showLoader();
+
             // Check if it's valid
             if (jalidate.validate(formId)) {
-            
-                showLoader();
 
                 $.ajax({
-                    url: "/quote",
-                    method: "POST",
-                    cache: false,
-                    data: $("#frm-quote").serialize()
-                })
-                    .fail(function (jqXHR, textStatus) {
+                        url: "/quote",
+                        method: "POST",
+                        cache: false,
+                        data: $("#frm-quote").serialize()
+                    })
+                    .fail(function(jqXHR, textStatus) {
                         hideLoader();
-                        alert("f");
+                        
                         HandleAjaxError(jqXHR, textStatus);
                     })
-                    .done(function (data) {
+                    .done(function(data) {
                         hideLoader();
-                        alert("s");
-                        if (data.modalView)
+
+                        if (data.modalView) {
                             showModal(data.modalView);
-                        else
+                        }
+                        else {
                             loadView(data.view, data.target);
 
                             // Reinitialize the quote view if the entire view is returned from the server with validation errors
                             initializeQuote();
+                        }
                     });
-            }
+            } else {
+                hideLoader();
+            }            
         });
 }

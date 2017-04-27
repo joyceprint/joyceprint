@@ -51,15 +51,20 @@
         if (!formValid) {
             if (event.preventDefault) event.preventDefault();
 
-            Materialize.toast("Validation errors occurred. Please confirm the fields and submit it again.", 4000);
-        } else if (!checkRecaptcha()) {
+            displayValidationError();
+        }
+        else if (!checkRecaptcha()) {
+            // Cancel form submit if recaptcha check fails
+            if (event.preventDefault) event.preventDefault();
 
             // Form is invalid, recaptcha check not completed
             formValid = false;
 
             displayRecaptchaError();
-        }
 
+            //resetRecaptcha();
+        }
+        
         return formValid;
     }
 
@@ -75,6 +80,11 @@
         resetValidation(formId, listOfInputs);
     }
 
+    function tt() {
+        
+        // onfocusout
+        // onkeyup
+    }
 /**************************************************************************************************
     * PRIVATE METHODS
 **************************************************************************************************/
@@ -219,8 +229,6 @@
      ***************************************************************************************/
     function resetValidation(formId, listOfInputs) {
 
-        removeMvcErrors(formId);
-
         $(listOfInputs).each(function () {
 
             // Clear the attribute value as this is what materialize will set
@@ -232,16 +240,6 @@
             // Trigger the reset event to reset the form, clear the unobtrusive validation objects
             $(this).trigger("reset.unobtrusiveValidation");
         });
-    }
-
-    /***************************************************************************************
-     * Removes the MVC validation errors from a form
-     * 
-     * MVC validation errors will be added to a span element that is regenerated each time
-     * validation fails. To remove the error message we have to remove this element
-     ***************************************************************************************/
-    function removeMvcErrors(formId) {
-        $("#" + formId).find(".field-validation-error").remove();
     }
 
     /********************************************************************************************
@@ -276,6 +274,9 @@
             .fail(function (jqXHR, textStatus, errorThrown) {
             });
 
+        // Reset the recaptcha response after using it
+        //jalidate.captchaResponse = "";
+
         return validRecaptcha;
     }
 
@@ -285,5 +286,12 @@
     function displayRecaptchaError() {
         Materialize.toast("Please complete the recaptcha", 4000);
     }
+
+    /********************************************************************************************
+    * Display a toast holding the error message if the form validation fails
+    *******************************************************************************************/
+    function displayValidationError() {
+        Materialize.toast("Validation errors occurred. Please confirm the fields and submit it again.", 4000);
+    }    
 
 }(window.jalidate = window.jalidate || {}, jQuery));
