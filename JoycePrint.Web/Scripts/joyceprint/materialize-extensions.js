@@ -1,9 +1,14 @@
 ﻿"use strict";
 
 /**************************************************************************************************
- * Home Page Javascript Functionality
+ * Extensions for MaterializeCss
  *
- * Call this function to initialize the javascript required for the home page
+ * All extensions for MaterializeCss are defined here
+ *************************************************************************************************/
+
+/**************************************************************************************************
+ * Current entry point for this script
+ * 
  *************************************************************************************************/
 function initializeMaterializeFunctionality() {
 
@@ -27,6 +32,7 @@ function initializeMaterializeParallax() {
 
 /**************************************************************************************************
  * Initialize the materialize select functionality
+ * 
  *************************************************************************************************/
 function initializeMaterializeSelect() {
     // Select - Single Initialize
@@ -38,6 +44,7 @@ function initializeMaterializeSelect() {
 
 /**************************************************************************************************
  * Initialize the materialize modal functionality
+ * 
  *************************************************************************************************/
 function initializeMaterializeModal() {
     $(".modal").modal({
@@ -47,6 +54,7 @@ function initializeMaterializeModal() {
 
 /**************************************************************************************************
  * Initialize the side navigation menu for use on small screens and mobiles
+ * 
  *************************************************************************************************/
 function initializeMobileMenu() {
     // Initializes the side nav menu for mobile screens

@@ -13,7 +13,7 @@ function initializeQuote() {
 }
 
 /**************************************************************************************************
- *
+ * Wire up the clear button on the quote form
  *************************************************************************************************/
 function setupClearButton() {
     $("#frm-quote button[type='reset']").click(function (e) {
@@ -26,16 +26,13 @@ function setupClearButton() {
 }
 
 /**************************************************************************************************
- *
+ * Wire up the submit button on the quote form
  *************************************************************************************************/
 function setupSubmitButton() {
 
     $("#frm-quote button[type='button']")
         .click(function (e) {
-            // 1 - check if form is valid perform operation
-            // 2 - if valid send post
-            // 3 - if invalid display validation errors            
-            
+
             var formId = "frm-quote";
 
             // Get the form

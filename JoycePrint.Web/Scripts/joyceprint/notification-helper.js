@@ -1,8 +1,11 @@
 ﻿"use strict";
 
 /**************************************************************************************************
- * Notification View Javascript Functionality
+ * Notification Functionality
  *
+ *************************************************************************************************/
+
+/**************************************************************************************************
  * Call this function to show a modal
  * 
  * Requires: 
@@ -34,6 +37,13 @@ function showModal(data) {
     //});
 }
 
+/**************************************************************************************************
+ * Call this function to load a view
+ * 
+ * Requires: 
+ *      data - The inner html of the view to load
+ *      target - The container to load the view into
+ *************************************************************************************************/
 function loadView(data, target) {
 
     var container = $("#" + target);

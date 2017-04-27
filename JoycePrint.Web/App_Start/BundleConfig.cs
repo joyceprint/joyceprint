@@ -33,10 +33,10 @@ namespace JoycePrint.Web
             "~/Scripts/jquery-2.2.0.min.js", // Needed for unobtrusive js
             "~/Scripts/materialize.min.js",
             "~/Scripts/joyceprint/materialize-extensions.js",
-            "~/Scripts/joyceprint/joyceprint-extensions.js",
-            "~/Scripts/joyceprint/joyceprint-nav.js",
-            "~/Scripts/joyceprint/joyceprint-loading.js",
-            "~/Scripts/joyceprint/joyceprint-error.js",
+            "~/Scripts/joyceprint/jquery-extensions.js",
+            "~/Scripts/joyceprint/nav.js",
+            "~/Scripts/joyceprint/loading.js",
+            "~/Scripts/joyceprint/error.js",
             "~/Scripts/joyceprint/joyceprint.js"
         };
 
@@ -47,7 +47,7 @@ namespace JoycePrint.Web
             //"~/Scripts/jquery-2.2.0.min.js",
             "~/Scripts/jquery.validate.js",
             "~/Scripts/jquery.validate.unobtrusive.js",
-            "~/Scripts/joyceprint/jalidate.js"
+            "~/Scripts/joyceprint/validate.js"
         };
 
         #endregion
@@ -120,15 +120,15 @@ namespace JoycePrint.Web
                     break;
                 case PageBundle.Quote:
                     additionalScript.AddRange(ValidationBundle);
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
+                    additionalScript.Add("~/Scripts/joyceprint/quote.js");
+                    additionalScript.Add("~/Scripts/joyceprint/recaptcha.js");
+                    additionalScript.Add("~/Scripts/joyceprint/notification-helper.js");
                     break;
                 case PageBundle.All:
                     additionalScript.AddRange(ValidationBundle);
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
+                    additionalScript.Add("~/Scripts/joyceprint/quote.js");
+                    additionalScript.Add("~/Scripts/joyceprint/recaptcha.js");
+                    additionalScript.Add("~/Scripts/joyceprint/notification-helper.js");
                     break;
             }
 
