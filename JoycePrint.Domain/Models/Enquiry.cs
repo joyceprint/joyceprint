@@ -17,7 +17,12 @@ namespace JoycePrint.Domain.Models
         /// <summary>
         /// The additional information given by the client
         /// </summary>
+        /// <remarks>
+        /// To stop user from overfilling the enquiry field and possibly breaking the code
+        /// We may need to increase this value
+        /// </remarks>
         [Required(ErrorMessage = "Please provide details")]
+        [StringLength(1000, ErrorMessage = "Please reduce the number of characters")]
         public string Message { get; set; }
     }
 }
