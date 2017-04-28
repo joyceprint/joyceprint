@@ -15,21 +15,8 @@
  * PUBLIC METHODS
  **************************************************************************************************/
 
-    // NEXT: the validation is not working correctly until the submit button is hit
-    // NEXT: the errors are displaying multiple times, this should not occur
-    // NEXT: comment and finish off the js section
     // NEXT: FINSIH THE VALIDATION REGULAR EXPRESSIONS - TESTS MUST BE CREATED FOR THESE
     //          WHEN CHECKING FOR THE VALIDATION MESSAGE WE HAVE TO CHECK IN BOTH THE SPAN AND THE LABEL
-
-    // TODO: CHECK FOR
-    // Validation is working on submit
-    // when failure on submit, then corrected, the input updates without hitting submit [success when typing]
-    // when failure on a good field, the input updates without hitting submit [failure when typing]
-    // writing the css using the data attribute [http://stackoverflow.com/questions/5041494/selecting-and-manipulating-css-pseudo-elements-such-as-before-and-after-usin/21709814#21709814]
-    // remove unused functions
-    // put all in namespace, adding jquery in as itself
-    // archive off the previos version of js valiation
-    // PERFORM THE RECAPTCHA CHECK
 
     /***************************************************************************************     
      * Initializse the validation object for the form.
@@ -197,9 +184,7 @@
                 var errorMessage = $("#" + escapeAttributeValue(inputElement[0].id) + "-error").text();
 
                 // Add the invaid class to the input for materializecss classes to take effect
-                if ($(inputElement).hasClass("input-validation-error")) {
-
-                    // Bug: because i'm adding this class it's not getting removed. can i extend the function that does this or override it?
+                if ($(inputElement).hasClass("input-validation-error")) {                    
                     $(inputElement).addClass("invalid");
                 }
 
@@ -299,7 +284,7 @@
 
     /********************************************************************************************
      * Display a toast holding the error message if the recaptcha fails
-     * TODO: make sure this only ever displays 1
+     * 
      *******************************************************************************************/
     function displayRecaptchaError() {
         Materialize.toast("Please complete the recaptcha", 4000);
@@ -307,7 +292,7 @@
 
     /********************************************************************************************
      * Display a toast holding the error message if the form validation fails
-     * TODO: make sure this only ever displays 1
+     * 
      *******************************************************************************************/
     function displayValidationError() {
         Materialize.toast("Validation errors occurred. Please confirm the fields and submit it again.", 4000);

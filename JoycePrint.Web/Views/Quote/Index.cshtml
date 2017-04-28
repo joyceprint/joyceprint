@@ -30,11 +30,7 @@
                     @Html.EditorFor(model => model.Enquiry, "EnquiryForm")
 
                     <div class="row no-mar-bot">
-                        <div class="col l7 m12 s12 no-pad-right">
-                            <!-- 
-                            TODO: If reloading this on validation failure is causing issues, do not reload it, use the js fucntion to target the 
-                            wanted sections to reload, possibly send this value back in the json object to help make the js fucntion as generic as possible
-                            -->
+                        <div class="col l7 m12 s12 no-pad-right">                            
                             @{ Html.RenderAction("Recaptcha", "Security"); }
 
                             @*
