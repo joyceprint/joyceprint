@@ -60,8 +60,7 @@ namespace JoycePrint.Web.Controllers
         private RouteData UpdateContext(ControllerContext controllerContext, string controllerName, string actionName)
         {
             var routeData = new RouteData();
-
-            // - change this
+            
             routeData.Values.Add("controller", controllerName);
             routeData.Values.Add("action", actionName);
 
@@ -125,13 +124,7 @@ namespace JoycePrint.Web.Controllers
             Logger.Instance.Log(MessageLevel.Error, filterContext.Exception, GetContextInfo(filterContext));
 
             // Redirect on error:
-            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("General", "Error");            
-
-            //// OR set the result without redirection:
-            //filterContext.Result = new ViewResult
-            //{
-            //    ViewName = "~/Views/Error/Index.cshtml"
-            //};
+            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("General", "Error");                        
         }
 
         /// <summary>
@@ -143,7 +136,7 @@ namespace JoycePrint.Web.Controllers
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine($"Exception Context Additional Information");
+            sb.AppendLine("Exception Context Additional Information");
             sb.AppendLine($"Child Action: [{filterContext.IsChildAction}]");
             sb.AppendLine($"Ajax Request: [{filterContext.HttpContext.Request.IsAjaxRequest()}]");            
 

@@ -26,7 +26,7 @@ namespace JoycePrint.Web.Controllers
         [HttpGet]
         public ActionResult General()
         {
-            // Set this value to hide the navigation menu in hte _Navigation view
+            // Set this value to hide the navigation menu in the _Navigation view
             TempData["HideNavMenuOnError"] = true;
 
             return View("Error/Error");
