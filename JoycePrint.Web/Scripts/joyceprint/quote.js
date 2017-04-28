@@ -10,6 +10,8 @@ function initializeQuote() {
     setupSubmitButton();
 
     setupClearButton();
+
+    jalidate.initializeValidation("frm-quote");
 }
 
 /**************************************************************************************************

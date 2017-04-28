@@ -5,15 +5,21 @@
 (function (jalidate, $, undefined) {
 
 /**************************************************************************************************
-* PUBLIC PROPERTIES
-**************************************************************************************************/
+ * PUBLIC PROPERTIES
+ **************************************************************************************************/
 
     // The response from the captcha
     jalidate.captchaResponse = "";
 
 /**************************************************************************************************
-* PUBLIC METHODS
-**************************************************************************************************/
+ * PUBLIC METHODS
+ **************************************************************************************************/
+
+    // NEXT: the validation is not working correctly until the submit button is hit
+    // NEXT: the errors are displaying multiple times, this should not occur
+    // NEXT: comment and finish off the js section
+    // NEXT: FINSIH THE VALIDATION REGULAR EXPRESSIONS - TESTS MUST BE CREATED FOR THESE
+    //          WHEN CHECKING FOR THE VALIDATION MESSAGE WE HAVE TO CHECK IN BOTH THE SPAN AND THE LABEL
 
     // TODO: CHECK FOR
     // Validation is working on submit
@@ -24,6 +30,24 @@
     // put all in namespace, adding jquery in as itself
     // archive off the previos version of js valiation
     // PERFORM THE RECAPTCHA CHECK
+
+    /***************************************************************************************     
+     * Initializse the validation object for the form.
+     * 
+     * The errorPlacement and onSuccess methods are overridden
+     * This should only have to happen once, however if the validation object is lost
+     * this function will need to be called to re initialize validation     
+     ***************************************************************************************/
+    jalidate.initializeValidation = function(formId) {
+        // Create the validator for the form
+        var validator = ($("#" + formId)).validate();
+
+        // Override the default mvc error operation
+        validator.settings.errorPlacement = overrideErrorPlacement();
+
+        // Override the default mvc success operation
+        validator.settings.success = overrideOnSuccess();
+    }
 
     /***************************************************************************************     
      * Performs validation on the form by overriding some of the functionality of the 
@@ -37,13 +61,7 @@
 
         // Create the validator for the form
         var validator = ($("#" + formId)).validate();
-
-        // Override the default mvc error operation
-        validator.settings.errorPlacement = overrideErrorPlacement();
-
-        // Override the default mvc success operation
-        validator.settings.success = overrideOnSuccess();
-        
+     
         // Validate the entire form
         formValid = validator.form();
 
@@ -280,15 +298,17 @@
     }
 
     /********************************************************************************************
-    * Display a toast holding the error message if the recaptcha fails
-    *******************************************************************************************/
+     * Display a toast holding the error message if the recaptcha fails
+     * TODO: make sure this only ever displays 1
+     *******************************************************************************************/
     function displayRecaptchaError() {
         Materialize.toast("Please complete the recaptcha", 4000);
     }
 
     /********************************************************************************************
-    * Display a toast holding the error message if the form validation fails
-    *******************************************************************************************/
+     * Display a toast holding the error message if the form validation fails
+     * TODO: make sure this only ever displays 1
+     *******************************************************************************************/
     function displayValidationError() {
         Materialize.toast("Validation errors occurred. Please confirm the fields and submit it again.", 4000);
     }    
