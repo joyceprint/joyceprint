@@ -33,7 +33,7 @@ namespace Common.Providers
                 // Set a reference to the default provider
                 provider = providers[configSection.DefaultProvider];
 
-                if (provider == null) throw new ProviderException($"Unalbe to load default '{sectionName}' provider");
+                if (provider == null) throw new ProviderException($"Unable to load default '{sectionName}' provider");
             }
             else
             {

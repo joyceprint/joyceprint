@@ -8,6 +8,8 @@ namespace Common.Logging.WindowsEventLogger
 {
     public class WindowsEventLogger : LogProvider
     {
+        // TODO: Move these properties to the config file
+        // TODO: Combine the best parts of this and the analyzer pattern - eg enable attribute [but on provider level]
         private const string LogName = "JoycePrint";
         private const string Source = "JoycePrint Website";
 
@@ -15,7 +17,8 @@ namespace Common.Logging.WindowsEventLogger
         {
             try
             {
-                if (!EventLog.SourceExists(Source)) EventLog.CreateEventSource(Source, LogName);
+                if (!EventLog.SourceExists(Source))
+                    EventLog.CreateEventSource(Source, LogName);
             }
             catch (Exception logException)
             {
@@ -27,10 +30,6 @@ namespace Common.Logging.WindowsEventLogger
 
         public override void Log(MessageLevel messageLevel, string message)
         {
-            // TODO: we need to map our messge levels to the event log
-            // Add this as an abstract method of the base class
-            // Ensure we have the correct amount of message levels
-            // Could add Verbose???? or some others?
             EventLog.WriteEntry(Source, message, ConvertToEvent(messageLevel));
         }
 

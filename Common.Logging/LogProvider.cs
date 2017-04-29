@@ -6,6 +6,7 @@ namespace Common.Logging
 {
     public abstract class LogProvider : Providers.ProviderBase
     {
+        // ReSharper disable once RedundantOverriddenMember
         public override void Initialize(string providerName, NameValueCollection providerConfig)
         {
             base.Initialize(providerName, providerConfig);

@@ -21,8 +21,7 @@ namespace Common.Logging
         #endregion
 
         #region Properties
-
-        // Flag indicating if the provider has been instantiated
+        
         [Description("Flag indicating whether or not the provider has been initialized")]
         public static bool IsInitialized { get; set; }
 
@@ -48,7 +47,7 @@ namespace Common.Logging
             // Provide a thread safe provider/providers
             lock (Lock)
             {
-                // Do not initialize providers more than once (Singleton pattern)
+                // Do not initialize a provider more than once (Singleton pattern)
                 if (!IsInitialized)
                 {
                     // Make sure the _provider is still null
@@ -59,7 +58,7 @@ namespace Common.Logging
                             // Get a collection of providers and the default provider.
                             _provider = ProviderFactory.InstantiateDefaultProvider<LogProvider>(@"providers/logging");
 
-                            // set this feature as initialized
+                            // Set this feature as initialized
                             IsInitialized = true;
                         }
                         catch (Exception)

@@ -8,7 +8,8 @@ namespace Common.Providers
 
         public override void Add(System.Configuration.Provider.ProviderBase provider)
         {
-            if (provider == null) throw new ArgumentNullException(nameof(provider));
+            if (provider == null)
+                throw new ArgumentNullException(nameof(provider));
 
             if (!(provider is T))
             {
