@@ -129,11 +129,6 @@
     color: @color-danger;
 }
 
-/*
-    TODO: stop the error messages from transitioning and just have them appear
-    the error message is added to the label::After content - this is what we have to
-    stop the animation on
-*/
 .input-field input:focus:not([readonly])[class~=invalid] + label::after,
 .input-field textarea.materialize-textarea:focus:not([readonly])[class~=invalid] + label::after {
     content: attr(validation-message);
