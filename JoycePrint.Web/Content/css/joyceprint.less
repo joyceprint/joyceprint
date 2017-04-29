@@ -5,50 +5,35 @@
  * This file all required less files for the application
 **************************************************************************************/
 
-@JpLessPath: "/Content/css/joyceprint";
+@BasePath: "/Content/css/joyceprint/base";
+@FontsPath: "/Content/css/joyceprint/fonts";
+@ViewsPath: "/Content/css/joyceprint/views";
+@PartialsPath: "/Content/css/joyceprint/partials";
 
-@import "avenir.less";
-@import "open-sans.less";
-@import "helvetica-light.less";
+/* Font Imports ******************************************************/
+@import "@{FontsPath}/avenir.less";
+@import "@{FontsPath}/open-sans.less";
+@import "@{FontsPath}/helvetica-light.less";
 
-@import "@{JpLessPath}/variables.less";
+/* Base Imports ******************************************************/
+@import "@{BasePath}/variables.less";
+@import "@{BasePath}/color.less";
+@import "@{BasePath}/font.less";
+@import "@{BasePath}/html-tag.less";
+@import "@{BasePath}/common.less";
+@import "@{BasePath}/loading.less";
+@import "@{BasePath}/materialize-extensions.less";
+@import "@{BasePath}/validation.less";
 
-@import "@{JpLessPath}/font.less";
-@import "@{JpLessPath}/color.less";
+/* View Imports ******************************************************/
+@import "@{ViewsPath}/layout.less";
+@import "@{ViewsPath}/nav.less";
+@import "@{ViewsPath}/home.less";
+@import "@{ViewsPath}/services.less";
+@import "@{ViewsPath}/about-us.less";
+@import "@{ViewsPath}/quote.less";
 
-@import "@{JpLessPath}/loading.less";
-@import "@{JpLessPath}/html-tag.less";
-@import "@{JpLessPath}/materialize-extensions.less";
-
-@import "@{JpLessPath}/validation.less";
-
-// Styles for the Layout View
-@import "@{JpLessPath}/layout.less";
-
-@import "@{JpLessPath}/nav.less";
-
-@import "@{JpLessPath}/home.less";
-@import "@{JpLessPath}/services.less";
-@import "@{JpLessPath}/about-us.less";
-
-@import "@{JpLessPath}/quote.less";
-@import "@{JpLessPath}/enquiry-form.less";
-@import "@{JpLessPath}/print-checklist.less";
-@import "@{JpLessPath}/map.less";
-
-
-/// DON'T KNOW THE BEST PLACE FOR THESE YET
-.cursor-pointer {
-    cursor: pointer;
-}
-
-.section-header {
-    .text-600;
-    font-family: "Avenir Heavy";
-    color: @color-grey;
-    letter-spacing: 0.2rem;
-
-    padding-top: 50px;
-    padding-bottom: 25px;
-    margin-top: 0px;
-}
+/* Partial Imports ***************************************************/
+@import "@{PartialsPath}/enquiry-form.less";
+@import "@{PartialsPath}/print-checklist.less";
+@import "@{PartialsPath}/map.less";

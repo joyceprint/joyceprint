@@ -13,8 +13,7 @@ namespace JoycePrint.Web.Controllers
         /// </summary>
         /// <returns></returns>
         [ChildActionOnly]
-        [Route("security/recaptcha")]
-        [HttpGet]
+        [Route("security/recaptcha")]        
         public ActionResult Recaptcha()
         {            
             var model = new Security();
@@ -25,10 +24,9 @@ namespace JoycePrint.Web.Controllers
         [Route("security/recaptcha")]
         [HttpPost]        
         public ActionResult ProcessRecaptcha(string captchaResponse)
-        {
-            // todo add tests around this if possible
-            // add a try catch - ensure exceptions are caught
+        {                                    
             var recaptcha = new Recaptcha();
+
             var result = recaptcha.Verify(captchaResponse);
 
             return Json(result);

@@ -1,40 +1,26 @@
 ﻿"use strict";
 
 /**************************************************************************************************
- * 
+ * Recaptcha Functionality
  * 
  *************************************************************************************************/
 
 /**************************************************************************************************
- * TODO: this init function needs to hook into the onsubmit event and hyjack it
- *************************************************************************************************/
-//function initializeRecaptcha() {
-//    grecaptcha.render('example3', {
-//        'sitekey': 'your_site_key',
-//        'callback': verifyCallback,
-//        'theme': 'dark'
-//    });
-//}
-
-/**************************************************************************************************
- * 
+ * Handle the recaptcha response by saving it to a validate public property
  *************************************************************************************************/
 function handleCaptcha(captchaResponse) {
     jalidate.captchaResponse = captchaResponse;   
 }
 
 /**************************************************************************************************
- * 
+ * Handle the expired recaptcha event
  *************************************************************************************************/
 function handleExpiredCaptcha() {
-    // This function should call the reset method
-    // I am unable to get the control to time out
-
     grecaptcha.reset();
 }
 
 /**************************************************************************************************
- * 
+ * Handle the reset recaptcha event
  *************************************************************************************************/
 function resetRecaptcha() {    
     grecaptcha.reset();

@@ -40,7 +40,7 @@ namespace JoycePrint.Domain.Models
             }
             catch (Exception ex)
             {
-                Logger.Provider.Log(MessageLevel.Error, ex);
+                Logger.Instance.Log(MessageLevel.Error, ex);
                 return false;
             }            
         }

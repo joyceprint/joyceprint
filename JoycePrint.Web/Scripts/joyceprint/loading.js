@@ -76,7 +76,18 @@ function pageFadeIn(load, loading, loaded) {
     }
 }
 
+/**************************************************************************************************
+ * Public Property - This may be useful
+ *************************************************************************************************/
+var isLoading = null;
+
+/**************************************************************************************************
+ * Show the loader and the overlay that covers the entire page
+ * 
+ *************************************************************************************************/
 function showLoader() {
+
+    isLoading = true;
 
     // Add the loader to the page
     var loaderHtml = '<div class="loader-holder"><div class="loader loader-inside"></div><div class="loader loader-outside"></div></div>';
@@ -89,6 +100,10 @@ function showLoader() {
     $("#loader-placeholder").html(loaderHtml);
 }
 
+/**************************************************************************************************
+ * Hide the loaded and remove the overlay
+ * 
+ *************************************************************************************************/
 function hideLoader() {
     // Get the loader
     var loader = document.querySelector(".loader-holder");
@@ -100,5 +115,7 @@ function hideLoader() {
     $("#loader-overlay").removeClass("loader-overlay");
 
     // Remove the loader so the browser can stop drawing the animation
-    loader.parentNode.removeChild(loader);    
+    loader.parentNode.removeChild(loader);
+
+    isLoading = false;
 }

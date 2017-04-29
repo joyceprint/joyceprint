@@ -3,19 +3,24 @@
 /**************************************************************************************************
  * Error Handling Functionality
  * 
- *
+ *************************************************************************************************/
+
+/**************************************************************************************************
+ * This method handles an ajax error.
+ * 
+ * It calls Error/Ajax on the server
+ * And displays either a modal or a browser alert
  *************************************************************************************************/
 function HandleAjaxError(jqXHR, textStatus) {
 
-    //$.ajax({
-    //    url: "/Error/AjaxError",
-    //    cache: false
-    //})
-    //    .fail(function (jqXHR, textStatus) {
-    //        HandleError(jqXHR, textStatus);
-    //    })
-    //    .done(function (data) {
-    //        $("#divAjaxError").html(data);
-    //        $("#modalAjaxError").modal("show");
-    //    });
+    $.ajax({
+        url: "/Error/Ajax",
+        cache: false
+    })
+        .fail(function (jqXHR, textStatus) {
+            alert("Ajax seems to be having a serious problem at the moment");
+        })
+        .done(function (data) {
+            showModal(data.modalView);
+        });
 }

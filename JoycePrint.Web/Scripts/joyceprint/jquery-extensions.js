@@ -1,16 +1,17 @@
 ﻿"use strict";
 
 /**************************************************************************************************
- *  Javascript Extensions Functionality
+ * Extensions for jQuery
  *
  * All extensions for javascript and jQuery are defined here
  *************************************************************************************************/
+
 (function () {
 
-    /**************************************************************************************************
+    /**********************************************************************************************
     * Adding a contains function for string objects
     * Currently this is only supported in firefox
-    *************************************************************************************************/
+    **********************************************************************************************/
     if (!('contains' in String.prototype)) {
         String.prototype.contains = function (str, startIndex) {
             return -1 !== String.prototype.indexOf.call(this, str, startIndex);
@@ -19,7 +20,7 @@
 })();
 
 /**************************************************************************************************
- * jQuery Regular Expression Filter - 3rd Party
+ * Regular Expression Filter - 3rd Party
  *
  * http://james.padolsey.com/javascript/regex-selector-for-jquery/
  *************************************************************************************************/
@@ -37,7 +38,7 @@ jQuery.expr[':'].regex = function (elem, index, match) {
 }
 
 /**************************************************************************************************
- * jQuery Element In Viewport Check
+ * Element In Viewport Check
  *
  * This is used to check where the user has scrolled to 
  *

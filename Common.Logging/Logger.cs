@@ -27,11 +27,13 @@ namespace Common.Logging
         public static bool IsInitialized { get; set; }
 
         [Description("The instance to access when using this provider")]
-        public static LogProvider Provider
+        public static LogProvider Instance
         {
             get
             {
-                Initialize();
+                if (!IsInitialized)
+                    Initialize();
+
                 return _provider;
             }
         }
@@ -60,7 +62,7 @@ namespace Common.Logging
                             // set this feature as initialized
                             IsInitialized = true;
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {                            
                             throw;
                         }

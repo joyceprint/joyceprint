@@ -16,26 +16,41 @@ namespace JoycePrint.Web
         {
             None,
             Home,
-            Services,            
+            Services,
             AboutUs,
             ContactUs,
             Quote,
             All
         }
 
+        #region Bundle Files
+
         /// <summary>
-        /// The list of base bundles to be used on each page
+        /// The list of base scripts to be used on each page
         /// </summary>
         public static List<string> BaseBundle => new List<string> {
-            "~/Scripts/jquery-3.1.1.js",
+            //"~/Scripts/jquery-3.1.1.min.js", // Does not work with unobtrusive js, an error stops operation
+            "~/Scripts/jquery-2.2.0.min.js", // Needed for unobtrusive js
             "~/Scripts/materialize.min.js",
             "~/Scripts/joyceprint/materialize-extensions.js",
-            "~/Scripts/joyceprint/joyceprint-extensions.js",
-            "~/Scripts/joyceprint/joyceprint-nav.js",
-            "~/Scripts/joyceprint/joyceprint-loading.js",
-            "~/Scripts/joyceprint/joyceprint.js",            
-            "~/Scripts/joyceprint/error.js"
+            "~/Scripts/joyceprint/jquery-extensions.js",
+            "~/Scripts/joyceprint/nav.js",
+            "~/Scripts/joyceprint/loading.js",
+            "~/Scripts/joyceprint/error.js",
+            "~/Scripts/joyceprint/joyceprint.js"
         };
+
+        /// <summary>
+        /// The list of validation scripts to be used on each page
+        /// </summary>
+        public static List<string> ValidationBundle => new List<string> {
+            //"~/Scripts/jquery-2.2.0.min.js",
+            "~/Scripts/jquery.validate.js",
+            "~/Scripts/jquery.validate.unobtrusive.js",
+            "~/Scripts/joyceprint/validate.js"
+        };
+
+        #endregion
 
         /// <summary>
         /// Register the bundles for the initial application start up
@@ -56,7 +71,7 @@ namespace JoycePrint.Web
 #else
             BundleTable.EnableOptimizations = true;
 #endif
-        }        
+        }
 
         /// <summary>
         /// Add the scripts to a composable bundle
@@ -67,9 +82,9 @@ namespace JoycePrint.Web
             var baseBundle = new ScriptBundle("~/js/joyceprintjs")
                                             .AsComposable()
                                             .Include(BaseBundle.ToArray());
-                        
+
             bundles.Add(baseBundle);
-        }        
+        }
 
         /// <summary>
         /// Add the styles to the style bundle
@@ -81,9 +96,8 @@ namespace JoycePrint.Web
             // The less file is translated to css by the LessTransform class passed into the bundle
             bundles.Add(new Bundle("~/css/joyceprintcss",
                                 new IBundleTransform[] { new LessTransform(), new CssMinify() })
-                                .Include("~/Content/css/materialize.min.css",                                    
-                                    "~/Content/css/joyceprint.less")
-                                    );
+                                .Include("~/Content/css/materialize.min.css",
+                                    "~/Content/css/joyceprint.less"));
         }
 
         /// <summary>
@@ -93,34 +107,28 @@ namespace JoycePrint.Web
         {
             var additionalScript = new List<string>();
 
-            switch(pageBundle)
+            switch (pageBundle)
             {
                 case PageBundle.None: break;
                 case PageBundle.Home:
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-home.js");
                     break;
                 case PageBundle.Services:
                     break;
                 case PageBundle.AboutUs:
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-aboutus.js");
                     break;
                 case PageBundle.ContactUs:
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-contactus.js");
                     break;
                 case PageBundle.Quote:
-                    additionalScript.Add("~/Scripts/joyceprint/jalidate.js");              
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
-                    break;  
+                    additionalScript.AddRange(ValidationBundle);
+                    additionalScript.Add("~/Scripts/joyceprint/quote.js");
+                    additionalScript.Add("~/Scripts/joyceprint/recaptcha.js");
+                    additionalScript.Add("~/Scripts/joyceprint/notification-helper.js");
+                    break;
                 case PageBundle.All:
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-home.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-aboutus.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-contactus.js");
-                    additionalScript.Add("~/Scripts/joyceprint/jalidate.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-quote.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-recaptcha.js");
-                    additionalScript.Add("~/Scripts/joyceprint/joyceprint-notification.js");
+                    additionalScript.AddRange(ValidationBundle);
+                    additionalScript.Add("~/Scripts/joyceprint/quote.js");
+                    additionalScript.Add("~/Scripts/joyceprint/recaptcha.js");
+                    additionalScript.Add("~/Scripts/joyceprint/notification-helper.js");
                     break;
             }
 

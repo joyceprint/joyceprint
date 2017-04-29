@@ -1,29 +1,30 @@
 ﻿"use strict";
 
+/**************************************************************************************************
+ * Navigation Menu Javascript Functionality
+ *
+ *************************************************************************************************/
+
 var scrollUp;
 var lastScrollTop = 0;
 var navOffset = -($("nav").height() - 4);
 
-/*
-    This is for use with the side menu since the function [getElementIdInViewport] will not work with the side menu
-    overlay in place. We store the section we are scrolling to here and will use it in the [toggleNavigationMenu]
-    when the [id] passed in is [undefined]
-*/
+/**************************************************************************************************
+ * This is for use with the side menu since the function [getElementIdInViewport] will not work 
+ * with the side menu overlay in place. We store the section we are scrolling to here and will 
+ * use it in the [toggleNavigationMenu] when the [id] passed in is [undefined]
+ *  
+*************************************************************************************************/
 var toggleNavigationMenu_ScrollToId = null;
 
-/**************************************************************************************************
- * Navigation Menu Javascript Functionality
- *
+/************************************************************************************************** 
  * Call this function to initialize the javascript required for the navigation menu
+ * 
  *************************************************************************************************/
 function initializeNavFunctionality() {
 
     // When the page is loaded / reloaded, this gets the section the page is on and updates the menu link
-    document.body.addEventListener("load", toggleNavigationMenu(getElementIdInViewport()));
-
-    // TODO: This screws up the animation function and this also no longer appears to be needed
-    // Add the hashchange event listener, this event fires when the windows hash changes [location.hash]    
-    //window.addEventListener("hashchange", shiftWindow);
+    document.body.addEventListener("load", toggleNavigationMenu(getElementIdInViewport()));       
 
     // Sets up the scroll offset, required because of the use of a stick header
     initializeScrollMenu();
@@ -85,18 +86,6 @@ function getScrollDuration(currertElement, destinationElement) {
 }
 
 /**************************************************************************************************
- * Shitfs the scroll position down by the height of the fixed menu
- *
- * This allows href to point to an element location without having the top section covered
- * by the fixed menu. 
- * 
- * THIS FUNCTION IS NOT BEING CALLED - It screws up the animation
- *************************************************************************************************/
-//var shiftWindow = function () {
-//    scrollBy(0, navOffset);
-//};
-
-/**************************************************************************************************
  * Initializes the menu update via scrolling and resizing
  * 
  * Toggles the navigation menu based on where the user is on the page and which direction
@@ -151,12 +140,9 @@ function getScrollAdjust() {
  *************************************************************************************************/
 function getElementIdInViewport() {
 
-    var elementId = null;
+    var elementId;
 
     var menuHeight = 110;
-
-    // the window url using javascript and window element
-    //window.location.pathname + window.location.hash == '/index.html#contact'
 
     // 1 - get the center of the viewport - account for the menu height
     var windowHeight = $(window).height();
@@ -175,7 +161,7 @@ function getElementIdInViewport() {
     var elementAtCenter = document.elementFromPoint(offsetXPt, offsetYPt + getScrollAdjust());
 
     // 3 - navagiate out until you get to a section
-    var navSection = $(elementAtCenter).closest("section");
+    var navSection = $(elementAtCenter).closest("section[data-menu-item]");
 
     elementId = $(navSection).attr("id");
 
@@ -228,3 +214,21 @@ function toggleNavigationMenu(id) {
         $("#nav-mobile [name=liAboutUs] a").addClass("active-text");
     }
 }
+
+/**************************************************************************************************
+ * Shitfs the scroll position down by the height of the fixed menu
+ *
+ * This allows href to point to an element location without having the top section covered
+ * by the fixed menu. 
+ * 
+ * THIS FUNCTION IS NOT BEING CALLED - It screws up the animation
+ *************************************************************************************************/
+//var shiftWindow = function () {
+//    scrollBy(0, navOffset);
+//};
+
+// Add the hashchange event listener, this event fires when the windows hash changes [location.hash]    
+//window.addEventListener("hashchange", shiftWindow);
+
+// the window url using javascript and window element
+//window.location.pathname + window.location.hash == '/index.html#contact'

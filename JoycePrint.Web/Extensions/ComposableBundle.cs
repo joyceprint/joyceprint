@@ -63,8 +63,7 @@ namespace JoycePrint.Web.Extensions
             foreach (var file in content)
             {
                 if (!BundleConfig.BaseBundle.Contains(file))
-                {
-                    
+                {                    
                     // content.Remove(file);
                     // ReSharper disable once UnusedVariable
                     var bundlefiles = _bundle;

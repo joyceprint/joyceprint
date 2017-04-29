@@ -1,9 +1,13 @@
-﻿<div class="navbar-fixed">
+﻿@{
+    var hideNav = TempData["HideNavMenuOnError"] == null ? false : (bool)TempData["HideNavMenuOnError"];
+}
+
+<div class="navbar-fixed">
     <nav data-test-nav>
         <div class="nav-wrapper">
 
             @* ReSharper disable once Html.IdNotResolved *@
-            <a href="#!" class="brand-logo">
+            <a href="#!" class="brand-logo cursor-default">
                 <img src="~/Content/images/jp-logo-rbg.png" id="logo" alt="JoycePrint Logo" data-test-nav-logo />
             </a>
                         
@@ -11,37 +15,43 @@
             <a href="#!" data-activates="nav-mobile" class="button-collapse" data-test-side-nav-menu>
                 <i class="material-icons primary-text">menu</i>
             </a>
-
-            <ul id="nav" class="right hide-on-med-and-down">
-                <li name="liHome">
-                    <a href="#home" data-test-nav-home>Home</a>
-                </li>
-                <li name="liServices">
-                    <a href="#services" data-test-nav-services>Services</a>
-                </li>
-                <li name="liAboutUs">
-                    <a href="#aboutus" data-test-nav-aboutus>About Us</a>
-                </li>
-                <li name="liQuote">
-                    <a href="#quote" data-test-nav-quote>Get A Quote</a>
-                </li>
-            </ul>                                    
+            
+            @if (!hideNav)
+            {
+                <ul id="nav" class="right hide-on-med-and-down">
+                    <li name="liHome">
+                        <a href="#home" data-test-nav-home>Home</a>
+                    </li>
+                    <li name="liServices">
+                        <a href="#services" data-test-nav-services>Services</a>
+                    </li>
+                    <li name="liAboutUs">
+                        <a href="#aboutus" data-test-nav-aboutus>About Us</a>
+                    </li>
+                    <li name="liQuote">
+                        <a href="#quote" data-test-nav-quote>Get A Quote</a>
+                    </li>
+                </ul>
+            }
         </div>
     </nav>
 </div>
 
-<!-- This needs to be outside the navbar-fixed container or the z-indexes will get screwed up -->
-<ul id="nav-mobile" class="side-nav">
-    <li name="liHome">
-        <a href="#home" data-test-side-nav-home>Home</a>
-    </li>
-    <li name="liServices">
-        <a href="#services" data-test-side-nav-services>Services</a>
-    </li>
-    <li name="liAboutUs">
-        <a href="#aboutus" data-test-side-nav-aboutus>About Us</a>
-    </li>
-    <li name="liQuote">
-        <a href="#quote" data-test-side-nav-quote>Get A Quote</a>
-    </li>
-</ul>
+@if (!hideNav)
+{
+    <!-- This needs to be outside the navbar-fixed container or the z-indexes will get screwed up -->
+    <ul id="nav-mobile" class="side-nav">
+        <li name="liHome">
+            <a href="#home" data-test-side-nav-home>Home</a>
+        </li>
+        <li name="liServices">
+            <a href="#services" data-test-side-nav-services>Services</a>
+        </li>
+        <li name="liAboutUs">
+            <a href="#aboutus" data-test-side-nav-aboutus>About Us</a>
+        </li>
+        <li name="liQuote">
+            <a href="#quote" data-test-side-nav-quote>Get A Quote</a>
+        </li>
+    </ul>
+}

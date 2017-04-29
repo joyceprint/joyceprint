@@ -1,0 +1,1100 @@
+﻿/**************************************************************************************
+ * JoycePrint Styles
+ * --------------------------------------------------
+ *
+ * This file all required less files for the application
+**************************************************************************************/
+/* Font Imports ******************************************************/
+
+/**************************************************************************************
+ * Avenir Font
+ * --------------------------------------------------
+ * 
+ * This file contains the avenir font imports
+ *
+ * .eot         :   IE9+ Compat Modes
+ * .eot?#iefix  :   IE6 - IE8
+ * .woff        :   Modern Browsers
+ * .woff2       :   Super Modern Browsers
+ * .ttf         :   Safari, Andriod, iOS
+ * .svg         :   Legacy iOS
+ * 
+**************************************************************************************/
+/* Light *************************************************************/
+
+@font-face {
+  font-family: 'Avenir Light';
+  src: url('/Content/fonts/avenir/Light/Avenir-Light.eot');
+  src: url('/Content/fonts/avenir/Light/Avenir-Light.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/avenir/Light/Avenir-Light.woff') format('woff'), url('/Content/fonts/avenir/Light/Avenir-Light.woff2') format('woff2'), url('/Content/fonts/avenir/Light/Avenir-Light.ttf') format('truetype'), url('/Content/fonts/avenir/Light/Avenir-Light.svg#Avenir-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+/* Book **************************************************************/
+
+@font-face {
+  font-family: 'Avenir Book';
+  src: url('/Content/fonts/avenir/Book/Avenir-Book.eot');
+  src: url('/Content/fonts/avenir/Book/Avenir-Book.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/avenir/Book/Avenir-Book.woff') format('woff'), url('/Content/fonts/avenir/Book/Avenir-Book.woff2') format('woff2'), url('/Content/fonts/avenir/Book/Avenir-Book.ttf') format('truetype'), url('/Content/fonts/avenir/Book/Avenir-Book.svg#Avenir-Book') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Heavy *************************************************************/
+
+@font-face {
+  font-family: 'Avenir Heavy';
+  src: url('/Content/fonts/avenir/Heavy/Avenir-Heavy.eot');
+  src: url('/Content/fonts/avenir/Heavy/Avenir-Heavy.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/avenir/Heavy/Avenir-Heavy.woff') format('woff'), url('/Content/fonts/avenir/Heavy/Avenir-Heavy.woff2') format('woff2'), url('/Content/fonts/avenir/Heavy/Avenir-Heavy.ttf') format('truetype'), url('/Content/fonts/avenir/Heavy/Avenir-Heavy.svg#Avenir-Heavy') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+/**************************************************************************************
+ * Open Sans Font
+ * --------------------------------------------------
+ * Open Sans @font-face kit
+ *
+ * This file contains the avenir font imports
+ *
+ * .eot         :   IE9+ Compat Modes
+ * .eot?#iefix  :   IE6 - IE8
+ * .woff        :   Modern Browsers
+ * .woff2       :   Super Modern Browsers
+ * .ttf         :   Safari, Andriod, iOS
+ * .svg         :   Legacy iOS
+ * 
+**************************************************************************************/
+/* BEGIN Light */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Light/OpenSans-Light.eot');
+  src: url('/Content/fonts/open-sans/Light/OpenSans-Light.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Light/OpenSans-Light.woff') format('woff'), url('/Content/fonts/open-sans/Light/OpenSans-Light.ttf') format('truetype'), url('/Content/fonts/open-sans/Light/OpenSans-Light.svg#OpenSansLight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+/* END Light */
+
+/* BEGIN Light Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.eot');
+  src: url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.woff') format('woff'), url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.ttf') format('truetype'), url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.svg#OpenSansLightItalic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+}
+/* END Light Italic */
+
+/* BEGIN Regular */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Regular/OpenSans-Regular.eot');
+  src: url('/Content/fonts/open-sans/Regular/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Regular/OpenSans-Regular.woff') format('woff'), url('/Content/fonts/open-sans/Regular/OpenSans-Regular.ttf') format('truetype'), url('/Content/fonts/open-sans/Regular/OpenSans-Regular.svg#OpenSansRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* END Regular */
+
+/* BEGIN Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Italic/OpenSans-Italic.eot');
+  src: url('/Content/fonts/open-sans/Italic/OpenSans-Italic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Italic/OpenSans-Italic.woff') format('woff'), url('/Content/fonts/open-sans/Italic/OpenSans-Italic.ttf') format('truetype'), url('/Content/fonts/open-sans/Italic/OpenSans-Italic.svg#OpenSansItalic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+/* END Italic */
+
+/* BEGIN Semibold */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.eot');
+  src: url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.woff') format('woff'), url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.ttf') format('truetype'), url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.svg#OpenSansSemibold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+/* END Semibold */
+
+/* BEGIN Semibold Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.eot');
+  src: url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.woff') format('woff'), url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.ttf') format('truetype'), url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.svg#OpenSansSemiboldItalic') format('svg');
+  font-weight: 600;
+  font-style: italic;
+}
+/* END Semibold Italic */
+
+/* BEGIN Bold */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Bold/OpenSans-Bold.eot');
+  src: url('/Content/fonts/open-sans/Bold/OpenSans-Bold.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Bold/OpenSans-Bold.woff') format('woff'), url('/Content/fonts/open-sans/Bold/OpenSans-Bold.ttf') format('truetype'), url('/Content/fonts/open-sans/Bold/OpenSans-Bold.svg#OpenSansBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+/* END Bold */
+
+/* BEGIN Bold Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.eot');
+  src: url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.woff') format('woff'), url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.ttf') format('truetype'), url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.svg#OpenSansBoldItalic') format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
+/* END Bold Italic */
+
+/* BEGIN Extrabold */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.eot');
+  src: url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.woff') format('woff'), url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.ttf') format('truetype'), url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.svg#OpenSansExtrabold') format('svg');
+  font-weight: 800;
+  font-style: normal;
+}
+/* END Extrabold */
+
+/* BEGIN Extrabold Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.eot');
+  src: url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.woff') format('woff'), url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.ttf') format('truetype'), url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.svg#OpenSansExtraboldItalic') format('svg');
+  font-weight: 800;
+  font-style: italic;
+}
+/* END Extrabold Italic */
+
+/**************************************************************************************
+ * Helvetica Light Font
+ * --------------------------------------------------
+ * 
+ * This file contains the avenir font imports
+ *
+ * .eot         :   IE9+ Compat Modes
+ * .eot?#iefix  :   IE6 - IE8
+ * .woff        :   Modern Browsers
+ * .woff2       :   Super Modern Browsers
+ * .ttf         :   Safari, Andriod, iOS
+ * .svg         :   Legacy iOS
+ * 
+**************************************************************************************/
+/* Light *************************************************************/
+
+@font-face {
+  font-family: 'Helvetica Light';
+  src: url('/Content/fonts/helvetica-light/Helvetica-Light.eot');
+  src: url('/Content/fonts/helvetica-light/Helvetica-Light.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/helvetica-light/Helvetica-Light.woff') format('woff'), url('/Content/fonts/helvetica-light/Helvetica-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+/* Base Imports ******************************************************/
+
+/****************************************************************************************
+ * Variables
+ * --------------------------------------------------
+ * 
+ * This file contains the variables used throughout the other less files
+****************************************************************************************/
+/****************************************************************************************
+ * Color
+ * --------------------------------------------------
+ *
+ * This file contains styles that apply color
+****************************************************************************************/
+
+/* Background Color Extensions *********************************************************/
+
+.primary {
+  background-color: #1d4a5d;
+}
+.warning {
+  background-color: #f89c28;
+}
+.success {
+  background-color: #97c23c;
+}
+.danger {
+  background-color: #d9534f;
+}
+.light-grey {
+  background-color: #f7f7f7;
+}
+.white {
+  background-color: white;
+}
+.pink {
+  background-color: #ed1566;
+}
+/****************************************************************************************
+ * Fonts
+ * --------------------------------------------------
+ * 
+ * This file contains font imports required for the site
+ * This file contains the font size and color classes for the site
+****************************************************************************************/
+
+/* Font Extension Classes **************************************************************/
+
+html {
+  font-family: "Avenir Light";
+}
+nav {
+  font-family: "Avenir Light";
+}
+.helvetica-light {
+  font-family: "Helvetica Light";
+  font-weight: 300;
+}
+/* Font Color Extensions ***************************************************************/
+
+.active-text {
+  color: #ed1566;
+}
+.primary-text {
+  color: #1d4a5d;
+}
+.warning-text {
+  color: #f89c28;
+}
+.success-text {
+  color: #97c23c;
+}
+.danger-text {
+  color: #d9534f;
+}
+.regular-text {
+  color: #333333;
+}
+.white-text {
+  color: white;
+}
+/* Font Weight Extensions **************************************************************/
+
+.text-500 {
+  font-weight: 500;
+}
+.text-600 {
+  font-weight: 600;
+}
+.text-700 {
+  font-weight: 700;
+}
+.material-icons.text-700 {
+  font-weight: 700 !important;
+}
+.text-900 {
+  font-weight: 900;
+}
+/****************************************************************************************
+ * HTML Tag Style Extensions
+ * --------------------------------------------------
+ *
+ * This file contains styles that are applied directly to HTML tags
+****************************************************************************************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+address {
+  font-style: normal;
+}
+/****************************************************************************************
+ * Loading
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used with the interaction loading functionalit
+****************************************************************************************/
+
+.loader-overlay {
+  position: fixed;
+  z-index: 999;
+  top: -100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 125%;
+  width: 100%;
+  background-color: #3d5975;
+  opacity: 0.2;
+  display: block;
+}
+.loader-holder {
+  position: fixed;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.loader {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1;
+  vertical-align: middle;
+  pointer-events: none;
+}
+.loader-outside {
+  border: 0.3em solid transparent;
+  border-left-color: rgba(29, 74, 93, 0.7);
+  border-right-color: rgba(29, 74, 93, 0.7);
+  animation: 0.8s loader-outside ease-in-out infinite;
+  height: 4.5rem;
+  width: 4.5rem;
+}
+.loader-inside {
+  border: 0.35em solid transparent;
+  border-left-color: #1d4a5d;
+  border-right-color: #1d4a5d;
+  animation: 0.35s loader-inside linear infinite;
+  width: 3rem;
+  height: 3rem;
+}
+@-webkit-keyframes loader-outside {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+    transform: translate(-50%, -50%) rotate(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(180deg);
+    transform: translate(-50%, -50%) rotate(180deg);
+    opacity: 0;
+  }
+}
+@keyframes loader-outside {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+    transform: translate(-50%, -50%) rotate(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(180deg);
+    transform: translate(-50%, -50%) rotate(180deg);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes loader-inside {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(-180deg);
+    transform: translate(-50%, -50%) rotate(-180deg);
+  }
+}
+@keyframes loader-inside {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(-180deg);
+    transform: translate(-50%, -50%) rotate(-180deg);
+  }
+}
+/****************************************************************************************
+ * Materialize Class Extensions
+ * --------------------------------------------------
+ *
+ * Classes required that materialize does not have by default
+ *
+ * Classes required for overriding materialize styles that are not accessable 
+ * using the site customizations
+****************************************************************************************/
+
+/* Align Extensions ********************************************************************/
+
+.justify-align {
+  text-align: justify;
+  /* IE9 - https://msdn.microsoft.com/en-us/library/ms531172(v=vs.85).aspx 
+        Solves the issue of massive gaps between the words
+    */
+  text-justify: distribute;
+}
+.word-space--2px {
+  word-spacing: -2px;
+}
+.word-space--1px {
+  word-spacing: -1px;
+}
+/* Button Extensions *******************************************************************/
+
+.btn-round {
+  border-radius: 15px 15px;
+}
+/* Container Extensions ****************************************************************/
+
+.container-aboutus {
+  margin-left: 14%;
+}
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
+  .container {
+    width: 80%;
+  }
+  .container-aboutus {
+    margin-left: 9%;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+  .container-aboutus {
+    margin-left: 4%;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1024px) {
+  .container {
+    width: 95%;
+  }
+  .container-aboutus {
+    margin-left: 1%;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .container-aboutus {
+    width: 85%;
+    margin: 0 auto;
+    max-width: 1280px;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 600px) {
+  .container-aboutus {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1280px;
+  }
+}
+/* Font Extensions *********************************************************************/
+
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 13px;
+  }
+}
+/* Input Extensions ********************************************************************/
+
+.border-side {
+  border-left: 1px solid #e0e0e0 !important;
+  border-right: 1px solid #e0e0e0 !important;
+}
+/* Row Extensions **********************************************************************/
+
+.row.eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.eq-height > [class*='col'] {
+  display: flex;
+  flex-direction: column;
+}
+.row.add-pad-top {
+  padding-top: 60px;
+}
+.row.add-pad-bot {
+  padding-bottom: 60px;
+}
+.row.no-mar-bot {
+  margin-bottom: 0px;
+}
+.row .col.add-pad-bot {
+  padding-bottom: 20px;
+}
+.row .col.no-pad-side {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.row .col.no-pad-left {
+  padding-left: 0px;
+}
+.row .col.no-pad-right {
+  padding-right: 0px;
+}
+.row.half-mar {
+  margin-bottom: 10px;
+}
+/*
+.row.eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.eq-height > [class*='col'] {
+    display: flex;
+    flex-direction: column;
+}
+*/
+
+/*.row.eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.eq-height > [class*='col'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}*/
+
+/* Show-On Extensions ******************************************************************/
+
+@media only screen and (max-width: 330px) {
+  .show-on-330px {
+    display: block !important;
+  }
+}
+@media only screen and (min-width: 331px) {
+  .show-on-330px {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .show-on-700px {
+    display: block !important;
+  }
+}
+@media only screen and (min-width: 701px) {
+  .show-on-700px {
+    display: none !important;
+  }
+}
+/* Space Extensions ********************************************************************/
+
+.space-right {
+  margin-right: 15px;
+}
+.space-text::before {
+  content: '\00a0 ';
+}
+.space-bot {
+  margin-bottom: 15px;
+}
+/* Toast Styles Extensions *************************************************************/
+
+.toast {
+  background-color: #a94442;
+}
+/* Tooltip Extensions ******************************************************************/
+
+.material-tooltip {
+  font-weight: 700;
+}
+.backdrop {
+  background-color: #1d4a5d;
+}
+/* Transform Extensions ****************************************************************/
+
+.tstop-uppercase {
+  text-transform: none;
+}
+/****************************************************************************************
+ * Validation
+ * --------------------------------------------------
+ * 
+ * This file contains the styles for validation
+ *
+ * Active, Required, Valid and Invalid styles are contained in this file
+****************************************************************************************/
+
+/* Active Extensions *******************************************************************/
+
+.prefix.active.success-text {
+  color: #97c23c;
+}
+.prefix.success-text {
+  color: #3c763d;
+}
+.prefix.active.danger-text {
+  color: #d9534f;
+}
+.prefix.danger-text {
+  color: #a94442;
+}
+/* Required Field Extensions ***********************************************************/
+
+input:focus:not([readonly])[required],
+textarea.materialize-textarea:focus:not([readonly])[required] {
+  border-bottom-color: #f89c28;
+  box-shadow: 0 1px 0 0 #f89c28;
+}
+input:focus:not([readonly])[required].border-side,
+textarea.materialize-textarea:focus:not([readonly])[required].border-side {
+  border-left-color: #f89c28 !important;
+  border-right-color: #f89c28 !important;
+}
+input:focus:not([readonly])[required] + label,
+textarea.materialize-textarea:focus:not([readonly])[required] + label {
+  color: #f89c28;
+}
+/* Valid Field Extensions **************************************************************/
+
+input:focus:not([readonly])[required][class~=valid],
+textarea.materialize-textarea:focus:not([readonly])[required][class~=valid] {
+  border-bottom-color: #97c23c;
+  box-shadow: 0 1px 0 0 #97c23c;
+}
+input:focus:not([readonly])[required][class~=valid].border-side,
+textarea.materialize-textarea:focus:not([readonly])[required][class~=valid].border-side {
+  border-left-color: #97c23c !important;
+  border-right-color: #97c23c !important;
+}
+input:focus:not([readonly])[required][class~=valid] + label,
+textarea.materialize-textarea:focus:not([readonly])[required][class~=valid] + label {
+  color: #97c23c;
+}
+input:not([readonly])[required][class~=valid],
+textarea.materialize-textarea:not([readonly])[required][class~=valid] {
+  border-bottom-color: #3c763d;
+  box-shadow: 0 1px 0 0 #3c763d;
+}
+input:not([readonly])[required][class~=valid].border-side,
+textarea.materialize-textarea:not([readonly])[required][class~=valid].border-side {
+  border-left-color: #3c763d !important;
+  border-right-color: #3c763d !important;
+}
+input:not([readonly])[required][class~=valid] + label,
+textarea.materialize-textarea:not([readonly])[required][class~=valid] + label {
+  color: #3c763d;
+}
+/* Invalid Field Extensions ************************************************************/
+
+input:focus:not([readonly])[required][class~=invalid],
+textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid] {
+  border-bottom-color: #d9534f;
+  box-shadow: 0 1px 0 0 #d9534f;
+}
+input:focus:not([readonly])[required][class~=invalid].border-side,
+textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid].border-side {
+  border-left-color: #d9534f !important;
+  border-right-color: #d9534f !important;
+}
+input:focus:not([readonly])[required][class~=invalid] + label,
+textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid] + label {
+  color: #d9534f;
+}
+input:not([readonly])[required][class~=invalid],
+textarea.materialize-textarea:not([readonly])[required][class~=invalid] {
+  border-bottom-color: #a94442;
+  box-shadow: 0 1px 0 0 #a94442;
+}
+input:not([readonly])[required][class~=invalid].border-side,
+textarea.materialize-textarea:not([readonly])[required][class~=invalid].border-side {
+  border-left-color: #a94442 !important;
+  border-right-color: #a94442 !important;
+}
+input:not([readonly])[required][class~=invalid] + label,
+textarea.materialize-textarea:not([readonly])[required][class~=invalid] + label {
+  color: #a94442;
+}
+label.val-msg.active {
+  display: block;
+  font-size: 0.8rem;
+  color: #d9534f;
+  -webkit-transform: translateY(200%);
+  transform: translateY(200%);
+}
+textarea.materialize-textarea + label + label.val-msg.active {
+  display: block;
+  font-size: 0.8rem;
+  color: #d9534f;
+  transform: translate(-0.2%, 1875%);
+  -webkit-transform: translate(-0.2%, 1875%);
+  left: -2.2rem !important;
+}
+label.val-msg,
+i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class~=active]) i.material-icons:not([class~=active]) + input + label + label.val-msg[class~=active] {
+  display: none;
+}
+.label-transform-stop {
+  transition: none !important;
+  transform: none !important;
+  font-size: 1rem !important;
+  top: 0rem !important;
+}
+/*transform {
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: ease-out;
+}*/
+
+/* View Imports ******************************************************/
+
+/****************************************************************************************
+ * Layout View
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used on the layout view
+****************************************************************************************/
+
+/* Sticky Footer Classes ***************************************************************/
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  /* Basic Font Color Extension ******************************************************/
+
+  color: #333333;
+}
+main {
+  flex: 1 0 auto;
+}
+footer.page-footer {
+  background-color: white;
+  margin-top: 0px;
+}
+/****************************************************************************************
+ * Navigation
+ * --------------------------------------------------
+ * 
+ * This file contains the styles for the navigation bar
+****************************************************************************************/
+
+/* Nav Extensions **********************************************************************/
+
+.navbar-fixed {
+  height: 110px;
+}
+nav {
+  background-color: white;
+  height: 110px;
+  line-height: 110px;
+}
+nav img {
+  height: 110px;
+}
+nav ul a {
+  color: #1e2d3b;
+  font-size: 1.1rem;
+}
+nav ul a:hover,
+ul#nav-mobile a:hover {
+  background-color: transparent;
+  color: #ed1566;
+}
+nav ul li.active,
+ul#nav-mobile li.active {
+  background-color: transparent;
+}
+nav ul a.active-text,
+ul#nav-mobile a.active-text {
+  color: #ed1566;
+}
+/* Side Nav Extensions *****************************************************************/
+
+.button-collapse {
+  cursor: pointer;
+  margin-top: 27.5px !important;
+}
+ul#nav-mobile a {
+  font-size: 1.3rem;
+}
+/* Custom Styles ***********************************************************************/
+
+#logo {
+  padding-left: 5vw;
+}
+#nav {
+  padding-right: 5vw;
+}
+#nav li {
+  padding-left: 1.9vw;
+  padding-right: 1.9vw;
+}
+/****************************************************************************************
+ * Home
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used on the home view
+****************************************************************************************/
+
+#home {
+  font-family: "Avenir Book";
+}
+#home-parallax-container {
+  z-index: 1;
+  background-color: black;
+}
+#home-parallax-container > .parallax-container {
+  height: 1000px;
+  z-index: 2;
+  opacity: 0.71;
+}
+#home-parallax-content {
+  position: absolute;
+  top: 40vh;
+  width: 100%;
+  z-index: 3;
+}
+/* Phone Screens ***********************************************************************/
+
+@media only screen and (max-width: 600px) {
+  #home-parallax-content {
+    top: 25vh;
+  }
+}
+#home-parallax-content > a {
+  font-size: 20px;
+  margin-top: 50px;
+  width: 300px;
+}
+/* IPad Pro ****************************************************************************/
+
+@media only screen and (min-width: 1024px) and (min-height: 1366px) {
+  #home-parallax-content {
+    top: 35vh;
+  }
+}
+#home-parallax-content > h1 {
+  font-size: 4.534rem;
+}
+@media only screen and (min-width: 1025px) {
+  #home-parallax-content > h1 {
+    font-size: 5.534rem;
+  }
+}
+.home-header {
+  color: white;
+  font-family: "Open Sans";
+  letter-spacing: 0.35rem;
+}
+.home-text {
+  color: white;
+  font-family: "Avenir Heavy";
+  font-weight: 600;
+}
+@media only screen and (max-width: 400px) {
+  .home-text {
+    font-size: 2rem;
+  }
+}
+.home-btn {
+  color: white;
+  font-family: "Avenir Book";
+  font-weight: normal;
+}
+/****************************************************************************************
+ * Services
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used on the services view
+****************************************************************************************/
+
+.services-header {
+  font-weight: 600;
+  font-family: Avenir Heavy;
+  color: #c6c6c6;
+  letter-spacing: 0.2rem;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  margin-top: 0px;
+}
+/* Card Extensions *********************************************************************/
+
+#services .card {
+  box-shadow: 0.3rem -0.3rem 0.5rem rgba(0, 0, 0, 0.14);
+}
+#services .card.large {
+  height: 550px;
+  min-height: 550px;
+}
+#services .card-title {
+  font-weight: 600;
+  color: #3d5975;
+  font-family: "Avenir Heavy";
+}
+#services .card-content p {
+  font-family: Helvetica Light;
+  font-weight: 300;
+}
+#services .card-image {
+  border-bottom-color: #f7f7f7;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+/* This stops the card from hiding most of the text */
+
+#services .card.large,
+#services .card-image + .card-content {
+  max-height: 80% !important;
+}
+/****************************************************************************************
+ * About Us
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used on the about us view
+****************************************************************************************/
+
+@media only screen and (min-width: 993px) {
+  .about-header {
+    text-align: left;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .about-header {
+    text-align: center;
+  }
+}
+.about-header {
+  font-weight: 600;
+  font-family: Avenir Heavy;
+  color: #c6c6c6;
+  letter-spacing: 0.2rem;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  margin-top: 0px;
+}
+#aboutus-parallax-container.parallax-container {
+  height: 830px;
+  z-index: 2;
+}
+.about-address {
+  padding-bottom: 20px;
+}
+#companyHistory p {
+  font-family: Helvetica Light;
+  font-weight: 300;
+}
+#companyInformation a {
+  color: #333333;
+  text-decoration: none;
+}
+/****************************************************************************************
+ * Quote
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used on the get a quote view
+****************************************************************************************/
+
+.quote-header {
+  font-weight: 600;
+  font-family: Avenir Heavy;
+  color: #c6c6c6;
+  letter-spacing: 0.2rem;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  margin-top: 0px;
+  padding-top: 30px;
+}
+/* Partial Imports ***************************************************/
+
+/****************************************************************************************
+ * Enquiry Form
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used on the enquiry form view
+****************************************************************************************/
+
+.checkbox-pad {
+  padding-right: 15px;
+}
+.checkbox-container-header {
+  padding-bottom: 15px !important;
+  padding-top: 15px !important;
+}
+.checkbox-container-space {
+  padding-bottom: 15px !important;
+}
+.message {
+  background-color: white !important;
+  margin-top: 40px !important;
+  margin-left: 0px !important;
+  width: 100% !important;
+  height: 265px !important;
+  overflow-y: auto !important;
+}
+/****************************************************************************************
+ * Print Checklist
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used on the get a print checklist view
+****************************************************************************************/
+
+#printCheckList .collection .collection-item {
+  border-bottom: none;
+}
+#printChecklist .collection {
+  margin-bottom: 0;
+}
+/****************************************************************************************
+ * Google Map
+ * --------------------------------------------------
+ *
+ * This file contains styles that are used with the google map
+****************************************************************************************/
+
+#map {
+  height: 200px;
+  width: 100%;
+}
+#map-cover {
+  position: relative;
+  top: -200px;
+  margin-bottom: -200px;
+  left: 0;
+  height: 200px;
+  z-index: 2;
+  background-color: black;
+  opacity: 0.3;
+}
+.hide-overlay {
+  color: #ed1566;
+  cursor: pointer;
+  top: 75px;
+  position: relative;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-default {
+  cursor: default;
+}
+.section-header {
+  font-weight: 600;
+  font-family: "Avenir Heavy";
+  color: #c6c6c6;
+  letter-spacing: 0.2rem;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  margin-top: 0px;
+}
