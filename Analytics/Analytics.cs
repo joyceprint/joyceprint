@@ -19,7 +19,7 @@ namespace Analytics
 
         private void OnBeginRequest(object source, EventArgs evernArgs)
         {
-            _engine?.CaptureAnalysis(((HttpApplication)source).Context);
+            _engine?.CaptureAnalysis(((HttpApplication)source).Context, TrackingType.Page);
         }
     }
 }

@@ -11,13 +11,24 @@ namespace Analytics.Analyzer
 {
     public class Analyzer : AnalyzerProvider
     {
+        #region Analyzers ARC Map Extra KVP
+
         private string _version = "1";
 
-        private string _trackingId = Config.AnalyticsTrackingId;
+        private string _trackingId = "XX-XXXXXXXX-X";
 
         private int _timeout = 500;
 
-        private static readonly string ApplicationName = HostingEnvironment.SiteName;
+        /// <summary>
+        /// This is the tracking type to be used with the analyzer
+        /// 
+        /// We do this because we need to use different modules for different analytics tracking mechanisms
+        /// </summary>
+        private TrackingType _trackingType = TrackingType.None;
+
+        protected TrackingType TrackingType => _trackingType;
+
+        #endregion        
 
         private const string Url = "http://www.google-analytics.com/collect";
 
@@ -41,6 +52,11 @@ namespace Analytics.Analyzer
                     throw new Exception($"Error reading timeout configuration setting. Default of {_timeout} will be used on the web site {ApplicationName}");
 
                 _timeout = int.Parse(config["timeout"]);
+
+                if (config["trackingType"] == null)
+                    throw new Exception($"Error reading tracking type configuration setting. Default of {_trackingType} will be used on the web site {ApplicationName}");
+
+                Enum.TryParse(config["trackingType"], true, out _trackingType);
             }
             catch (Exception ex)
             {
@@ -48,47 +64,22 @@ namespace Analytics.Analyzer
             }
         }
 
-        public override void Analyze(HttpContext context)
+        public override void Analyze(HttpContext context, TrackingType type)
         {
             try
             {
-                if (!Enabled || _trackingId.IsNullOrEmpty()) return;
-
-                var eventTracking = string.Empty;
-
-                switch (GetAnalysisTrackingType())
-                {
-                    case AnalysisTracking.Page:
-                        eventTracking = GetPageTracking(context);
-                        break;
-                    case AnalysisTracking.Event:
-                        eventTracking = GetPageTracking(context);
-                        break;
-                    case AnalysisTracking.None:
-                        return;
-                    default:
-                        return;
-                }
+                if (!Enabled || _trackingId.IsNullOrEmpty() || type != TrackingType) return;
+                
+                var eventTracking = GetPageTracking(context);
 
                 SendAnalysis(context, eventTracking);
-                
+
             }
             catch (Exception ex)
             {
                 Logger.Instance.Log(MessageLevel.Error, ex, "Analyzer analyze method");
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        private AnalysisTracking GetAnalysisTrackingType()
-        {
-            var analysisTracking = AnalysisTracking.None;
-
-            return analysisTracking;
-        }
+        }        
 
         /// <summary>
         /// 

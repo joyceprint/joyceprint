@@ -10,6 +10,9 @@ namespace Analytics
 {
     public class AnalysisEngine
     {
+        /// <summary>
+        /// This is the enabled switch for the analytics section <engine enabled="true" />
+        /// </summary>
         private bool Enabled { get; set; }
 
         private AnalyzerProvider[] Analyzers { get; set; }
@@ -31,12 +34,12 @@ namespace Analytics
             Enabled = null != section && section.Enabled;
         }
 
-        public void CaptureAnalysis(HttpContext context)
+        public void CaptureAnalysis(HttpContext context, TrackingType type)
         {
             if (!Enabled || null == Analyzers) return;
 
             foreach(var analyzer in Analyzers.Where(e => Enabled))
-                analyzer.Analyze(context);
+                analyzer.Analyze(context, type);
         }
     }
 }
