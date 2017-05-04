@@ -54,26 +54,64 @@ namespace Analytics.Analyzer
             {
                 if (!Enabled || _trackingId.IsNullOrEmpty()) return;
 
-                var req = (HttpWebRequest)WebRequest.Create(Url);
+                var eventTracking = string.Empty;
 
-                req.Method = "POST";
-                req.UserAgent = HttpContext.Current.Request.UserAgent;
-                req.ContentType = "text/xml";
-                req.KeepAlive = false;
-
-                var data = Encoding.ASCII.GetBytes(GetPageTracking(context));
-
-                req.ContentLength = data.Length;
-                req.Timeout = _timeout;
-
-                using (var stream = req.GetRequestStream())
+                switch (GetAnalysisTrackingType())
                 {
-                    stream.Write(data, 0, data.Length);
+                    case AnalysisTracking.Page:
+                        eventTracking = GetPageTracking(context);
+                        break;
+                    case AnalysisTracking.Event:
+                        eventTracking = GetPageTracking(context);
+                        break;
+                    case AnalysisTracking.None:
+                        return;
+                    default:
+                        return;
                 }
+
+                SendAnalysis(context, eventTracking);
+                
             }
             catch (Exception ex)
             {
                 Logger.Instance.Log(MessageLevel.Error, ex, "Analyzer analyze method");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private AnalysisTracking GetAnalysisTrackingType()
+        {
+            var analysisTracking = AnalysisTracking.None;
+
+            return analysisTracking;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="eventTracking"></param>
+        private void SendAnalysis(HttpContext context, string eventTracking)
+        {
+            var req = (HttpWebRequest)WebRequest.Create(Url);
+
+            req.Method = "POST";
+            req.UserAgent = HttpContext.Current.Request.UserAgent;
+            req.ContentType = "text/xml";
+            req.KeepAlive = false;
+
+            var data = Encoding.ASCII.GetBytes(eventTracking);
+
+            req.ContentLength = data.Length;
+            req.Timeout = _timeout;
+
+            using (var stream = req.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
             }
         }
 
