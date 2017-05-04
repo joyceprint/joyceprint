@@ -86,14 +86,20 @@ namespace Analytics.Analyzer
         {
             var pageTracking = new StringBuilder();
 
-            //var page = context.Request.Url.AbsoluteUri;
-            var page = "http://joyceprint.dev.com";
+            var host = context.Request.Url.AbsoluteUri;
 
+#if DEBUG
+            host = "http://joyceprint.dev.com";
+#endif
+            // TODO: Get the page title somehow?
+            var title = "title";
+
+            string page = string.Empty;
             string soapAction;
             if (null != (soapAction = context.Request.Headers["soapaction"]))
             {
                 var index = soapAction.LastIndexOf('/');
-                page += soapAction.Substring((index == -1 ? 0 : index));
+                page = soapAction.Substring((index == -1 ? 0 : index));
             }
 
             // Version
@@ -108,14 +114,14 @@ namespace Analytics.Analyzer
             // Hit Type [ Type is Page View ]
             pageTracking.Append($"&t=pageview");
 
-            // Document Hostname TODO: Get from the Url
-            //pageTracking.Append($"&dp%2F {page.Trim()}");
+            // Document Hostname
+            pageTracking.Append($"&dh={host.Trim()}");
 
             // Page
-            pageTracking.Append($"&dp%2F {page.Trim()}");
+            pageTracking.Append($"&dp={(page.IsNullOrEmpty() ? "unknown" : page.Trim())}");
 
-            // Title TODO: Get the title somehow ??
-            //pageTracking.Append($"&dt='{page.Trim()}'");
+            // Title
+            pageTracking.Append($"&dt={title.Trim()}");
 
             return pageTracking.ToString();
         }
