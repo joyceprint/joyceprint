@@ -3,9 +3,11 @@ using System.Web;
 
 namespace Analytics
 {
-    public class Analytics : IHttpModule
+    public class Analytics : IHttpModule, IHttpHandler
     {
         private static AnalysisEngine _engine;
+
+        #region HttpModule 
 
         public void Init(HttpApplication context)
         {
@@ -21,5 +23,18 @@ namespace Analytics
         {
             _engine?.CaptureAnalysis(((HttpApplication)source).Context, TrackingType.Page);
         }
+
+        #endregion
+
+        #region Http Handler
+
+        public void ProcessRequest(HttpContext context)
+        {
+            _engine?.CaptureAnalysis(context, TrackingType.Event);            
+        }
+
+        public bool IsReusable { get { return false; } }
+
+        #endregion
     }
 }

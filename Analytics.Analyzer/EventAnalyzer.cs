@@ -4,12 +4,11 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Text;
 using System.Web;
-using System.Web.Hosting;
 using Common.Logging.Enums;
 
 namespace Analytics.Analyzer
 {
-    public class Analyzer : AnalyzerProvider
+    public class EventAnalyzer : AnalyzerProvider
     {
         #region Analyzers ARC Map Extra KVP
 
@@ -70,9 +69,9 @@ namespace Analytics.Analyzer
             {
                 if (!Enabled || _trackingId.IsNullOrEmpty() || type != TrackingType) return;
                 
-                var eventTracking = GetPageTracking(context);
+                var eventTracking = GetTracking(context);
 
-                SendAnalysis(context, eventTracking);
+                SendAnalysis(eventTracking);
 
             }
             catch (Exception ex)
@@ -83,10 +82,9 @@ namespace Analytics.Analyzer
 
         /// <summary>
         /// 
-        /// </summary>
-        /// <param name="context"></param>
+        /// </summary>        
         /// <param name="eventTracking"></param>
-        private void SendAnalysis(HttpContext context, string eventTracking)
+        private void SendAnalysis(string eventTracking)
         {
             var req = (HttpWebRequest)WebRequest.Create(Url);
 
@@ -107,14 +105,15 @@ namespace Analytics.Analyzer
         }
 
         /// <summary>
-        /// Get the page tracking information for the url
+        /// Get the event tracking information for the url
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        private string GetPageTracking(HttpContext context)
+        private string GetTracking(HttpContext context)
         {
             var pageTracking = new StringBuilder();
 
+            // ReSharper disable once RedundantAssignment
             var host = context.Request.Url.AbsoluteUri;
 
 #if DEBUG
