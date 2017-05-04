@@ -54,27 +54,14 @@ namespace Analytics.Analyzer
             {
                 if (!Enabled || _trackingId.IsNullOrEmpty()) return;
 
-                var req = (HttpWebRequest) WebRequest.Create(Url);
-
-                var page = context.Request.Url.AbsoluteUri;
-                string soapAction;
-
-                if (null != (soapAction = context.Request.Headers["soapaction"]))
-                {
-                    var index = soapAction.LastIndexOf('/');
-                    page += soapAction.Substring((index == -1 ? 0 : index));
-                }
+                var req = (HttpWebRequest)WebRequest.Create(Url);
 
                 req.Method = "POST";
                 req.UserAgent = HttpContext.Current.Request.UserAgent;
                 req.ContentType = "text/xml";
                 req.KeepAlive = false;
 
-                var data = Encoding.ASCII.GetBytes($"v={_version}" +
-                                                   $"&tid={_trackingId}" +
-                                                   $"&cid={(context.Request.UserHostAddress.IsNullOrEmpty() ? "unknown" : context.Request.UserHostAddress)}" +
-                                                   $"&t=pageview" +
-                                                   $"&dp%2F {page.Trim()}");
+                var data = Encoding.ASCII.GetBytes(GetPageTracking(context));
 
                 req.ContentLength = data.Length;
                 req.Timeout = _timeout;
@@ -88,6 +75,49 @@ namespace Analytics.Analyzer
             {
                 Logger.Instance.Log(MessageLevel.Error, ex, "Analyzer analyze method");
             }
+        }
+
+        /// <summary>
+        /// Get the page tracking information for the url
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        private string GetPageTracking(HttpContext context)
+        {
+            var pageTracking = new StringBuilder();
+
+            //var page = context.Request.Url.AbsoluteUri;
+            var page = "http://joyceprint.dev.com";
+
+            string soapAction;
+            if (null != (soapAction = context.Request.Headers["soapaction"]))
+            {
+                var index = soapAction.LastIndexOf('/');
+                page += soapAction.Substring((index == -1 ? 0 : index));
+            }
+
+            // Version
+            pageTracking.Append($"v={_version}");
+
+            // Tracking Id / Property Id
+            pageTracking.Append($"&tid={_trackingId}");
+
+            // Anonymous Client Id
+            pageTracking.Append($"&cid={(context.Request.UserHostAddress.IsNullOrEmpty() ? "unknown" : context.Request.UserHostAddress)}");
+
+            // Hit Type [ Type is Page View ]
+            pageTracking.Append($"&t=pageview");
+
+            // Document Hostname TODO: Get from the Url
+            //pageTracking.Append($"&dp%2F {page.Trim()}");
+
+            // Page
+            pageTracking.Append($"&dp%2F {page.Trim()}");
+
+            // Title TODO: Get the title somehow ??
+            //pageTracking.Append($"&dt='{page.Trim()}'");
+
+            return pageTracking.ToString();
         }
     }
 }
