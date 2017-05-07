@@ -2,35 +2,54 @@
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Text;
+using System.Web.Hosting;
 using Common.Logging.Enums;
 
 namespace Common.Logging.WindowsEventLogger
 {
     public class WindowsEventLogger : LogProvider
     {
-        // TODO: Move these properties to the config file
-        // TODO: Combine the best parts of this and the analyzer pattern - eg enable attribute [but on provider level]
-        private const string LogName = "JoycePrint";
-        private const string Source = "JoycePrint Website";
+        private bool _enabled = false;
 
+        private string _logName = "JoycePrint";
+
+        private string _source = "JoycePrint Website";
+        
         public override void Initialize(string providerName, NameValueCollection providerConfig)
         {
             try
             {
-                if (!EventLog.SourceExists(Source))
-                    EventLog.CreateEventSource(Source, LogName);
+                base.Initialize(providerName, providerConfig);
+
+                if (providerConfig["enabled"] == null)
+                    throw new Exception($"Error reading enabled configuration setting. Default of {_enabled} will be used for the provider {providerName}");
+
+                _enabled = bool.Parse(providerConfig["enabled"]);
+
+                if (providerConfig["log"] == null)
+                    throw new Exception($"Error reading log configuration setting. Default of {_logName} will be used for the provider {providerName}");
+
+                _logName = providerConfig["log"];
+
+                if (providerConfig["source"] == null)
+                    throw new Exception($"Error reading source configuration setting. Default of {_source} will be used for the provider {providerName}");
+
+                _source = providerConfig["source"];
+
+                if (_enabled && !EventLog.SourceExists(_source))
+                    EventLog.CreateEventSource(_source, _logName);
             }
             catch (Exception logException)
             {
-                EventLog.WriteEntry("Application", $"Error trying to create the '{Source}' in the eventlog. Make sure eventLog is created." + Environment.NewLine + "Exception info: " + logException.Message);
-            }
-
-            base.Initialize(providerName, providerConfig);
+                EventLog.WriteEntry("Application", $"Error trying to create the '{_source}' in the eventlog. Make sure eventLog is created." + Environment.NewLine + "Exception info: " + logException.Message);
+            }            
         }
 
         public override void Log(MessageLevel messageLevel, string message)
         {
-            EventLog.WriteEntry(Source, message, ConvertToEvent(messageLevel));
+            if (!_enabled) return;
+
+            EventLog.WriteEntry(_source, message, ConvertToEvent(messageLevel));
         }
 
         public override void Log(MessageLevel messageLevel, Exception ex)
