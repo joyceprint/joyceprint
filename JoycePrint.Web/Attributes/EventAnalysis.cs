@@ -6,15 +6,21 @@ namespace JoycePrint.Web.Attributes
 {
     public class EventAnalysis : ActionFilterAttribute
     {
+        public string Category;
+        public string Action;
+        public string Label;
+        public string Value;
+        public TrackingType TrackingType;
+            
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var eventTracking = new EventTracking
             {
-                Category = "User Interaction",
-                Action = "Quote",
-                Label = "Quote Request",
-                Value = "0",
-                TrackingType = TrackingType.Event
+                Category = Category,
+                Action = Action,
+                Label = Label,
+                Value = Value,
+                TrackingType = TrackingType
             };
 
             base.OnActionExecuting(filterContext);
