@@ -1,4 +1,4 @@
-﻿namespace Analytics
+﻿namespace Analytics.Enums
 {
     public enum TrackingType
     {

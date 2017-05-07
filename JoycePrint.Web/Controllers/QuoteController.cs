@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using JoycePrint.Domain.Enums;
 using JoycePrint.Domain.Models;
+using JoycePrint.Web.Attributes;
 
 namespace JoycePrint.Web.Controllers
 {
@@ -10,9 +11,9 @@ namespace JoycePrint.Web.Controllers
         /// <summary>
         /// This method should only be called from the Single Page Index view, using ChildActionOnly stops this view from being called by the url
         /// </summary>
-        /// <returns></returns>
-        [ChildActionOnly]
+        /// <returns></returns>        
         [HttpGet]
+        [ChildActionOnly]
         public ActionResult Index()
         {
             var model = new QuoteRequest();
@@ -21,6 +22,7 @@ namespace JoycePrint.Web.Controllers
         }
 
         [HttpPost]
+        [EventAnalysis()]
         public ActionResult Index(QuoteRequest model)
         {
             if (ModelState.IsValid)

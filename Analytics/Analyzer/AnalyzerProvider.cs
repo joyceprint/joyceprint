@@ -2,6 +2,7 @@
 using System.Web;
 using System.Configuration.Provider;
 using System.Web.Hosting;
+using Analytics.Enums;
 
 namespace Analytics.Analyzer
 {
@@ -38,5 +39,7 @@ namespace Analytics.Analyzer
         }
 
         public abstract void Analyze(HttpContext context, TrackingType type);
+
+        public abstract void Analyze(HttpContext context, EventTracking eventTracking);
     }
 }

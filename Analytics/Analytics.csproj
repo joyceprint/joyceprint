@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TrackingType.cs" />
+    <Compile Include="EventTracking.cs" />
+    <Compile Include="Enums\TrackingType.cs" />
     <Compile Include="Analyzer\AnalysisEngineConfigurationSection.cs" />
     <Compile Include="Analyzer\AnalyzerProvider.cs" />
     <Compile Include="Analyzer\AnalyzerProviderFactory.cs" />

@@ -2,6 +2,7 @@
 using System;
 using System.Text;
 using System.Web;
+using Analytics.Enums;
 using Common.Logging.Enums;
 
 namespace Analytics.Analyzer
@@ -14,15 +15,24 @@ namespace Analytics.Analyzer
             {
                 if (!Enabled || TrackingId.IsNullOrEmpty() || type != TrackingType) return;
 
-                var eventTracking = GetTracking(context);
+                var tracking = GetTracking(context);
 
-                SendAnalysis(eventTracking);
+                SendAnalysis(tracking);
 
             }
             catch (Exception ex)
             {
-                Logger.Instance.Log(MessageLevel.Error, ex, "Analyzer analyze method");
+                Logger.Instance.Log(MessageLevel.Error, ex, "Page Analyzer analyze method");
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="eventTracking"></param>
+        public override void Analyze(HttpContext context, EventTracking eventTracking)
+        {            
         }
 
         /// <summary>

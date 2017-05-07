@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Text;
 using System.Web;
+using Analytics.Enums;
 using Common.Logging;
 using Common.Logging.Enums;
 
@@ -32,7 +33,7 @@ namespace Analytics.Analyzer
         protected const string Url = "http://www.google-analytics.com/collect";
 
         public override void Initialize(string name, NameValueCollection config)
-        {
+        {            
             try
             {
                 base.Initialize(name, config);

@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Web;
+using Analytics.Enums;
 
 namespace Analytics
 {
-    public class Analytics : IHttpModule, IHttpHandler
+    public class Analytics : IHttpModule
     {
         private static AnalysisEngine _engine;
 
-        #region HttpModule 
+        /// <summary>
+        /// Added this public accessor to allow mvc action attribute methods to use analytics
+        /// </summary>
+        public static AnalysisEngine Engine => _engine;
 
         public void Init(HttpApplication context)
         {
             context.BeginRequest += OnBeginRequest;
-
+        
             if (null == _engine)
                 _engine = new AnalysisEngine();
         }
@@ -23,18 +27,5 @@ namespace Analytics
         {
             _engine?.CaptureAnalysis(((HttpApplication)source).Context, TrackingType.Page);
         }
-
-        #endregion
-
-        #region Http Handler
-
-        public void ProcessRequest(HttpContext context)
-        {
-            _engine?.CaptureAnalysis(context, TrackingType.Event);            
-        }
-
-        public bool IsReusable { get { return false; } }
-
-        #endregion
     }
 }
