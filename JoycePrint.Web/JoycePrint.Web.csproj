@@ -167,6 +167,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Scripts\joyceprint\google-api.js" />
     <Content Include="Scripts\joyceprint\validate.SAVED.js" />
     <Content Include="Scripts\joyceprint\loading.js" />
     <Content Include="Scripts\joyceprint\jquery-extensions.js" />
@@ -284,7 +285,9 @@
     <Content Include="Content\css\joyceprint.css" />
     <Content Include="Content\css\joyceprint\base\validationSAVED.less" />
     <Content Include="Content\css\joyceprint\base\common.less" />
+    <None Include="Properties\PublishProfiles\JoycePrint [ FTP ].pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
+    <None Include="Properties\PublishProfiles\JoycePrint [ Local ].pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />

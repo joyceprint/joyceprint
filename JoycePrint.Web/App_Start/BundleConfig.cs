@@ -34,6 +34,7 @@ namespace JoycePrint.Web
             "~/Scripts/materialize.min.js",
             "~/Scripts/joyceprint/materialize-extensions.js",
             "~/Scripts/joyceprint/jquery-extensions.js",
+            "~/Scripts/joyceprint/google-api.js",
             "~/Scripts/joyceprint/nav.js",
             "~/Scripts/joyceprint/loading.js",
             "~/Scripts/joyceprint/error.js",
