@@ -11,7 +11,7 @@ namespace JoycePrint.Web.Controllers
         /// This displays the notification to the user with the result of the email send operation                
         /// </summary>
         /// <returns></returns>        
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        [HttpGet]        
         public JsonResult Index()
         {
             var notification = new Notification();
