@@ -1,6 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Common.Analytics.Tracking;
 using Common.Analytics;
+using Common.Logging;
+using Common.Logging.Enums;
 
 namespace JoycePrint.Web.Attributes
 {
@@ -9,21 +12,28 @@ namespace JoycePrint.Web.Attributes
         public string Category;
         public string Action;
         public string Label;
-        public string Value;        
-            
+        public string Value;
+
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);
 
-            var tracking = new Event
+            try
             {
-                Category = Category,
-                Action = Action,
-                Label = Label,
-                Value = Value
-            };
-            
-            Analyzer.Instance.EventAnalysis(filterContext.HttpContext.ApplicationInstance.Context, tracking);
+                var tracking = new Event
+                {
+                    Category = Category,
+                    Action = Action,
+                    Label = Label,
+                    Value = Value
+                };
+
+                Analyzer.Instance.EventAnalysis(filterContext.HttpContext.ApplicationInstance.Context, tracking);
+            }
+            catch (Exception ex)
+            {
+                Logger.Instance.Log(MessageLevel.Error, ex, $"Error running event analysis");
+            }
         }
     }
 }
