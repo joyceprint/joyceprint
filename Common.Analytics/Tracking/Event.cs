@@ -1,6 +1,6 @@
 ﻿namespace Common.Analytics.Tracking
 {
-    public class Event
+    public class Event : Base
     {
         public string Category;
 

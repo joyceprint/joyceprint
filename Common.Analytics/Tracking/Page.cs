@@ -1,9 +1,7 @@
 ﻿namespace Common.Analytics.Tracking
 {
-    public class Page
-    {
-        public string Host;
-
+    public class Page : Base
+    {        
         public string Name;
 
         public string Title;

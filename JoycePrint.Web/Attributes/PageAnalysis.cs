@@ -9,8 +9,7 @@ namespace JoycePrint.Web.Attributes
 {
     public class PageAnalysis : ActionFilterAttribute
     {
-        public string Name;
-        public string Host;
+        public string Name;        
         public string Title;
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -21,8 +20,8 @@ namespace JoycePrint.Web.Attributes
             {
                 var tracking = new Page
                 {
-                    Name = Name,
-                    Host = Host ?? filterContext.HttpContext.Request.Url.AbsoluteUri,
+                    Host = filterContext.HttpContext.Request.Url?.AbsoluteUri,
+                    Name = Name,                    
                     Title = Title
                 };
 

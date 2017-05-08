@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.Mvc;
 using Common.Analytics.Tracking;
 using Common.Analytics;
@@ -22,6 +23,7 @@ namespace JoycePrint.Web.Attributes
             {
                 var tracking = new Event
                 {
+                    Host = filterContext.HttpContext.Request.Url?.AbsoluteUri,
                     Category = Category,
                     Action = Action,
                     Label = Label,

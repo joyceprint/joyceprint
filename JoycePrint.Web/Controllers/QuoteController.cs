@@ -28,6 +28,7 @@ namespace JoycePrint.Web.Controllers
             if (ModelState.IsValid)
             {
                 //var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
+                
                 // TODO: Remove this before going live
                 var notificationType = NotificationType.Failure;
 

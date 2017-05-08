@@ -48,7 +48,7 @@ namespace Analytics.Analyzer
             var host = context.Request.Url.AbsoluteUri;
 
 #if DEBUG
-            host = "http://joyceprint.dev.com";
+            host = "http://dev.joyceprint.com";
 #endif
             // TODO: Get the page title somehow?
             var title = "title";

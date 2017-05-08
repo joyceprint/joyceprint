@@ -125,11 +125,11 @@ namespace Common.Analytics.GoogleAnalytics
             tracking.Append($"&tid={_trackingId}");
 
             // Anonymous Client Id
-            //tracking.Append($"&cid={(context.Request.UserHostAddress.IsNullOrEmpty() ? "unknown" : context.Request.UserHostAddress)}");
+            tracking.Append($"&cid={(string.IsNullOrEmpty(context.Request.UserHostAddress) ? "unknown" : context.Request.UserHostAddress)}");
 
             // Hit Type [ Type is Page View ]
             tracking.Append($"&t=pageview");
-
+            
             // Document Hostname
             tracking.Append($"&dh={pageTracking.Host}");
 
@@ -153,7 +153,7 @@ namespace Common.Analytics.GoogleAnalytics
             tracking.Append($"&tid={_trackingId}");
 
             // Anonymous Client Id
-            //tracking.Append($"&cid={(context.Request.UserHostAddress.IsNullOrEmpty() ? "unknown" : context.Request.UserHostAddress)}");
+            tracking.Append($"&cid={(string.IsNullOrEmpty(context.Request.UserHostAddress) ? "unknown" : context.Request.UserHostAddress)}");
 
             // Hit Type [ Type is Event ]
             tracking.Append($"&t=event");
@@ -169,6 +169,9 @@ namespace Common.Analytics.GoogleAnalytics
 
             // Event Value [ Monetary value associated with the event ]
             tracking.Append($"&ev={eventTracking.Value}");
+
+            // Document Hostname
+            tracking.Append($"&dh={eventTracking.Host}");
 
             return tracking.ToString();
         }
