@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
-using Analytics;
-using Analytics.Enums;
+using Common.Analytics.Tracking;
+using Common.Analytics;
 
 namespace JoycePrint.Web.Attributes
 {
@@ -9,26 +9,21 @@ namespace JoycePrint.Web.Attributes
         public string Category;
         public string Action;
         public string Label;
-        public string Value;
-        public TrackingType TrackingType;
+        public string Value;        
             
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var eventTracking = new EventTracking
+            base.OnActionExecuting(filterContext);
+
+            var tracking = new Event
             {
                 Category = Category,
                 Action = Action,
                 Label = Label,
-                Value = Value,
-                TrackingType = TrackingType
+                Value = Value
             };
-
-            base.OnActionExecuting(filterContext);
-
-            // If this is a child action we want to skip event analysis
-            if (filterContext.IsChildAction) return;
-
-            Analytics.Analytics.Engine.CaptureEventAnalysis(filterContext.HttpContext.ApplicationInstance.Context, eventTracking);
+            
+            Analyzer.Instance.EventAnalysis(filterContext.HttpContext.ApplicationInstance.Context, tracking);
         }
     }
 }

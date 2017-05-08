@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using Analytics.Enums;
 using JoycePrint.Domain.Enums;
 using JoycePrint.Domain.Models;
 using JoycePrint.Web.Attributes;
@@ -23,7 +22,7 @@ namespace JoycePrint.Web.Controllers
         }
 
         [HttpPost]
-        [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0", TrackingType = TrackingType.Event)]
+        [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
         public ActionResult Index(QuoteRequest model)
         {
             if (ModelState.IsValid)
