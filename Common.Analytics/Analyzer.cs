@@ -3,12 +3,12 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using Common.Providers;
 
-namespace Common.Logging
+namespace Common.Analytics
 {
     /// <summary>
     /// This is the class that is used to access the logger, through the Provider member
     /// </summary>
-    public static class Logger
+    public static class Analyzer
     {
         #region Private Variables
 
@@ -16,7 +16,7 @@ namespace Common.Logging
         internal static readonly object Lock = new object();
         
         // Only one provider will be used
-        private static LogProvider _provider;
+        private static AnalyticsProvider _provider;
 
         #endregion
 
@@ -26,7 +26,7 @@ namespace Common.Logging
         public static bool IsInitialized { get; set; }
 
         [Description("The instance to access when using this provider")]
-        public static LogProvider Instance
+        public static AnalyticsProvider Instance
         {
             get
             {
@@ -56,7 +56,7 @@ namespace Common.Logging
                         try
                         {                            
                             // Get a collection of providers and the default provider.
-                            _provider = ProviderFactory.InstantiateDefaultProvider<LogProvider>(@"providers/logging");
+                            _provider = ProviderFactory.InstantiateDefaultProvider<AnalyticsProvider>(@"providers/analytics");
 
                             // Set this feature as initialized
                             IsInitialized = true;

@@ -43,12 +43,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analyzer.cs" />
+    <Compile Include="EventAnalyzer.cs" />
+    <Compile Include="PageAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Analytics\Analytics.csproj">
       <Project>{5383BC90-EC8B-4503-9AB1-5A7743F9C37A}</Project>
       <Name>Analytics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Logging\Common.Logging.csproj">
+      <Project>{895BDEF1-931E-48BB-B555-4155D79CAB2D}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Providers\Common.Providers.csproj">
+      <Project>{A3D48AD3-3ED0-4444-A0E4-099A1114D611}</Project>
+      <Name>Common.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

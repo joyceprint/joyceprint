@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventTracking.cs" />
+    <Compile Include="Enums\TrackingType.cs" />
     <Compile Include="Analyzer\AnalysisEngineConfigurationSection.cs" />
     <Compile Include="Analyzer\AnalyzerProvider.cs" />
     <Compile Include="Analyzer\AnalyzerProviderFactory.cs" />
@@ -56,6 +58,16 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Logging\Common.Logging.csproj">
+      <Project>{895BDEF1-931E-48BB-B555-4155D79CAB2D}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Providers\Common.Providers.csproj">
+      <Project>{a3d48ad3-3ed0-4444-a0e4-099a1114d611}</Project>
+      <Name>Common.Providers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -167,6 +167,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Scripts\joyceprint\google-api.js" />
     <Content Include="Scripts\joyceprint\validate.SAVED.js" />
     <Content Include="Scripts\joyceprint\loading.js" />
     <Content Include="Scripts\joyceprint\jquery-extensions.js" />
@@ -198,6 +199,8 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
+    <Compile Include="Attributes\PageAnalysis.cs" />
+    <Compile Include="Attributes\EventAnalysis.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
@@ -284,7 +287,9 @@
     <Content Include="Content\css\joyceprint.css" />
     <Content Include="Content\css\joyceprint\base\validationSAVED.less" />
     <Content Include="Content\css\joyceprint\base\common.less" />
+    <None Include="Properties\PublishProfiles\JoycePrint [ FTP ].pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
+    <None Include="Properties\PublishProfiles\JoycePrint [ Local ].pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -362,13 +367,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Analytics.Analyzer\Analytics.Analyzer.csproj">
-      <Project>{07092f0d-9993-4874-90eb-10a7919bae50}</Project>
-      <Name>Analytics.Analyzer</Name>
+    <ProjectReference Include="..\Common.Analytics.GoogleAnalytics\Common.Analytics.GoogleAnalytics.csproj">
+      <Project>{9d46efc3-299b-404d-82bb-68d5e08f920f}</Project>
+      <Name>Common.Analytics.GoogleAnalytics</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Analytics\Analytics.csproj">
-      <Project>{5383BC90-EC8B-4503-9AB1-5A7743F9C37A}</Project>
-      <Name>Analytics</Name>
+    <ProjectReference Include="..\Common.Analytics\Common.Analytics.csproj">
+      <Project>{cd1d91d5-b27b-4d27-8477-d85ba45a758b}</Project>
+      <Name>Common.Analytics</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common.Logging.WindowsEventLogger\Common.Logging.WindowsEventLogger.csproj">
       <Project>{dfd727b6-b98c-4533-a9a6-262596de8bc1}</Project>

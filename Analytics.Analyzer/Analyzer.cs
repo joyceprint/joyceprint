@@ -3,70 +3,84 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Text;
 using System.Web;
-using System.Web.Hosting;
+using Analytics.Enums;
+using Common.Logging;
+using Common.Logging.Enums;
 
 namespace Analytics.Analyzer
 {
-    public class Analyzer : AnalyzerProvider
+    public abstract class Analyzer : AnalyzerProvider
     {
-        private string _version = "1";
+        #region Analyzers ARC Map Extra KVP
 
-        private string _trackingId = Config.AnalyticsTrackingId;
+        protected string Version = "1";
 
-        private int _timeout = 500;
+        protected string TrackingId = "XX-XXXXXXXX-X";
 
-        private static readonly string ApplicationName = HostingEnvironment.SiteName;
+        protected int Timeout = 500;
 
-        private const string Url = "http://www.google-analytics.com/collect";
+        /// <summary>
+        /// This is the tracking type to be used with the analyzer
+        /// 
+        /// We do this because we need to use different modules for different analytics tracking mechanisms
+        /// </summary>
+        private TrackingType _trackingType = TrackingType.None;
+
+        public TrackingType TrackingType => _trackingType;
+
+        #endregion       
+
+        protected const string Url = "http://www.google-analytics.com/collect";
 
         public override void Initialize(string name, NameValueCollection config)
-        {
-            base.Initialize(name, config);
+        {            
+            try
+            {
+                base.Initialize(name, config);
 
-            if (config["version"] == null)
-                throw new Exception($"Error reading version configuration setting. Default of {_version} will be used on the web site {ApplicationName}");
+                if (config["version"] == null)
+                    throw new Exception($"Error reading version configuration setting. Default of {Version} will be used on the web site {ApplicationName}");
 
-            _version = config["version"];
+                Version = config["version"];
 
-            if (config["trackingId"] == null)
-                throw new Exception($"Error reading trackingId configuration setting. Default of {_trackingId} will be used on the web site {ApplicationName}");
+                if (config["trackingId"] == null)
+                    throw new Exception($"Error reading trackingId configuration setting. Default of {TrackingId} will be used on the web site {ApplicationName}");
 
-            _trackingId = config["trackingId"];
+                TrackingId = config["trackingId"];
 
-            if (config["timeout"] == null)
-                throw new Exception($"Error reading timeout configuration setting. Default of {_timeout} will be used on the web site {ApplicationName}");
+                if (config["timeout"] == null)
+                    throw new Exception($"Error reading timeout configuration setting. Default of {Timeout} will be used on the web site {ApplicationName}");
 
-            _timeout = int.Parse(config["timeout"]);
+                Timeout = int.Parse(config["timeout"]);
+
+                if (config["trackingType"] == null)
+                    throw new Exception($"Error reading tracking type configuration setting. Default of {_trackingType} will be used on the web site {ApplicationName}");
+
+                Enum.TryParse(config["trackingType"], true, out _trackingType);
+            }
+            catch (Exception ex)
+            {
+                Logger.Instance.Log(MessageLevel.Error, ex, "Analyzer initialize method");
+            }
         }
 
-        public override void Analyze(HttpContext context)
+        /// <summary>
+        /// 
+        /// </summary>        
+        /// <param name="eventTracking"></param>
+        protected void SendAnalysis(string eventTracking)
         {
-            if (!Enabled || _trackingId.IsNullOrEmpty()) return;
-
             var req = (HttpWebRequest)WebRequest.Create(Url);
-
-            var page = context.Request.Url.AbsoluteUri;
-            string soapAction;
-
-            if (null != (soapAction = context.Request.Headers["soapaction"]))
-            {
-                var index = soapAction.LastIndexOf('/');
-                page += soapAction.Substring((index == -1 ? 0 : index));
-            }
 
             req.Method = "POST";
             req.UserAgent = HttpContext.Current.Request.UserAgent;
             req.ContentType = "text/xml";
             req.KeepAlive = false;
 
-            var data = Encoding.ASCII.GetBytes($"v={_version}" +
-                                               $"&tid={_trackingId}" +
-                                               $"&cid={(context.Request.UserHostAddress.IsNullOrEmpty() ? "unknown" : context.Request.UserHostAddress)}" +
-                                               $"&t=pageview" +
-                                               $"&dp%2F {page.Trim()}");
+            var data = Encoding.ASCII.GetBytes(eventTracking);
 
             req.ContentLength = data.Length;
-            req.Timeout = _timeout;
+            req.Timeout = Timeout;
 
             using (var stream = req.GetRequestStream())
             {

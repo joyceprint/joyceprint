@@ -27,8 +27,14 @@ namespace Common.Providers
             set { base[_defaultProvider] = value; }
         }
 
-        public ProviderSettingsCollection Providers => (ProviderSettingsCollection) base[_providers];
+        public ProviderSettingsCollection Providers
+        {
+            get { return (ProviderSettingsCollection) base[_providers]; }
+        }
 
-        protected override ConfigurationPropertyCollection Properties => _properties;
+        protected override ConfigurationPropertyCollection Properties
+        {
+            get { return _properties; }
+        }
     }
 }

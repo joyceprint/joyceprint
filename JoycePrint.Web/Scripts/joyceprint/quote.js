@@ -45,6 +45,8 @@ function setupSubmitButton() {
             // Check if it's valid
             if (jalidate.validate(formId)) {
 
+                //jnalytics.collectEvent("button", "quote", "quote-request");
+
                 $.ajax({
                         url: "/quote",
                         method: "POST",
