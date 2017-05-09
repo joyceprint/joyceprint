@@ -63,7 +63,7 @@ namespace Common.Analytics.GoogleAnalytics
             }
             catch (Exception ex)
             {
-                Logger.Instance.Log(MessageLevel.Error, ex, $"Error tryinh to initialize the provider {providerName}");
+                Logger.Instance.Log(MessageLevel.Error, ex, $"Error trying to initialize the provider {providerName}");
             }
         }
 
@@ -71,12 +71,12 @@ namespace Common.Analytics.GoogleAnalytics
         /// Capture page analysis for the analytics provider
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="tracking"></param>
+        /// <param name="tracking"></param>        
         public override void PageAnalysis(HttpContext context, Page tracking)
         {
             if (!Analyze()) return;
 
-            SendAnalysis(GetPageTracking(context, tracking));            
+            SendAnalysis(GetPageTracking(context, tracking));
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace Common.Analytics.GoogleAnalytics
         {
             if (!Analyze()) return;
 
-            SendAnalysis(GetEventTracking(context, tracking));            
+            SendAnalysis(GetEventTracking(context, tracking));
         }
 
         /// <summary>
@@ -106,22 +106,29 @@ namespace Common.Analytics.GoogleAnalytics
         /// <param name="tracking"></param>
         private void SendAnalysis(string tracking)
         {
-            var req = (HttpWebRequest)WebRequest.Create(_url);
-
-            req.Method = "POST";
-            req.UserAgent = HttpContext.Current.Request.UserAgent;
-            req.ContentType = "text/xml";
-            req.KeepAlive = false;
-
-            var data = Encoding.ASCII.GetBytes(tracking);
-
-            req.ContentLength = data.Length;
-            req.Timeout = _timeout;
-
-            using (var stream = req.GetRequestStream())
+            try
             {
-                stream.Write(data, 0, data.Length);
+                var req = (HttpWebRequest)WebRequest.Create(_url);
+
+                req.Method = "POST";
+                req.UserAgent = HttpContext.Current.Request.UserAgent;
+                req.ContentType = "text/xml";
+                req.KeepAlive = false;
+
+                var data = Encoding.ASCII.GetBytes(tracking);
+
+                req.ContentLength = data.Length;
+                req.Timeout = _timeout;
+
+                using (var stream = req.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
             }
+            catch (Exception ex)
+            {
+                Logger.Instance.Log(MessageLevel.Error, ex, $"Error running analysis for tracking [{tracking}]");
+            }            
         }
 
         /// <summary>
@@ -153,7 +160,8 @@ namespace Common.Analytics.GoogleAnalytics
             tracking.Append($"&dp={pageTracking.Name}");
 
             // Title
-            tracking.Append($"&dt={pageTracking.Title}");
+            if (!string.IsNullOrEmpty(pageTracking.Title))
+                tracking.Append($"&dt={pageTracking.Title}");
 
             return tracking.ToString();
         }

@@ -20,8 +20,8 @@ namespace JoycePrint.Web.Attributes
             {
                 var tracking = new Page
                 {
-                    Host = filterContext.HttpContext.Request.Url?.AbsoluteUri,
-                    Name = Name,                    
+                    Host = filterContext.HttpContext.Request.Url?.Host,
+                    Name = GetPage(filterContext),                    
                     Title = Title
                 };
 
@@ -31,6 +31,20 @@ namespace JoycePrint.Web.Attributes
             {
                 Logger.Instance.Log(MessageLevel.Error, ex, $"Error running page analysis");
             }
+        }
+
+        private string GetPage(ControllerContext controllerContext)
+        {
+            var page = controllerContext.HttpContext.Request.Url?.AbsoluteUri;
+            string sa;
+
+            if (null != (sa = controllerContext.HttpContext.Request.Headers["soapaction"]))
+            {
+                var index = sa.LastIndexOf('/');
+                page += sa.Substring((index == -1 ? 0 : index));
+            }
+
+            return page;
         }
     }
 }
