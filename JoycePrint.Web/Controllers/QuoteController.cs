@@ -28,18 +28,28 @@ namespace JoycePrint.Web.Controllers
             if (ModelState.IsValid)
             {
                 //var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
-                
+
                 // TODO: Remove this before going live
                 var notificationType = NotificationType.Failure;
+                
+                // Create a new controller rather than using a redirect, a redirect will terminate the http request and return a 302
+                // A 302 response will break the ajax method that called this function
+                // Use this method of getting the controller as creating a new controller object will cause issues
+                var notificationController = DependencyResolver.Current.GetService<NotificationController>();
 
-                TempData["NotificationType"] = notificationType;
+                // The controller context needs to be created and added to the controller for it to function
+                notificationController.ControllerContext = new ControllerContext(Request.RequestContext, notificationController);
 
-                return RedirectToAction("Index", "Notification");
+                // Add the temp data directly to the controller since we're not passing through the mechanism that would copy this for us
+                notificationController.TempData["NotificationType"] = notificationType;
+
+                // Call the action method and return the result
+                return notificationController.Index();
             }
 
             var data = RenderViewToString("Index", ViewData, ControllerContext, model, "Quote", "Index");
-            
-            return Json(new { view = data, target = "quote" }, JsonRequestBehavior.AllowGet);            
+
+            return Json(new { view = data, target = "quote" }, JsonRequestBehavior.AllowGet);
         }
     }
 }
