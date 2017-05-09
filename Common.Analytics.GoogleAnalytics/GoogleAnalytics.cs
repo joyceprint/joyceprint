@@ -145,8 +145,7 @@ namespace Common.Analytics.GoogleAnalytics
 
             // Hit Type [ Type is Page View ]
             tracking.Append($"&t=pageview");
-
-            // TODO: What should the value for Host be ?
+            
             // Document Hostname
             tracking.Append($"&dh={pageTracking.Host}");
 

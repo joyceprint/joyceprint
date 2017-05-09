@@ -28,10 +28,10 @@ namespace Common.Analytics.GoogleAnalytics
                 var index = sa.LastIndexOf('/');
                 page += sa.Substring((index == -1 ? 0 : index));
             }
-            // TODO: What should the value for Host be ?
+            
             var tracking = new Page
             {
-                Host = context.Request.Url.AbsoluteUri, 
+                Host = context.Request.Url.Host, 
                 Title = null,
                 Name = page
             };
