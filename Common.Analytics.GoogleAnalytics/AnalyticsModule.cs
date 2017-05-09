@@ -4,7 +4,7 @@ using Common.Analytics.Tracking;
 
 namespace Common.Analytics.GoogleAnalytics
 {
-    public class GoogleAnalyticsHttpModule : IHttpModule
+    public class AnalyticsModule : IHttpModule
     {
         public void Init(HttpApplication context)
         {
