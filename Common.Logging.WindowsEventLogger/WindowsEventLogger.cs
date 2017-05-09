@@ -9,7 +9,7 @@ namespace Common.Logging.WindowsEventLogger
 {
     public class WindowsEventLogger : LogProvider
     {
-        private bool _enabled = false;
+        private bool _enabled;
 
         private string _logName = "JoycePrint";
 

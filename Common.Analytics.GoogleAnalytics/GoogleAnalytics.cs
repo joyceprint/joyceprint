@@ -13,7 +13,7 @@ namespace Common.Analytics.GoogleAnalytics
     {
         #region Analyzers ARC Map Extra KVP
 
-        private bool _enabled = false;
+        private bool _enabled;
 
         private string _version = "1";
 
@@ -26,7 +26,7 @@ namespace Common.Analytics.GoogleAnalytics
         #endregion
 
         /// <summary>
-        /// 
+        /// Initialize the provider and read in the extra settings from the provider config
         /// </summary>
         /// <param name="providerName"></param>
         /// <param name="providerConfig"></param>
@@ -67,6 +67,11 @@ namespace Common.Analytics.GoogleAnalytics
             }
         }
 
+        /// <summary>
+        /// Capture page analysis for the analytics provider
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="tracking"></param>
         public override void PageAnalysis(HttpContext context, Page tracking)
         {
             if (!Analyze()) return;
@@ -74,6 +79,11 @@ namespace Common.Analytics.GoogleAnalytics
             SendAnalysis(GetPageTracking(context, tracking));            
         }
 
+        /// <summary>
+        /// Capture event analysis for the analytics provider
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="tracking"></param>
         public override void EventAnalysis(HttpContext context, Event tracking)
         {
             if (!Analyze()) return;
@@ -82,7 +92,7 @@ namespace Common.Analytics.GoogleAnalytics
         }
 
         /// <summary>
-        /// 
+        /// Check if analysis is to be performed by checking the provider is enabled and it has a tracking id
         /// </summary>
         /// <returns></returns>
         private bool Analyze()
@@ -91,7 +101,7 @@ namespace Common.Analytics.GoogleAnalytics
         }
 
         /// <summary>
-        /// 
+        /// Send the analysis information
         /// </summary>
         /// <param name="tracking"></param>
         private void SendAnalysis(string tracking)
@@ -114,6 +124,12 @@ namespace Common.Analytics.GoogleAnalytics
             }
         }
 
+        /// <summary>
+        /// Get the page tracking data for analysis
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="pageTracking"></param>
+        /// <returns></returns>
         private string GetPageTracking(HttpContext context, Page pageTracking)
         {
             var tracking = new StringBuilder();
@@ -142,6 +158,12 @@ namespace Common.Analytics.GoogleAnalytics
             return tracking.ToString();
         }
 
+        /// <summary>
+        /// Get the event tracking data for analysis
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="eventTracking"></param>
+        /// <returns></returns>
         private string GetEventTracking(HttpContext context, Event eventTracking)
         {
             var tracking = new StringBuilder();

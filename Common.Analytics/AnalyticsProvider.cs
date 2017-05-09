@@ -15,8 +15,18 @@ namespace Common.Analytics
             base.Initialize(providerName, providerConfig);
         }
 
+        /// <summary>
+        /// Capture page analysis
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="tracking"></param>
         public abstract void PageAnalysis(HttpContext context, Page tracking);
 
+        /// <summary>
+        /// Capture event analysis
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="tracking"></param>
         public abstract void EventAnalysis(HttpContext context, Event tracking);
     }
 }
