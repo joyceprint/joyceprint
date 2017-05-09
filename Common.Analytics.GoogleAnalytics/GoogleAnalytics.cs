@@ -71,7 +71,7 @@ namespace Common.Analytics.GoogleAnalytics
         /// Capture page analysis for the analytics provider
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="tracking"></param>
+        /// <param name="tracking"></param>        
         public override void PageAnalysis(HttpContext context, Page tracking)
         {
             if (!Analyze()) return;
@@ -145,7 +145,8 @@ namespace Common.Analytics.GoogleAnalytics
 
             // Hit Type [ Type is Page View ]
             tracking.Append($"&t=pageview");
-            
+
+            // TODO: What should the value for Host be ?
             // Document Hostname
             tracking.Append($"&dh={pageTracking.Host}");
 
@@ -153,7 +154,8 @@ namespace Common.Analytics.GoogleAnalytics
             tracking.Append($"&dp={pageTracking.Name}");
 
             // Title
-            tracking.Append($"&dt={pageTracking.Title}");
+            if (!string.IsNullOrEmpty(pageTracking.Title))
+                tracking.Append($"&dt={pageTracking.Title}");
 
             return tracking.ToString();
         }
