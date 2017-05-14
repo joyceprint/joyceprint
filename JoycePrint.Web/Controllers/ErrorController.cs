@@ -41,6 +41,7 @@ namespace JoycePrint.Web.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Route("error/notfound")]
         public ActionResult NotFound()
         {
             // You may want to set this to 200
