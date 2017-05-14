@@ -28,11 +28,18 @@ namespace JoycePrint.Web.Controllers
         [Route("error/exception")]
         public ActionResult Exception()
         {
+            // Set this value to hide the navigation menu in the _Navigation view
+            TempData["HideNavMenuOnError"] = true;
+
             var model = TempData["Exception"];
 
             return View("Error/Exception", model);
         }
     
+        /// <summary>
+        /// Handles a 404 from inside the MVC Request Handler
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult NotFound()
         {

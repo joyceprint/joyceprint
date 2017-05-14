@@ -1,0 +1,35 @@
+﻿@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "Trade Docket Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.All);
+}
+
+<section id="error" class="row" data-test-form-id="frmError">
+    
+    <div id="errorMessage" class="">
+        <h3 class="text-primary">The page you are looking for cannot be found</h3>
+    </div>
+
+    <hr />
+
+    @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
+    {
+        <div>
+            <p>
+                <b>Exception:</b> @Model.Exception.Message<br />
+                <b>Controller:</b> @Model.ControllerName<br />
+                <b>Action:</b> @Model.ActionName
+            </p>
+            <div style="overflow: scroll">
+                <pre>
+                        @Model.Exception.StackTrace
+                </pre>
+            </div>
+        </div>
+
+        <hr />
+    }
+</section>
