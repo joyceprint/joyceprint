@@ -53,9 +53,7 @@ function setupSubmitButton() {
                         cache: false,
                         data: $("#frm-quote").serialize()
                     })
-                    .fail(function(jqXHR, textStatus) {
-                        hideLoader();
-                        
+                    .fail(function(jqXHR, textStatus) {                        
                         HandleAjaxError(jqXHR, textStatus);
                     })
                     .done(function(data) {
