@@ -6,30 +6,55 @@ namespace JoycePrint.Web.Controllers
     public class ErrorController : BaseController
     {
         /// <summary>
-        /// Handles errors thrown from ajax requests within the MVC framework
+        /// Handles errors thrown from requests within the MVC framework
         /// </summary>
         /// <returns></returns>
-        [Route("error/ajax")]
+        [Route("error/error")]
         [HttpGet]
-        public ActionResult Ajax()
+        public ActionResult Error()
         {
-            var data = RenderPartialViewToString(ControllerContext, "Error/Ajax", null);
+            // Set this value to hide the navigation menu in the _Navigation view
+            TempData["HideNavMenuOnError"] = true;            
 
-            return Json(new { modalView = data }, JsonRequestBehavior.AllowGet);
+            return View("Error/Error");
         }
 
         /// <summary>
-        /// Handles errors thrown from general requests within the MVC framework
+        /// Handles exceptions thrown from requests within the MVC framework        
+        /// The exception is logged in the OnException method of the base controller class
         /// </summary>
         /// <returns></returns>
-        [Route("error/general")]
         [HttpGet]
-        public ActionResult General()
+        [Route("error/exception")]
+        public ActionResult Exception()
         {
-            // Set this value to hide the navigation menu in the _Navigation view
-            TempData["HideNavMenuOnError"] = true;
+            var model = TempData["Exception"];
 
-            return View("Error/Error");
+            return View("Error/Exception", model);
+        }
+    
+        [HttpGet]
+        public ActionResult NotFound()
+        {
+            // You may want to set this to 200
+            Response.StatusCode = 404;
+
+            return View("Error/NotFound");
+        }
+
+        /// <summary>
+        /// Handles errors thrown from ajax requests within the MVC framework
+        /// </summary>
+        /// <returns></returns>
+        //[Route("error/ajax")]
+        [HttpGet]
+        public ActionResult Ajax()
+        {
+            DisableAjaxRequestCachingInInternetExplorer();
+
+            var data = RenderPartialViewToString(ControllerContext, "Error/Ajax", null);
+
+            return Json(new { modalView = data }, JsonRequestBehavior.AllowGet);
         }
     }
 }

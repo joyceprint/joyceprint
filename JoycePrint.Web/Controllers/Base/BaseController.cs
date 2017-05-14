@@ -124,7 +124,10 @@ namespace JoycePrint.Web.Controllers
             Logger.Instance.Log(MessageLevel.Error, filterContext.Exception, GetContextInfo(filterContext));
 
             // Redirect on error:
-            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("General", "Error");                        
+            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("Exception", "Error");                        
+
+            // Save the exception so it can be displayed on the view
+            TempData["Exception"] = filterContext.Exception;
         }
 
         /// <summary>

@@ -1,0 +1,33 @@
+﻿@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "Trade Docket Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.All);
+}
+
+<div class="row">
+
+    <div class="col s12">
+        
+        @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
+        {
+            <div>
+                <p>
+                    <b>Exception:</b> @Model.Exception.Message<br />
+                    <b>Controller:</b> @Model.ControllerName<br />
+                    <b>Action:</b> @Model.ActionName
+                </p>
+                <div style="overflow: scroll">
+                    <pre>
+                        @Model.Exception.StackTrace
+                </pre>
+                </div>
+            </div>
+
+            <hr />
+        }
+
+    </div>
+</div>
