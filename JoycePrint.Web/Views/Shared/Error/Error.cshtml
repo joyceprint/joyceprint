@@ -8,11 +8,21 @@
 }
 
 <div class="row">
+    
+    <section id="error" class="row" data-test-form-id="frmError">
 
-    <div class="col s12">
+        <div class="col s12">
+            <h1>Error</h1>
+
+            <h3>A general error has occurred, we will be back shortly.</h3>
+
+            <a href="http://www.dev.joyceprint.com/">RETURN TO HOMEPAGE</a>
+        </div>
 
         @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
         {
+            <hr />
+
             <div>
                 <p>
                     <b>Exception:</b> @Model.Exception.Message<br />
@@ -29,5 +39,5 @@
             <hr />
         }
 
-    </div>
+    </section>
 </div>
