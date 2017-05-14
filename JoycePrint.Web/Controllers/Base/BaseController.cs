@@ -60,7 +60,7 @@ namespace JoycePrint.Web.Controllers
         private RouteData UpdateContext(ControllerContext controllerContext, string controllerName, string actionName)
         {
             var routeData = new RouteData();
-            
+
             routeData.Values.Add("controller", controllerName);
             routeData.Values.Add("action", actionName);
 
@@ -116,14 +116,16 @@ namespace JoycePrint.Web.Controllers
         /// between regular and AJAX requests on a controller level.
         /// </remarks>
         protected override void OnException(ExceptionContext filterContext)
-        {                        
+        {
             CreateErrorInfo(filterContext);
 
             // Set the exception to handled to stop if from bubbling out of the MVC block
             filterContext.ExceptionHandled = true;
-            
+
             // Redirect on error:
-            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("Exception", "Error");                      
+            // TODO: we don't want to do a redirect to the ajax action from here cause it will screw up
+            // we have to call the ajax method and return it and probably set some flag to say return this and don't do anything else
+            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("Exception", "Error");
         }
 
         /// <summary>
@@ -156,7 +158,7 @@ namespace JoycePrint.Web.Controllers
 
             sb.AppendLine("Exception Context Additional Information");
             sb.AppendLine($"Child Action: [{filterContext.IsChildAction}]");
-            sb.AppendLine($"Ajax Request: [{filterContext.HttpContext.Request.IsAjaxRequest()}]");            
+            sb.AppendLine($"Ajax Request: [{filterContext.HttpContext.Request.IsAjaxRequest()}]");
 
             return sb.ToString();
         }
