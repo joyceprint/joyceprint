@@ -14,7 +14,7 @@ namespace JoycePrint.Web.Controllers
         public ActionResult Error()
         {
             // Set this value to hide the navigation menu in the _Navigation view
-            TempData["HideNavMenuOnError"] = true;            
+            TempData["HideNavMenuOnError"] = true;
 
             return View("Error/Error");
         }
@@ -31,11 +31,12 @@ namespace JoycePrint.Web.Controllers
             // Set this value to hide the navigation menu in the _Navigation view
             TempData["HideNavMenuOnError"] = true;
 
-            var model = TempData["Exception"];
+            // Get the handle error info model to display on the page if it's being run in debugging mode
+            var model = TempData["errorInfo"];
 
             return View("Error/Exception", model);
         }
-    
+
         /// <summary>
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>

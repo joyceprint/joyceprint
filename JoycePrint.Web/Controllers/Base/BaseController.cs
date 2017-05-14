@@ -116,18 +116,33 @@ namespace JoycePrint.Web.Controllers
         /// between regular and AJAX requests on a controller level.
         /// </remarks>
         protected override void OnException(ExceptionContext filterContext)
-        {
+        {                        
+            CreateErrorInfo(filterContext);
+
             // Set the exception to handled to stop if from bubbling out of the MVC block
             filterContext.ExceptionHandled = true;
             
+            // Redirect on error:
+            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("Exception", "Error");                      
+        }
+
+        /// <summary>
+        /// Create the HandleErrorInfo model from the filterContext
+        /// </summary>
+        /// <param name="filterContext"></param>
+        private void CreateErrorInfo(ExceptionContext filterContext)
+        {
+            var controllerName = filterContext.RouteData.Values["controller"].ToString();
+            var actionName = filterContext.RouteData.Values["action"]?.ToString() ?? "unknown action";
+
             // Log the exception
             Logger.Instance.Log(MessageLevel.Error, filterContext.Exception, GetContextInfo(filterContext));
 
-            // Redirect on error:
-            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("Exception", "Error");                        
+            // Create the error model
+            var errorInfo = new HandleErrorInfo(filterContext.Exception, controllerName, actionName);
 
             // Save the exception so it can be displayed on the view
-            TempData["Exception"] = filterContext.Exception;
+            TempData["errorInfo"] = errorInfo;
         }
 
         /// <summary>
