@@ -302,8 +302,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\materialize.js" />
     <Content Include="Scripts\materialize.min.js" />
-    <Content Include="Views\Shared\Error\500.html" />
-    <Content Include="Views\Shared\Error\Error.html" />
+    <Content Include="500.html" />
+    <Content Include="Error.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -357,8 +357,10 @@
     <Content Include="Views\Shared\DisplayTemplates\Notification.cshtml" />
     <Content Include="Views\Security\Recaptcha.cshtml" />
     <Content Include="Views\Shared\Error\Error.cshtml" />
-    <Content Include="Views\Shared\Error\404.html" />
+    <Content Include="404.html" />
     <Content Include="Views\Shared\Error\Ajax.cshtml" />
+    <Content Include="Views\Shared\Error\Exception.cshtml" />
+    <Content Include="Views\Shared\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

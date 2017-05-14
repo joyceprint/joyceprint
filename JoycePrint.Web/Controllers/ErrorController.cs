@@ -53,7 +53,7 @@ namespace JoycePrint.Web.Controllers
         /// Handles errors thrown from ajax requests within the MVC framework
         /// </summary>
         /// <returns></returns>
-        //[Route("error/ajax")]
+        [Route("error/ajax")]
         [HttpGet]
         public ActionResult Ajax()
         {
