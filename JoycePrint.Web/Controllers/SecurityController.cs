@@ -11,9 +11,10 @@ namespace JoycePrint.Web.Controllers
         /// This returns the recaptcha security view
         /// This is only callable from the server side
         /// </summary>
-        /// <returns></returns>
-        [ChildActionOnly]
+        /// <returns></returns>        
         [Route("security/recaptcha")]        
+        [HttpGet]
+        [ChildActionOnly]
         public ActionResult Recaptcha()
         {            
             var model = new Security();
