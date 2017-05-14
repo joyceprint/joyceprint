@@ -133,7 +133,7 @@ namespace JoycePrint.Web.Controllers
         private void CreateErrorInfo(ExceptionContext filterContext)
         {
             var controllerName = filterContext.RouteData.Values["controller"].ToString();
-            var actionName = filterContext.RouteData.Values["action"]?.ToString() ?? "unknown action";
+            var actionName = filterContext.RouteData.Values["action"]?.ToString() ?? "Unknown Action";
 
             // Log the exception
             Logger.Instance.Log(MessageLevel.Error, filterContext.Exception, GetContextInfo(filterContext));
