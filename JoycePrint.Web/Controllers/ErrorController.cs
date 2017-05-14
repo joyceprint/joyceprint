@@ -49,12 +49,13 @@ namespace JoycePrint.Web.Controllers
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>
         /// <returns></returns>
-        [Route("notfound")]
+        [Route("notfound")]        
         [HttpGet]        
         public ActionResult NotFound()
         {
             // You may want to set this to 200
-            Response.StatusCode = 404;
+            // TODO: this is causing an error and returning a 404 page, we need to set this some other way
+            //Response.StatusCode = 404;
 
             return View("Error/NotFound");
         }
