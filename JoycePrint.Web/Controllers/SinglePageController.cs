@@ -5,7 +5,7 @@ namespace JoycePrint.Web.Controllers
     [Route("")]
     public class SinglePageController : BaseController
     {
-        [HttpGet]        
+        [HttpGet]
         public ActionResult Index()
         {
             return View("Index");

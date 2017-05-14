@@ -9,7 +9,11 @@ namespace JoycePrint.Web.Controllers
         /// Handles errors thrown from requests within the MVC framework
         /// </summary>
         /// <returns></returns>
-        [Route("error/error")]
+        /// <remarks>
+        /// This is called from
+        /// --> No where at the moment
+        /// </remarks>
+        [Route("error")]
         [HttpGet]
         public ActionResult Error()
         {
@@ -24,8 +28,12 @@ namespace JoycePrint.Web.Controllers
         /// The exception is logged in the OnException method of the base controller class
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        [Route("error/exception")]
+        /// <remarks>
+        /// This is redirected to from 
+        /// --> The base controller OnExecption method
+        /// </remarks>
+        [Route("exception")]
+        [HttpGet]        
         public ActionResult Exception()
         {
             // Set this value to hide the navigation menu in the _Navigation view
@@ -41,8 +49,8 @@ namespace JoycePrint.Web.Controllers
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        [Route("error/notfound")]
+        [Route("notfound")]
+        [HttpGet]        
         public ActionResult NotFound()
         {
             // You may want to set this to 200
@@ -55,7 +63,12 @@ namespace JoycePrint.Web.Controllers
         /// Handles errors thrown from ajax requests within the MVC framework
         /// </summary>
         /// <returns></returns>
-        [Route("error/ajax")]
+        /// <remarks>
+        /// This is invoked from 
+        /// --> The base controller OnExecption method
+        /// --> The javascript method HandleAjaxError in the error.js file        
+        /// </remarks>
+        [Route("ajax")]
         [HttpGet]
         public ActionResult Ajax()
         {
