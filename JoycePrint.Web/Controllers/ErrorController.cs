@@ -49,14 +49,16 @@ namespace JoycePrint.Web.Controllers
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>
         /// <returns></returns>
-        [Route("notfound")]   
-        //TODO: THIS IS NOT WORKING - HTTPERRORS SECTION IS ALSO NOT WORKING - HOW DO WE TEST IT
-        // TODO: ADD ROUTE TESTING IN HERE SOME HOW - USE THE NUGET PACAKGE THAT WAS FOUND EARLIER     
+        [Route("notfound")]           
         [HttpGet]        
         public ActionResult NotFound()
         {
-            // You may want to set this to 200
-            // TODO: this is causing an error and returning a 404 page, we need to set this some other way
+            // Set this value to hide the navigation menu in the _Navigation view
+            TempData["HideNavMenuOnError"] = true;
+
+            // Returning a view here will result in the client getting a 200 status code.
+            // Set the Response.StatusCode to 404 to cause the pipeline to use the error page referenced
+            // by the HttpErrors section of the config file for a 404 response to preserve the 404 error code      
             //Response.StatusCode = 404;
 
             return View("Error/NotFound");

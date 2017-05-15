@@ -312,6 +312,28 @@ address {
   font-style: normal;
 }
 /****************************************************************************************
+ * Common
+ * --------------------------------------------------
+ *
+ * This file contains common styles that are shared throughout the site
+****************************************************************************************/
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-default {
+  cursor: default;
+}
+.section-header {
+  font-weight: 600;
+  font-family: "Avenir Heavy";
+  color: #c6c6c6;
+  letter-spacing: 0.2rem;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  margin-top: 0px;
+}
+/****************************************************************************************
  * Loading
  * --------------------------------------------------
  * 
@@ -635,7 +657,19 @@ address {
  * Active, Required, Valid and Invalid styles are contained in this file
 ****************************************************************************************/
 
-/* Active Extensions *******************************************************************/
+/****************************************************************************************
+ * Use this class to stop the materialize label transform
+****************************************************************************************/
+
+.label-transform-stop {
+  transition: none !important;
+  transform: none !important;
+  font-size: 1rem !important;
+  top: 0rem !important;
+}
+/****************************************************************************************
+ * Prefix Icon Extensions
+****************************************************************************************/
 
 .prefix.active.success-text {
   color: #97c23c;
@@ -649,114 +683,142 @@ address {
 .prefix.danger-text {
   color: #a94442;
 }
-/* Required Field Extensions ***********************************************************/
+/****************************************************************************************
+ * Required Field Extensions
+****************************************************************************************/
 
-input:focus:not([readonly])[required],
-textarea.materialize-textarea:focus:not([readonly])[required] {
+/* Required Input Extensions ***********************************************************/
+
+.input-field input:focus:not([readonly]),
+.input-field textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom-color: #f89c28;
   box-shadow: 0 1px 0 0 #f89c28;
 }
-input:focus:not([readonly])[required].border-side,
-textarea.materialize-textarea:focus:not([readonly])[required].border-side {
+/* Required Label Extensions ***********************************************************/
+
+.input-field input:focus:not([readonly]) + label,
+.input-field textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #f89c28;
+}
+/* Required Border Extensions **********************************************************/
+
+.input-field input:focus:not([readonly]).border-side,
+.input-field textarea.materialize-textarea:focus:not([readonly]).border-side {
   border-left-color: #f89c28 !important;
   border-right-color: #f89c28 !important;
 }
-input:focus:not([readonly])[required] + label,
-textarea.materialize-textarea:focus:not([readonly])[required] + label {
-  color: #f89c28;
-}
-/* Valid Field Extensions **************************************************************/
+/****************************************************************************************
+ * Valid Field Extensions
+****************************************************************************************/
 
-input:focus:not([readonly])[required][class~=valid],
-textarea.materialize-textarea:focus:not([readonly])[required][class~=valid] {
-  border-bottom-color: #97c23c;
-  box-shadow: 0 1px 0 0 #97c23c;
-}
-input:focus:not([readonly])[required][class~=valid].border-side,
-textarea.materialize-textarea:focus:not([readonly])[required][class~=valid].border-side {
-  border-left-color: #97c23c !important;
-  border-right-color: #97c23c !important;
-}
-input:focus:not([readonly])[required][class~=valid] + label,
-textarea.materialize-textarea:focus:not([readonly])[required][class~=valid] + label {
-  color: #97c23c;
-}
-input:not([readonly])[required][class~=valid],
-textarea.materialize-textarea:not([readonly])[required][class~=valid] {
+/* Valid Input Extensions **************************************************************/
+
+.input-field input:not([readonly])[class~=valid],
+.input-field textarea.materialize-textarea:not([readonly])[class~=valid] {
   border-bottom-color: #3c763d;
   box-shadow: 0 1px 0 0 #3c763d;
 }
-input:not([readonly])[required][class~=valid].border-side,
-textarea.materialize-textarea:not([readonly])[required][class~=valid].border-side {
+.input-field input:focus:not([readonly])[class~=valid],
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=valid] {
+  border-bottom-color: #97c23c;
+  box-shadow: 0 1px 0 0 #97c23c;
+}
+/* Valid Label Extensions **************************************************************/
+
+.input-field input:not([readonly])[class~=valid] + label,
+.input-field textarea.materialize-textarea:not([readonly])[class~=valid] + label {
+  color: #3c763d;
+}
+.input-field input:focus:not([readonly])[class~=valid] + label,
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=valid] + label {
+  color: #97c23c;
+}
+/* Valid Border Extensions *************************************************************/
+
+.input-field input:not([readonly])[class~=valid].border-side,
+.input-field textarea.materialize-textarea:not([readonly])[class~=valid].border-side {
   border-left-color: #3c763d !important;
   border-right-color: #3c763d !important;
 }
-input:not([readonly])[required][class~=valid] + label,
-textarea.materialize-textarea:not([readonly])[required][class~=valid] + label {
-  color: #3c763d;
+.input-field input:focus:not([readonly])[class~=valid].border-side,
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=valid].border-side {
+  border-left-color: #97c23c !important;
+  border-right-color: #97c23c !important;
 }
-/* Invalid Field Extensions ************************************************************/
+/****************************************************************************************
+ * Invalid Field Extensions
+****************************************************************************************/
 
-input:focus:not([readonly])[required][class~=invalid],
-textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid] {
-  border-bottom-color: #d9534f;
-  box-shadow: 0 1px 0 0 #d9534f;
-}
-input:focus:not([readonly])[required][class~=invalid].border-side,
-textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid].border-side {
-  border-left-color: #d9534f !important;
-  border-right-color: #d9534f !important;
-}
-input:focus:not([readonly])[required][class~=invalid] + label,
-textarea.materialize-textarea:focus:not([readonly])[required][class~=invalid] + label {
-  color: #d9534f;
-}
-input:not([readonly])[required][class~=invalid],
-textarea.materialize-textarea:not([readonly])[required][class~=invalid] {
+/* Invalid Input Extensions ************************************************************/
+
+.input-field input:not([readonly])[class~=invalid],
+.input-field textarea.materialize-textarea:not([readonly])[class~=invalid] {
   border-bottom-color: #a94442;
   box-shadow: 0 1px 0 0 #a94442;
 }
-input:not([readonly])[required][class~=invalid].border-side,
-textarea.materialize-textarea:not([readonly])[required][class~=invalid].border-side {
+.input-field input:focus:not([readonly])[class~=invalid],
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=invalid] {
+  border-bottom-color: #d9534f;
+  box-shadow: 0 1px 0 0 #d9534f;
+}
+/* Invalid Label Extensions ************************************************************/
+
+.input-field input:not([readonly])[class~=invalid] + label,
+.input-field textarea.materialize-textarea:not([readonly])[class~=invalid] + label {
+  color: #a94442;
+}
+.input-field input:focus:not([readonly])[class~=invalid] + label,
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=invalid] + label {
+  color: #d9534f;
+}
+.input-field input:focus:not([readonly])[class~=invalid] + label::after,
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=invalid] + label::after {
+  content: attr(validation-message);
+  display: block;
+  font-size: 0.8rem;
+  color: #d9534f;
+}
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=invalid] + label::after {
+  left: -2.2rem !important;
+  transform: translate(-10%, 1600%);
+  -webkit-transform: translate(-10%, 1600%);
+  transition: none !important;
+}
+/* Invalid Border Extensions ***********************************************************/
+
+.input-field input:focus:not([readonly])[class~=invalid].border-side,
+.input-field textarea.materialize-textarea:focus:not([readonly])[class~=invalid].border-side {
+  border-left-color: #d9534f !important;
+  border-right-color: #d9534f !important;
+}
+.input-field input:not([readonly])[class~=invalid].border-side,
+.input-field textarea.materialize-textarea:not([readonly])[class~=invalid].border-side {
   border-left-color: #a94442 !important;
   border-right-color: #a94442 !important;
 }
-input:not([readonly])[required][class~=invalid] + label,
-textarea.materialize-textarea:not([readonly])[required][class~=invalid] + label {
-  color: #a94442;
-}
-label.val-msg.active {
-  display: block;
-  font-size: 0.8rem;
-  color: #d9534f;
-  -webkit-transform: translateY(200%);
-  transform: translateY(200%);
-}
-textarea.materialize-textarea + label + label.val-msg.active {
-  display: block;
-  font-size: 0.8rem;
-  color: #d9534f;
-  transform: translate(-0.2%, 1875%);
-  -webkit-transform: translate(-0.2%, 1875%);
-  left: -2.2rem !important;
-}
-label.val-msg,
-i.material-icons:not([class~=active]) + input + label + label.val-msg:not([class~=active]) i.material-icons:not([class~=active]) + input + label + label.val-msg[class~=active] {
-  display: none;
-}
-.label-transform-stop {
-  transition: none !important;
-  transform: none !important;
-  font-size: 1rem !important;
-  top: 0rem !important;
-}
-/*transform {
-    transition-delay: 0s;
-    transition-duration: 0.2s;
-    transition-property: all;
-    transition-timing-function: ease-out;
-}*/
+/****************************************************************************************
+ * Error
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used for the error views and static pages
+****************************************************************************************/
 
+.error-header {
+  font-weight: 600;
+  font-family: "Avenir Heavy";
+  color: #c6c6c6;
+  letter-spacing: 0.2rem;
+  padding-top: 150px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.error-body {
+  font-weight: 600;
+  color: #c6c6c6;
+  font-family: "Avenir Book";
+  padding-bottom: 50px;
+}
 /* View Imports ******************************************************/
 
 /****************************************************************************************
@@ -1082,19 +1144,4 @@ ul#nav-mobile a {
   cursor: pointer;
   top: 75px;
   position: relative;
-}
-.cursor-pointer {
-  cursor: pointer;
-}
-.cursor-default {
-  cursor: default;
-}
-.section-header {
-  font-weight: 600;
-  font-family: "Avenir Heavy";
-  color: #c6c6c6;
-  letter-spacing: 0.2rem;
-  padding-top: 50px;
-  padding-bottom: 25px;
-  margin-top: 0px;
 }
