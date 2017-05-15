@@ -49,7 +49,9 @@ namespace JoycePrint.Web.Controllers
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>
         /// <returns></returns>
-        [Route("notfound")]        
+        [Route("notfound")]   
+        //TODO: THIS IS NOT WORKING - HTTPERRORS SECTION IS ALSO NOT WORKING - HOW DO WE TEST IT
+        // TODO: ADD ROUTE TESTING IN HERE SOME HOW - USE THE NUGET PACAKGE THAT WAS FOUND EARLIER     
         [HttpGet]        
         public ActionResult NotFound()
         {
