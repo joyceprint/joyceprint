@@ -122,10 +122,27 @@ namespace JoycePrint.Web.Controllers
             // Set the exception to handled to stop if from bubbling out of the MVC block
             filterContext.ExceptionHandled = true;
 
-            // Redirect on error:
-            // TODO: we don't want to do a redirect to the ajax action from here cause it will screw up
-            // we have to call the ajax method and return it and probably set some flag to say return this and don't do anything else
-            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("Exception", "Error");
+            // Redirect on error:            
+            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectForAjax() : RedirectToAction("Exception", "Error");
+        }
+
+        /// <summary>
+        /// We call directly into the ajax error action method and return it's result to stop the server from returning a 302 code
+        /// and causing the client to have to handle a follow up ajax request
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult RedirectForAjax()
+        {
+            // Create a new controller rather than using a redirect, a redirect will terminate the http request and return a 302
+            // A 302 response will break the ajax method that called this function
+            // Use this method of getting the controller as creating a new controller object will cause issues
+            var errorController = DependencyResolver.Current.GetService<ErrorController>();
+
+            // The controller context needs to be created and added to the controller for it to function
+            errorController.ControllerContext = new ControllerContext(Request.RequestContext, errorController);
+
+            // Call the action method and return the result
+            return errorController.Ajax();
         }
 
         /// <summary>
