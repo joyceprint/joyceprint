@@ -1,11 +1,12 @@
-﻿using System.Web.Helpers;
+﻿using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace JoycePrint.Web
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -25,17 +26,17 @@ namespace JoycePrint.Web
             // Register the bundles used in the application
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
-
+       
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>
         /// Response Headers
         /// --------------------------------------------------------------------------------------------
-        /// Server: added by IIS. [ TODO: Unhandled ]
+        /// Server: added by IIS. [ web.config ]
         /// X-AspNet-Version: added by System.Web.dll at the time of Flush in HttpResponse class [ web.config ]
         /// X-AspNetMvc-Version: Added by MvcHandler in System.Web.dll. [ MvcApplication.EnableSecurity ]
-        /// X-Powered-By: added by IIS [ TODO: Unhandled ]
+        /// X-Powered-By: added by IIS [ web.config ]
         /// </remarks>
         private void EnableSecurity()
         {
