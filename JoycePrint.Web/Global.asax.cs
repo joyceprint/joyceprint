@@ -29,6 +29,14 @@ namespace JoycePrint.Web
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>
+        /// Response Headers
+        /// --------------------------------------------------------------------------------------------
+        /// Server: added by IIS. [ TODO: Unhandled ]
+        /// X-AspNet-Version: added by System.Web.dll at the time of Flush in HttpResponse class [ web.config ]
+        /// X-AspNetMvc-Version: Added by MvcHandler in System.Web.dll. [ MvcApplication.EnableSecurity ]
+        /// X-Powered-By: added by IIS [ TODO: Unhandled ]
+        /// </remarks>
         private void EnableSecurity()
         {
             // [ Security - Click Jack Attack via IFrame ]
