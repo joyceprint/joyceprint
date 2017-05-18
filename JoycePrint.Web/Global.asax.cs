@@ -35,7 +35,7 @@ namespace JoycePrint.Web
             // This adds the X-FRAME-OPTIONS : DENY | SAMEORIGIN to the reponse.
             // This prevents click hyjacking by preventing the page from being loaded into an iframe
             // This is on by default in MVC 5, we have it here incase we ever change versions
-            AntiForgeryConfig.SuppressXFrameOptionsHeader = false;
+            AntiForgeryConfig.SuppressXFrameOptionsHeader = false;            
 
             // [Security - Application Hardening ]
             // Removing X-AspNetMvc-Version - Indicates that the website is "powered by MVC Version."
