@@ -23,6 +23,11 @@
             <div class="col l6 offset-l1 m10 offset-m1 s12">
                 @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote" }))
                 {
+                    <!--
+                        [ Security - CSRF ]
+                        @Html.AntiForgeryToken() - Prevents MVC Cross Site Request Forgery
+                        This has to be used with [ ValidateAntiForgeryToken() ] on the action method
+                    -->
                     @Html.AntiForgeryToken()
 
                     @Html.EditorFor(model => model.Contact, "ContactForm")

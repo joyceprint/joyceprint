@@ -21,7 +21,18 @@ namespace JoycePrint.Web.Controllers
             return View("Index", model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// [ Security - CSRF ]
+        /// [ ValidateAntiForgeryToken() ] - Prevents MVC Cross Site Request Forgery
+        /// This has to be used with @Html.AntiForgeryToken() on the form
+        /// </remarks>
         [HttpPost]
+        [ValidateAntiForgeryToken()]
         [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
         public ActionResult Index(QuoteRequest model)
         {
