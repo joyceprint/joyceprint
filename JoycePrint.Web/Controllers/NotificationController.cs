@@ -4,7 +4,7 @@ using JoycePrint.Domain.Models;
 
 namespace JoycePrint.Web.Controllers
 {
-    [Route("notification")]
+    [RoutePrefix("notification")]
     public class NotificationController : BaseController
     {
         /// <summary>
@@ -13,6 +13,7 @@ namespace JoycePrint.Web.Controllers
         /// <returns></returns>           
         [HttpGet]
         [ChildActionOnly]
+        [Route("")]
         public JsonResult Index()
         {
             var notification = new Notification();

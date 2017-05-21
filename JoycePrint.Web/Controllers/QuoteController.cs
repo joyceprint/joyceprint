@@ -5,7 +5,7 @@ using JoycePrint.Web.Attributes;
 
 namespace JoycePrint.Web.Controllers
 {
-    [Route("quote")]
+    [RoutePrefix("quote")]
     public class QuoteController : BaseController
     {
         /// <summary>
@@ -14,6 +14,7 @@ namespace JoycePrint.Web.Controllers
         /// <returns></returns>        
         [HttpGet]
         [ChildActionOnly]
+        [Route("")]
         public ActionResult Index()
         {
             var model = new QuoteRequest();
@@ -34,6 +35,7 @@ namespace JoycePrint.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken()]
         [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
+        [Route("")]
         public ActionResult Index(QuoteRequest model)
         {
             if (ModelState.IsValid)
