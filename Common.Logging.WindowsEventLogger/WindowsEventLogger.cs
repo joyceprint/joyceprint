@@ -2,7 +2,6 @@
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Text;
-using System.Web.Hosting;
 using Common.Logging.Enums;
 
 namespace Common.Logging.WindowsEventLogger
@@ -14,7 +13,7 @@ namespace Common.Logging.WindowsEventLogger
         private string _logName = "JoycePrint";
 
         private string _source = "JoycePrint Website";
-        
+
         public override void Initialize(string providerName, NameValueCollection providerConfig)
         {
             try
@@ -42,14 +41,15 @@ namespace Common.Logging.WindowsEventLogger
             catch (Exception logException)
             {
                 EventLog.WriteEntry("Application", $"Error trying to create the '{_source}' in the eventlog. Make sure eventLog is created." + Environment.NewLine + "Exception info: " + logException.Message);
-            }            
+            }
         }
 
         public override void Log(MessageLevel messageLevel, string message)
         {
             if (!_enabled) return;
 
-            EventLog.WriteEntry(_source, message, ConvertToEvent(messageLevel));
+            try { EventLog.WriteEntry(_source, message, ConvertToEvent(messageLevel)); }
+            catch (Exception) { }
         }
 
         public override void Log(MessageLevel messageLevel, Exception ex)

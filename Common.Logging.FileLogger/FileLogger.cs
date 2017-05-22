@@ -14,7 +14,7 @@ namespace Common.Logging.FileLogger
         private string _logFile = $"Log_{DateTime.Today}";
 
         private string _logPath = @"D:\Websites\Logs";
-        
+
         public override void Initialize(string providerName, NameValueCollection providerConfig)
         {
             try
@@ -45,15 +45,19 @@ namespace Common.Logging.FileLogger
         public override void Log(MessageLevel messageLevel, string message)
         {
             if (!_enabled) return;
-
             var seperator = "-----------------------------------------------------------------------------------------------------";
-            using (var fs = new FileStream(Path.Combine(_logPath, _logFile), FileMode.Append, FileAccess.Write, FileShare.Write))
-            {
-                using (var sw = new StreamWriter(fs))
+
+            try
+            {                
+                using (var fs = new FileStream(Path.Combine(_logPath, _logFile), FileMode.Append, FileAccess.Write, FileShare.Write))
                 {
-                    sw.WriteLine($"{DateTime.Now} :: {messageLevel} {Environment.NewLine} {message} {Environment.NewLine} {seperator}");
+                    using (var sw = new StreamWriter(fs))
+                    {
+                        sw.WriteLine($"{DateTime.Now} :: {messageLevel} {Environment.NewLine} {message} {Environment.NewLine} {seperator}");
+                    }
                 }
             }
+            catch (Exception) { }
         }
 
         public override void Log(MessageLevel messageLevel, Exception ex)
