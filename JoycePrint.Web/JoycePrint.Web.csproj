@@ -378,6 +378,10 @@
       <Project>{cd1d91d5-b27b-4d27-8477-d85ba45a758b}</Project>
       <Name>Common.Analytics</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.Logging.FileLogger\Common.Logging.FileLogger.csproj">
+      <Project>{0ef2f65d-0277-49ab-94f7-04fe5ca07f1f}</Project>
+      <Name>Common.Logging.FileLogger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common.Logging.WindowsEventLogger\Common.Logging.WindowsEventLogger.csproj">
       <Project>{dfd727b6-b98c-4533-a9a6-262596de8bc1}</Project>
       <Name>Common.Logging.WindowsEventLogger</Name>
