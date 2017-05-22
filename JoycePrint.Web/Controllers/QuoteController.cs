@@ -33,15 +33,17 @@ namespace JoycePrint.Web.Controllers
         /// This has to be used with @Html.AntiForgeryToken() on the form
         /// </remarks>
         [HttpPost]
-        [ValidateAntiForgeryToken()]
+        [ValidateAntiForgeryHeader]
         [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
-        [Route("")]
+        [Route("")]        
         public ActionResult Index(QuoteRequest model)
         {
             if (ModelState.IsValid)
             {
-                var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
-                
+                //var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
+
+                var notificationType = NotificationType.Failure;
+
                 // Create a new controller rather than using a redirect, a redirect will terminate the http request and return a 302
                 // A 302 response will break the ajax method that called this function
                 // Use this method of getting the controller as creating a new controller object will cause issues

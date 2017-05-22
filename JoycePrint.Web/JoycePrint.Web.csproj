@@ -204,6 +204,7 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
+    <Compile Include="Attributes\ValidateAntiForgeryHeader.cs" />
     <Compile Include="Attributes\PageAnalysis.cs" />
     <Compile Include="Attributes\EventAnalysis.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -374,6 +375,7 @@
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
