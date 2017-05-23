@@ -89,6 +89,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.7.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.7.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -145,7 +149,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="App_Readme\Elmah\Elmah.MySql.sql" />
+    <Content Include="App_Readme\Elmah\Elmah.MySql.txt" />
+    <Content Include="App_Readme\Elmah\ELMAH-1.2-db-MySql.sql" />
+    <Content Include="App_Readme\Elmah\Elmah.txt" />
     <Content Include="Content\css\materialize.css" />
     <Content Include="Content\css\materialize.min.css" />
     <Content Include="Content\fonts\avenir\Book\Avenir-Book.svg" />
@@ -294,6 +301,7 @@
     <Content Include="Content\css\joyceprint\base\validationSAVED.less" />
     <Content Include="Content\css\joyceprint\base\common.less" />
     <Content Include="Content\css\joyceprint\base\error.less" />
+    <Content Include="App_Readme\Elmah\web.config" />
     <None Include="Properties\PublishProfiles\JoycePrint [ FTP ].pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint [ Local ].pubxml" />
