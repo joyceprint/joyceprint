@@ -24,18 +24,18 @@
                 @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote" }))
                 {
                     <!--
-                        [ Security - CSRF ]
-                        Html.AntiForgeryToken() - Prevents MVC Cross Site Request Forgery
-                        This has to be used with [ ValidateAntiForgeryToken() ] on the action method
+                    [ Security - CSRF ]
+                    Html.AntiForgeryToken() - Prevents MVC Cross Site Request Forgery
+                    This has to be used with [ ValidateAntiForgeryToken() ] on the action method
                     -->
                     @Html.AntiForgeryToken()
-
+                    
                     @Html.EditorFor(model => model.Contact, "ContactForm")
 
                     @Html.EditorFor(model => model.Enquiry, "EnquiryForm")
 
                     <div class="row no-mar-bot">
-                        <div class="col l7 m12 s12 no-pad-right">                            
+                        <div class="col l7 m12 s12 no-pad-right">
                             @{ Html.RenderAction("Recaptcha", "Security"); }
 
                             @*
@@ -64,4 +64,5 @@
             </div>
         </div>
     </div>
+
 </section>

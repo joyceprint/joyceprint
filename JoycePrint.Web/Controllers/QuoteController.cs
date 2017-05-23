@@ -40,10 +40,8 @@ namespace JoycePrint.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
-
-                var notificationType = NotificationType.Failure;
-
+                var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
+                
                 // Create a new controller rather than using a redirect, a redirect will terminate the http request and return a 302
                 // A 302 response will break the ajax method that called this function
                 // Use this method of getting the controller as creating a new controller object will cause issues
