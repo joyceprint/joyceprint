@@ -38,13 +38,12 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-CREATE SCHEMA IF NOT EXISTS `elmah` ;
-USE `elmah`;
+USE `joyceprint_elmah`;
 
 -- -----------------------------------------------------
 -- Table `elmah`.`elmah_error`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `elmah`.`elmah_error` (
+CREATE TABLE IF NOT EXISTS `joyceprint_elmah`.`elmah_error` (
   `ErrorId` CHAR(36) NOT NULL ,
   `Application` VARCHAR(60) NOT NULL ,
   `Host` VARCHAR(50) NOT NULL ,
@@ -69,9 +68,9 @@ ROW_FORMAT = DYNAMIC;
 
 DELIMITER //
 
-USE elmah//
+USE joyceprint_elmah//
 
-CREATE PROCEDURE `elmah`.`elmah_GetErrorXml` (
+CREATE PROCEDURE `joyceprint_elmah`.`elmah_GetErrorXml` (
   IN Id CHAR(36),
   IN App VARCHAR(60)
 )
@@ -83,9 +82,9 @@ BEGIN
     WHERE   `ErrorId` = Id AND `Application` = App;
 END//
 
-USE elmah//
+USE joyceprint_elmah//
 
-CREATE PROCEDURE `elmah`.`elmah_GetErrorsXml` (
+CREATE PROCEDURE `joyceprint_elmah`.`elmah_GetErrorsXml` (
   IN App VARCHAR(60),
   IN PageIndex INT(10),
   IN PageSize INT(10),
@@ -126,9 +125,9 @@ BEGIN
 
 END//
 
-USE elmah//
+USE joyceprint_elmah//
 
-CREATE PROCEDURE `elmah`.`elmah_LogError` (
+CREATE PROCEDURE `joyceprint_elmah`.`elmah_LogError` (
     IN ErrorId CHAR(36), 
     IN Application varchar(60), 
     IN Host VARCHAR(30), 

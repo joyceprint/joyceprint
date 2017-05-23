@@ -149,7 +149,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Elmah\Elmah.MySql.sql" />
+    <Content Include="App_Readme\Elmah\Elmah.MySql [joyceprint.ie].sql" />
     <Content Include="App_Readme\Elmah\Elmah.MySql.txt" />
     <Content Include="App_Readme\Elmah\ELMAH-1.2-db-MySql.sql" />
     <Content Include="App_Readme\Elmah\Elmah.txt" />
