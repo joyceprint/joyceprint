@@ -48,8 +48,9 @@ namespace JoycePrint.Domain.Models
         #region Interface Definitions
 
         public MailMessage ConvertModelToEmail(IEmail email)
-        {            
-            var message = new MailMessage(Contact.Email, email.SmtpConfig.From)
+        {
+            var emailTo = email.SmtpConfig.Network.UserName + "@" + email.SmtpConfig.Network.ClientDomain;
+            var message = new MailMessage(email.SmtpConfig.From, emailTo)
             {
                 Body = GetMessageBody(),
                 Subject = GetSubjectLine()
