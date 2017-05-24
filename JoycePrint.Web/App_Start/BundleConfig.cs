@@ -4,8 +4,7 @@ using JoycePrint.Web.Extensions;
 
 namespace JoycePrint.Web
 {
-    // TODO: Static classes here will cause an issue - fix this
-    // TODO: ensure this is not screwing up anything
+    // TODO: Static classes here will cause an issue - fix this - ensure this is not screwing up anything
 
     public static class BundleConfig
     {
