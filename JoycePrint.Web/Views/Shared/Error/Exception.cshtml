@@ -8,9 +8,9 @@
 }
 
 <div class="row">
-    
-    <section id="error" class="row" data-test-form-id="frmError">
 
+    <section id="error" class="row" data-test-form-id="frmException">
+        
         <div class="col s12">
             <h1 class="error-header center-align">Error</h1>
 
@@ -19,7 +19,7 @@
             <div class="col s12 center">
                 <a class="btn-large btn-error waves-effect light-blue" href="/">RETURN TO HOMEPAGE</a>
             </div>
-        </div>     
+        </div>        
 
         @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
         {
@@ -34,7 +34,7 @@
                 <div style="overflow: scroll">
                     <pre>
                         @Model.Exception.StackTrace
-                </pre>
+                    </pre>
                 </div>
             </div>
 

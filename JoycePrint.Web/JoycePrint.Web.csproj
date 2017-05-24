@@ -52,6 +52,10 @@
       <HintPath>..\packages\dotless.1.5.2\lib\dotless.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -85,8 +89,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.7.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.7.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RouteDebugger, Version=2.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\routedebugger.2.1.5\lib\net40\RouteDebugger.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
@@ -141,6 +153,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Readme\Elmah\Elmah.MySql [joyceprint.ie].sql" />
+    <Content Include="App_Readme\Elmah\Elmah.MySql.txt" />
+    <Content Include="App_Readme\Elmah\ELMAH-1.2-db-MySql.sql" />
+    <Content Include="App_Readme\Elmah\Elmah.txt" />
     <Content Include="Content\css\materialize.css" />
     <Content Include="Content\css\materialize.min.css" />
     <Content Include="Content\fonts\avenir\Book\Avenir-Book.svg" />
@@ -164,6 +180,7 @@
     <Content Include="Content\images\services-stationery.jpg" />
     <Content Include="Content\images\services-docketbooks.jpg" />
     <Content Include="Content\images\services-design.jpg" />
+    <Content Include="403.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
@@ -199,6 +216,7 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
+    <Compile Include="Attributes\ValidateAntiForgeryHeader.cs" />
     <Compile Include="Attributes\PageAnalysis.cs" />
     <Compile Include="Attributes\EventAnalysis.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -287,6 +305,8 @@
     <Content Include="Content\css\joyceprint.css" />
     <Content Include="Content\css\joyceprint\base\validationSAVED.less" />
     <Content Include="Content\css\joyceprint\base\common.less" />
+    <Content Include="Content\css\joyceprint\base\error.less" />
+    <Content Include="App_Readme\Elmah\web.config" />
     <None Include="Properties\PublishProfiles\JoycePrint [ FTP ].pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint [ Local ].pubxml" />
@@ -302,8 +322,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\materialize.js" />
     <Content Include="Scripts\materialize.min.js" />
-    <Content Include="Views\Shared\Error\500.html" />
-    <Content Include="Views\Shared\Error\Error.html" />
+    <Content Include="500.html" />
+    <Content Include="Error.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -327,7 +347,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -357,13 +379,16 @@
     <Content Include="Views\Shared\DisplayTemplates\Notification.cshtml" />
     <Content Include="Views\Security\Recaptcha.cshtml" />
     <Content Include="Views\Shared\Error\Error.cshtml" />
-    <Content Include="Views\Shared\Error\404.html" />
+    <Content Include="404.html" />
     <Content Include="Views\Shared\Error\Ajax.cshtml" />
+    <Content Include="Views\Shared\Error\Exception.cshtml" />
+    <Content Include="Views\Shared\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -374,6 +399,14 @@
     <ProjectReference Include="..\Common.Analytics\Common.Analytics.csproj">
       <Project>{cd1d91d5-b27b-4d27-8477-d85ba45a758b}</Project>
       <Name>Common.Analytics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Logging.ElmahLogger\Common.Logging.ElmahLogger.csproj">
+      <Project>{ad55d0e4-b423-4709-8ca6-aeb97bd7c336}</Project>
+      <Name>Common.Logging.ElmahLogger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Logging.FileLogger\Common.Logging.FileLogger.csproj">
+      <Project>{0ef2f65d-0277-49ab-94f7-04fe5ca07f1f}</Project>
+      <Name>Common.Logging.FileLogger</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common.Logging.WindowsEventLogger\Common.Logging.WindowsEventLogger.csproj">
       <Project>{dfd727b6-b98c-4533-a9a6-262596de8bc1}</Project>

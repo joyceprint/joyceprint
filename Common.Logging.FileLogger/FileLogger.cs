@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 using Common.Logging.Enums;
 
-namespace Common.Logging.WindowsEventLogger
+namespace Common.Logging.FileLogger
 {
-    public class WindowsEventLogger : LogProvider
+    public class FileLogger : LogProvider
     {
         private bool _enabled;
 
-        private string _logName = "JoycePrint";
+        private string _logFile = $"Log_{DateTime.Today}";
 
-        private string _source = "JoycePrint Website";
+        private string _logPath = @"D:\Websites\Logs";
 
         public override void Initialize(string providerName, NameValueCollection providerConfig)
         {
@@ -25,30 +26,37 @@ namespace Common.Logging.WindowsEventLogger
 
                 _enabled = bool.Parse(providerConfig["enabled"]);
 
-                if (providerConfig["log"] == null)
-                    throw new Exception($"Error reading log configuration setting. Default of {_logName} will be used for the provider {providerName}");
+                if (providerConfig["logFile"] == null)
+                    throw new Exception($"Error reading log configuration setting. Default of {_logFile} will be used for the provider {providerName}");
 
-                _logName = providerConfig["log"];
+                _logFile = providerConfig["logFile"];
 
-                if (providerConfig["source"] == null)
-                    throw new Exception($"Error reading source configuration setting. Default of {_source} will be used for the provider {providerName}");
+                if (providerConfig["logPath"] == null)
+                    throw new Exception($"Error reading source configuration setting. Default of {_logPath} will be used for the provider {providerName}");
 
-                _source = providerConfig["source"];
-
-                if (_enabled && !EventLog.SourceExists(_source))
-                    EventLog.CreateEventSource(_source, _logName);
+                _logPath = providerConfig["logPath"];
             }
             catch (Exception logException)
             {
-                EventLog.WriteEntry("Application", $"Error trying to create the '{_source}' in the eventlog. Make sure eventLog is created." + Environment.NewLine + "Exception info: " + logException.Message);
+                EventLog.WriteEntry("Application", $"Error trying to create the file '{_logPath}{_logFile}'." + Environment.NewLine + "Exception info: " + logException.Message);
             }
         }
 
         public override void Log(MessageLevel messageLevel, string message)
         {
             if (!_enabled) return;
+            var seperator = "-----------------------------------------------------------------------------------------------------";
 
-            try { EventLog.WriteEntry(_source, message, ConvertToEvent(messageLevel)); }
+            try
+            {                
+                using (var fs = new FileStream(Path.Combine(_logPath, _logFile), FileMode.Append, FileAccess.Write, FileShare.Write))
+                {
+                    using (var sw = new StreamWriter(fs))
+                    {
+                        sw.WriteLine($"{DateTime.Now} :: {messageLevel} {Environment.NewLine} {message} {Environment.NewLine} {seperator}");
+                    }
+                }
+            }
             catch (Exception) { }
         }
 

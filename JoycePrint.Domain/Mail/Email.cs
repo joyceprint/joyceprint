@@ -57,6 +57,9 @@ namespace JoycePrint.Domain.Mail
         public bool SendEmail(MailMessage message, SmtpSection smtpConfig)
         {
             var smtpClient = CreateSmtpClient(smtpConfig);
+
+            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {smtpConfig.Network.UserName} - PASS : {smtpConfig.Network.Password}");
+
             smtpClient.Send(message);            
 
             return true;

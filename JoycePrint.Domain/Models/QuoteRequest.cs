@@ -32,7 +32,7 @@ namespace JoycePrint.Domain.Models
         }
 
         public bool SendEmail()
-        {            
+        {
             try
             {
                 IEmail email = new Email();
@@ -42,14 +42,15 @@ namespace JoycePrint.Domain.Models
             {
                 Logger.Instance.Log(MessageLevel.Error, ex);
                 return false;
-            }            
+            }
         }
 
         #region Interface Definitions
 
         public MailMessage ConvertModelToEmail(IEmail email)
-        {            
-            var message = new MailMessage(Contact.Email, email.SmtpConfig.From)
+        {
+            var emailTo = "joyceprintquote@gmail.com";
+            var message = new MailMessage(email.SmtpConfig.From, emailTo)
             {
                 Body = GetMessageBody(),
                 Subject = GetSubjectLine()
@@ -65,7 +66,7 @@ namespace JoycePrint.Domain.Models
             messageBody.Append("<h1>Client Information</h1>");
             messageBody.Append("<dl>");
             messageBody.Append("<dt><strong>Company<strong></dt>");
-            messageBody.Append($"<dd>{Contact.Company}</dd>");            
+            messageBody.Append($"<dd>{Contact.Company}</dd>");
             messageBody.Append("<dt><strong>Name</strong></dt>");
             messageBody.Append($"<dd>{Contact.Name}</dd>");
             messageBody.Append("<dt><strong>Telephone</strong></dt>");

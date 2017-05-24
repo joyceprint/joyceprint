@@ -4,14 +4,16 @@ using JoycePrint.Domain.Models;
 
 namespace JoycePrint.Web.Controllers
 {
-    [Route("notification")]
+    [RoutePrefix("notification")]
     public class NotificationController : BaseController
     {
         /// <summary>
         /// This displays the notification to the user with the result of the email send operation                
         /// </summary>
-        /// <returns></returns>        
-        [HttpGet]        
+        /// <returns></returns>           
+        [HttpGet]
+        [ChildActionOnly]
+        [Route("")]
         public JsonResult Index()
         {
             var notification = new Notification();

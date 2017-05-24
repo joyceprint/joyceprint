@@ -60,7 +60,7 @@ namespace JoycePrint.Web.Controllers
         private RouteData UpdateContext(ControllerContext controllerContext, string controllerName, string actionName)
         {
             var routeData = new RouteData();
-            
+
             routeData.Values.Add("controller", controllerName);
             routeData.Values.Add("action", actionName);
 
@@ -117,14 +117,51 @@ namespace JoycePrint.Web.Controllers
         /// </remarks>
         protected override void OnException(ExceptionContext filterContext)
         {
+            CreateErrorInfo(filterContext);
+
             // Set the exception to handled to stop if from bubbling out of the MVC block
             filterContext.ExceptionHandled = true;
-            
+
+            // Redirect on error:            
+            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectForAjax() : RedirectToAction("Exception", "Error");
+        }
+
+        /// <summary>
+        /// We call directly into the ajax error action method and return it's result to stop the server from returning a 302 code
+        /// and causing the client to have to handle a follow up ajax request
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult RedirectForAjax()
+        {
+            // Create a new controller rather than using a redirect, a redirect will terminate the http request and return a 302
+            // A 302 response will break the ajax method that called this function
+            // Use this method of getting the controller as creating a new controller object will cause issues
+            var errorController = DependencyResolver.Current.GetService<ErrorController>();
+
+            // The controller context needs to be created and added to the controller for it to function
+            errorController.ControllerContext = new ControllerContext(Request.RequestContext, errorController);
+
+            // Call the action method and return the result
+            return errorController.Ajax();
+        }
+
+        /// <summary>
+        /// Create the HandleErrorInfo model from the filterContext
+        /// </summary>
+        /// <param name="filterContext"></param>
+        private void CreateErrorInfo(ExceptionContext filterContext)
+        {
+            var controllerName = filterContext.RouteData.Values["controller"].ToString();
+            var actionName = filterContext.RouteData.Values["action"]?.ToString() ?? "Unknown Action";
+
             // Log the exception
             Logger.Instance.Log(MessageLevel.Error, filterContext.Exception, GetContextInfo(filterContext));
 
-            // Redirect on error:
-            filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectToAction("Ajax", "Error") : RedirectToAction("General", "Error");                        
+            // Create the error model
+            var errorInfo = new HandleErrorInfo(filterContext.Exception, controllerName, actionName);
+
+            // Save the exception so it can be displayed on the view
+            TempData["errorInfo"] = errorInfo;
         }
 
         /// <summary>
@@ -138,7 +175,7 @@ namespace JoycePrint.Web.Controllers
 
             sb.AppendLine("Exception Context Additional Information");
             sb.AppendLine($"Child Action: [{filterContext.IsChildAction}]");
-            sb.AppendLine($"Ajax Request: [{filterContext.HttpContext.Request.IsAjaxRequest()}]");            
+            sb.AppendLine($"Ajax Request: [{filterContext.HttpContext.Request.IsAjaxRequest()}]");
 
             return sb.ToString();
         }

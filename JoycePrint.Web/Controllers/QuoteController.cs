@@ -5,7 +5,7 @@ using JoycePrint.Web.Attributes;
 
 namespace JoycePrint.Web.Controllers
 {
-    [Route("quote")]
+    [RoutePrefix("quote")]
     public class QuoteController : BaseController
     {
         /// <summary>
@@ -14,6 +14,7 @@ namespace JoycePrint.Web.Controllers
         /// <returns></returns>        
         [HttpGet]
         [ChildActionOnly]
+        [Route("")]
         public ActionResult Index()
         {
             var model = new QuoteRequest();
@@ -21,16 +22,25 @@ namespace JoycePrint.Web.Controllers
             return View("Index", model);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// [ Security - CSRF ]
+        /// [ ValidateAntiForgeryToken() ] - Prevents MVC Cross Site Request Forgery
+        /// This has to be used with @Html.AntiForgeryToken() on the form
+        /// </remarks>
         [HttpPost]
+        [ValidateAntiForgeryHeader]
         [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
+        [Route("")]        
         public ActionResult Index(QuoteRequest model)
         {
             if (ModelState.IsValid)
             {
-                //var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
-
-                // TODO: Remove this before going live
-                var notificationType = NotificationType.Failure;
+                var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
                 
                 // Create a new controller rather than using a redirect, a redirect will terminate the http request and return a 302
                 // A 302 response will break the ajax method that called this function

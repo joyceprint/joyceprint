@@ -51,11 +51,12 @@ function setupSubmitButton() {
                         url: "/quote",
                         method: "POST",
                         cache: false,
-                        data: $("#frm-quote").serialize()
+                        data: $("#frm-quote").serialize(),
+                        headers: {                            
+                            '__RequestVerificationToken': $("input[name='__RequestVerificationToken']").val()
+                        }
                     })
-                    .fail(function(jqXHR, textStatus) {
-                        hideLoader();
-                        
+                    .fail(function(jqXHR, textStatus) {                        
                         HandleAjaxError(jqXHR, textStatus);
                     })
                     .done(function(data) {

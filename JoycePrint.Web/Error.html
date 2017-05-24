@@ -12,10 +12,10 @@
     <!-- Ensures proper rendering and touch zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Normal browser style sheet links -->
+    <!-- Normal browser style sheet links -->    
     <link href="/Content/css/materialize.min.css" rel="stylesheet" type="text/css" />
     <link href="/Content/css/joyceprint.css" rel="stylesheet" type="text/css" />
-
+    
     <!-- Favicon -->
     <link rel="icon" href="/Content/images/favicon.ico" />
 
@@ -44,12 +44,15 @@
     </header>
 
     <main>
-        <h1>404 Error</h1>
+        <div class="col s12">
+            <h1 class="error-header center-align">Error</h1>
 
-        
-        <p>
-            <a href="/">RETURN TO SITE</a>
-        </p>
+            <h3 class="error-body center-align">A general error has occurred, we will be back shortly.</h3>
+
+            <div class="col s12 center">
+                <a class="btn-large btn-error waves-effect light-blue" href="/">RETURN TO HOMEPAGE</a>
+            </div>
+        </div>        
     </main>
 
     <footer class="page-footer" data-test-form-id="frmFooter">
