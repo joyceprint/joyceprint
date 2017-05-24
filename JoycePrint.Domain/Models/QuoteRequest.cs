@@ -49,7 +49,7 @@ namespace JoycePrint.Domain.Models
 
         public MailMessage ConvertModelToEmail(IEmail email)
         {
-            var emailTo = email.SmtpConfig.Network.UserName + "@" + email.SmtpConfig.Network.ClientDomain;
+            var emailTo = "joyceprintquote@gmail.com";
             var message = new MailMessage(email.SmtpConfig.From, emailTo)
             {
                 Body = GetMessageBody(),
