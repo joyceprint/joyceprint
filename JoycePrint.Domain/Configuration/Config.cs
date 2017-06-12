@@ -17,5 +17,7 @@ namespace JoycePrint.Domain.Configuration
         public static string NotificationHeaderError => ConfigurationManager.AppSettings.Get("NotificationHeaderError");
 
         public static string NotificationMessageError => ConfigurationManager.AppSettings.Get("NotificationMessageError");
+
+        public static string QuoteEmail => ConfigurationManager.AppSettings.Get("QuoteEmail");
     }
 }

@@ -9,6 +9,8 @@ namespace JoycePrint.Domain.Mail
 {
     public class Email : IEmail
     {
+        public static string EmailView = "Email";
+
         /// <summary>
         /// Creates the SMTP client
         /// </summary>
