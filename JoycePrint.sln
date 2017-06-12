@@ -7,7 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoycePrint.Domain.Tests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoycePrint.Web", "JoycePrint.Web\JoycePrint.Web.csproj", "{1650D4F9-E7B6-4989-955B-BA95CEEFBF16}"
 	ProjectSection(ProjectDependencies) = postProject
-		{07092F0D-9993-4874-90EB-10A7919BAE50} = {07092F0D-9993-4874-90EB-10A7919BAE50}
 		{DFD727B6-B98C-4533-A9A6-262596DE8BC1} = {DFD727B6-B98C-4533-A9A6-262596DE8BC1}
 		{C2C140D1-5E4E-4DF3-A199-26CDB5FA530A} = {C2C140D1-5E4E-4DF3-A199-26CDB5FA530A}
 	EndProjectSection
@@ -15,10 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoycePrint.Web.Tests", "JoycePrint.Web.Tests\JoycePrint.Web.Tests.csproj", "{00FAF0DB-B39E-4B96-8986-7EAEC65DC354}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoycePrint.Domain", "JoycePrint.Domain\JoycePrint.Domain.csproj", "{C2C140D1-5E4E-4DF3-A199-26CDB5FA530A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analytics", "Analytics\Analytics.csproj", "{5383BC90-EC8B-4503-9AB1-5A7743F9C37A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analytics.Analyzer", "Analytics.Analyzer\Analytics.Analyzer.csproj", "{07092F0D-9993-4874-90EB-10A7919BAE50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Providers", "Common.Providers\Common.Providers.csproj", "{A3D48AD3-3ED0-4444-A0E4-099A1114D611}"
 EndProject
@@ -56,14 +51,6 @@ Global
 		{C2C140D1-5E4E-4DF3-A199-26CDB5FA530A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2C140D1-5E4E-4DF3-A199-26CDB5FA530A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2C140D1-5E4E-4DF3-A199-26CDB5FA530A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5383BC90-EC8B-4503-9AB1-5A7743F9C37A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5383BC90-EC8B-4503-9AB1-5A7743F9C37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5383BC90-EC8B-4503-9AB1-5A7743F9C37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5383BC90-EC8B-4503-9AB1-5A7743F9C37A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07092F0D-9993-4874-90EB-10A7919BAE50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07092F0D-9993-4874-90EB-10A7919BAE50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07092F0D-9993-4874-90EB-10A7919BAE50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07092F0D-9993-4874-90EB-10A7919BAE50}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3D48AD3-3ED0-4444-A0E4-099A1114D611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A3D48AD3-3ED0-4444-A0E4-099A1114D611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3D48AD3-3ED0-4444-A0E4-099A1114D611}.Release|Any CPU.ActiveCfg = Release|Any CPU
