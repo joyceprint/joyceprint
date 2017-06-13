@@ -90,6 +90,7 @@
     <Compile Include="Mail\Email.cs" />
     <Compile Include="Enums\DocketBookSize.cs" />
     <Compile Include="Enums\DocketBookType.cs" />
+    <Compile Include="Models\Attachment.cs" />
     <Compile Include="Models\Security.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Enquiry.cs" />

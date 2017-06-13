@@ -385,6 +385,7 @@
     <Content Include="Views\Shared\Error\Exception.cshtml" />
     <Content Include="Views\Shared\Error\NotFound.cshtml" />
     <Content Include="Views\Quote\Email.cshtml" />
+    <Content Include="Views\Quote\EditorTemplates\AttachmentForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

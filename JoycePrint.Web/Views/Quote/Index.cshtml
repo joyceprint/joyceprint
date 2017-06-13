@@ -34,6 +34,8 @@
 
                     @Html.EditorFor(model => model.Enquiry, "EnquiryForm")
 
+                    @Html.EditorFor(model => model.Attachment, "AttachmentForm")
+
                     <div class="row no-mar-bot">
                         <div class="col l7 m12 s12 no-pad-right">
                             @{ Html.RenderAction("Recaptcha", "Security"); }

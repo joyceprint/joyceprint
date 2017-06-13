@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Mail;
 using Common.Logging;
 using Common.Logging.Enums;
@@ -24,11 +25,17 @@ namespace JoycePrint.Domain.Models
         /// </summary>
         public DocketBook DocketBook { get; set; }
 
+        /// <summary>
+        /// The attachment collection to attach to the email
+        /// </summary>        
+        public Attachment Attachment { get; set; }
+
         public QuoteRequest()
         {
             Contact = new Contact();
             DocketBook = new DocketBook();
             Enquiry = new Enquiry();
+            Attachment = new Attachment();
         }
 
         public bool SendEmail(string emailBody, HttpContextBase httpContext)
