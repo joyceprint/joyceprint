@@ -12,7 +12,7 @@ namespace JoycePrint.Domain.Mail
         /// <summary>
         /// 
         /// </summary>
-        public static string EmailView = "Email";        
+        public static string EmailView = "Email";
 
         /// <summary>
         /// 
@@ -51,7 +51,8 @@ namespace JoycePrint.Domain.Mail
             var message = new MailMessage(SmtpConfig.From, emailTo)
             {
                 Body = Body,
-                Subject = Subject
+                Subject = Subject,
+                IsBodyHtml = true                
             };
 
             return message;
@@ -103,10 +104,10 @@ namespace JoycePrint.Domain.Mail
 
             Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {SmtpConfig.Network.UserName} - PASS : {SmtpConfig.Network.Password}");
 
-            smtpClient.Send(message);            
+            smtpClient.Send(message);
 
             return true;
-        }        
+        }
 
         #endregion
     }
