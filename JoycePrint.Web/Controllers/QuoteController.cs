@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using JoycePrint.Domain.Enums;
+using JoycePrint.Domain.Mail;
 using JoycePrint.Domain.Models;
 using JoycePrint.Web.Attributes;
 
@@ -39,8 +40,10 @@ namespace JoycePrint.Web.Controllers
         public ActionResult Index(QuoteRequest model)
         {
             if (ModelState.IsValid)
-            {
-                var notificationType = model.SendEmail() ? NotificationType.Success : NotificationType.Failure;
+            {                
+                var emailBody = RenderViewToString(Email.EmailView, ViewData, ControllerContext, model, "Quote", "Email");
+
+                var notificationType = model.SendEmail(emailBody) ? NotificationType.Success : NotificationType.Failure;
                 
                 // Create a new controller rather than using a redirect, a redirect will terminate the http request and return a 302
                 // A 302 response will break the ajax method that called this function
