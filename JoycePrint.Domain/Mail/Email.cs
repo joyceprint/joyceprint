@@ -9,13 +9,27 @@ namespace JoycePrint.Domain.Mail
 {
     public class Email : IEmail
     {
-        public static string EmailView = "Email";
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string EmailView = "Email";        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <param name="body"></param>
+        public Email(string subject, string body)
+        {
+            Body = body;
+            Subject = subject;
+        }
 
         /// <summary>
         /// Creates the SMTP client
         /// </summary>
         /// <returns></returns>
-        private SmtpClient CreateSmtpClient(SmtpSection smtpConfig)
+        private static SmtpClient CreateSmtpClient(SmtpSection smtpConfig)
         {
             var smtp = new SmtpClient
             {
@@ -26,7 +40,34 @@ namespace JoycePrint.Domain.Mail
             return smtp;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private MailMessage CreateMailMessage()
+        {
+            var emailTo = Configuration.Config.QuoteEmail;
+
+            var message = new MailMessage(SmtpConfig.From, emailTo)
+            {
+                Body = Body,
+                Subject = Subject
+            };
+
+            return message;
+        }
+
         #region Interface Definitions
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Body { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Subject { get; set; }
 
         /// <summary>
         /// Get the smtp configuration section from the web config file
@@ -52,20 +93,20 @@ namespace JoycePrint.Domain.Mail
 
         /// <summary>
         /// Send the email message using the smtp configuration
-        /// </summary>
-        /// <param name="message">The MailMessage to send</param>
-        /// <param name="smtpConfig">The SmptSection to use for configuring the SmtpClient</param>
+        /// </summary>                
         /// <returns></returns>
-        public bool SendEmail(MailMessage message, SmtpSection smtpConfig)
+        public bool SendEmail()
         {
-            var smtpClient = CreateSmtpClient(smtpConfig);
+            var smtpClient = CreateSmtpClient(SmtpConfig);
 
-            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {smtpConfig.Network.UserName} - PASS : {smtpConfig.Network.Password}");
+            var message = CreateMailMessage();
+
+            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {SmtpConfig.Network.UserName} - PASS : {SmtpConfig.Network.Password}");
 
             smtpClient.Send(message);            
 
             return true;
-        }
+        }        
 
         #endregion
     }
