@@ -21,7 +21,7 @@
             </div>
 
             <div class="col l6 offset-l1 m10 offset-m1 s12">
-                @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote" }))
+                @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote", enctype = "multipart/form-data" }))
                 {
                     <!--
                     [ Security - CSRF ]

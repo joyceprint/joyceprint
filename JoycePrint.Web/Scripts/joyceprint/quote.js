@@ -47,11 +47,14 @@ function setupSubmitButton() {
 
                 //jnalytics.collectEvent("button", "quote", "quote-request");
 
+                var formData = getFormData();                
+                //var formData = $("#frm-quote").serialize();
+
                 $.ajax({
                         url: "/quote",
                         method: "POST",
                         cache: false,
-                        data: $("#frm-quote").serialize(),
+                        data: formData,
                         headers: {                            
                             '__RequestVerificationToken': $("input[name='__RequestVerificationToken']").val()
                         }
@@ -76,4 +79,34 @@ function setupSubmitButton() {
                 hideLoader();
             }            
         });
+}
+
+/**************************************************************************************************
+ * 
+ *************************************************************************************************/
+function getFormData() {
+
+    var formData;
+
+    //formData = $("#frm-quote").serialize();
+
+    formData = new FormData();
+    
+    var fileUpload = $("#Attachment_Attachments").get(0);
+    var files = fileUpload.files;
+
+    if (files) {
+        // Looping over all files and add it to FormData object  
+        for (var i = 0; i < files.length; i++) {
+            console.log('(files[i].name:' + files[i].name);
+            formData.append('productImg', files[i]);
+        }
+    }
+
+    // You can update the jquery selector to use a css class if you want
+    $("input[type='text'").each(function (x, y) {
+        formData.append($(y).attr("name"), $(y).val());
+    });
+
+    return formData;
 }
