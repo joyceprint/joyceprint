@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
 using JoycePrint.Domain.Attributes;
 
@@ -14,11 +15,12 @@ namespace JoycePrint.Domain.Models
         /// </remarks>
         //[FileSize(10240)]
         //[FileTypes("jpg,jpeg,png")]
-        public IEnumerable<HttpPostedFileBase> Attachments { get; set; }
+        [DataType(DataType.Upload)]
+        public IEnumerable<HttpPostedFileBase> Files { get; set; }
 
         public Attachment()
         {
-            Attachments = new List<HttpPostedFileBase>();
+            Files = new List<HttpPostedFileBase>();
         }    
     }
 }

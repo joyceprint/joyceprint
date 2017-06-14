@@ -54,6 +54,8 @@ function setupSubmitButton() {
                         url: "/quote",
                         method: "POST",
                         cache: false,
+                        contentType: false, // Not to set any content header  
+                        processData: false, // Not to process data                         
                         data: formData,
                         headers: {                            
                             '__RequestVerificationToken': $("input[name='__RequestVerificationToken']").val()
@@ -88,23 +90,21 @@ function getFormData() {
 
     var formData;
 
-    //formData = $("#frm-quote").serialize();
-
     formData = new FormData();
     
-    var fileUpload = $("#Attachment_Attachments").get(0);
+    var fileUpload = $("#Attachment_Files").get(0);
     var files = fileUpload.files;
 
     if (files) {
         // Looping over all files and add it to FormData object  
         for (var i = 0; i < files.length; i++) {
-            console.log('(files[i].name:' + files[i].name);
-            formData.append('productImg', files[i]);
+            console.log("files[i].name:" + files[i].name);
+            formData.append(files[i].name, files[i]);
         }
     }
 
     // You can update the jquery selector to use a css class if you want
-    $("input[type='text'").each(function (x, y) {
+    $("input:not([type='file']), textarea").each(function (x, y) {
         formData.append($(y).attr("name"), $(y).val());
     });
 
