@@ -308,6 +308,7 @@
     <Content Include="Content\css\joyceprint\base\error.less" />
     <Content Include="App_Readme\Elmah\web.config" />
     <Content Include="Content\css\joyceprint\partials\notification.less" />
+    <Content Include="Content\css\joyceprint\partials\attachment-form.less" />
     <None Include="Properties\PublishProfiles\JoycePrint [ FTP ].pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint [ Local ].pubxml" />
