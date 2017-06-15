@@ -46,6 +46,8 @@ namespace JoycePrint.Domain.Models
 
                 IEmail email = new Email(GetSubjectLine(), inlineEmailBody);
 
+                email.Attachments = GetMessageAttachments();
+
                 return email.SendEmail();
             }
             catch (Exception ex)
@@ -74,7 +76,7 @@ namespace JoycePrint.Domain.Models
         /// 
         /// Removing the bundle from the Layout view and trying to apply the css here doesn't seem to work
         /// </remarks>
-        public static string ConvertToCssInline(string bodyToConvert, HttpContextBase httpContext, string path = null)
+        private static string ConvertToCssInline(string bodyToConvert, HttpContextBase httpContext, string path = null)
         {
             if (httpContext == null) return null;
             if (httpContext.Request == null) return null;
@@ -88,14 +90,21 @@ namespace JoycePrint.Domain.Models
             return result.Html;
         }
 
-        public string GetSubjectLine()
+        private string GetSubjectLine()
         {
             return $"Docket Book Quote : {Contact.Name}";
         }
 
-        public AttachmentCollection GetMessageAttachments()
+        private List<System.Net.Mail.Attachment> GetMessageAttachments()
         {
-            throw new NotImplementedException("Attachments are not currently unavailable on the site");
+            var attachments = new List<System.Net.Mail.Attachment>();
+
+            foreach (var file in Attachment.Files)
+            {
+                attachments.Add(new System.Net.Mail.Attachment(file.InputStream, file.FileName));
+            }     
+            
+            return attachments;           
         }        
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Net.Configuration;
 using System.Net.Mail;
@@ -52,8 +53,11 @@ namespace JoycePrint.Domain.Mail
             {
                 Body = Body,
                 Subject = Subject,
-                IsBodyHtml = true                
+                IsBodyHtml = true                                              
             };
+
+            foreach (var attachment in Attachments)
+                message.Attachments.Add(attachment);
 
             return message;
         }
@@ -69,6 +73,11 @@ namespace JoycePrint.Domain.Mail
         /// 
         /// </summary>
         public string Subject { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<Attachment> Attachments { get; set; }
 
         /// <summary>
         /// Get the smtp configuration section from the web config file

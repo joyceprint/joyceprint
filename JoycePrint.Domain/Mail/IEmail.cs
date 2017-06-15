@@ -1,4 +1,5 @@
-﻿using System.Net.Configuration;
+﻿using System.Collections.Generic;
+using System.Net.Configuration;
 using System.Net.Mail;
 
 namespace JoycePrint.Domain.Mail
@@ -8,6 +9,8 @@ namespace JoycePrint.Domain.Mail
         string Body { get; set; }
 
         string Subject { get; set; }
+
+        List<Attachment> Attachments { get; set; }
 
         SmtpSection SmtpConfig { get; }
 
