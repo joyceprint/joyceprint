@@ -7,23 +7,18 @@
     BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.All);
 }
 
-
 <div class="container">
     <div class="row">
-        <div class="col s6">
-
-            <h4 class="primary-text">Name</h4> : @Model.Contact.Name
-            <h4 class="primary-text">Phone</h4> : @Model.Contact.Phone
-            <h4 class="primary-text">Email</h4> : @Model.Contact.Email
-            <h4 class="primary-text">Company</h4> : @Model.Contact.Company
-
+        <div class="col s12">
+            <h6 class="primary-text">Name</h6> : @Model.Contact.Name
+            <h6 class="primary-text">Phone</h6> : @Model.Contact.Phone
+            <h6 class="primary-text">Email</h6> : @Model.Contact.Email
+            <h6 class="primary-text">Company</h6> : @Model.Contact.Company
         </div>
 
         <div class="col s6">
-
-            <h4 class="primary-text">Message</h4>
+            <h6 class="primary-text">Message</h6>
             <p>Model.Enquiry.Message</p>
-
         </div>
     </div>
 </div>
