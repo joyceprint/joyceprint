@@ -15,7 +15,7 @@ namespace JoycePrint.Domain.Models
         /// </remarks>
         //[FileSize(10240)]
         //[FileTypes("jpg,jpeg,png")]
-        [DataType(DataType.Upload)]
+        //[DataType(DataType.Upload)]
         public IEnumerable<HttpPostedFileBase> Files { get; set; }
 
         public Attachment()

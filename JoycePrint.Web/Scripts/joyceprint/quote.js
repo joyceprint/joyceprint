@@ -37,18 +37,14 @@ function setupSubmitButton() {
 
             var formId = "frm-quote";
 
-            // Get the form
-            var form = { target: $("#frm-quote")[0] };            
-            
             showLoader();
 
             // Check if it's valid
             if (jalidate.validate(formId)) {
 
                 //jnalytics.collectEvent("button", "quote", "quote-request");
-
-                var formData = getFormData();                
-                //var formData = $("#frm-quote").serialize();
+                
+                var formData = new FormData($("#frm-quote").get(0));
 
                 $.ajax({
                         url: "/quote",
@@ -86,27 +82,33 @@ function setupSubmitButton() {
 /**************************************************************************************************
  * 
  *************************************************************************************************/
-function getFormData() {
+// Get the form
+//var form = { target: $("#frm-quote")[0] };
+//var formData = getFormData();                
+//var formData = $("#frm-quote").serialize();
 
-    var formData;
 
-    formData = new FormData();
+//function getFormData() {
+
+//    var formData;
+
+//    formData = new FormData();
     
-    var fileUpload = $("#Attachment_Files").get(0);
-    var files = fileUpload.files;
+//    var fileUpload = $("#Attachment_Files").get(0);
+//    var files = fileUpload.files;
 
-    if (files) {
-        // Looping over all files and add it to FormData object  
-        for (var i = 0; i < files.length; i++) {
-            console.log("files[i].name:" + files[i].name);
-            formData.append(files[i].name, files[i]);
-        }
-    }
+//    if (files) {
+//        // Looping over all files and add it to FormData object  
+//        for (var i = 0; i < files.length; i++) {
+//            console.log("files[i].name:" + files[i].name);
+//            formData.append(files[i].name, files[i]);
+//        }
+//    }
 
-    // You can update the jquery selector to use a css class if you want
-    $("input:not([type='file']), textarea").each(function (x, y) {
-        formData.append($(y).attr("name"), $(y).val());
-    });
+//    // You can update the jquery selector to use a css class if you want
+//    $("input:not([type='file']), textarea").each(function (x, y) {
+//        formData.append($(y).attr("name"), $(y).val());
+//    });
 
-    return formData;
-}
+//    return formData;
+//}

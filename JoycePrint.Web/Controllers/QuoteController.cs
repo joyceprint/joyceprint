@@ -34,7 +34,7 @@ namespace JoycePrint.Web.Controllers
         /// This has to be used with @Html.AntiForgeryToken() on the form
         /// </remarks>
         [HttpPost]
-        [ValidateAntiForgeryHeader]
+        [ValidateAntiForgeryHeader]        
         [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
         [Route("")]        
         public ActionResult Index(QuoteRequest model)
