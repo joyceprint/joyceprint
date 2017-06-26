@@ -1,6 +1,10 @@
 ﻿"use strict";
 
 /**************************************************************************************************
+ * 
+ *************************************************************************************************/
+
+/**************************************************************************************************
  * Document Ready 
  *
  * Runs the initialization function for the different javascript files based on the page
@@ -8,12 +12,17 @@
  *************************************************************************************************/
 $(document).ready(function () {    
 
-    jLib.materialize.initMaterialize();
+    initializeMaterializeFunctionality();
 
-    jLib.nav.initNav();
+    initializeNavFunctionality();
 
     // If the quote view is loaded
     if ($("#quote").length > 0) {
-        jLib.quote.initQuote();
+        initializeQuote();        
     }
 });
+
+/*
+I SHOULD ADD EVERY FILE INTO THE JALIDATE NAMESPACE (OR CREATE A DIFFERENT ONE)
+RENAME TO ?? --- jp ????
+*/

@@ -10,7 +10,7 @@
 var jLib = (function (parent, $) {
 
     // Create the google sub module off the parent, if it does not exist
-    var subModule = parent.analytics = parent.analytics || {};
+    var subModule = parent.validation = parent.validation || {};
 
 /**************************************************************************************************
  * PUBLIC METHODS
@@ -23,7 +23,7 @@ var jLib = (function (parent, $) {
      * This should only have to happen once, however if the validation object is lost
      * this function will need to be called to re initialize validation     
      ***************************************************************************************/
-    subModule.initializeValidation = function (formId) {
+    subModule.initValidation = function (formId) {
         // Create the validator for the form
         var validator = ($("#" + formId)).validate();
 
