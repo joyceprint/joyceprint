@@ -44,8 +44,8 @@ var jLib = (function (parent, $) {
     }
 
     /**************************************************************************************************
-    * Wire up the submit button on the quote form
-    *************************************************************************************************/
+     * Wire up the submit button on the quote form
+     *************************************************************************************************/
     subModule.setupSubmitButton = function () {
 
         $("#frm-quote button[type='button']")

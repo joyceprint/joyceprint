@@ -21,7 +21,9 @@ var jLib = (function (parent, $) {
      * 
      * The errorPlacement and onSuccess methods are overridden
      * This should only have to happen once, however if the validation object is lost
-     * this function will need to be called to re initialize validation     
+     * this function will need to be called to re initialize validation 
+     * 
+     * @param {string} formId - The Id of the form to initialize validation for
      ***************************************************************************************/
     subModule.initValidation = function (formId) {
         // Create the validator for the form
@@ -40,6 +42,9 @@ var jLib = (function (parent, $) {
      * 
      * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]
      * materializecss [http://materializecss.com/]
+     * 
+     * @param {string} formId - The Id of the form to run validation for
+     * @returns {boolean} formValid - A flag indicating if the form is valid
      ***************************************************************************************/
     subModule.validate = function (formId) {
         var formValid = false;
@@ -71,6 +76,9 @@ var jLib = (function (parent, $) {
 
     /***************************************************************************************
      * Resets the validation for the form and inputs supplied
+     * 
+     * @param {string} formId - The Id of the form to reset valdation for
+     * @param {Array<string>} listOfInputs - The array of inputs to reset validation for
      ***************************************************************************************/
     subModule.resetValidation = function (formId, listOfInputs) {
 
@@ -89,6 +97,8 @@ var jLib = (function (parent, $) {
      * This is a function that is required from the plugin
      * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]
      *      
+     * @param {string} value - The value to be escaped
+     * @returns {string} value - The attribute escaped value
      ***************************************************************************************/
     function escapeAttributeValue(value) {
         // As mentioned on http://api.jquery.com/category/selectors/
@@ -96,13 +106,15 @@ var jLib = (function (parent, $) {
     }
 
     /***************************************************************************************
-    * This function overrides the default success display for mvc.
-    * 
-    * CHANGES
-    * The invalid class is removed, no other changes to it.
-    *     
-    * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]     
-    ***************************************************************************************/
+     * This function overrides the default success display for mvc.
+     * 
+     * CHANGES
+     * The invalid class is removed, no other changes to it.
+     *     
+     * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]     
+     * 
+     * @returns {function()} onSuccess - A function for the onSuccess method
+     ***************************************************************************************/
     function overrideOnSuccess() {
 
         var onSuccess = function (error, inputElement) {
@@ -138,6 +150,8 @@ var jLib = (function (parent, $) {
      * Custom CSS will also cause the icon, label, and background to change
      * 
      * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]     
+     * 
+     * @returns {function()} errorPlacement - A function for the errorPlacement method
      ***************************************************************************************/
     function overrideErrorPlacement() {
         var errorPlacement = function (error, inputElement) {
@@ -204,8 +218,11 @@ var jLib = (function (parent, $) {
     }
 
     /***************************************************************************************
-    * Gets the form id that the input element is attached to        
-    ***************************************************************************************/
+     * Gets the form id that the input element is attached to    
+     * 
+     * @param {string} inputElement - The input element to find the form for
+     * @returns {string} formId - The form Id containing the input element
+     ***************************************************************************************/
     function getFormId(inputElement) {
         var formId;
         formId = $(inputElement).closest("form").attr("id");
@@ -218,6 +235,9 @@ var jLib = (function (parent, $) {
      * First the MVC errors must be removed
      * Then we can reset the value of the input and trigger the unobtrusive validation 
      * reset event
+     * 
+     * @param {string} formId - The formId to reset the validation for
+     * @param {string} listOfInputs - The list of form inputs to reset validation for
      ***************************************************************************************/
     function resetValidation(formId, listOfInputs) {
 

@@ -42,8 +42,7 @@ var jLib = (function (parent, $) {
     }
 
     /**************************************************************************************************
-     * Initialize the materialize select functionality
-     * 
+     * Initialize the materialize select functionality     
      *************************************************************************************************/
     function initMaterializeSelect() {
         // Select - Single Initialize

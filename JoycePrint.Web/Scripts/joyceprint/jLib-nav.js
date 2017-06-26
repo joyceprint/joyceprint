@@ -32,8 +32,7 @@ var jLib = (function (parent, $) {
  *************************************************************************************************/
 
     /************************************************************************************************** 
-     * Call this function to initialize the javascript required for the navigation menu
-     * 
+     * Call this function to initialize the javascript required for the navigation menu     
      *************************************************************************************************/
     subModule.initNav = function () {
 
@@ -105,6 +104,8 @@ var jLib = (function (parent, $) {
      * scrolled on to. This is done by changing the text color.
      * 
      * This will also handle the side navigiation menu 
+     * 
+     * @param {string} id - The id of the menu link to activate     
      *************************************************************************************************/
     subModule.toggleNavMenu = function (id) {
 
@@ -148,6 +149,10 @@ var jLib = (function (parent, $) {
 
     /**************************************************************************************************
      * Gets the duration of the scroll animation based on how far the screen needs to scroll
+     * 
+     * @param {string} currertElement - The current element in view.
+     * @param {string} destinationElement - The destination element to scroll to.
+     * @returns {number} duration - The duration of the scroll animation.
      *************************************************************************************************/
     function getScrollDuration(currertElement, destinationElement) {
         var duration = 400;
@@ -175,6 +180,8 @@ var jLib = (function (parent, $) {
      *
      * This is the value to add to the vertical center point of the viewport
      * The scroll direction is checked and the offset applied
+     * 
+     * @returns {number} scrollAdjust - The scroll adjustment due to the use of the fixed menu
      *************************************************************************************************/
     function getScrollAdjust() {
 
@@ -196,6 +203,8 @@ var jLib = (function (parent, $) {
      * Gets the element in the viewport
      * 
      * This gets the Id of the section using the center of the viewport and the scroll offset
+     * 
+     * @returns {string} elementId - The id of the element in the center of the viewport
      *************************************************************************************************/
     function getElementIdInViewport() {
 

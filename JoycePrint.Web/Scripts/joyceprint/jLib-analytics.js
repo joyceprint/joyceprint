@@ -30,6 +30,10 @@ var jLib = (function (parent, $) {
 
     /**************************************************************************************************
      * Collect the analytics information and post it to the collection url
+     *
+     * @param {string} category - The event tracking category.
+     * @param {string} action - The event tracking action.
+     * @param {string} label - The event tracking label.
      *************************************************************************************************/
     subModule.collectEvent = function (category, action, label) {
 
@@ -53,6 +57,11 @@ var jLib = (function (parent, $) {
 
     /**************************************************************************************************
      * Setup the tracking query string parameters
+     * 
+     * @param {string} category - The event tracking category.
+     * @param {string} action - The event tracking action.
+     * @param {string} label - The event tracking label.
+     * @returns {string} eventTracking - The event tracking query string.
      *************************************************************************************************/
     function getEventTracking(category, action, label) {
         var eventTracking = "";

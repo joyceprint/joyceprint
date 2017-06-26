@@ -20,8 +20,8 @@ var jLib = (function (parent, $) {
      * Call this function to show a modal
      * 
      * Requires: 
-     *      data - The inner html of the modal to show
-     *      A container be placed on the page with the id of "modal-placeholder"
+     *      @param {string} data - The inner html of the modal to show
+     *      A container be placed on the page with the id of "modal-placeholder"     
      *************************************************************************************************/
     subModule.showModal = function (data) {
 
@@ -38,8 +38,8 @@ var jLib = (function (parent, $) {
      * Call this function to load a view
      * 
      * Requires: 
-     *      data - The inner html of the view to load
-     *      target - The container to load the view into
+     *      @param {string} data - The inner html of the view to load
+     *      @param {string} target - The container to load the view into
      *************************************************************************************************/
     subModule.loadView = function (data, target) {
 

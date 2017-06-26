@@ -23,6 +23,8 @@ var jLib = (function (parent, $) {
 
     /**************************************************************************************************
      * Handle the recaptcha response by saving it to a validate public property
+     * 
+     * @param {string} captchaResponse - The captcha response string from the google api
      *************************************************************************************************/
     subModule.handleCaptcha = function (captchaResponse) {
         subModule.captchaResponse = captchaResponse;
@@ -43,11 +45,13 @@ var jLib = (function (parent, $) {
     }
 
     /********************************************************************************************
-    * Check the recaptcha
-    *
-    * Since the user may have already performed the recaptcha before clicking the submit
-    * button, we check the stored recatpcha response by sending it to our security controller
-    *******************************************************************************************/
+     * Check the recaptcha
+     *
+     * Since the user may have already performed the recaptcha before clicking the submit
+     * button, we check the stored recatpcha response by sending it to our security controller
+     * 
+     * @returns {boolean} validRecaptcha - A flag indicating if the recaptcha is valid
+     *******************************************************************************************/
     subModule.checkRecaptcha = function () {
 
         var validRecaptcha = false;

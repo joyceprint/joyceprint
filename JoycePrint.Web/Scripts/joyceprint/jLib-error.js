@@ -21,6 +21,9 @@ var jLib = (function (parent, $) {
      * 
      * It calls Error/Ajax on the server
      * And displays either a modal or a browser alert
+     * 
+     * @param {string} jqXHR - The ajax request.
+     * @param {string} textStatus - The text status from the ajax request.     
      *************************************************************************************************/
     subModule.HandleAjaxError = function (jqXHR, textStatus) {
 

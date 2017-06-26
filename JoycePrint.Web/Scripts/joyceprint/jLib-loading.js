@@ -28,6 +28,10 @@ var jLib = (function (parent, $) {
      * This function will only run if it detects the interaction-load on the main tag
      * 
      * To use it - pageFadeIn("interaction-load", "interaction-loading", "interaction-loaded");
+     * 
+     * @param {string} load - The load class
+     * @param {string} loading - The loading class.
+     * @param {string} loaded - The loaded class.
      *************************************************************************************************/
     subModule.pageFadeIn = function (load, loading, loaded) {
         
