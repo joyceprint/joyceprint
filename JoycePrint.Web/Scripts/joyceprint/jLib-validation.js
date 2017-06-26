@@ -1,31 +1,31 @@
-﻿/**************************************************************************************************
- * Validation Extension for jQuery that uses materialize
- *
- *************************************************************************************************/
-(function (jalidate, $, undefined) {
+﻿"use strict";
 
 /**************************************************************************************************
- * PUBLIC PROPERTIES
- **************************************************************************************************/
+ * Validation Library
+ *
+ * This file contains the methods and properties required for validation
+ * The functionality contained in this file will be added to the jLib.validation global object
+ *  
+ *************************************************************************************************/
+var jLib = (function (parent, $) {
 
-    // The response from the captcha
-    jalidate.captchaResponse = "";
+    // Create the google sub module off the parent, if it does not exist
+    var subModule = parent.validation = parent.validation || {};
 
 /**************************************************************************************************
  * PUBLIC METHODS
- **************************************************************************************************/
-
-    // NEXT: FINSIH THE VALIDATION REGULAR EXPRESSIONS - TESTS MUST BE CREATED FOR THESE
-    //          WHEN CHECKING FOR THE VALIDATION MESSAGE WE HAVE TO CHECK IN BOTH THE SPAN AND THE LABEL
-
+ *************************************************************************************************/
+    
     /***************************************************************************************     
      * Initializse the validation object for the form.
      * 
      * The errorPlacement and onSuccess methods are overridden
      * This should only have to happen once, however if the validation object is lost
-     * this function will need to be called to re initialize validation     
+     * this function will need to be called to re initialize validation 
+     * 
+     * @param {string} formId - The Id of the form to initialize validation for
      ***************************************************************************************/
-    jalidate.initializeValidation = function(formId) {
+    subModule.initValidation = function (formId) {
         // Create the validator for the form
         var validator = ($("#" + formId)).validate();
 
@@ -42,8 +42,11 @@
      * 
      * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]
      * materializecss [http://materializecss.com/]
+     * 
+     * @param {string} formId - The Id of the form to run validation for
+     * @returns {boolean} formValid - A flag indicating if the form is valid
      ***************************************************************************************/
-    jalidate.validate = function (formId) {
+    subModule.validate = function (formId) {
         var formValid = false;
 
         // Create the validator for the form
@@ -58,14 +61,14 @@
 
             displayValidationError();
         }
-        else if (!checkRecaptcha()) {
+        else if (!jLib.recaptcha.checkRecaptcha()) {
             // Cancel form submit if recaptcha check fails
             if (event.preventDefault) event.preventDefault();
 
             // Form is invalid, recaptcha check not completed
             formValid = false;
 
-            displayRecaptchaError();            
+            jLib.recaptcha.displayRecaptchaError();
         }
         
         return formValid;
@@ -73,8 +76,11 @@
 
     /***************************************************************************************
      * Resets the validation for the form and inputs supplied
+     * 
+     * @param {string} formId - The Id of the form to reset valdation for
+     * @param {Array<string>} listOfInputs - The array of inputs to reset validation for
      ***************************************************************************************/
-    jalidate.resetValidation = function (formId, listOfInputs) {
+    subModule.resetValidation = function (formId, listOfInputs) {
 
         if (!listOfInputs) {
             //listOfInputs = getInputsForForm(formId);
@@ -82,21 +88,17 @@
 
         resetValidation(formId, listOfInputs);
     }
-
-    function tt() {
-        
-        // onfocusout
-        // onkeyup
-    }
+    
 /**************************************************************************************************
-    * PRIVATE METHODS
-**************************************************************************************************/
+ * PRIVATE METHODS
+ *************************************************************************************************/
 
     /***************************************************************************************
      * This is a function that is required from the plugin
      * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]
-     * 
-     * TODO: See if i can call this function from inside unobtrusive.js
+     *      
+     * @param {string} value - The value to be escaped
+     * @returns {string} value - The attribute escaped value
      ***************************************************************************************/
     function escapeAttributeValue(value) {
         // As mentioned on http://api.jquery.com/category/selectors/
@@ -104,13 +106,15 @@
     }
 
     /***************************************************************************************
-    * This function overrides the default success display for mvc.
-    * 
-    * CHANGES
-    * The invalid class is removed, no other changes to it.
-    *     
-    * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]     
-    ***************************************************************************************/
+     * This function overrides the default success display for mvc.
+     * 
+     * CHANGES
+     * The invalid class is removed, no other changes to it.
+     *     
+     * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]     
+     * 
+     * @returns {function()} onSuccess - A function for the onSuccess method
+     ***************************************************************************************/
     function overrideOnSuccess() {
 
         var onSuccess = function (error, inputElement) {
@@ -139,14 +143,15 @@
      * By default the error is written to a span, which is generated by ValidationMessageFor
      * 
      * CHANGES
-     * The span is hidden, no other changes to it. 
-     * [TODO: If the span is not used for anything else we can just remove if]
+     * The span is hidden, no other changes to it.      
      * 
      * The class invalid will be added to the input to extend the materialize 
      * functionality. 
      * Custom CSS will also cause the icon, label, and background to change
      * 
      * unobtrusive js [https://github.com/aspnet/jquery-validation-unobtrusive]     
+     * 
+     * @returns {function()} errorPlacement - A function for the errorPlacement method
      ***************************************************************************************/
     function overrideErrorPlacement() {
         var errorPlacement = function (error, inputElement) {
@@ -213,8 +218,11 @@
     }
 
     /***************************************************************************************
-    * Gets the form id that the input element is attached to        
-    ***************************************************************************************/
+     * Gets the form id that the input element is attached to    
+     * 
+     * @param {string} inputElement - The input element to find the form for
+     * @returns {string} formId - The form Id containing the input element
+     ***************************************************************************************/
     function getFormId(inputElement) {
         var formId;
         formId = $(inputElement).closest("form").attr("id");
@@ -227,6 +235,9 @@
      * First the MVC errors must be removed
      * Then we can reset the value of the input and trigger the unobtrusive validation 
      * reset event
+     * 
+     * @param {string} formId - The formId to reset the validation for
+     * @param {string} listOfInputs - The list of form inputs to reset validation for
      ***************************************************************************************/
     function resetValidation(formId, listOfInputs) {
 
@@ -242,54 +253,7 @@
             $(this).trigger("reset.unobtrusiveValidation");
         });
     }
-
-    /********************************************************************************************
-     * Check the recaptcha
-     *
-     * Since the user may have already performed the recaptcha before clicking the submit
-     * button, we check the stored recatpcha response by sending it to our security controller
-     *******************************************************************************************/
-    function checkRecaptcha() {
-
-        var validRecaptcha = false;
-
-        $.ajax({
-            url: "/security/recaptcha",
-            method: "POST",
-            cache: false,
-            data: {
-                "captchaResponse": jalidate.captchaResponse
-            },
-            dataType: "json",
-            async: false
-        })
-            .done(function (data, textStatus, jqXHR) {
-                if (data) {
-                    var jsonData = JSON.parse(data);
-
-                    if (jsonData && jsonData.success) {
-                        validRecaptcha = true;
-                    }
-                }
-
-                // Reset the recaptcha response after using it
-                jalidate.captchaResponse = "";
-            })
-            .fail(function (jqXHR, textStatus, errorThrown) {
-                // We should only end up here if our end failed
-            });        
-
-        return validRecaptcha;
-    }
-
-    /********************************************************************************************
-     * Display a toast holding the error message if the recaptcha fails
-     * 
-     *******************************************************************************************/
-    function displayRecaptchaError() {
-        Materialize.toast("Please complete the recaptcha", 4000);
-    }
-
+   
     /********************************************************************************************
      * Display a toast holding the error message if the form validation fails
      * 
@@ -298,4 +262,7 @@
         Materialize.toast("Validation errors occurred. Please confirm the fields and submit it again.", 4000);
     }    
 
-}(window.jalidate = window.jalidate || {}, jQuery));
+    // Return the parent, this allows multiple files to contribute to the same module
+    return parent;
+
+}(jLib || {}, jQuery));

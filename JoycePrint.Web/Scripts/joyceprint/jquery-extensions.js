@@ -9,9 +9,13 @@
 (function () {
 
     /**********************************************************************************************
-    * Adding a contains function for string objects
-    * Currently this is only supported in firefox
-    **********************************************************************************************/
+     * Adding a contains function for string objects
+     * Currently this is only supported in firefox
+     * 
+     * @param {string} str - The string to search
+     * @param {string} startIndex - The index to start the search
+     * @returns {boolean} match - A flag indicating if a match was found
+     **********************************************************************************************/
     if (!('contains' in String.prototype)) {
         String.prototype.contains = function (str, startIndex) {
             return -1 !== String.prototype.indexOf.call(this, str, startIndex);
@@ -23,6 +27,11 @@
  * Regular Expression Filter - 3rd Party
  *
  * http://james.padolsey.com/javascript/regex-selector-for-jquery/
+ * 
+ * @param {string} elem - The element to search
+ * @param {string} index - 
+ * @param {string} match - The text to match
+ * @returns {boolean} isMatched - A flag indicating if a match was obtained
  *************************************************************************************************/
 jQuery.expr[':'].regex = function (elem, index, match) {
     var matchParams = match[3].split(','),
@@ -45,6 +54,8 @@ jQuery.expr[':'].regex = function (elem, index, match) {
  * NOTE: This needs to be updated to not change on the scroll up until the item is in view
  * currently it works when the bottom of the element is visible / or the top depending on the 
  * scroll direction
+ * 
+ * @returns {boolean} elementBottom - Determines if we are at the bottom of an element
  *************************************************************************************************/
 $.fn.isInViewport = function () {
     var menuHeight = 110;

@@ -12,3 +12,13 @@
      data-expired-callback="handleExpiredCaptcha"
      data-test-recaptcha>
 </div>
+
+<script>
+    function handleCaptcha(captchaResponse) {
+        jLib.recaptcha.handleCaptcha(captchaResponse);
+    }
+
+    function handleExpiredCaptcha() {
+        jLib.recaptcha.handleExpiredCaptcha();
+    }
+</script>

@@ -31,12 +31,12 @@ namespace JoycePrint.Web
             //"~/Scripts/jquery-3.1.1.min.js", // Does not work with unobtrusive js, an error stops operation
             "~/Scripts/jquery-2.2.0.min.js", // Needed for unobtrusive js
             "~/Scripts/materialize.min.js",
-            "~/Scripts/joyceprint/materialize-extensions.js",
+            "~/Scripts/joyceprint/jLib-materialize-extensions.js",
             "~/Scripts/joyceprint/jquery-extensions.js",
-            "~/Scripts/joyceprint/google-api.js",
-            "~/Scripts/joyceprint/nav.js",
-            "~/Scripts/joyceprint/loading.js",
-            "~/Scripts/joyceprint/error.js",
+            "~/Scripts/joyceprint/jLib-analytics.js",
+            "~/Scripts/joyceprint/jLib-nav.js",
+            "~/Scripts/joyceprint/jLib-loading.js",
+            "~/Scripts/joyceprint/jLib-error.js",
             "~/Scripts/joyceprint/joyceprint.js"
         };
 
@@ -47,7 +47,7 @@ namespace JoycePrint.Web
             //"~/Scripts/jquery-2.2.0.min.js",
             "~/Scripts/jquery.validate.js",
             "~/Scripts/jquery.validate.unobtrusive.js",
-            "~/Scripts/joyceprint/validate.js"
+            "~/Scripts/joyceprint/jLib-validation.js"
         };
 
         #endregion
@@ -120,15 +120,15 @@ namespace JoycePrint.Web
                     break;
                 case PageBundle.Quote:
                     additionalScript.AddRange(ValidationBundle);
-                    additionalScript.Add("~/Scripts/joyceprint/quote.js");
-                    additionalScript.Add("~/Scripts/joyceprint/recaptcha.js");
-                    additionalScript.Add("~/Scripts/joyceprint/notification-helper.js");
+                    additionalScript.Add("~/Scripts/joyceprint/jLib-quote.js");
+                    additionalScript.Add("~/Scripts/joyceprint/jLib-recaptcha.js");
+                    additionalScript.Add("~/Scripts/joyceprint/jLib-notification-helper.js");
                     break;
                 case PageBundle.All:
                     additionalScript.AddRange(ValidationBundle);
-                    additionalScript.Add("~/Scripts/joyceprint/quote.js");
-                    additionalScript.Add("~/Scripts/joyceprint/recaptcha.js");
-                    additionalScript.Add("~/Scripts/joyceprint/notification-helper.js");
+                    additionalScript.Add("~/Scripts/joyceprint/jLib-quote.js");
+                    additionalScript.Add("~/Scripts/joyceprint/jLib-recaptcha.js");
+                    additionalScript.Add("~/Scripts/joyceprint/jLib-notification-helper.js");
                     break;
             }
 
