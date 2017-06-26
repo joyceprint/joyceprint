@@ -189,6 +189,7 @@
     <Content Include="Scripts\joyceprint\jLib-nav.js" />
     <Content Include="Scripts\joyceprint\jLib-notification-helper.js" />
     <Content Include="Scripts\joyceprint\joyceprint.js" />
+    <Content Include="Scripts\joyceprint\jLib-materialize-extensions.js" />
     <Content Include="Scripts\joyceprint\old-google-api.js" />
     <Content Include="Scripts\joyceprint\jLib-analytics.js" />
     <Content Include="Scripts\joyceprint\jLib-recaptcha.js" />
@@ -199,7 +200,7 @@
     <Content Include="Scripts\joyceprint\jquery-extensions.js" />
     <Content Include="Scripts\joyceprint\old-notification-helper.js" />
     <Content Include="Scripts\joyceprint\old-error.js" />
-    <Content Include="Scripts\joyceprint\materialize-extensions.js" />
+    <Content Include="Scripts\joyceprint\old-materialize-extensions.js" />
     <Content Include="Scripts\joyceprint\old-quote.js" />
     <Content Include="Scripts\joyceprint\old-nav.js" />
     <Content Include="Scripts\joyceprint\old-validate.js" />
