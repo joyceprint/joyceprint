@@ -184,7 +184,10 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
-    <Content Include="Scripts\joyceprint\google-api.js" />
+    <Content Include="Scripts\joyceprint\old-google-api.js" />
+    <Content Include="Scripts\joyceprint\jLib-analytics.js" />
+    <Content Include="Scripts\joyceprint\jLib-recaptcha.js" />
+    <Content Include="Scripts\joyceprint\jLib-validation.js" />
     <Content Include="Scripts\joyceprint\validate.SAVED.js" />
     <Content Include="Scripts\joyceprint\loading.js" />
     <Content Include="Scripts\joyceprint\jquery-extensions.js" />
@@ -193,8 +196,8 @@
     <Content Include="Scripts\joyceprint\materialize-extensions.js" />
     <Content Include="Scripts\joyceprint\quote.js" />
     <Content Include="Scripts\joyceprint\nav.js" />
-    <Content Include="Scripts\joyceprint\validate.js" />
-    <Content Include="Scripts\joyceprint\recaptcha.js" />
+    <Content Include="Scripts\joyceprint\old-validate.js" />
+    <Content Include="Scripts\joyceprint\old-recaptcha.js" />
     <Content Include="Scripts\joyceprint\joyceprint.js" />
     <Content Include="Content\fonts\roboto\Roboto-Bold.eot" />
     <Content Include="Content\fonts\roboto\Roboto-Bold.ttf" />
