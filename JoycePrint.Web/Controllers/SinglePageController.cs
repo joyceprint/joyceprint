@@ -2,7 +2,7 @@
 
 namespace JoycePrint.Web.Controllers
 {
-    [Route("")]
+    [Route]
     public class SinglePageController : BaseController
     {
         [HttpGet]

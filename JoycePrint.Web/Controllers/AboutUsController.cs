@@ -3,6 +3,7 @@
 namespace JoycePrint.Web.Controllers
 {
     [RoutePrefix("aboutus")]
+    [Route("{action=index}")]
     public class AboutUsController : BaseController
     {
         /// <summary>
@@ -10,8 +11,7 @@ namespace JoycePrint.Web.Controllers
         /// </summary>
         /// <returns></returns>        
         [HttpGet]
-        [ChildActionOnly]
-        [Route("")]
+        [ChildActionOnly]        
         public ActionResult Index()
         {
             return View("Index");

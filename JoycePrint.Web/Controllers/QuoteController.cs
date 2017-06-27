@@ -15,7 +15,7 @@ namespace JoycePrint.Web.Controllers
         /// <returns></returns>        
         [HttpGet]
         [ChildActionOnly]
-        [Route("")]
+        [Route]
         public ActionResult Index()
         {
             var model = new QuoteRequest();
@@ -36,7 +36,7 @@ namespace JoycePrint.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryHeader]        
         [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
-        [Route("")]        
+        [Route]        
         public ActionResult Index(QuoteRequest model)
         {
             if (ModelState.IsValid)
