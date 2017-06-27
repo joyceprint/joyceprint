@@ -17,7 +17,7 @@ namespace JoycePrint.Web
             // This is the catch all route            
             routes.MapRoute(
                 name: "CatchAll",
-                url: "{*catchall}",
+                url: "{*url}",
                 defaults: new { controller = "Error", action = "NotFound" },
                 namespaces: JoycePrintNamespace
             );
