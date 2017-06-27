@@ -28,8 +28,8 @@ namespace JoycePrint.Web
         /// The list of base scripts to be used on each page
         /// </summary>
         public static List<string> BaseBundle => new List<string> {
-            //"~/Scripts/jquery-3.1.1.min.js", // Does not work with unobtrusive js, an error stops operation
-            "~/Scripts/jquery-2.2.0.min.js", // Needed for unobtrusive js
+            "~/Scripts/jquery-3.1.1.min.js", // Does not work with unobtrusive js, an error stops operation
+            //"~/Scripts/jquery-2.2.0.min.js", // Needed for unobtrusive js
             "~/Scripts/materialize.min.js",
             "~/Scripts/joyceprint/jLib-materialize-extensions.js",
             "~/Scripts/joyceprint/jquery-extensions.js",
@@ -43,10 +43,9 @@ namespace JoycePrint.Web
         /// <summary>
         /// The list of validation scripts to be used on each page
         /// </summary>
-        public static List<string> ValidationBundle => new List<string> {
-            //"~/Scripts/jquery-2.2.0.min.js",
-            "~/Scripts/jquery.validate.js",
-            "~/Scripts/jquery.validate.unobtrusive.js",
+        public static List<string> ValidationBundle => new List<string> {            
+            "~/Scripts/jquery.validate.min.js",
+            "~/Scripts/jquery.validate.unobtrusive.min.js",
             "~/Scripts/joyceprint/jLib-validation.js"
         };
 
