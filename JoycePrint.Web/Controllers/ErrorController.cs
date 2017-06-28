@@ -14,7 +14,7 @@ namespace JoycePrint.Web.Controllers
         /// --> No where at the moment
         /// </remarks>        
         [HttpGet]
-        [Route("error")]
+        [Route("error", Name = "Error")]
         public ActionResult Error()
         {
             // Set this value to hide the navigation menu in the _Navigation view
@@ -33,7 +33,7 @@ namespace JoycePrint.Web.Controllers
         /// --> The base controller OnExecption method
         /// </remarks>        
         [HttpGet]
-        [Route("exception")]
+        [Route("exception", Name = "Exception")]
         public ActionResult Exception()
         {
             // Set this value to hide the navigation menu in the _Navigation view
@@ -49,8 +49,8 @@ namespace JoycePrint.Web.Controllers
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>
         /// <returns></returns>        
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
-        [Route("notfound")]
+        //[AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        [Route("notfound", Name = "NotFound")]
         public ActionResult NotFound()
         {
             // Set this value to hide the navigation menu in the _Navigation view
@@ -74,7 +74,7 @@ namespace JoycePrint.Web.Controllers
         /// --> The javascript method HandleAjaxError in the error.js file        
         /// </remarks>        
         [HttpGet]
-        [Route("ajax")]
+        [Route("ajax", Name = "Ajax")]
         public ActionResult Ajax()
         {
             DisableAjaxRequestCachingInInternetExplorer();
