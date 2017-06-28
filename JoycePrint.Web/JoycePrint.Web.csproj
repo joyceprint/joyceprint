@@ -346,6 +346,7 @@
     <Content Include="Scripts\materialize.min.js" />
     <Content Include="500.html" />
     <Content Include="Error.html" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
