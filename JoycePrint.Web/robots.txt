@@ -1,0 +1,28 @@
+﻿# Allow all robots to index this site.
+user-agent: *
+ 
+# Tell all robots not to index the following action method routes
+disallow: /home
+disallow: /services
+disallow: /aboutus
+disallow: /quote
+disallow: /contactus
+disallow: /notification
+
+disallow: /error
+disallow: /exception
+disallow: /notfound
+disallow: /ajax
+
+disallow: /security/
+
+disallow: /error.html
+disallow: /403.html
+disallow: /404.html
+disallow: /500.html
+ 
+# Tell all robots to index the following action method routes
+allow: /
+ 
+# Add a link to the site-map. Unfortunately this must be an absolute URL.
+sitemap: http://joyceprint.ie/sitemap.xml

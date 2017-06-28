@@ -202,6 +202,7 @@
     <Content Include="Content\images\services-design.jpg" />
     <Content Include="403.html" />
     <Content Include="Global.asax" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\joyceprint\jLib-error.js" />
