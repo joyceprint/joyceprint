@@ -6,14 +6,14 @@ namespace JoycePrint.Web.Controllers
 {
     [RoutePrefix("notification")]
     [Route("{action=index}")]
+    [ChildActionOnly]
     public class NotificationController : BaseController
     {
         /// <summary>
         /// This displays the notification to the user with the result of the email send operation                
         /// </summary>
         /// <returns></returns>           
-        [HttpGet]
-        [ChildActionOnly]        
+        [HttpGet]        
         public JsonResult Index()
         {
             var notification = new Notification();
