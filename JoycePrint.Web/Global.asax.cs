@@ -37,8 +37,9 @@ namespace JoycePrint.Web
         /// X-AspNet-Version: added by System.Web.dll at the time of Flush in HttpResponse class [ web.config ]
         /// X-AspNetMvc-Version: Added by MvcHandler in System.Web.dll. [ MvcApplication.EnableSecurity ]
         /// X-Powered-By: added by IIS [ web.config ]
+        /// AntiForgery Token: Change the name of the antiforgery token to obscure that we're using .NET
         /// </remarks>
-        private void EnableSecurity()
+        private static void EnableSecurity()
         {
             // [ Security - Click Jack Attack via IFrame ]
             // This adds the X-FRAME-OPTIONS : DENY | SAMEORIGIN to the reponse.
@@ -54,6 +55,19 @@ namespace JoycePrint.Web
             AntiForgeryConfig.SuppressXFrameOptionsHeader = true;
             MvcHandler.DisableMvcResponseHeader = false;
 #endif
+
+            //ConfigureAntiForgeryTokens();
+        }
+
+        private static void ConfigureAntiForgeryTokens()
+        {
+            // [Security - Application Hardening ]
+            // Rename the Anti-Forgery cookie from "__RequestVerificationToken" to "f". 
+            // This adds a little security through obscurity and also saves sending a few characters over the wire.
+            AntiForgeryConfig.CookieName = "__st";
+
+            // If you have enabled SSL. Uncomment this line to ensure that the Anti-Forgery cookie requires SSL to be sent accross the wire. 
+            // AntiForgeryConfig.RequireSsl = true;
         }
     }
 }
