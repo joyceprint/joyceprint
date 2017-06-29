@@ -3,8 +3,13 @@
 namespace JoycePrint.Web.Attributes
 {
     public class ValidateAntiForgeryHeader : FilterAttribute, IAuthorizationFilter
-    {
-        private const string KeyName = "__RequestVerificationToken";
+    {        
+        /// <summary>
+        /// Security - Application Hardening
+        /// Rename the anti forgery token to hide that fact that you're running MVC
+        /// </summary>
+        private const string KeyName = "__st";
+        //private const string KeyName = "__RequestVerificationToken";
 
         public void OnAuthorization(AuthorizationContext filterContext)
         {
