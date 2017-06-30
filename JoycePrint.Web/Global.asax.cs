@@ -62,7 +62,7 @@ namespace JoycePrint.Web
         private static void ConfigureAntiForgeryTokens()
         {
             // [Security - Application Hardening ]
-            // Rename the Anti-Forgery cookie from "__RequestVerificationToken" to "f". 
+            // Rename the Anti-Forgery cookie from "__RequestVerificationToken" to "__st". 
             // This adds a little security through obscurity and also saves sending a few characters over the wire.
             AntiForgeryConfig.CookieName = "__st";
 
