@@ -172,6 +172,8 @@
     <Content Include="Content\favicon\favicon-310.png" />
     <Content Include="Content\favicon\favicon-310x150.png" />
     <Content Include="Content\favicon\favicon-32.png" />
+    <Content Include="Content\favicon\favicon-36.png" />
+    <Content Include="Content\favicon\favicon-48.png" />
     <Content Include="Content\favicon\favicon-57.png" />
     <Content Include="Content\favicon\favicon-60.png" />
     <Content Include="Content\favicon\favicon-64.png" />
