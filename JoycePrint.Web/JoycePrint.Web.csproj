@@ -170,6 +170,7 @@
     <Content Include="Content\favicon\favicon-180.png" />
     <Content Include="Content\favicon\favicon-192.png" />
     <Content Include="Content\favicon\favicon-310.png" />
+    <Content Include="Content\favicon\favicon-310x150.png" />
     <Content Include="Content\favicon\favicon-32.png" />
     <Content Include="Content\favicon\favicon-57.png" />
     <Content Include="Content\favicon\favicon-60.png" />
@@ -330,6 +331,7 @@
     <Content Include="App_Readme\Elmah\web.config" />
     <Content Include="Content\css\joyceprint\partials\notification.less" />
     <Content Include="Content\css\joyceprint\partials\attachment-form.less" />
+    <Content Include="Content\favicon\manifest.json" />
     <None Include="Properties\PublishProfiles\JoycePrint [ FTP ].pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint [ Local ].pubxml" />
@@ -409,6 +411,10 @@
     <Content Include="Views\Shared\Error\NotFound.cshtml" />
     <Content Include="Views\Quote\Email.cshtml" />
     <Content Include="Views\Quote\EditorTemplates\AttachmentForm.cshtml" />
+    <Content Include="Views\Shared\Partial\Icons_Apple.cshtml" />
+    <Content Include="Views\Shared\Partial\Icons_Android.cshtml" />
+    <Content Include="Views\Shared\Partial\Icons_Windows.cshtml" />
+    <Content Include="Views\Shared\Partial\Favicons.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

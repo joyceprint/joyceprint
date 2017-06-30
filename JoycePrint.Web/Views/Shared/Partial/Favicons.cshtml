@@ -1,0 +1,26 @@
+﻿<!-- ######################### Favicons ######################### -->
+
+<!-- Shortcut icon - This file contains the following sizes 16x16, 32x32 and 48x48. [TODO: update this file, ipdate the reference when the file is changed] -->
+<link rel="shortcut icon" href="@Url.Content("~/Content/favicon/favicon.ico")" />
+@*<link rel="shortcut icon" sizes="16x16 32x32 64x64" href="@Url.Content("~/Content/favicon/favicon.ico")" />*@
+
+<!-- favicon-96.png - For Google TV https://developer.android.com/training/tv/index.html#favicons. -->
+<link rel="icon" type="image/png" sizes="96x96" href="@Url.Content("~/Content/favicon/favicon-96.png")" />
+
+<!-- favicon-32.png - For Safari on Mac OS. -->
+<link rel="icon" type="image/png" sizes="32x32" href="@Url.Content("~/Content/favicon/favicon-32.png")" />
+
+<!-- favicon-16.png - The classic favicon, displayed in the tabs. -->
+<link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/Content/favicon/favicon-16.png")" />
+
+@Html.Partial("Partial/Icons_Android")
+
+@Html.Partial("Partial/Icons_Apple")
+
+@Html.Partial("Partial/Icons_Windows")
+
+
+
+<!-- UNKNOWN SIZES -->
+<link rel="icon" type="image/png" sizes="160x160" href="@Url.Content("~/Content/favicon/favicon-160.png")" />
+<link rel="icon" type="image/png" sizes="64x64" href="@Url.Content("~/Content/favicon/favicon-64.png")" />
