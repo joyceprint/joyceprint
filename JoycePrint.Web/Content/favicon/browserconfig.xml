@@ -4,6 +4,7 @@
     <tile>
       <square70x70logo src="/favicon-70.png"/>
       <square150x150logo src="/favicon-150.png"/>
+      <wide310x150logo src="/favicon-310x150.png"/>
       <square310x310logo src="/favicon-310.png"/>
       <TileColor>#FFFFFF</TileColor>
     </tile>
