@@ -32,9 +32,9 @@ namespace JoycePrint.Web.Controllers
         /// [ Security - CSRF ]
         /// [ ValidateAntiForgeryToken() ] - Prevents MVC Cross Site Request Forgery
         /// This has to be used with @Html.AntiForgeryToken() on the form
+        /// [ValidateAntiForgeryHeader]        
         /// </remarks>
-        [HttpPost]
-        //[ValidateAntiForgeryHeader]        
+        [HttpPost]        
         [ValidateAntiForgeryToken]
         [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
         [Route]        
