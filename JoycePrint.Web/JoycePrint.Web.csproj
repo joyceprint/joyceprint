@@ -159,6 +159,7 @@
     <Content Include="App_Readme\Elmah\Elmah.txt" />
     <Content Include="Content\css\materialize.css" />
     <Content Include="Content\css\materialize.min.css" />
+    <Content Include="Content\favicon\android-chrome\android-chrome-128x128.png" />
     <Content Include="Content\favicon\android-chrome\android-chrome-144x144.png" />
     <Content Include="Content\favicon\android-chrome\android-chrome-192x192.png" />
     <Content Include="Content\favicon\android-chrome\android-chrome-256x256.png" />
