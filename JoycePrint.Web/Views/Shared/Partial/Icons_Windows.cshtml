@@ -1,8 +1,4 @@
-﻿<!-- favicon-16.png - The classic favicon, displayed in the tabs. -->
-<link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/Content/favicon/windows/favicon-16x16.png")" />
-
-<!-- ######################### Windows 7 Taskbar ######################### -->
-
+﻿<!-- ######################### Windows 7 Taskbar ######################### -->
 <!--
     This depends on your site, so no code here.
     See http://www.buildmypinnedsite.com/windows7
@@ -10,16 +6,16 @@
 
 <!-- ######################### Windows 8 IE10 ######################### -->
 
-<!-- application-name - The name of the application if pinned to the start screen. -->
-<meta name="application-name" content="JoycePrint">
+<!-- msapplication-TileImage - The tile image. -->
+<meta name="msapplication-TileImage" content="@Url.Content("~/Content/favicon/windows/mstile-144x144.png")" />
+
+<!-- msapplication-TileColor - The tile colour which shows around your tile image. -->
+<meta name="msapplication-TileColor" content="#2b5797" />
 
 <!-- ######################### Windows 8.1 IE11 ######################### -->
 
-<!-- msapplication-TileColor - The tile colour which shows around your tile image (msapplication-TileImage). -->
-<meta name="msapplication-TileColor" content="#2b5797" />
-
-<!-- msapplication-TileImage - The tile image. -->
-<meta name="msapplication-TileImage" content="@Url.Content("~/Content/favicon/windows/mstile-144x144.png")" />
+<!-- application-name - The name of the application if pinned to the start screen. -->
+<meta name="application-name" content="JoycePrint">
 
 <!--
     msapplication-config - The location of the browser configuration file.
