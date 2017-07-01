@@ -1,20 +1,10 @@
 ﻿<!-- ######################### Android / Chrome ######################### -->
 
-<!--
-    manifest-json - The location of the browser configuration file.
-    It contains locations of icon files, name of the application and default device screen orientation. Note that the name field is mandatory.
-    https://developer.chrome.com/multidevice/android/installtohomescreen.
--->
-<link rel="manifest" href="@Url.Content("~/Content/favicon/android-chrome/manifest.json")">
-
-<!--
-    theme-color - The colour of the toolbar in Chrome M39+
-    http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
--->
-<meta name="theme-color" content="#FFFFFF">
-
 <!-- favicon-96.png - For Google TV https://developer.android.com/training/tv/index.html#favicons. -->
 <link rel="icon" type="image/png" sizes="96x96" href="@Url.Content("~/Content/favicon/android-chrome/android-chrome-96x96.png")" />
+
+<!-- Icon for the Chrome Web Store, only used if Genuine Chrome Application -->
+<link rel="icon" type="image/png" sizes="128x128" href="@Url.Content("~/Content/favicon/android-chrome/android-chrome-128x128.png")" />
 
 <!-- favicon-192.png - For Android Chrome M36 to M38 this HTML is used. M39+ uses the manifest.json file. -->
 <link rel="icon" type="image/png" sizes="192x192" href="@Url.Content("~/Content/favicon/android-chrome/android-chrome-192x192.png")" />
@@ -22,6 +12,15 @@
 <!-- mobile-web-app-capable - Run Android/Chrome version M31 to M38 in standalone mode, hiding the browser chrome. -->
 <meta name="mobile-web-app-capable" content="yes">
 
+<!--
+    theme-color - The colour of the toolbar in Chrome M39+
+    http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<meta name="theme-color" content="#FFFFFF">
 
-<!-- ######################################### -->
-<link rel="icon" type="image/png" sizes="128x128" href="@Url.Content("~/Content/favicon/android-chrome/android-chrome-128x128.png")" />
+<!--
+    manifest-json - The location of the browser configuration file.
+    It contains locations of icon files, name of the application and default device screen orientation. Note that the name field is mandatory.
+    https://developer.chrome.com/multidevice/android/installtohomescreen.
+-->
+<link rel="manifest" href="@Url.Content("~/Content/favicon/android-chrome/manifest.json")">
