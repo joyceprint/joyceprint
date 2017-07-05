@@ -11,22 +11,7 @@ using Common.Logging.Enums;
 namespace JoycePrint.Web
 {
     public class MvcApplication : HttpApplication
-    {
-        protected void Application_Error(object sender, EventArgs e)
-        {
-            var error = HttpContext.Current.Error as HttpException;
-            var httpException = error;
-
-            if (httpException?.WebEventCode == WebEventCodes.RuntimeErrorPostTooLarge)
-            {
-                Logger.Instance.Log(MessageLevel.Error, $"File Upload Size Exception - {httpException.Message} - Inner Exception - {httpException.InnerException}");
-
-                Server.ClearError();
-
-                Response.RedirectToRoute("UploadSize");
-            }
-        }
-
+    {        
         protected void Application_Start()
         {
             EnableSecurity();
@@ -44,7 +29,28 @@ namespace JoycePrint.Web
 
             // Register the bundles used in the application
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-        }        
+        }
+
+        /// <summary>
+        /// Handle the error case when the request is too big.
+        /// This will indicate that the user is trying to upload a file that is too large
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var error = HttpContext.Current.Error as HttpException;
+            var httpException = error;
+
+            if (httpException?.WebEventCode == WebEventCodes.RuntimeErrorPostTooLarge)
+            {
+                Logger.Instance.Log(MessageLevel.Error, $"File Upload Size Exception - {httpException.Message} - Inner Exception - {httpException.InnerException}");
+
+                Server.ClearError();
+
+                Response.RedirectToRoute("UploadSize");
+            }
+        }
 
         /// <summary>
         /// 
