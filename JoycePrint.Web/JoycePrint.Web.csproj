@@ -432,6 +432,7 @@
     <Content Include="Views\Shared\Partial\Icons_Android.cshtml" />
     <Content Include="Views\Shared\Partial\Icons_Windows.cshtml" />
     <Content Include="Views\Shared\Partial\Favicons.cshtml" />
+    <Content Include="Views\Shared\Error\UploadSize.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

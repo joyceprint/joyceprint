@@ -1,13 +1,32 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Helpers;
+using System.Web.Management;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Common.Logging;
+using Common.Logging.Enums;
 
 namespace JoycePrint.Web
 {
     public class MvcApplication : HttpApplication
     {
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var error = HttpContext.Current.Error as HttpException;
+            var httpException = error;
+
+            if (httpException?.WebEventCode == WebEventCodes.RuntimeErrorPostTooLarge)
+            {
+                Logger.Instance.Log(MessageLevel.Error, $"File Upload Size Exception - {httpException.Message} - Inner Exception - {httpException.InnerException}");
+
+                Server.ClearError();
+
+                Response.RedirectToRoute("UploadSize");
+            }
+        }
+
         protected void Application_Start()
         {
             EnableSecurity();

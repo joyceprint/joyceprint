@@ -17,7 +17,8 @@
     margin-top: 0px;
 }
 
-.error-ajax-header {
+.error-ajax-header,
+.error-uploadSize-header {
     .error-header;
     padding-top: 30px;
 }
@@ -29,12 +30,19 @@
 
     padding-bottom: 50px;
 }
-.error-ajax-body {
+.error-ajax-body,
+.error-uploadSize-body {
     .text-600;
     color: @color-grey;
     font-family: "Avenir Book";
 
     padding-top: 30px;    
+}
+
+.error-uploadSize-info {
+    .text-600;
+    color: @color-danger;
+    font-family: "Avenir Book";
 }
 
 .btn-error {    
@@ -45,7 +53,8 @@
     .btn-round;
 }
 
-.btn-error-ajax {    
+.btn-error-ajax,
+.btn-error-uploadSize {    
     .btn-error;
 
     border-radius: 6px 6px;

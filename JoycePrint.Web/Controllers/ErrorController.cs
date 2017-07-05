@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Configuration;
+using System.Web.Mvc;
 
 namespace JoycePrint.Web.Controllers
 {
@@ -80,6 +81,29 @@ namespace JoycePrint.Web.Controllers
             DisableAjaxRequestCachingInInternetExplorer();
 
             var data = RenderPartialViewToString(ControllerContext, "Error/Ajax", null);
+
+            return Json(new { modalView = data }, JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// Handles the case where the user uploads a file that is too large to be sent using the site
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("uploadsize", Name = "UploadSize")]
+        public ActionResult UploadSize()
+        {
+            DisableAjaxRequestCachingInInternetExplorer();
+
+            var runTime = (HttpRuntimeSection)WebConfigurationManager.GetSection("system.web/httpRuntime");
+
+            // Approx 100 Kb (for page content) size has been deducted because the maxRequestLength proprty is the page size,
+            // not only the file upload size. Size in MB           
+            var maxRequestLength = (runTime.MaxRequestLength - 100) / 1024;
+
+            TempData["maxRequestLength"] = maxRequestLength;
+
+            var data = RenderPartialViewToString(ControllerContext, "Error/UploadSize", null);
 
             return Json(new { modalView = data }, JsonRequestBehavior.AllowGet);
         }
