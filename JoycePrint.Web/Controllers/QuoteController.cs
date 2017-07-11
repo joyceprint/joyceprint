@@ -36,7 +36,7 @@ namespace JoycePrint.Web.Controllers
         /// </remarks>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
+        [EventAnalysis(Category = "User Interaction", Action = "Quote Request", Label = "Quote Request", Value = "0")]
         [Route]
         public ActionResult Index(QuoteRequest model)
         {
