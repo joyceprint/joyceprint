@@ -8,7 +8,7 @@
 }
 
 <div class="row add-pad-top">
-    <div class="col s10 offset-s1">
+    <div class="col s12">
         <div class="row">
             <h6 class="col s2 primary-text right-align">Name</h6>
             <h6 class="col s1 center">:</h6>
@@ -43,26 +43,28 @@
         <div class="row">
             <h6 class="col s2 primary-text right-align">Attachments</h6>
             <h6 class="col s1 center">:</h6>
-            <h6 class="col s9 text-500">
+            <div class="col s9 h6 text-500">
                 @if (Model.Attachment.Files == null || Model.Attachment.Files.Count(f => f != null) <= 0)
                 {
                     <text>No attachments were sent with this request</text>
                 }
                 else
-                {
-                    <span class="col s12 add-pad-bot">The following file(s) were upload with this request</span>
+                {   <div class="row">
+                        <span class="col s12 add-pad-bot no-pad-left">The following file(s) were upload with this request</span>
 
-                    foreach (var file in Model.Attachment.Files)
-                    {
-                        var fileSizeInKb = Math.Ceiling((double)file.ContentLength / 1024);
-                        
-                        <span class="col s1 text-600 right-align">File :</span>
-                        <span class="col s6">@file.FileName</span>
-                        <span class="col s1 text-600 right-align">Size :</span>
-                        <span class="col s4">@fileSizeInKb KB</span>
-                    }
+                        @foreach (var file in Model.Attachment.Files)
+                        {
+                            var fileSizeInKb = Math.Ceiling((double)file.ContentLength / 1024);
+
+                            <span class="col s1 text-600 right-align">File :</span>
+                            <span class="col s8">@file.FileName</span>
+                            <span class="col s1 text-600 right-align">Size :</span>
+                            <span class="col s2">@fileSizeInKb KB</span>
+                            <span class="clearfix"></span>
+                        }
+                    </div>
                 }
-            </h6>
+            </div>
         </div>
     </div>
 </div>
