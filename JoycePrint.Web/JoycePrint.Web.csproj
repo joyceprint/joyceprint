@@ -212,6 +212,7 @@
     <Content Include="Content\fonts\open-sans\SemiboldItalic\OpenSans-SemiboldItalic.svg" />
     <Content Include="Content\fonts\open-sans\Semibold\OpenSans-Semibold.svg" />
     <Content Include="Content\images\aboutus.jpg" />
+    <Content Include="Content\images\homepage-21.jpg" />
     <Content Include="Content\images\homepage.jpg" />
     <Content Include="Content\images\jp-logo-bw.png" />
     <Content Include="Content\images\jp-logo-rbg.png" />
