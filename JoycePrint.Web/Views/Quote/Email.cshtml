@@ -43,7 +43,7 @@
         <div class="row">
             <h6 class="col s2 primary-text right-align">Attachments</h6>
             <h6 class="col s1 center">:</h6>
-            <div class="col s9 h6 text-500">
+            <div class="col s9 h6 text-500 match-h6-margin">
                 @if (Model.Attachment.Files == null || Model.Attachment.Files.Count(f => f != null) <= 0)
                 {
                     <text>No attachments were sent with this request</text>
@@ -60,7 +60,7 @@
                             <span class="col s8">@file.FileName</span>
                             <span class="col s1 text-600 right-align">Size :</span>
                             <span class="col s2">@fileSizeInKb KB</span>
-                            <span class="clearfix"></span>
+                            <div class="clearfix"></div>
                         }
                     </div>
                 }
