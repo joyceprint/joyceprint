@@ -31,9 +31,13 @@
     @{
         var action = ViewContext.RouteData.Values["action"]?.ToString();
     }
+    
+    @Html.Partial("Partial/GoogleTagManager_Head")
 
 </head>
 <body>
+    
+    @Html.Partial("Partial/GoogleTagManager_Body")
 
     @if (!string.Equals(action, Email.EmailView, StringComparison.OrdinalIgnoreCase))
     {
