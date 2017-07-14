@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head id="headMaster">
+    
+    @Html.Partial("Partial/GoogleTagManager_Head")
 
     <!-- Set the encoding to UTF-8 -->
     <meta charset="utf-8" />
@@ -31,9 +33,7 @@
     @{
         var action = ViewContext.RouteData.Values["action"]?.ToString();
     }
-    
-    @Html.Partial("Partial/GoogleTagManager_Head")
-
+        
 </head>
 <body>
     
