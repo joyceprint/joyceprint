@@ -16,30 +16,129 @@
     <link href="/Content/css/materialize.min.css" rel="stylesheet" type="text/css" />
     <link href="/Content/css/joyceprint.css" rel="stylesheet" type="text/css" />
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/Content/favicon/favicon.ico" />
+    <!-- ######################### Favicons ######################### -->
+    <!-- Shortcut icon - This file contains the following sizes 16x16, 32x32 and 48x48. -->
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/favicon/favicon.ico" />
 
-    <link rel="icon" sizes="16x16 32x32 64x64" href="/Content/favicon/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="196x196" href="/Content/favicon/favicon-192.png" />
-    <link rel="icon" type="image/png" sizes="160x160" href="/Content/favicon/favicon-160.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/Content/favicon/favicon-96.png" />
-    <link rel="icon" type="image/png" sizes="64x64" href="/Content/favicon/favicon-64.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/Content/favicon/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/Content/favicon/favicon-16.png" />
+    <!-- favicon-16.png - The classic favicon, displayed in the tabs. -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/favicon/favicon-16x16.png" />
 
-    <link rel="apple-touch-icon" href="/Content/favicon/favicon-57.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/Content/favicon/favicon-114.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/Content/favicon/favicon-72.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/Content/favicon/favicon-144.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/Content/favicon/favicon-60.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/Content/favicon/favicon-120.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/Content/favicon/favicon-76.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/Content/favicon/favicon-152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/Content/favicon/favicon-180.png" />
+    <!-- favicon-32.png - For Safari on Mac OS. -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/favicon/favicon-32x32.png" />
 
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="/Content/favicon/favicon-144.png" />
-    <meta name="msapplication-config" content="/Content/favicon/browserconfig.xml" />
+    <!-- ######################### Android / Chrome ######################### -->
+    <!-- favicon-96.png - For Google TV https://developer.android.com/training/tv/index.html#favicons. -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/Content/favicon/google/android-chrome-96x96.png" />
+
+    <!-- Icon for the Chrome Web Store, only used if Genuine Chrome Application -->
+    <link rel="icon" type="image/png" sizes="128x128" href="/Content/favicon/google/android-chrome-128x128.png" />
+
+    <!-- favicon-192.png - For Android Chrome M36 to M38 this HTML is used. M39+ uses the manifest.json file. -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/Content/favicon/google/android-chrome-192x192.png" />
+
+    <!-- mobile-web-app-capable - Run Android/Chrome version M31 to M38 in standalone mode, hiding the browser chrome. -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!--
+        theme-color - The colour of the toolbar in Chrome M39+
+        http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+    -->
+    <meta name="theme-color" content="#FFFFFF">
+
+    <!--
+        manifest-json - The location of the browser configuration file.
+        It contains locations of icon files, name of the application and default device screen orientation. Note that the name field is mandatory.
+        https://developer.chrome.com/multidevice/android/installtohomescreen.
+    -->
+    <link rel="manifest" href="/Content/favicon/google/manifest.json">
+
+    <!-- ######################### Apple Touch Icons ######################### -->
+    <!-- https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Introduction.html#//apple_ref/doc/uid/30001261-SW1 -->
+    <!-- apple-touch-icon-57.png - Android Stock Browser and non-Retina iPhone and iPod Touch -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/Content/favicon/apple/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/Content/favicon/apple/apple-touch-icon-57x57-precomposed.png" />
+
+    <!-- apple-touch-icon-114.png - iPhone (with 2× display) iOS = 6 -->
+    <link rel="apple-touch-icon" sizes="114x114" href="/Content/favicon/apple/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Content/favicon/apple/apple-touch-icon-114x114-precomposed.png" />
+
+    <!-- apple-touch-icon-72.png - iPad mini and the first- and second-generation iPad (1× display) on iOS = 6 -->
+    <link rel="apple-touch-icon" sizes="72x72" href="/Content/favicon/apple/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Content/favicon/apple/apple-touch-icon-72x72-precomposed.png" />
+
+    <!-- apple-touch-icon-144.png - iPad (with 2× display) iOS = 6 -->
+    <link rel="apple-touch-icon" sizes="144x144" href="/Content/favicon/apple/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Content/favicon/apple/apple-touch-icon-144x144-precomposed.png" />
+
+    <!-- apple-touch-icon-60.png - Same as apple-touch-icon-57x57.png, for non-retina iPhone with iOS7. -->
+    <link rel="apple-touch-icon" sizes="60x60" href="/Content/favicon/apple/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/Content/favicon/apple/apple-touch-icon-60x60-precomposed.png" />
+
+    <!-- apple-touch-icon-120.png - iPhone (with 2× and 3 display) iOS = 7 -->
+    <link rel="apple-touch-icon" sizes="120x120" href="/Content/favicon/apple/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/Content/favicon/apple/apple-touch-icon-120x120-precomposed.png" />
+
+    <!-- apple-touch-icon-76.png - iPad mini and the first and second-generation iPad (1× display) on iOS = 7 -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/Content/favicon/apple/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/Content/favicon/apple/apple-touch-icon-76x76-precomposed.png" />
+
+    <!-- apple-touch-icon-152.png - iPad 3+ (with 2× display) iOS = 7 -->
+    <link rel="apple-touch-icon" sizes="152x152" href="/Content/favicon/apple/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/Content/favicon/apple/apple-touch-icon-152x152-precomposed.png" />
+
+    <!-- apple-touch-icon-180.png - iPad and iPad mini (with 2× display) iOS = 8 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/favicon/apple/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/Content/favicon/apple/apple-touch-icon-180x180-precomposed.png" />
+
+    <!-- The color used here is the primary color used on the site - See variables.less -->
+    <link rel="mask-icon" href="/Content/favicon/apple/safari-pinned-tab.svg" color="#1d4a5d">
+
+    <!-- apple-mobile-web-app-title - The name of the application if pinned to the IOS start screen. -->
+    <meta name="apple-mobile-web-app-title" content="JoycePrint">
+
+    <!--
+        apple-mobile-web-app-capable - Hide the browsers user interface on IOS, when the app is run in 'standalone' mode.
+        Any links to other pages that are clicked whilst your app is in standalone mode will launch the full Safari browser.
+    -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--
+        apple-mobile-web-app-status-bar-style - default/black/black-translucent Styles the IOS status bar.
+        Using black-translucent makes it transparent and overlays it on top of your site, so make sure you have enough margin.
+    -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- ######################### Apple Startup Images ######################### -->
+    <!-- These splash screen images are only shown if apple-mobile-web-app-capable is set to true. https://gist.github.com/tfausak/2222823 -->
+    <!-- apple-touch-startup-image-1536x2008.png - iOS 6 & 7 iPad (retina, portrait) -->
+    <!-- apple-touch-startup-image-1496x2048.png - iOS 6 & 7 iPad (retina, landscape) -->
+    <!-- apple-touch-startup-image-768x1004.png - iOS 6 iPad (portrait) -->
+    <!-- apple-touch-startup-image-748x1024.png - iOS 6 iPad (landscape) -->
+    <!-- apple-touch-startup-image-640x1096.png - iOS 6 & 7 iPhone 5 -->
+    <!-- apple-touch-startup-image-640x920.png - iOS 6 & 7 iPhone (retina) -->
+    <!-- apple-touch-startup-image-320x460.png - iOS 6 iPhone -->
+    <!-- ######################### Windows 7 Taskbar ######################### -->
+    <!--
+        This depends on your site, so no code here.
+        See http://www.buildmypinnedsite.com/windows7
+    -->
+    <!-- ######################### Windows 8 IE10 ######################### -->
+    <!-- msapplication-TileImage - The tile image. -->
+    <meta name="msapplication-TileImage" content="/Content/favicon/windows/mstile-144x144.png" />
+
+    <!-- msapplication-TileColor - The tile colour which shows around your tile image. -->
+    <meta name="msapplication-TileColor" content="#2b5797" />
+
+    <!-- ######################### Windows 8.1 IE11 ######################### -->
+    <!-- application-name - The name of the application if pinned to the start screen. -->
+    <meta name="application-name" content="JoycePrint">
+
+    <!--
+        msapplication-config - The location of the browser configuration file.
+        If you have an RSS feed, go to http://www.buildmypinnedsite.com and regenerate the browserconfig.xml file.
+        You will then have a cool live tile!
+    -->
+    <meta name="msapplication-config" content="/Content/favicon/windows/browserconfig.xml" />
 
     <!-- Incuding the materialize icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
