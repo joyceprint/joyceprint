@@ -5,6 +5,7 @@ using System.Net.Configuration;
 using System.Net.Mail;
 using Common.Logging;
 using Common.Logging.Enums;
+using Common.Security.Ciphers;
 
 namespace JoycePrint.Domain.Mail
 {
@@ -111,7 +112,9 @@ namespace JoycePrint.Domain.Mail
 
             var message = CreateMailMessage();
 
-            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {SmtpConfig.Network.UserName} - PASS : {SmtpConfig.Network.Password}");
+            var decryptedPassword = StringCipher.Decrypt(SmtpConfig.Network.Password, StringCipher.PassPhrase);
+
+            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {SmtpConfig.Network.UserName} - PASS : {decryptedPassword}");
 
             smtpClient.Send(message);
 

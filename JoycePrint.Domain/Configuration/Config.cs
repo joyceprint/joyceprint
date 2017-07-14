@@ -1,14 +1,15 @@
-﻿using System.Configuration;
+﻿using Common.Security.Ciphers;
+using System.Configuration;
 
 namespace JoycePrint.Domain.Configuration
 {       
     public static class Config
-    {
+    {        
         public static string RecaptchaUrl => ConfigurationManager.AppSettings.Get("RecaptchaUrl");
 
-        public static string RecaptchaSecretKey => ConfigurationManager.AppSettings.Get("RecaptchaSecretKey");
+        public static string RecaptchaSecretKey => StringCipher.Decrypt(ConfigurationManager.AppSettings.Get("RecaptchaSecretKey"), StringCipher.PassPhrase);
 
-        public static string RecaptchaPublicKey => ConfigurationManager.AppSettings.Get("RecaptchaPublicKey");
+        public static string RecaptchaPublicKey => StringCipher.Decrypt(ConfigurationManager.AppSettings.Get("RecaptchaPublicKey"), StringCipher.PassPhrase);
 
         public static string NotificationHeaderSuccess => ConfigurationManager.AppSettings.Get("NotificationHeaderSuccess");
 
