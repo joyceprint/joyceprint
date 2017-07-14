@@ -33,10 +33,12 @@ namespace JoycePrint.Web.Controllers
         /// [ ValidateAntiForgeryToken() ] - Prevents MVC Cross Site Request Forgery
         /// This has to be used with @Html.AntiForgeryToken() on the form
         /// [ValidateAntiForgeryHeader]        
+        /// 
+        /// The following event has been moved to google tag manager
+        /// [EventAnalysis(Category = "User Interaction", Action = "Quote Request", Label = "Quote Request", Value = "0")]
         /// </remarks>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [EventAnalysis(Category = "User Interaction", Action = "Quote Request", Label = "Quote Request", Value = "0")]
+        [ValidateAntiForgeryToken]        
         [Route]
         public ActionResult Index(QuoteRequest model)
         {
