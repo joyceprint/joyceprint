@@ -108,13 +108,14 @@ namespace JoycePrint.Domain.Mail
         /// <returns></returns>
         public bool SendEmail()
         {
+            // Decrypt the password for the email relay
+            SmtpConfig.Network.Password = StringCipher.Decrypt(SmtpConfig.Network.Password, StringCipher.PassPhrase);
+
             var smtpClient = CreateSmtpClient(SmtpConfig);
 
-            var message = CreateMailMessage();
+            var message = CreateMailMessage();            
 
-            var decryptedPassword = StringCipher.Decrypt(SmtpConfig.Network.Password, StringCipher.PassPhrase);
-
-            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {SmtpConfig.Network.UserName} - PASS : {decryptedPassword}");
+            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {SmtpConfig.Network.UserName} - PASS : {SmtpConfig.Network.Password}");
 
             smtpClient.Send(message);
 
