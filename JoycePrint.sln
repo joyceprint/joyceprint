@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.FileLogger",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logging.ElmahLogger", "Common.Logging.ElmahLogger\Common.Logging.ElmahLogger.csproj", "{AD55D0E4-B423-4709-8CA6-AEB97BD7C336}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility.Security", "Utility.Security\Utility.Security.csproj", "{BCC14279-ABF3-4032-A62B-AD47E8969124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Security", "Common.Security\Common.Security.csproj", "{C7BCF2AC-AEE3-4A03-B6E1-45C99C4BD019}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +83,14 @@ Global
 		{AD55D0E4-B423-4709-8CA6-AEB97BD7C336}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD55D0E4-B423-4709-8CA6-AEB97BD7C336}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD55D0E4-B423-4709-8CA6-AEB97BD7C336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCC14279-ABF3-4032-A62B-AD47E8969124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCC14279-ABF3-4032-A62B-AD47E8969124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCC14279-ABF3-4032-A62B-AD47E8969124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCC14279-ABF3-4032-A62B-AD47E8969124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7BCF2AC-AEE3-4A03-B6E1-45C99C4BD019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BCF2AC-AEE3-4A03-B6E1-45C99C4BD019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7BCF2AC-AEE3-4A03-B6E1-45C99C4BD019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7BCF2AC-AEE3-4A03-B6E1-45C99C4BD019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
