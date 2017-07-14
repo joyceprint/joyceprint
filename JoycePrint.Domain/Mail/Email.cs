@@ -56,8 +56,8 @@ namespace JoycePrint.Domain.Mail
                 IsBodyHtml = true                                              
             };
 
-            foreach (var attachment in Attachments)
-                message.Attachments.Add(attachment);
+            foreach (var attachment in Attachments)            
+                message.Attachments.Add(attachment);            
 
             return message;
         }

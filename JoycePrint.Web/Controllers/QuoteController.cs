@@ -15,7 +15,7 @@ namespace JoycePrint.Web.Controllers
         /// <returns></returns>        
         [HttpGet]
         [ChildActionOnly]
-        [Route("")]
+        [Route]
         public ActionResult Index()
         {
             var model = new QuoteRequest();
@@ -32,18 +32,19 @@ namespace JoycePrint.Web.Controllers
         /// [ Security - CSRF ]
         /// [ ValidateAntiForgeryToken() ] - Prevents MVC Cross Site Request Forgery
         /// This has to be used with @Html.AntiForgeryToken() on the form
+        /// [ValidateAntiForgeryHeader]        
         /// </remarks>
         [HttpPost]
-        [ValidateAntiForgeryHeader]        
-        [EventAnalysis(Category = "User Interaction", Action = "Quote", Label = "Quote Request", Value = "0")]
-        [Route("")]        
+        [ValidateAntiForgeryToken]
+        [EventAnalysis(Category = "User Interaction", Action = "Quote Request", Label = "Quote Request", Value = "0")]
+        [Route]
         public ActionResult Index(QuoteRequest model)
         {
             if (ModelState.IsValid)
-            {                
+            {
                 var emailBody = RenderViewToString(Email.EmailView, ViewData, ControllerContext, model, "Quote", "Email");
 
-                var notificationType = model.SendEmail(emailBody, HttpContext) ? NotificationType.Success : NotificationType.Failure;                
+                var notificationType = model.SendEmail(emailBody, HttpContext) ? NotificationType.Success : NotificationType.Failure;
 
                 // Create a new controller rather than using a redirect, a redirect will terminate the http request and return a 302
                 // A 302 response will break the ajax method that called this function

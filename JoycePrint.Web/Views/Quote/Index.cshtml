@@ -36,8 +36,8 @@
 
                     @Html.EditorFor(model => model.Attachment, "AttachmentForm")
 
-                    <div class="row no-mar-bot">
-                        <div class="col l7 m12 s12 no-pad-right">
+                    <div class="row add-pad-bot-30">
+                        <div class="col l7 m12 s12 no-pad-right add-pad-bot">
                             @{ Html.RenderAction("Recaptcha", "Security"); }
 
                             @*
@@ -47,20 +47,14 @@
                             *@
                             <small>We do not share your details with any third parties.</small>
                         </div>
-
-                        <div class="col s12 space-bot hide-on-large-only"></div>
-
-                        <div class="col l5 m12 s12">
-                            <div class="row">
-                                <div class="col l10 offset-l2 m6 s12 add-pad-bot center">
-                                    <button class="col s12 btn waves-effect orange" type="reset" data-test-clear>CLEAR</button>
-                                </div>
-
-                                <div class="col l10 offset-l2 m6 s12 center">
-                                    <button class="col s12 btn waves-effect waves-green green" type="button" data-test-submit>SUBMIT</button>
-                                </div>
-                            </div>
+                        
+                        <div class="col l4 offset-l1 m6 s12 add-pad-bot center">
+                            <button class="col s12 btn waves-effect waves-green green" id="submit-quote" type="button" data-test-submit>SUBMIT</button>
                         </div>
+
+                        <div class="col l4 offset-l1 m6 s12 center">
+                            <button class="col s12 btn waves-effect orange" id="reset-quote" type="reset" data-test-clear>CLEAR</button>
+                        </div>                                                                        
                     </div>
                 }
             </div>

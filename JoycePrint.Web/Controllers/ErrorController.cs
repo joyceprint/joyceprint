@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Configuration;
+using System.Web.Mvc;
 
 namespace JoycePrint.Web.Controllers
 {
@@ -14,7 +15,7 @@ namespace JoycePrint.Web.Controllers
         /// --> No where at the moment
         /// </remarks>        
         [HttpGet]
-        [Route("error")]
+        [Route("error", Name = "Error")]
         public ActionResult Error()
         {
             // Set this value to hide the navigation menu in the _Navigation view
@@ -33,7 +34,7 @@ namespace JoycePrint.Web.Controllers
         /// --> The base controller OnExecption method
         /// </remarks>        
         [HttpGet]
-        [Route("exception")]
+        [Route("exception", Name = "Exception")]
         public ActionResult Exception()
         {
             // Set this value to hide the navigation menu in the _Navigation view
@@ -49,8 +50,8 @@ namespace JoycePrint.Web.Controllers
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>
         /// <returns></returns>        
-        [HttpGet]
-        [Route("notfound")]
+        //[AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        [Route("notfound", Name = "NotFound")]
         public ActionResult NotFound()
         {
             // Set this value to hide the navigation menu in the _Navigation view
@@ -74,12 +75,35 @@ namespace JoycePrint.Web.Controllers
         /// --> The javascript method HandleAjaxError in the error.js file        
         /// </remarks>        
         [HttpGet]
-        [Route("ajax")]
+        [Route("ajax", Name = "Ajax")]
         public ActionResult Ajax()
         {
             DisableAjaxRequestCachingInInternetExplorer();
 
             var data = RenderPartialViewToString(ControllerContext, "Error/Ajax", null);
+
+            return Json(new { modalView = data }, JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// Handles the case where the user uploads a file that is too large to be sent using the site
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("uploadsize", Name = "UploadSize")]
+        public ActionResult UploadSize()
+        {
+            DisableAjaxRequestCachingInInternetExplorer();
+
+            var runTime = (HttpRuntimeSection)WebConfigurationManager.GetSection("system.web/httpRuntime");
+
+            // Approx 100 Kb (for page content) size has been deducted because the maxRequestLength proprty is the page size,
+            // not only the file upload size. Size in MB           
+            var maxRequestLength = (runTime.MaxRequestLength - 100) / 1024;
+
+            TempData["maxRequestLength"] = maxRequestLength;
+
+            var data = RenderPartialViewToString(ControllerContext, "Error/UploadSize", null);
 
             return Json(new { modalView = data }, JsonRequestBehavior.AllowGet);
         }

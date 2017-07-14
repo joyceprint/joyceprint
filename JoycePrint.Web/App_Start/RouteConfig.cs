@@ -5,7 +5,7 @@ namespace JoycePrint.Web
 {
     public static class RouteConfig
     {
-        private static readonly string[] JoycePrintNamespace = { "JoycePrint.Web.Controller" };
+        private static readonly string[] JoycePrintNamespace = { "JoycePrint.Web.Controllers" };
 
         public static void RegisterRoutes(RouteCollection routes)
         {
@@ -17,7 +17,7 @@ namespace JoycePrint.Web
             // This is the catch all route            
             routes.MapRoute(
                 name: "CatchAll",
-                url: "{*catchall}",
+                url: "{*url}",
                 defaults: new { controller = "Error", action = "NotFound" },
                 namespaces: JoycePrintNamespace
             );

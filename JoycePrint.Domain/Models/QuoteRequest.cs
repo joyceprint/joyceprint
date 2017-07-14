@@ -101,6 +101,8 @@ namespace JoycePrint.Domain.Models
 
             foreach (var file in Attachment.Files)
             {
+                if (file == null) continue;
+
                 attachments.Add(new System.Net.Mail.Attachment(file.InputStream, file.FileName));
             }     
             

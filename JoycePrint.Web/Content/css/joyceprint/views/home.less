@@ -20,6 +20,19 @@
     opacity: 0.71;
 }
 
+/*@media only screen and (max-width: 1921px) {
+    this looks good om my laptop, but 1000 looks better on the 21" - the size seems to be the same so stay with 1000px
+    #home-parallax-container > .parallax-container {
+        height: 870px;
+    }
+}*/
+
+@media only screen and (max-width: 1367px) {
+    #home-parallax-container > .parallax-container {
+        height: 720px;
+    }
+}
+
 #home-parallax-content {
     position: absolute;
     top: 40vh;
@@ -31,7 +44,7 @@
 @media only screen and (max-width: 600px) {
     #home-parallax-content {
         top: 25vh;
-    }
+    }    
 }
 
 #home-parallax-content > a {

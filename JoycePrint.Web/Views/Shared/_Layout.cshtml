@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head id="headMaster">
+    
+    @Html.Partial("Partial/GoogleTagManager_Head")
 
     <!-- Set the encoding to UTF-8 -->
     <meta charset="utf-8" />
@@ -18,20 +20,24 @@
 
     <!-- Normal browser style sheet links -->
     @Styles.Render("~/css/joyceprintcss")
-
-    <link rel="icon" href="@Url.Content("~/Content/images/favicon.ico")" />
-
+        
+    @Html.Partial("Partial/Favicons")
+        
     <!-- Incuding the materialize icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>@ViewBag.Title</title>
+    
+    <meta name="description" content="Get a great price from JoycePrint on trade docket books and other print trade items">
 
     @{
         var action = ViewContext.RouteData.Values["action"]?.ToString();
     }
-
+        
 </head>
 <body>
+    
+    @Html.Partial("Partial/GoogleTagManager_Body")
 
     @if (!string.Equals(action, Email.EmailView, StringComparison.OrdinalIgnoreCase))
     {

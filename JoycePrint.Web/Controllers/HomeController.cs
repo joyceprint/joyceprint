@@ -2,7 +2,7 @@
 
 namespace JoycePrint.Web.Controllers
 {
-    [RoutePrefix("home")]
+    [RoutePrefix("home")]    
     public class HomeController : BaseController
     {
         /// <summary>
@@ -10,8 +10,8 @@ namespace JoycePrint.Web.Controllers
         /// </summary>
         /// <returns></returns>        
         [HttpGet]
+        [Route]
         [ChildActionOnly]
-        [Route("")]
         public ActionResult Index()
         {
             return View("Index");

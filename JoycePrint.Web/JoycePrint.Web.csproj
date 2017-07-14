@@ -159,6 +159,45 @@
     <Content Include="App_Readme\Elmah\Elmah.txt" />
     <Content Include="Content\css\materialize.css" />
     <Content Include="Content\css\materialize.min.css" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-114x114.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-120x120-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-120x120.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-144x144-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-144x144.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-152x152-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-152x152.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-180x180-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-180x180.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-57x57.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-60x60-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-60x60.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-72x72.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-76x76-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-76x76.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon-precomposed.png" />
+    <Content Include="Content\favicon\apple\apple-touch-icon.png" />
+    <Content Include="Content\favicon\apple\safari-pinned-tab.svg" />
+    <Content Include="Content\favicon\favicon-16x16.png" />
+    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\favicon\favicon-master.png" />
+    <Content Include="Content\favicon\favicon.ico" />
+    <Content Include="Content\favicon\google\android-chrome-128x128.png" />
+    <Content Include="Content\favicon\google\android-chrome-144x144.png" />
+    <Content Include="Content\favicon\google\android-chrome-192x192.png" />
+    <Content Include="Content\favicon\google\android-chrome-256x256.png" />
+    <Content Include="Content\favicon\google\android-chrome-36x36.png" />
+    <Content Include="Content\favicon\google\android-chrome-48x48.png" />
+    <Content Include="Content\favicon\google\android-chrome-72x72.png" />
+    <Content Include="Content\favicon\google\android-chrome-96x96.png" />
+    <Content Include="Content\favicon\windows\browserconfig.xml" />
+    <Content Include="Content\favicon\windows\mstile-144x144.png" />
+    <Content Include="Content\favicon\windows\mstile-150x150.png" />
+    <Content Include="Content\favicon\windows\mstile-310x150.png" />
+    <Content Include="Content\favicon\windows\mstile-310x310.png" />
+    <Content Include="Content\favicon\windows\mstile-70x70.png" />
     <Content Include="Content\fonts\avenir\Book\Avenir-Book.svg" />
     <Content Include="Content\fonts\avenir\Heavy\Avenir-Heavy.svg" />
     <Content Include="Content\fonts\avenir\Light\Avenir-Light.svg" />
@@ -173,7 +212,7 @@
     <Content Include="Content\fonts\open-sans\SemiboldItalic\OpenSans-SemiboldItalic.svg" />
     <Content Include="Content\fonts\open-sans\Semibold\OpenSans-Semibold.svg" />
     <Content Include="Content\images\aboutus.jpg" />
-    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\homepage-21.jpg" />
     <Content Include="Content\images\homepage.jpg" />
     <Content Include="Content\images\jp-logo-bw.png" />
     <Content Include="Content\images\jp-logo-rbg.png" />
@@ -182,6 +221,7 @@
     <Content Include="Content\images\services-design.jpg" />
     <Content Include="403.html" />
     <Content Include="Global.asax" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\joyceprint\jLib-error.js" />
@@ -309,6 +349,7 @@
     <Content Include="App_Readme\Elmah\web.config" />
     <Content Include="Content\css\joyceprint\partials\notification.less" />
     <Content Include="Content\css\joyceprint\partials\attachment-form.less" />
+    <Content Include="Content\favicon\google\manifest.json" />
     <None Include="Properties\PublishProfiles\JoycePrint [ FTP ].pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint.pubxml" />
     <None Include="Properties\PublishProfiles\JoycePrint [ Local ].pubxml" />
@@ -318,14 +359,15 @@
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\materialize.js" />
     <Content Include="Scripts\materialize.min.js" />
     <Content Include="500.html" />
     <Content Include="Error.html" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -387,6 +429,13 @@
     <Content Include="Views\Shared\Error\NotFound.cshtml" />
     <Content Include="Views\Quote\Email.cshtml" />
     <Content Include="Views\Quote\EditorTemplates\AttachmentForm.cshtml" />
+    <Content Include="Views\Shared\Partial\Icons_Apple.cshtml" />
+    <Content Include="Views\Shared\Partial\Icons_Android.cshtml" />
+    <Content Include="Views\Shared\Partial\Icons_Windows.cshtml" />
+    <Content Include="Views\Shared\Partial\Favicons.cshtml" />
+    <Content Include="Views\Shared\Error\UploadSize.cshtml" />
+    <Content Include="Views\Shared\Partial\GoogleTagManager_Head.cshtml" />
+    <Content Include="Views\Shared\Partial\GoogleTagManager_Body.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
