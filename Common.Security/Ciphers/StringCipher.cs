@@ -11,7 +11,7 @@ namespace Common.Security.Ciphers
         /// <summary>
         /// 
         /// </summary>
-        public static string PassPhrase => "";
+        public static string PassPhrase => "EKgbeMVUqtxXCgQCGig4";
 
         /// <summary>
         /// This constant is used to determine the keysize of the encryption algorithm in bits. 
