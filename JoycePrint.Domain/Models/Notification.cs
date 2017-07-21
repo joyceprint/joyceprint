@@ -1,5 +1,5 @@
 ﻿using System;
-using JoycePrint.Domain.Configuration;
+using JoycePrint.Configuration;
 using JoycePrint.Domain.Enums;
 
 namespace JoycePrint.Domain.Models

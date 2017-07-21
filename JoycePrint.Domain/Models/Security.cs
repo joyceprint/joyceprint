@@ -1,4 +1,4 @@
-﻿using JoycePrint.Domain.Configuration;
+﻿using JoycePrint.Configuration;
 
 namespace JoycePrint.Domain.Models
 {
