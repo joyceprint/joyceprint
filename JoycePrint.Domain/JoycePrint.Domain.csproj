@@ -88,6 +88,7 @@
     <Compile Include="Attributes\FileType.cs" />
     <Compile Include="Attributes\PageAnalysis.cs" />
     <Compile Include="Attributes\ValidateAntiForgeryHeader.cs" />
+    <Compile Include="Configuration\Config.cs" />
     <Compile Include="Enums\NotificationType.cs" />
     <Compile Include="Mail\IEmailConverter.cs" />
     <Compile Include="Mail\IEmail.cs" />
@@ -129,10 +130,6 @@
     <ProjectReference Include="..\Common.Security\Common.Security.csproj">
       <Project>{c7bcf2ac-aee3-4a03-b6e1-45c99c4bd019}</Project>
       <Name>Common.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JoycePrint.Configuration\JoycePrint.Configuration.csproj">
-      <Project>{2dc595e8-62a2-4759-87ce-ed76871c755d}</Project>
-      <Name>JoycePrint.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

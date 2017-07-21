@@ -1,6 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using JoycePrint.Domain.Configuration;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JoycePrint.Configuration.Tests.Configuration
+namespace JoycePrint.Domain.Tests.Configuration
 {
     [TestClass]
     public class ConfigTest : BaseTest

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
+    <Compile Include="Configuration\ConfigTest.cs" />
     <Compile Include="Mail\EmailTest.cs" />
     <Compile Include="Models\NotificationTest.cs" />
     <Compile Include="Models\QuoteRequestTest.cs" />

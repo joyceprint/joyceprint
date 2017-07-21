@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using Common.Logging;
 using Common.Logging.Enums;
-using JoycePrint.Configuration;
+using JoycePrint.Domain.Configuration;
 
 namespace JoycePrint.Domain.Security
 {
