@@ -1,7 +1,7 @@
 ﻿using Common.Security.Ciphers;
 using System.Configuration;
 
-namespace JoycePrint.Domain.Configuration
+namespace JoycePrint.Configuration
 {       
     public static class Config
     {        
