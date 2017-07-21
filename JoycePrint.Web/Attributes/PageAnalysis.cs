@@ -7,6 +7,7 @@ using Common.Logging.Enums;
 
 namespace JoycePrint.Web.Attributes
 {
+    [Obsolete("This functionality has been moved into Google Tag Manager")]
     public class PageAnalysis : ActionFilterAttribute
     {
         public string Name;        

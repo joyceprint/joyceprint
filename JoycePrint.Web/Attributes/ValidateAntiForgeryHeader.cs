@@ -1,7 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace JoycePrint.Web.Attributes
 {
+    [Obsolete("This functionality is being handled by the built in class ValidateAntiForgeryToken")]
     public class ValidateAntiForgeryHeader : FilterAttribute, IAuthorizationFilter
     {        
         /// <summary>
