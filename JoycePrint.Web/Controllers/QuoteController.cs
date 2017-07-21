@@ -2,7 +2,6 @@
 using JoycePrint.Domain.Enums;
 using JoycePrint.Domain.Mail;
 using JoycePrint.Domain.Models;
-using JoycePrint.Web.Attributes;
 
 namespace JoycePrint.Web.Controllers
 {

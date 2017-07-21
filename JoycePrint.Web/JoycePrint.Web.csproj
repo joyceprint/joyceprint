@@ -264,9 +264,6 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
-    <Compile Include="Attributes\EventAnalysis.cs" />
-    <Compile Include="Attributes\ValidateAntiForgeryHeader.cs" />
-    <Compile Include="Attributes\PageAnalysis.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
@@ -453,14 +450,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.Analytics.GoogleAnalytics\Common.Analytics.GoogleAnalytics.csproj">
-      <Project>{9d46efc3-299b-404d-82bb-68d5e08f920f}</Project>
-      <Name>Common.Analytics.GoogleAnalytics</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common.Analytics\Common.Analytics.csproj">
-      <Project>{cd1d91d5-b27b-4d27-8477-d85ba45a758b}</Project>
-      <Name>Common.Analytics</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Common.Logging.ElmahLogger\Common.Logging.ElmahLogger.csproj">
       <Project>{ad55d0e4-b423-4709-8ca6-aeb97bd7c336}</Project>
       <Name>Common.Logging.ElmahLogger</Name>

@@ -5,7 +5,7 @@ using Common.Analytics;
 using Common.Logging;
 using Common.Logging.Enums;
 
-namespace JoycePrint.Web.Attributes
+namespace JoycePrint.Domain.Attributes
 {
     [Obsolete("This functionality has been moved into Google Tag Manager")]
     public class EventAnalysis : ActionFilterAttribute

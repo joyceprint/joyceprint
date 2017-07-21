@@ -83,8 +83,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\EventAnalysis.cs" />
     <Compile Include="Attributes\FileSize.cs" />
     <Compile Include="Attributes\FileType.cs" />
+    <Compile Include="Attributes\PageAnalysis.cs" />
+    <Compile Include="Attributes\ValidateAntiForgeryHeader.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Enums\NotificationType.cs" />
     <Compile Include="Mail\IEmailConverter.cs" />
@@ -108,6 +111,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Analytics.GoogleAnalytics\Common.Analytics.GoogleAnalytics.csproj">
+      <Project>{9d46efc3-299b-404d-82bb-68d5e08f920f}</Project>
+      <Name>Common.Analytics.GoogleAnalytics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Analytics\Common.Analytics.csproj">
+      <Project>{cd1d91d5-b27b-4d27-8477-d85ba45a758b}</Project>
+      <Name>Common.Analytics</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common.Logging\Common.Logging.csproj">
       <Project>{895bdef1-931e-48bb-b555-4155d79cab2d}</Project>
       <Name>Common.Logging</Name>
