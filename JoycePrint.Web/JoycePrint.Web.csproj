@@ -238,11 +238,11 @@
     <Content Include="Scripts\joyceprint\jLib-notification-helper.js" />
     <Content Include="Scripts\joyceprint\joyceprint.js" />
     <Content Include="Scripts\joyceprint\jLib-materialize-extensions.js" />
-    <Content Include="Scripts\joyceprint\jLib-analytics.js" />
+    <Content Include="Scripts\joyceprint\off\jLib-analytics.js" />
     <Content Include="Scripts\joyceprint\jLib-recaptcha.js" />
     <Content Include="Scripts\joyceprint\jLib-validation.js" />
     <Content Include="Scripts\joyceprint\jLib-quote.js" />
-    <Content Include="Scripts\joyceprint\validate.SAVED.js" />
+    <Content Include="Scripts\joyceprint\off\validate.SAVED.js" />
     <Content Include="Scripts\joyceprint\jquery-extensions.js" />
     <Content Include="Content\fonts\roboto\Roboto-Bold.eot" />
     <Content Include="Content\fonts\roboto\Roboto-Bold.ttf" />
@@ -264,9 +264,9 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
+    <Compile Include="Attributes\EventAnalysis.cs" />
     <Compile Include="Attributes\ValidateAntiForgeryHeader.cs" />
     <Compile Include="Attributes\PageAnalysis.cs" />
-    <Compile Include="Attributes\EventAnalysis.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
@@ -464,14 +464,6 @@
     <ProjectReference Include="..\Common.Logging.ElmahLogger\Common.Logging.ElmahLogger.csproj">
       <Project>{ad55d0e4-b423-4709-8ca6-aeb97bd7c336}</Project>
       <Name>Common.Logging.ElmahLogger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common.Logging.FileLogger\Common.Logging.FileLogger.csproj">
-      <Project>{0ef2f65d-0277-49ab-94f7-04fe5ca07f1f}</Project>
-      <Name>Common.Logging.FileLogger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common.Logging.WindowsEventLogger\Common.Logging.WindowsEventLogger.csproj">
-      <Project>{dfd727b6-b98c-4533-a9a6-262596de8bc1}</Project>
-      <Name>Common.Logging.WindowsEventLogger</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common.Logging\Common.Logging.csproj">
       <Project>{895bdef1-931e-48bb-b555-4155d79cab2d}</Project>
