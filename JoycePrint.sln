@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocketBooks.Web", "DocketBo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocketBooks.Web.Tests", "DocketBooks.Web.Tests\DocketBooks.Web.Tests.csproj", "{D8B6760F-D5E1-469B-8252-FB8A4FE8E0BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoycePrint.Configuration", "JoycePrint.Configuration\JoycePrint.Configuration.csproj", "{2DC595E8-62A2-4759-87CE-ED76871C755D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoycePrint.Configuration.Tests", "JoycePrint.Configuration.Tests\JoycePrint.Configuration.Tests.csproj", "{C78286D9-6A59-42DE-9D00-FF46D17CC4C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +107,14 @@ Global
 		{D8B6760F-D5E1-469B-8252-FB8A4FE8E0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8B6760F-D5E1-469B-8252-FB8A4FE8E0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8B6760F-D5E1-469B-8252-FB8A4FE8E0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DC595E8-62A2-4759-87CE-ED76871C755D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DC595E8-62A2-4759-87CE-ED76871C755D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DC595E8-62A2-4759-87CE-ED76871C755D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DC595E8-62A2-4759-87CE-ED76871C755D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78286D9-6A59-42DE-9D00-FF46D17CC4C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78286D9-6A59-42DE-9D00-FF46D17CC4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78286D9-6A59-42DE-9D00-FF46D17CC4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78286D9-6A59-42DE-9D00-FF46D17CC4C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
