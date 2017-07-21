@@ -114,6 +114,10 @@
       <Project>{a3d48ad3-3ed0-4444-a0e4-099a1114d611}</Project>
       <Name>Common.Providers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.Security\Common.Security.csproj">
+      <Project>{C7BCF2AC-AEE3-4A03-B6E1-45C99C4BD019}</Project>
+      <Name>Common.Security</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Net;
 using System.Net.Configuration;
 using System.Net.Mail;
 using Common.Logging;
 using Common.Logging.Enums;
+using Common.Security.Ciphers;
 
 namespace JoycePrint.Domain.Mail
 {
@@ -35,8 +37,11 @@ namespace JoycePrint.Domain.Mail
             var smtp = new SmtpClient
             {
                 Host = smtpConfig.Network.Host,
-                Port = smtpConfig.Network.Port
+                Port = smtpConfig.Network.Port,                
             };
+
+            // Decrypt the password for the email relay
+            smtp.Credentials = new NetworkCredential(smtpConfig.Network.UserName, StringCipher.Decrypt(smtpConfig.Network.Password, StringCipher.PassPhrase));
 
             return smtp;
         }
@@ -106,10 +111,10 @@ namespace JoycePrint.Domain.Mail
         /// </summary>                
         /// <returns></returns>
         public bool SendEmail()
-        {
+        {                        
             var smtpClient = CreateSmtpClient(SmtpConfig);
 
-            var message = CreateMailMessage();
+            var message = CreateMailMessage();            
 
             Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {SmtpConfig.Network.UserName} - PASS : {SmtpConfig.Network.Password}");
 
