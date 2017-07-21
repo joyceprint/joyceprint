@@ -1,0 +1,16 @@
+﻿<!-- ######################### Favicons ######################### -->
+
+<!-- Shortcut icon - This file contains the following sizes 16x16, 32x32 and 48x48. -->
+<link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/Content/favicon/favicon.ico")" />
+
+<!-- favicon-16.png - The classic favicon, displayed in the tabs. -->
+<link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" />
+
+<!-- favicon-32.png - For Safari on Mac OS. -->
+<link rel="icon" type="image/png" sizes="32x32" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" />
+
+@Html.Partial("Favicons/Icons_Android")
+
+@Html.Partial("Favicons/Icons_Apple")
+
+@Html.Partial("Favicons/Icons_Windows")

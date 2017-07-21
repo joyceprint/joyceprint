@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head id="headMaster">
+
+    @Html.Partial("Analytics/GoogleTagManager_Head")
+
+    <!-- Set the encoding to UTF-8 -->
+    <meta charset="utf-8" />
+
+    <!-- Tells IE to use it's Edge rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Ensures proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- This line allows sub pages to omit the Header section -->
+    @RenderSection("head", false)
+
+    <!-- Normal browser style sheet links -->
+    @Styles.Render("~/css/docketbookscss")
+
+    @Html.Partial("Favicons/Favicons")
+
+    <!-- Incuding the materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+
+    <meta name="description" content="Get a great price from DocketBooks Ireland on trade docket books and other print trade items">
+    
+</head>
+<body>
+
+    @Html.Partial("Analytics/GoogleTagManager_Body")
+
+    @Html.Partial("_Header")
+    
+    <main>
+        @RenderBody()
+    </main>
+    
+    @Html.Partial("_Footer")
+    
+    <!-- This is the overlay that will be used to hide the screen while the loading icon is active -->
+    <div id="loader-overlay"></div>
+
+    @Scripts.Render("~/js/docketbooksjs")
+
+</body>
+</html>

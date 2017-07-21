@@ -1,0 +1,48 @@
+﻿@{
+    var hideNav = TempData["HideNavMenuOnError"] == null ? false : (bool)TempData["HideNavMenuOnError"];
+}
+<div class="navbar-fixed">
+    <nav data-test-nav>
+        <div class="nav-wrapper">
+            @* ReSharper disable once Html.IdNotResolved *@
+            <a href="#!" class="brand-logo cursor-default">
+                <img src="~/Content/images/db-logo-rbg.png" id="logo" alt="Docket Books Logo" data-test-nav-logo />
+            </a>
+
+            @* ReSharper disable once Html.IdNotResolved *@
+            <a href="#!" data-activates="nav-mobile" class="button-collapse" data-test-side-nav-menu>
+                <i class="material-icons primary-text">menu</i>
+            </a>
+
+            @if (!hideNav)
+            {
+                <ul id="nav" class="right hide-on-med-and-down">
+                    <li name="liHome">
+                        <a href="#home" data-test-nav-home class="gtm-menu">Home</a>
+                    </li>                                        
+                    <li name="liQuote">
+                        <a href="#quote" data-test-nav-quote class="gtm-menu">Get A Quote</a>
+                    </li>
+                    <li name="liMainSite">
+                        <a href="http://joyceprint.ie" data-test-nav-aboutus class="gtm-menu">Main Site</a>
+                    </li>
+                </ul>
+            }
+        </div>
+    </nav>
+</div>
+@if (!hideNav)
+{
+    <!-- This needs to be outside the navbar-fixed container or the z-indexes will get screwed up -->
+    <ul id="nav-mobile" class="side-nav">
+        <li name="liHome">
+            <a href="#home" data-test-side-nav-home class="gtm-menu">Home</a>
+        </li>
+        <li name="liQuote">
+            <a href="#quote" data-test-side-nav-quote class="gtm-menu">Get A Quote</a>
+        </li>
+        <li name="liMainSite">
+            <a href="http://joyceprint.ie" data-test-side-nav-aboutus class="gtm-menu">Main Site</a>
+        </li>        
+    </ul>
+}

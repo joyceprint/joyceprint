@@ -1,0 +1,238 @@
+﻿/****************************************************************************************
+ * Materialize Class Extensions
+ * --------------------------------------------------
+ *
+ * Classes required that materialize does not have by default
+ *
+ * Classes required for overriding materialize styles that are not accessable 
+ * using the site customizations
+****************************************************************************************/
+
+/* Align Extensions ********************************************************************/
+.justify-align {
+    text-align: justify;
+    /* IE9 - https://msdn.microsoft.com/en-us/library/ms531172(v=vs.85).aspx 
+        Solves the issue of massive gaps between the words
+    */
+    text-justify: distribute;
+}
+
+.word-space--2px {
+    word-spacing: -2px;
+}
+
+.word-space--1px {
+    word-spacing: -1px;
+}
+
+/* Button Extensions *******************************************************************/
+.btn-round {
+    border-radius: 15px 15px;
+}
+
+/* Container Extensions ****************************************************************/
+.container-aboutus {
+    margin-left: 14%;   
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
+    .container {
+        width: 80%;
+    }
+
+     .container-aboutus {
+        margin-left: 9%;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+
+     .container-aboutus {
+         margin-left: 4%;
+    }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1024px) {
+    .container {
+        width: 95%;
+    }    
+
+    .container-aboutus {
+        margin-left: 1%
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+    .container-aboutus {
+        width: 85%;
+        margin: 0 auto;
+        max-width: 1280px;
+    }
+}
+
+@media only screen and (min-width: 1px) and (max-width: 600px) {
+    .container-aboutus {
+        width: 90%;
+        margin: 0 auto;
+        max-width: 1280px;
+    }
+}
+
+/* Font Extensions *********************************************************************/
+@media only screen and (max-width: 400px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/* Input Extensions ********************************************************************/
+.border-side {
+    border-left: 1px solid @color-grey-lighter !important;
+    border-right: 1px solid @color-grey-lighter !important;
+}
+
+/* Row Extensions **********************************************************************/
+.row.eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.eq-height > [class*='col'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.row.add-pad-top {
+    padding-top: 60px;
+}
+
+.row.add-pad-bot {
+    padding-bottom: 60px;
+}
+
+.row.add-pad-bot-30 {
+    padding-bottom: 30px;
+}
+
+.row.no-mar-bot {
+    margin-bottom: 0px;
+}
+
+.row .col.add-pad-bot {
+    padding-bottom: 20px;
+}
+
+.row .col.no-pad-side {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.row .col.no-pad-left {
+    padding-left: 0px;
+}
+
+.row .col.no-pad-right {
+    padding-right: 0px;
+}
+
+//change to half-mar-bot
+.row.half-mar {
+    margin-bottom: 10px;
+}
+
+/*
+.row.eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.eq-height > [class*='col'] {
+    display: flex;
+    flex-direction: column;
+}
+*/
+
+/*.row.eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.eq-height > [class*='col'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}*/
+
+/* Show-On Extensions ******************************************************************/
+@media only screen and (max-width: 330px) {
+    .show-on-330px {
+        display: block !important;
+    }
+}
+
+@media only screen and (min-width: 331px) {
+    .show-on-330px {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .show-on-700px {
+        display: block !important;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    .show-on-700px {
+        display: none !important;
+    }
+}
+
+
+/* Space Extensions ********************************************************************/
+.space-right {
+    margin-right: 15px;
+}
+
+.space-text::before {
+    content: '\00a0 ';
+}
+
+.space-bot {
+    margin-bottom: 15px;
+}
+
+/* Toast Styles Extensions *************************************************************/
+.toast {
+    background-color: @color-danger-dark;
+}
+
+/* Tooltip Extensions ******************************************************************/
+.material-tooltip {
+    .text-700;
+}
+
+.backdrop {
+    .primary;
+}
+
+/* Transform Extensions ****************************************************************/
+.tstop-uppercase {
+    text-transform: none;
+}
