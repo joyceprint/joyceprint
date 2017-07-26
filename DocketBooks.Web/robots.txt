@@ -3,7 +3,7 @@ user-agent: *
  
 # Tell all robots not to index the following action method routes
 disallow: /home
-disallow: /quote
+disallow: /services
 
 disallow: /error
 disallow: /exception

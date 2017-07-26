@@ -122,12 +122,12 @@ var jLib = (function (parent, $) {
 
             $("#nav-mobile [name=liHome]").addClass("active");
             $("#nav-mobile [name=liHome] a").addClass("active-text");
-        } else if (id === "quote") {
-            $("#nav [name=liQuote]").addClass("active");
-            $("#nav [name=liQuote] a").addClass("active-text");
+        } else if (id === "services") {
+            $("#nav [name=liContactUs]").addClass("active");
+            $("#nav [name=liContactUs] a").addClass("active-text");
 
-            $("#nav-mobile [name=liQuote]").addClass("active");
-            $("#nav-mobile [name=liQuote] a").addClass("active-text");
+            $("#nav-mobile [name=liContactUs]").addClass("active");
+            $("#nav-mobile [name=liContactUs] a").addClass("active-text");
         } 
     }
 

@@ -175,6 +175,7 @@
     <Content Include="Content\fonts\open-sans\Regular\OpenSans-Regular.svg" />
     <Content Include="Content\fonts\open-sans\SemiboldItalic\OpenSans-SemiboldItalic.svg" />
     <Content Include="Content\fonts\open-sans\Semibold\OpenSans-Semibold.svg" />
+    <Content Include="Content\images\services.jpg" />
     <Content Include="Content\images\db-logo-bw.png" />
     <Content Include="Content\images\db-logo-rbg.png" />
     <Content Include="Content\images\Docket Books Ireland Logo [Master].png" />
@@ -199,6 +200,7 @@
     <Content Include="Content\css\docketbooks\views\layout.less" />
     <Content Include="Content\css\docketbooks\views\nav.less" />
     <Content Include="Content\css\docketbooks\views\home.less" />
+    <Content Include="Content\css\docketbooks\views\services.less" />
     <None Include="Properties\PublishProfiles\DocketBooks [Release].pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\docketbooks\docketbooks.js" />
@@ -232,7 +234,7 @@
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\QuoteController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\SinglePageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -330,7 +332,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Quote\Index.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
