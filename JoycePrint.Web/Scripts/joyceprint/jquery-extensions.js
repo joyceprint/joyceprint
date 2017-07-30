@@ -76,3 +76,29 @@ $.fn.isInViewport = function () {
 
     return elementBottom > viewportTop && elementTop < viewportBottom;
 };
+
+/**************************************************************************************************
+ * jQuery Extension - Clear Validation
+ *
+ * The resetValidation function doesn't work so this is it's replacement 
+ * This function works with MVC ValidationFor Html Helpers
+ * 
+ * 
+ * Call using $("#<FORM ID>").clearValidation();
+ * 
+ * NOTE: This is not in use as materialize is used on the site, this is here as a reference
+ *************************************************************************************************/
+$.fn.clearValidation = function () {
+
+    //Internal $.validator is exposed through $(form).validate()
+    var validator = $(this).validate();
+
+    //Iterate through named elements inside of the form, and mark them as error free
+    $("[name]", this).each(function () {
+        validator.successList.push(this);//mark as error free
+        validator.showErrors();//remove error messages if present
+    });
+
+    validator.resetForm();//remove error class on name elements and clear history
+    validator.reset();//remove all error and success data
+}
