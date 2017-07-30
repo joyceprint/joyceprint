@@ -57,7 +57,7 @@ var jLib = (function (parent, $) {
         var validRecaptcha = false;
 
         $.ajax({
-            url: "/security/recaptcha",
+            url: "/security/processrecaptcha",
             method: "POST",
             cache: false,
             data: {
