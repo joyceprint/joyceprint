@@ -222,7 +222,6 @@
     <Content Include="Content\images\aboutus.jpg" />
     <Content Include="Content\images\homepage-21.jpg" />
     <Content Include="Content\images\homepage.jpg" />
-    <Content Include="Content\images\jp-logo-bw.png" />
     <Content Include="Content\images\jp-logo-rbg.png" />
     <Content Include="Content\images\services-stationery.jpg" />
     <Content Include="Content\images\services-docketbooks.jpg" />
