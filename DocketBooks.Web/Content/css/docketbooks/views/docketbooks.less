@@ -1,5 +1,5 @@
 ﻿/****************************************************************************************
- * Services
+ * Services - DocketBooks
  * --------------------------------------------------
  * 
  * This file contains the styles used on the services view
@@ -22,19 +22,33 @@
     .section-header;
 }
 
-#services-parallax-container.parallax-container {
-    height: 630px;
+#services-docketbooks-container {
+    height: 800px;
     z-index: 2;
 }
 
-#ourServices p {
-    .helvetica-light;
+#docketbooks-info span {
+    .green-text;
+    .text-700;
+    
+    font-size: 18px;
 }
 
-#ourServices a {
+#docketbooks-info span:last-child:hover {
+    .active-text;    
+}
+
+#docketbooks-info p {
+    .helvetica-light;
+    .justify-align;    
+
+    margin-top: 0px;
+}
+
+#docketbooks-info a {
     .regular-text;
 }
 
-#ourServices a:hover {
-    .active-text;
+#docketbooks-info a:hover {
+    .green-text;
 }
