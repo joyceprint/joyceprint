@@ -1,0 +1,598 @@
+﻿/**************************************************************************************
+ * DocketBooks Styles
+ * --------------------------------------------------
+ *
+ * This file all required less files for the application
+**************************************************************************************/
+/* Font Imports ******************************************************/
+
+/**************************************************************************************
+ * Avenir Font
+ * --------------------------------------------------
+ * 
+ * This file contains the avenir font imports
+ *
+ * .eot         :   IE9+ Compat Modes
+ * .eot?#iefix  :   IE6 - IE8
+ * .woff        :   Modern Browsers
+ * .woff2       :   Super Modern Browsers
+ * .ttf         :   Safari, Andriod, iOS
+ * .svg         :   Legacy iOS
+ * 
+**************************************************************************************/
+/* Light *************************************************************/
+
+@font-face {
+  font-family: 'Avenir Light';
+  src: url('/Content/fonts/avenir/Light/Avenir-Light.eot');
+  src: url('/Content/fonts/avenir/Light/Avenir-Light.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/avenir/Light/Avenir-Light.woff') format('woff'), url('/Content/fonts/avenir/Light/Avenir-Light.woff2') format('woff2'), url('/Content/fonts/avenir/Light/Avenir-Light.ttf') format('truetype'), url('/Content/fonts/avenir/Light/Avenir-Light.svg#Avenir-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+/* Book **************************************************************/
+
+@font-face {
+  font-family: 'Avenir Book';
+  src: url('/Content/fonts/avenir/Book/Avenir-Book.eot');
+  src: url('/Content/fonts/avenir/Book/Avenir-Book.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/avenir/Book/Avenir-Book.woff') format('woff'), url('/Content/fonts/avenir/Book/Avenir-Book.woff2') format('woff2'), url('/Content/fonts/avenir/Book/Avenir-Book.ttf') format('truetype'), url('/Content/fonts/avenir/Book/Avenir-Book.svg#Avenir-Book') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Heavy *************************************************************/
+
+@font-face {
+  font-family: 'Avenir Heavy';
+  src: url('/Content/fonts/avenir/Heavy/Avenir-Heavy.eot');
+  src: url('/Content/fonts/avenir/Heavy/Avenir-Heavy.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/avenir/Heavy/Avenir-Heavy.woff') format('woff'), url('/Content/fonts/avenir/Heavy/Avenir-Heavy.woff2') format('woff2'), url('/Content/fonts/avenir/Heavy/Avenir-Heavy.ttf') format('truetype'), url('/Content/fonts/avenir/Heavy/Avenir-Heavy.svg#Avenir-Heavy') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+/**************************************************************************************
+ * Open Sans Font
+ * --------------------------------------------------
+ * Open Sans @font-face kit
+ *
+ * This file contains the avenir font imports
+ *
+ * .eot         :   IE9+ Compat Modes
+ * .eot?#iefix  :   IE6 - IE8
+ * .woff        :   Modern Browsers
+ * .woff2       :   Super Modern Browsers
+ * .ttf         :   Safari, Andriod, iOS
+ * .svg         :   Legacy iOS
+ * 
+**************************************************************************************/
+/* BEGIN Light */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Light/OpenSans-Light.eot');
+  src: url('/Content/fonts/open-sans/Light/OpenSans-Light.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Light/OpenSans-Light.woff') format('woff'), url('/Content/fonts/open-sans/Light/OpenSans-Light.ttf') format('truetype'), url('/Content/fonts/open-sans/Light/OpenSans-Light.svg#OpenSansLight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+/* END Light */
+
+/* BEGIN Light Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.eot');
+  src: url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.woff') format('woff'), url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.ttf') format('truetype'), url('/Content/fonts/open-sans/LightItalic/OpenSans-LightItalic.svg#OpenSansLightItalic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+}
+/* END Light Italic */
+
+/* BEGIN Regular */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Regular/OpenSans-Regular.eot');
+  src: url('/Content/fonts/open-sans/Regular/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Regular/OpenSans-Regular.woff') format('woff'), url('/Content/fonts/open-sans/Regular/OpenSans-Regular.ttf') format('truetype'), url('/Content/fonts/open-sans/Regular/OpenSans-Regular.svg#OpenSansRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* END Regular */
+
+/* BEGIN Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Italic/OpenSans-Italic.eot');
+  src: url('/Content/fonts/open-sans/Italic/OpenSans-Italic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Italic/OpenSans-Italic.woff') format('woff'), url('/Content/fonts/open-sans/Italic/OpenSans-Italic.ttf') format('truetype'), url('/Content/fonts/open-sans/Italic/OpenSans-Italic.svg#OpenSansItalic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+/* END Italic */
+
+/* BEGIN Semibold */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.eot');
+  src: url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.woff') format('woff'), url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.ttf') format('truetype'), url('/Content/fonts/open-sans/Semibold/OpenSans-Semibold.svg#OpenSansSemibold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+/* END Semibold */
+
+/* BEGIN Semibold Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.eot');
+  src: url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.woff') format('woff'), url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.ttf') format('truetype'), url('/Content/fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.svg#OpenSansSemiboldItalic') format('svg');
+  font-weight: 600;
+  font-style: italic;
+}
+/* END Semibold Italic */
+
+/* BEGIN Bold */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/Bold/OpenSans-Bold.eot');
+  src: url('/Content/fonts/open-sans/Bold/OpenSans-Bold.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/Bold/OpenSans-Bold.woff') format('woff'), url('/Content/fonts/open-sans/Bold/OpenSans-Bold.ttf') format('truetype'), url('/Content/fonts/open-sans/Bold/OpenSans-Bold.svg#OpenSansBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+/* END Bold */
+
+/* BEGIN Bold Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.eot');
+  src: url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.woff') format('woff'), url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.ttf') format('truetype'), url('/Content/fonts/open-sans/BoldItalic/OpenSans-BoldItalic.svg#OpenSansBoldItalic') format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
+/* END Bold Italic */
+
+/* BEGIN Extrabold */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.eot');
+  src: url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.woff') format('woff'), url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.ttf') format('truetype'), url('/Content/fonts/open-sans/ExtraBold/OpenSans-ExtraBold.svg#OpenSansExtrabold') format('svg');
+  font-weight: 800;
+  font-style: normal;
+}
+/* END Extrabold */
+
+/* BEGIN Extrabold Italic */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.eot');
+  src: url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.woff') format('woff'), url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.ttf') format('truetype'), url('/Content/fonts/open-sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.svg#OpenSansExtraboldItalic') format('svg');
+  font-weight: 800;
+  font-style: italic;
+}
+/* END Extrabold Italic */
+
+/**************************************************************************************
+ * Helvetica Light Font
+ * --------------------------------------------------
+ * 
+ * This file contains the avenir font imports
+ *
+ * .eot         :   IE9+ Compat Modes
+ * .eot?#iefix  :   IE6 - IE8
+ * .woff        :   Modern Browsers
+ * .woff2       :   Super Modern Browsers
+ * .ttf         :   Safari, Andriod, iOS
+ * .svg         :   Legacy iOS
+ * 
+**************************************************************************************/
+/* Light *************************************************************/
+
+@font-face {
+  font-family: 'Helvetica Light';
+  src: url('/Content/fonts/helvetica-light/Helvetica-Light.eot');
+  src: url('/Content/fonts/helvetica-light/Helvetica-Light.eot?#iefix') format('embedded-opentype'), url('/Content/fonts/helvetica-light/Helvetica-Light.woff') format('woff'), url('/Content/fonts/helvetica-light/Helvetica-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+/* Base Imports ******************************************************/
+
+/****************************************************************************************
+ * Variables
+ * --------------------------------------------------
+ * 
+ * This file contains the variables used throughout the other less files
+****************************************************************************************/
+/****************************************************************************************
+ * Color
+ * --------------------------------------------------
+ *
+ * This file contains styles that apply color
+****************************************************************************************/
+
+/* Background Color Extensions *********************************************************/
+
+.primary {
+  background-color: #1d4a5d;
+}
+.warning {
+  background-color: #f89c28;
+}
+.success {
+  background-color: #97c23c;
+}
+.danger {
+  background-color: #d9534f;
+}
+.light-grey {
+  background-color: #f7f7f7;
+}
+.white {
+  background-color: white;
+}
+.pink {
+  background-color: #ed1566;
+}
+/****************************************************************************************
+ * Fonts
+ * --------------------------------------------------
+ * 
+ * This file contains font imports required for the site
+ * This file contains the font size and color classes for the site
+****************************************************************************************/
+
+/* Font Extension Classes **************************************************************/
+
+html {
+  font-family: "Avenir Light";
+}
+nav {
+  font-family: "Avenir Light";
+}
+.helvetica-light {
+  font-family: "Helvetica Light";
+  font-weight: 300;
+}
+/* Font Color Extensions ***************************************************************/
+
+.active-text {
+  color: #ed1566;
+}
+.primary-text {
+  color: #1d4a5d;
+}
+.warning-text {
+  color: #f89c28;
+}
+.success-text {
+  color: #97c23c;
+}
+.danger-text {
+  color: #d9534f;
+}
+.regular-text {
+  color: #333333;
+}
+.white-text {
+  color: white;
+}
+.green-text {
+  color: #71b03e;
+}
+/* Font Weight Extensions **************************************************************/
+
+.text-500 {
+  font-weight: 500;
+}
+.text-600 {
+  font-weight: 600;
+}
+.text-700 {
+  font-weight: 700;
+}
+.material-icons.text-700 {
+  font-weight: 700 !important;
+}
+.text-900 {
+  font-weight: 900;
+}
+/****************************************************************************************
+ * HTML Tag Style Extensions
+ * --------------------------------------------------
+ *
+ * This file contains styles that are applied directly to HTML tags
+****************************************************************************************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+address {
+  font-style: normal;
+}
+
+/****************************************************************************************
+ * Common
+ * --------------------------------------------------
+ *
+ * This file contains common styles that are shared throughout the site
+****************************************************************************************/
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-default {
+  cursor: default;
+}
+.section-header {
+  font-weight: 600;
+  font-family: "Avenir Heavy";
+  color: #c6c6c6;
+  letter-spacing: 0.2rem;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  margin-top: 0px;
+}
+/****************************************************************************************
+ * Materialize Class Extensions
+ * --------------------------------------------------
+ *
+ * Classes required that materialize does not have by default
+ *
+ * Classes required for overriding materialize styles that are not accessable 
+ * using the site customizations
+****************************************************************************************/
+
+/* Align Extensions ********************************************************************/
+
+.justify-align {
+  text-align: justify;
+  /* IE9 - https://msdn.microsoft.com/en-us/library/ms531172(v=vs.85).aspx 
+        Solves the issue of massive gaps between the words
+    */
+  text-justify: distribute;
+}
+.word-space--2px {
+  word-spacing: -2px;
+}
+.word-space--1px {
+  word-spacing: -1px;
+}
+/* Button Extensions *******************************************************************/
+
+.btn-round {
+  border-radius: 15px 15px;
+}
+
+/* Font Extensions *********************************************************************/
+
+html {
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 13px;
+  }
+}
+/* Input Extensions ********************************************************************/
+
+.border-side {
+  border-left: 1px solid #e0e0e0 !important;
+  border-right: 1px solid #e0e0e0 !important;
+}
+/* Row Extensions **********************************************************************/
+
+.row.eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.eq-height > [class*='col'] {
+  display: flex;
+  flex-direction: column;
+}
+.row.add-pad-top {
+  padding-top: 60px;
+}
+.row.add-pad-bot {
+  padding-bottom: 60px;
+}
+.row.add-pad-bot-30 {
+  padding-bottom: 30px;
+}
+.row.no-mar-bot {
+  margin-bottom: 0px;
+}
+.row .col.add-pad-bot {
+  padding-bottom: 20px;
+}
+.row .col.no-pad-side {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.row .col.no-pad-left {
+  padding-left: 0px;
+}
+.row .col.no-pad-right {
+  padding-right: 0px;
+}
+.row.half-mar {
+  margin-bottom: 10px;
+}
+
+/* Show-On Extensions ******************************************************************/
+
+@media only screen and (max-width: 330px) {
+  .show-on-330px {
+    display: block !important;
+  }
+}
+@media only screen and (min-width: 331px) {
+  .show-on-330px {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .show-on-700px {
+    display: block !important;
+  }
+}
+@media only screen and (min-width: 701px) {
+  .show-on-700px {
+    display: none !important;
+  }
+}
+/* Space Extensions ********************************************************************/
+
+.space-right {
+  margin-right: 15px;
+}
+.space-text::before {
+  content: '\00a0 ';
+}
+.space-bot {
+  margin-bottom: 15px;
+}
+/* Toast Styles Extensions *************************************************************/
+
+.toast {
+  background-color: #a94442;
+}
+/* Tooltip Extensions ******************************************************************/
+
+.material-tooltip {
+  font-weight: 700;
+}
+.backdrop {
+  background-color: #1d4a5d;
+}
+/* Transform Extensions ****************************************************************/
+
+.tstop-uppercase {
+  text-transform: none;
+}
+/****************************************************************************************
+ * Error
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used for the error views and static pages
+****************************************************************************************/
+
+.error-header {
+  font-weight: 600;
+  font-family: "Avenir Heavy";
+  color: #c6c6c6;
+  letter-spacing: 0.2rem;
+  padding-top: 150px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.error-body {
+  font-weight: 600;
+  color: #c6c6c6;
+  font-family: "Avenir Book";
+  padding-bottom: 50px;
+}
+
+.btn-error {
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  border-radius: 15px 15px;
+}
+
+/* View Imports ******************************************************/
+
+/* Controller Index view style sheets have the same name as the controller */
+
+/****************************************************************************************
+ * Layout View
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used on the layout view
+****************************************************************************************/
+
+/* Sticky Footer Classes ***************************************************************/
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  /* Basic Font Color Extension ******************************************************/
+
+  color: #333333;
+}
+main {
+  flex: 1 0 auto;
+}
+footer.page-footer {
+  background-color: white;
+  margin-top: 0px;
+}
+/****************************************************************************************
+ * Navigation
+ * --------------------------------------------------
+ * 
+ * This file contains the styles for the navigation bar
+****************************************************************************************/
+
+/* Nav Extensions **********************************************************************/
+
+.navbar-fixed {
+  height: 110px;
+}
+nav {
+  background-color: white;
+  height: 110px;
+  line-height: 110px;
+}
+nav img {
+  height: 110px;
+}
+nav ul a {
+  color: #1e2d3b;
+  font-size: 1.1rem;
+}
+nav ul a:hover,
+ul#nav-mobile a:hover {
+  background-color: transparent;
+  color: #ed1566;
+}
+nav ul li.active,
+ul#nav-mobile li.active {
+  background-color: transparent;
+}
+nav ul a.active-text,
+ul#nav-mobile a.active-text {
+  color: #ed1566;
+}
+/* Side Nav Extensions *****************************************************************/
+
+.button-collapse {
+  cursor: pointer;
+  margin-top: 27.5px !important;
+}
+ul#nav-mobile a {
+  font-size: 1.3rem;
+}
+/* Custom Styles ***********************************************************************/
+
+#logo {
+  padding-left: 5vw;
+}
+#nav {
+  padding-right: 5vw;
+}
+#nav li {
+  padding-left: 1.9vw;
+  padding-right: 1.9vw;
+}

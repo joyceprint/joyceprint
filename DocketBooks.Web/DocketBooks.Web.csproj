@@ -200,6 +200,7 @@
     <Content Include="Content\css\docketbooks\views\home.less" />
     <Content Include="Content\css\docketbooks\views\services.less" />
     <Content Include="Content\css\docketbooks\views\docketbooks.less" />
+    <Content Include="Content\css\docketbooks-error.css" />
     <None Include="Properties\PublishProfiles\DocketBooks [Release].pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\docketbooks\docketbooks.js" />
