@@ -61,7 +61,7 @@ var jLib = (function (parent, $) {
 
             displayValidationError();
         }
-        else if (!jLib.recaptcha.checkRecaptcha()) {
+        else if ($("#" + jLib.recaptcha.recaptchaId).length > 0 && !jLib.recaptcha.checkRecaptcha()) {
             // Cancel form submit if recaptcha check fails
             if (event.preventDefault) event.preventDefault();
 

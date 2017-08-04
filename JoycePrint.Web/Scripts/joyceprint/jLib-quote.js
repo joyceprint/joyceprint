@@ -35,8 +35,11 @@ var jLib = (function (parent, $) {
      *************************************************************************************************/
     subModule.setupClearButton = function () {
         $("#frm-quote button[type='reset']").click(function (e) {
-            jLib.recaptcha.resetRecaptcha();
-        
+
+            if ($("#" + jLib.recaptcha.recaptchaId).length > 0) {
+                jLib.recaptcha.resetRecaptcha();
+            }
+            
             var listOfInputs = ["Contact_Company", "Contact_Name", "Contact_Email", "Contact_Phone", "Enquiry_Message"];
 
             jLib.validation.resetValidation("frm-quote", listOfInputs);

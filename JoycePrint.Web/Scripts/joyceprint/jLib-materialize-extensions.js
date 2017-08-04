@@ -95,7 +95,11 @@ var jLib = (function (parent, $) {
      *************************************************************************************************/
     function initMaterializeModal() {
         $(".modal").modal({
-            complete: function () { jLib.recaptcha.resetRecaptcha(); }
+            complete: function() {
+                if ($("#" + jLib.recaptcha.recaptchaId).length > 0) {
+                    jLib.recaptcha.resetRecaptcha();
+                }
+            }
         });
     }
 
