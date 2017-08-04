@@ -440,6 +440,8 @@
     <Content Include="Views\Shared\Error\UploadSize.cshtml" />
     <Content Include="Views\Shared\Partial\GoogleTagManager_Head.cshtml" />
     <Content Include="Views\Shared\Partial\GoogleTagManager_Body.cshtml" />
+    <Content Include="Views\Quote\Partial\RecaptchaSubmit.cshtml" />
+    <Content Include="Views\Quote\Partial\Submit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
