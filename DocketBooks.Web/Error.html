@@ -1,1 +1,230 @@
-﻿<h1>ERROR</h1>
+﻿<!DOCTYPE html>
+
+<html>
+
+<head id="headMaster">
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TBL45G5');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Set the encoding to UTF-8 -->
+    <meta charset="utf-8" />
+
+    <!-- Tells IE to use it's Edge rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Ensures proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Normal browser style sheet links -->
+    <link href="/Content/css/materialize.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/css/docketbooks.css" rel="stylesheet" type="text/css" />
+
+    <!-- ######################### Favicons ######################### -->
+    <!-- Shortcut icon - This file contains the following sizes 16x16, 32x32 and 48x48. -->
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/favicon/favicon.ico" />
+
+    <!-- favicon-16.png - The classic favicon, displayed in the tabs. -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/favicon/favicon-16x16.png" />
+
+    <!-- favicon-32.png - For Safari on Mac OS. -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/favicon/favicon-32x32.png" />
+
+    <!-- ######################### Android / Chrome ######################### -->
+    <!-- favicon-96.png - For Google TV https://developer.android.com/training/tv/index.html#favicons. -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/Content/favicon/google/android-chrome-96x96.png" />
+
+    <!-- Icon for the Chrome Web Store, only used if Genuine Chrome Application -->
+    <link rel="icon" type="image/png" sizes="128x128" href="/Content/favicon/google/android-chrome-128x128.png" />
+
+    <!-- favicon-192.png - For Android Chrome M36 to M38 this HTML is used. M39+ uses the manifest.json file. -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/Content/favicon/google/android-chrome-192x192.png" />
+
+    <!-- mobile-web-app-capable - Run Android/Chrome version M31 to M38 in standalone mode, hiding the browser chrome. -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!--
+    theme-color - The colour of the toolbar in Chrome M39+
+    http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+    -->
+    <meta name="theme-color" content="#FFFFFF">
+
+    <!--
+    manifest-json - The location of the browser configuration file.
+    It contains locations of icon files, name of the application and default device screen orientation. Note that the name field is mandatory.
+    https://developer.chrome.com/multidevice/android/installtohomescreen.
+    -->
+    <link rel="manifest" href="/Content/favicon/google/manifest.json">
+
+    <!-- ######################### Apple Touch Icons ######################### -->
+    <!-- https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Introduction.html#//apple_ref/doc/uid/30001261-SW1 -->
+    <!-- apple-touch-icon-57.png - Android Stock Browser and non-Retina iPhone and iPod Touch -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/Content/favicon/apple/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/Content/favicon/apple/apple-touch-icon-57x57-precomposed.png" />
+
+    <!-- apple-touch-icon-114.png - iPhone (with 2× display) iOS = 6 -->
+    <link rel="apple-touch-icon" sizes="114x114" href="/Content/favicon/apple/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Content/favicon/apple/apple-touch-icon-114x114-precomposed.png" />
+
+    <!-- apple-touch-icon-72.png - iPad mini and the first- and second-generation iPad (1× display) on iOS = 6 -->
+    <link rel="apple-touch-icon" sizes="72x72" href="/Content/favicon/apple/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Content/favicon/apple/apple-touch-icon-72x72-precomposed.png" />
+
+    <!-- apple-touch-icon-144.png - iPad (with 2× display) iOS = 6 -->
+    <link rel="apple-touch-icon" sizes="144x144" href="/Content/favicon/apple/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Content/favicon/apple/apple-touch-icon-144x144-precomposed.png" />
+
+    <!-- apple-touch-icon-60.png - Same as apple-touch-icon-57x57.png, for non-retina iPhone with iOS7. -->
+    <link rel="apple-touch-icon" sizes="60x60" href="/Content/favicon/apple/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/Content/favicon/apple/apple-touch-icon-60x60-precomposed.png" />
+
+    <!-- apple-touch-icon-120.png - iPhone (with 2× and 3 display) iOS = 7 -->
+    <link rel="apple-touch-icon" sizes="120x120" href="/Content/favicon/apple/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/Content/favicon/apple/apple-touch-icon-120x120-precomposed.png" />
+
+    <!-- apple-touch-icon-76.png - iPad mini and the first and second-generation iPad (1× display) on iOS = 7 -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/Content/favicon/apple/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/Content/favicon/apple/apple-touch-icon-76x76-precomposed.png" />
+
+    <!-- apple-touch-icon-152.png - iPad 3+ (with 2× display) iOS = 7 -->
+    <link rel="apple-touch-icon" sizes="152x152" href="/Content/favicon/apple/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/Content/favicon/apple/apple-touch-icon-152x152-precomposed.png" />
+
+    <!-- apple-touch-icon-180.png - iPad and iPad mini (with 2× display) iOS = 8 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/favicon/apple/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/Content/favicon/apple/apple-touch-icon-180x180-precomposed.png" />
+
+    <!-- The color used here is the primary color used on the site - See variables.less -->
+    <link rel="mask-icon" href="/Content/favicon/apple/safari-pinned-tab.svg" color="#1d4a5d">
+
+    <!-- apple-mobile-web-app-title - The name of the application if pinned to the IOS start screen. -->
+    <meta name="apple-mobile-web-app-title" content="DocketBooks">
+
+    <!--
+    apple-mobile-web-app-capable - Hide the browsers user interface on IOS, when the app is run in 'standalone' mode.
+    Any links to other pages that are clicked whilst your app is in standalone mode will launch the full Safari browser.
+    -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--
+    apple-mobile-web-app-status-bar-style - default/black/black-translucent Styles the IOS status bar.
+    Using black-translucent makes it transparent and overlays it on top of your site, so make sure you have enough margin.
+    -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- ######################### Apple Startup Images ######################### -->
+    <!-- These splash screen images are only shown if apple-mobile-web-app-capable is set to true. https://gist.github.com/tfausak/2222823 -->
+    <!-- apple-touch-startup-image-1536x2008.png - iOS 6 & 7 iPad (retina, portrait) -->
+    <!-- apple-touch-startup-image-1496x2048.png - iOS 6 & 7 iPad (retina, landscape) -->
+    <!-- apple-touch-startup-image-768x1004.png - iOS 6 iPad (portrait) -->
+    <!-- apple-touch-startup-image-748x1024.png - iOS 6 iPad (landscape) -->
+    <!-- apple-touch-startup-image-640x1096.png - iOS 6 & 7 iPhone 5 -->
+    <!-- apple-touch-startup-image-640x920.png - iOS 6 & 7 iPhone (retina) -->
+    <!-- apple-touch-startup-image-320x460.png - iOS 6 iPhone -->
+    <!-- ######################### Windows 7 Taskbar ######################### -->
+    <!--
+    This depends on your site, so no code here.
+    See http://www.buildmypinnedsite.com/windows7
+    -->
+    <!-- ######################### Windows 8 IE10 ######################### -->
+    <!-- msapplication-TileImage - The tile image. -->
+    <meta name="msapplication-TileImage" content="/Content/favicon/windows/mstile-144x144.png" />
+
+    <!-- msapplication-TileColor - The tile colour which shows around your tile image. -->
+    <meta name="msapplication-TileColor" content="#2b5797" />
+
+    <!-- ######################### Windows 8.1 IE11 ######################### -->
+    <!-- application-name - The name of the application if pinned to the start screen. -->
+    <meta name="application-name" content="DocketBooks">
+
+    <!--
+    msapplication-config - The location of the browser configuration file.
+    If you have an RSS feed, go to http://www.buildmypinnedsite.com and regenerate the browserconfig.xml file.
+    You will then have a cool live tile!
+    -->
+    <meta name="msapplication-config" content="/Content/favicon/windows/browserconfig.xml" />
+
+    <!-- Incuding the materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Docket Books Ireland</title>
+
+    <meta name="description" content="Get a great price from DocketBooks Ireland on trade docket books and other print trade items">
+
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBL45G5" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header data-test-form-id="frmHeader">
+        <div class="row no-mar-bot">
+            <div class="navbar-fixed">
+                <nav data-test-nav>
+                    <div class="nav-wrapper">
+                        <a href="#!" class="brand-logo cursor-default">
+                            <img src="/Content/images/db-logo-rbg.png" id="logo" alt="Docket Books Logo" data-test-nav-logo />
+                        </a>
+
+                        <a href="#!" data-activates="nav-mobile" class="button-collapse" data-test-side-nav-menu>
+                            <i class="material-icons primary-text">menu</i>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="error" class="row" data-test-form-id="frmError">
+
+            <div class="col s12">
+                <h1 class="error-header center-align">403 Error</h1>
+
+                <h3 class="error-body center-align">Sorry, it seems you don't have permission to access this.</h3>
+
+                <div class="col s12 center">
+                    <a class="btn-large btn-error waves-effect light-blue" href="/">RETURN TO HOMEPAGE</a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="page-footer" data-test-form-id="frmFooter">
+        <div class="container">
+            <div class="row">
+                <div class="center">
+                    <div class="col s12">
+                        <span data-test-copyright>© 2017 docketbooks.ie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script language="javascript" type="text/javascript" src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/Scripts/materialize.min.js"></script>
+
+</body>
+</html>
