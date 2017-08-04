@@ -346,7 +346,7 @@
     <Content Include="Content\fonts\helvetica-light\Helvetica-Light.woff" />
     <Content Include="Content\css\joyceprint\fonts\helvetica-light.less" />
     <Content Include="Content\css\joyceprint\base\loading.less" />
-    <Content Include="Content\css\joyceprint.css" />
+    <Content Include="Content\css\joyceprint-error.css" />
     <Content Include="Content\css\joyceprint\base\validationSAVED.less" />
     <Content Include="Content\css\joyceprint\base\common.less" />
     <Content Include="Content\css\joyceprint\base\error.less" />
