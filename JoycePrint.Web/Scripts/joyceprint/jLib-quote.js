@@ -27,7 +27,7 @@ var jLib = (function (parent, $) {
     
         subModule.setupClearButton();
 
-        jLib.validation.initValidation("frm-quote");
+        jLib.validation.initValidation("frm-quote");       
     }
 
     /**************************************************************************************************
@@ -85,6 +85,8 @@ var jLib = (function (parent, $) {
 
                                 // Reinitialize the quote view if the entire view is returned from the server with validation errors
                                 jLib.quote.initQuote();
+
+                                jLib.materialize.handleMaterializeForm("frm-quote");
                             }
                         });
                 } else {

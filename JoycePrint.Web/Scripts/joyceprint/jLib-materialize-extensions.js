@@ -29,6 +29,44 @@ var jLib = (function (parent, $) {
         initMobileMenu();
     }
 
+    /**************************************************************************************************
+     * Initialize the materialize form functionality
+     * 
+     * This will handle the forms and move the labels out of the way
+     * It will also run validation on the input elements that have values
+     *************************************************************************************************/
+    subModule.handleMaterializeForm = function (formId) {
+        
+        // Create the validator for the form
+        let validator = ($("#" + formId)).validate();
+
+        $("#" + formId)
+            .find(".input-field:not(.file-field)")
+            .each(function() {
+
+                let input = $(this).find("input, textarea").filter(":visible:first");                                
+
+                if ($(input).val()) {
+                    // Only validate the field if it has a value - this will update the color scheme to green
+                    validator.element(input);
+
+                    $(input).prev().removeClass("orange-text danger-text").addClass("success-text");
+
+                    let label = $(input).next("label");
+
+                    if (!$(label).hasClass("active")) {
+                        $(label).addClass("active");
+                    }                    
+                } else {
+                    let label = $(input).next("label");
+
+                    if ($(label).hasClass("active")) {
+                        $(label).removeClass("active");
+                    }
+                }
+            });
+    }
+
 /**************************************************************************************************
  * PRIVATE METHODS
  *************************************************************************************************/
