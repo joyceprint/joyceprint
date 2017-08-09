@@ -175,7 +175,7 @@
     <Content Include="Content\fonts\open-sans\Regular\OpenSans-Regular.svg" />
     <Content Include="Content\fonts\open-sans\SemiboldItalic\OpenSans-SemiboldItalic.svg" />
     <Content Include="Content\fonts\open-sans\Semibold\OpenSans-Semibold.svg" />
-    <Content Include="Content\images\docketbooks.png" />
+    <Content Include="Content\images\docketbooks.jpg" />
     <Content Include="Content\images\db-logo-rbg.png" />
     <Content Include="Content\images\homepage-21.jpg" />
     <Content Include="Content\images\homepage.jpg" />
