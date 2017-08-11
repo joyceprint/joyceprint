@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace JoycePrint.Domain.Attributes
+namespace Common.MVC.Attributes
 {
     public class FileSizeAttribute : ValidationAttribute
     {

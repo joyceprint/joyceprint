@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace JoycePrint.Domain.Attributes
+namespace Common.MVC.Attributes
 {
     public class FileTypesAttribute : ValidationAttribute
     {

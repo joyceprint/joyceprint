@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Web.Mvc;
-using Common.Analytics.Tracking;
 using Common.Analytics;
+using Common.Analytics.Tracking;
 using Common.Logging;
 using Common.Logging.Enums;
 
-namespace JoycePrint.Domain.Attributes
+namespace Common.MVC.Attributes
 {
     [Obsolete("This functionality has been moved into Google Tag Manager")]
     public class PageAnalysis : ActionFilterAttribute

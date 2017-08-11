@@ -351,13 +351,13 @@
       <Project>{895BDEF1-931E-48BB-B555-4155D79CAB2D}</Project>
       <Name>Common.Logging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.MVC\Common.MVC.csproj">
+      <Project>{a6fda7cc-0a3e-457c-9609-53813c1e4fdb}</Project>
+      <Name>Common.MVC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common.Providers\Common.Providers.csproj">
       <Project>{a3d48ad3-3ed0-4444-a0e4-099a1114d611}</Project>
       <Name>Common.Providers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\JoycePrint.Domain\JoycePrint.Domain.csproj">
-      <Project>{c2c140d1-5e4e-4df3-a199-26cdb5fa530a}</Project>
-      <Name>JoycePrint.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

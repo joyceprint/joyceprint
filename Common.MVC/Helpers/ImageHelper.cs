@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace JoycePrint.Domain.Helpers
+namespace Common.MVC.Helpers
 {
     public static class ImageHelper
     {
