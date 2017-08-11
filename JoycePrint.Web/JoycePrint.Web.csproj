@@ -387,7 +387,6 @@
     <Compile Include="Controllers\QuoteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
-    <Compile Include="Extensions\HtmlDropDown.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
