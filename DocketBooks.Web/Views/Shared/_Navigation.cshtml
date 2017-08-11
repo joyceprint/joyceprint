@@ -6,7 +6,7 @@
         <div class="nav-wrapper">
             @* ReSharper disable once Html.IdNotResolved *@
             <a href="#!" class="brand-logo cursor-default">
-                <img src="~/Content/images/db-logo-rbg.png" id="logo" alt="Docket Books Logo" data-test-nav-logo />
+                @Html.Image(new { src = "/Content/images/db-logo-rbg.png", id = "logo", alt = "Docket Books Logo", data_test_nav_logo = "" })
             </a>
 
             @* ReSharper disable once Html.IdNotResolved *@

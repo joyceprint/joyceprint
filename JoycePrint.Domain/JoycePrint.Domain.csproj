@@ -90,6 +90,7 @@
     <Compile Include="Attributes\ValidateAntiForgeryHeader.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Enums\NotificationType.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Mail\IEmailConverter.cs" />
     <Compile Include="Mail\IEmail.cs" />
     <Compile Include="Mail\Email.cs" />
@@ -132,6 +133,7 @@
       <Name>Common.Security</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
