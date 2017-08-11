@@ -112,6 +112,18 @@ html {
     flex-direction: column;
 }
 
+.row.eq-height > [class*='col'].valign-wrapper {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    flex-direction: row;
+}
+
 .row.add-pad-top {
     padding-top: 60px;
 }

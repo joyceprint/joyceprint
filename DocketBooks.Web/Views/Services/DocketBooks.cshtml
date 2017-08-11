@@ -52,11 +52,11 @@
                         </p>
                     </article>                
             </div>
-
-            <div class="col l6 offset-l1 no-pad-right">
-                <div id="services-docketbooks-container" class="hide-on-med-and-down show-on-large">
+            
+            <div class="col l6 offset-l1 no-pad-right valign-wrapper">
+                <div id="services-docketbooks-container" class="hide-on-med-and-down show-on-large valign">
                     <a href="http://joyceprint.ie/#quote" class="cursor-pointer">
-                        <img src="~/Content/images/docketbooks.jpg" alt="Docket Books" class="responsive-img gtm-contact-us-img-link" />
+                        @Html.Image(new { src = "/Content/images/docketbooks.jpg", alt = "Docket Books", @class = "responsive-img gtm-contact-us-img-link" })                        
                     </a>
                 </div>
             </div>
