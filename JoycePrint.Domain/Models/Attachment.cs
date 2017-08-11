@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
-using JoycePrint.Domain.Attributes;
+using Common.MVC.Attributes;
 
 namespace JoycePrint.Domain.Models
 {

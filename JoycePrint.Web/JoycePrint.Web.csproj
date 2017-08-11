@@ -459,6 +459,10 @@
       <Project>{895bdef1-931e-48bb-b555-4155d79cab2d}</Project>
       <Name>Common.Logging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.MVC\Common.MVC.csproj">
+      <Project>{A6FDA7CC-0A3E-457C-9609-53813C1E4FDB}</Project>
+      <Name>Common.MVC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common.Providers\Common.Providers.csproj">
       <Project>{a3d48ad3-3ed0-4444-a0e4-099a1114d611}</Project>
       <Name>Common.Providers</Name>
