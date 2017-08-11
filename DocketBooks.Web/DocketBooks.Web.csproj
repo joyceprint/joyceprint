@@ -198,7 +198,6 @@
     <Content Include="Content\css\docketbooks\views\layout.less" />
     <Content Include="Content\css\docketbooks\views\nav.less" />
     <Content Include="Content\css\docketbooks\views\home.less" />
-    <Content Include="Content\css\docketbooks\views\services.less" />
     <Content Include="Content\css\docketbooks\views\docketbooks.less" />
     <Content Include="Content\css\docketbooks-error.css" />
     <None Include="Properties\PublishProfiles\DocketBooks [Release].pubxml" />
@@ -332,7 +331,6 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Services\DocketBooks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -356,6 +354,10 @@
     <ProjectReference Include="..\Common.Providers\Common.Providers.csproj">
       <Project>{a3d48ad3-3ed0-4444-a0e4-099a1114d611}</Project>
       <Name>Common.Providers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JoycePrint.Domain\JoycePrint.Domain.csproj">
+      <Project>{c2c140d1-5e4e-4df3-a199-26cdb5fa530a}</Project>
+      <Name>JoycePrint.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
