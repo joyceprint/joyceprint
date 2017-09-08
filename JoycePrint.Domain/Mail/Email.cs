@@ -90,7 +90,7 @@ namespace JoycePrint.Domain.Mail
 
             var message = CreateMailMessage();            
 
-            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {Config.SmtpConfig.Network.UserName} - PASS [Encrypted] : {Config.DecryptedEmailPassword}");
+            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host}");
 
             smtpClient.Send(message);
 
