@@ -7,7 +7,7 @@ using Common.Logging.Enums;
 using JoycePrint.Domain.Configuration;
 
 namespace JoycePrint.Domain.Mail
-{    
+{
     public class Email : IEmail
     {
         /// <summary>
@@ -38,7 +38,7 @@ namespace JoycePrint.Domain.Mail
                 Port = Config.SmtpConfig.Network.Port,
                 Credentials = new NetworkCredential(Config.SmtpConfig.Network.UserName, Config.DecryptedEmailPassword),
             };
-            
+
             return smtpClient;
         }
 
@@ -54,11 +54,11 @@ namespace JoycePrint.Domain.Mail
             {
                 Body = Body,
                 Subject = Subject,
-                IsBodyHtml = true                                              
+                IsBodyHtml = true
             };
 
-            foreach (var attachment in Attachments)            
-                message.Attachments.Add(attachment);            
+            foreach (var attachment in Attachments)
+                message.Attachments.Add(attachment);
 
             return message;
         }
@@ -79,18 +79,16 @@ namespace JoycePrint.Domain.Mail
         /// 
         /// </summary>
         public List<Attachment> Attachments { get; set; }
-       
+
         /// <summary>
         /// Send the email message using the smtp configuration
         /// </summary>                
         /// <returns></returns>
         public bool SendEmail()
-        {                        
+        {
             var smtpClient = CreateSmtpClient();
 
-            var message = CreateMailMessage();            
-
-            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host}");
+            var message = CreateMailMessage();
 
             smtpClient.Send(message);
 
