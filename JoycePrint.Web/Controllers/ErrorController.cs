@@ -50,7 +50,7 @@ namespace JoycePrint.Web.Controllers
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>
         /// <returns></returns>        
-        //[AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         [Route("notfound", Name = "NotFound")]
         public ActionResult NotFound()
         {
