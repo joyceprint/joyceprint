@@ -95,6 +95,7 @@ var jLib = (function (parent, $) {
      *************************************************************************************************/
     function initMaterializeModal() {
         $(".modal").modal({
+            dismissible: false, // Modal can be dismissed by clicking outside of the modal [true - yes | false - no]
             complete: function() {
                 if ($("#" + jLib.recaptcha.recaptchaId).length > 0) {
                     jLib.recaptcha.resetRecaptcha();
