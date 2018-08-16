@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Configuration;
 using System.Net.Mail;
 using Common.Logging;
 using Common.Logging.Enums;
-using Common.Security.Ciphers;
+using JoycePrint.Domain.Configuration;
 
 namespace JoycePrint.Domain.Mail
 {
@@ -15,7 +13,7 @@ namespace JoycePrint.Domain.Mail
         /// <summary>
         /// 
         /// </summary>
-        public static string EmailView = "Email";
+        public const string EmailView = "Email";
 
         /// <summary>
         /// 
@@ -32,18 +30,16 @@ namespace JoycePrint.Domain.Mail
         /// Creates the SMTP client
         /// </summary>
         /// <returns></returns>
-        private static SmtpClient CreateSmtpClient(SmtpSection smtpConfig)
+        private static SmtpClient CreateSmtpClient()
         {
-            var smtp = new SmtpClient
+            var smtpClient = new SmtpClient
             {
-                Host = smtpConfig.Network.Host,
-                Port = smtpConfig.Network.Port,                
+                Host = Config.SmtpConfig.Network.Host,
+                Port = Config.SmtpConfig.Network.Port,
+                Credentials = new NetworkCredential(Config.SmtpConfig.Network.UserName, Config.DecryptedEmailPassword),
             };
 
-            // Decrypt the password for the email relay
-            smtp.Credentials = new NetworkCredential(smtpConfig.Network.UserName, StringCipher.Decrypt(smtpConfig.Network.Password, StringCipher.PassPhrase));
-
-            return smtp;
+            return smtpClient;
         }
 
         /// <summary>
@@ -52,17 +48,17 @@ namespace JoycePrint.Domain.Mail
         /// <returns></returns>
         private MailMessage CreateMailMessage()
         {
-            var emailTo = Configuration.Config.QuoteEmail;
+            var emailTo = Config.QuoteEmail;
 
-            var message = new MailMessage(SmtpConfig.From, emailTo)
+            var message = new MailMessage(Config.SmtpConfig.From, emailTo)
             {
                 Body = Body,
                 Subject = Subject,
-                IsBodyHtml = true                                              
+                IsBodyHtml = true
             };
 
-            foreach (var attachment in Attachments)            
-                message.Attachments.Add(attachment);            
+            foreach (var attachment in Attachments)
+                message.Attachments.Add(attachment);
 
             return message;
         }
@@ -85,38 +81,14 @@ namespace JoycePrint.Domain.Mail
         public List<Attachment> Attachments { get; set; }
 
         /// <summary>
-        /// Get the smtp configuration section from the web config file
-        /// </summary>
-        public SmtpSection SmtpConfig
-        {
-            get
-            {
-                SmtpSection smtpConfig = null;
-
-                try
-                {
-                    smtpConfig = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
-                }
-                catch (Exception ex)
-                {
-                    Logger.Instance.Log(MessageLevel.Error, ex.Message);
-                }
-
-                return smtpConfig;
-            }
-        }
-
-        /// <summary>
         /// Send the email message using the smtp configuration
         /// </summary>                
         /// <returns></returns>
         public bool SendEmail()
-        {                        
-            var smtpClient = CreateSmtpClient(SmtpConfig);
+        {
+            var smtpClient = CreateSmtpClient();
 
-            var message = CreateMailMessage();            
-
-            Logger.Instance.Log(MessageLevel.Information, $"FROM : {message.From} - TO : {message.To[0].Address} - HOST : {smtpClient.Host} - USER : {SmtpConfig.Network.UserName} - PASS : {SmtpConfig.Network.Password}");
+            var message = CreateMailMessage();
 
             smtpClient.Send(message);
 

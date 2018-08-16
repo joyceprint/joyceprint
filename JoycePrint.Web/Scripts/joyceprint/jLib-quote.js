@@ -27,7 +27,7 @@ var jLib = (function (parent, $) {
     
         subModule.setupClearButton();
 
-        jLib.validation.initValidation("frm-quote");
+        jLib.validation.initValidation("frm-quote");       
     }
 
     /**************************************************************************************************
@@ -35,8 +35,11 @@ var jLib = (function (parent, $) {
      *************************************************************************************************/
     subModule.setupClearButton = function () {
         $("#frm-quote button[type='reset']").click(function (e) {
-            jLib.recaptcha.resetRecaptcha();
-        
+
+            if ($("#" + jLib.recaptcha.recaptchaId).length > 0) {
+                jLib.recaptcha.resetRecaptcha();
+            }
+            
             var listOfInputs = ["Contact_Company", "Contact_Name", "Contact_Email", "Contact_Phone", "Enquiry_Message"];
 
             jLib.validation.resetValidation("frm-quote", listOfInputs);
@@ -85,6 +88,8 @@ var jLib = (function (parent, $) {
 
                                 // Reinitialize the quote view if the entire view is returned from the server with validation errors
                                 jLib.quote.initQuote();
+
+                                jLib.materialize.handleMaterializeForm("frm-quote");
                             }
                         });
                 } else {

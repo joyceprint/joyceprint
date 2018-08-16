@@ -50,8 +50,13 @@ namespace JoycePrint.Web.Controllers
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>
         /// <returns></returns>        
-        //[AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
-        [Route("notfound", Name = "NotFound")]
+        /// <remarks>
+        /// We cannot use attribute routing here as we want to use this as the catch all action
+        /// If we use both conventional and attribute routing for this, the conventional routing seems to stop working,
+        /// we would need to ensure that our conventional route gets added to the end of the routing table
+        /// </remarks>
+        //[Route("notfound", Name = "NotFound")]
+        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]        
         public ActionResult NotFound()
         {
             // Set this value to hide the navigation menu in the _Navigation view

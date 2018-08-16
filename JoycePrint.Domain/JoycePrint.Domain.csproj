@@ -38,8 +38,8 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PreMailer.Net, Version=1.5.5.0, Culture=neutral, processorArchitecture=MSIL">
@@ -83,8 +83,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\FileSize.cs" />
-    <Compile Include="Attributes\FileType.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Enums\NotificationType.cs" />
     <Compile Include="Mail\IEmailConverter.cs" />
@@ -103,22 +101,29 @@
     <Compile Include="Security\Recaptcha.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common.Logging\Common.Logging.csproj">
       <Project>{895bdef1-931e-48bb-b555-4155d79cab2d}</Project>
       <Name>Common.Logging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.MVC\Common.MVC.csproj">
+      <Project>{a6fda7cc-0a3e-457c-9609-53813c1e4fdb}</Project>
+      <Name>Common.MVC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common.Providers\Common.Providers.csproj">
       <Project>{a3d48ad3-3ed0-4444-a0e4-099a1114d611}</Project>
       <Name>Common.Providers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common.Security\Common.Security.csproj">
-      <Project>{C7BCF2AC-AEE3-4A03-B6E1-45C99C4BD019}</Project>
+      <Project>{c7bcf2ac-aee3-4a03-b6e1-45c99c4bd019}</Project>
       <Name>Common.Security</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

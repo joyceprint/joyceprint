@@ -10,9 +10,12 @@ namespace JoycePrint.Web.Controllers
         /// <summary>
         /// This returns the recaptcha security view
         /// This is only callable from the server side
+        /// 
+        /// This has to accept a post request in the event that the client side validation is turned off
+        /// and the server side validation fails
         /// </summary>
-        /// <returns></returns>                
-        [HttpGet]
+        /// <returns></returns>                        
+        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         [ChildActionOnly]
         [Route("recaptcha")]
         public ActionResult Recaptcha()
@@ -23,7 +26,7 @@ namespace JoycePrint.Web.Controllers
         }
 
         [HttpPost]
-        [Route("recaptcha")]
+        [Route("processrecaptcha")]
         public ActionResult ProcessRecaptcha(string captchaResponse)
         {
             var recaptcha = new Recaptcha();

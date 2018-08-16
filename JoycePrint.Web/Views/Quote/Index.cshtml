@@ -36,26 +36,7 @@
 
                     @Html.EditorFor(model => model.Attachment, "AttachmentForm")
 
-                    <div class="row add-pad-bot-30">
-                        <div class="col l7 m12 s12 no-pad-right add-pad-bot">
-                            @{ Html.RenderAction("Recaptcha", "Security"); }
-
-                            @*
-                                Change this to be an image - get a security type image
-                                have the image showing on page load
-                                when the user scrolls over the images position on the screen display the text using an animation
-                            *@
-                            <small>We do not share your details with any third parties.</small>
-                        </div>
-                        
-                        <div class="col l4 offset-l1 m6 s12 add-pad-bot center">
-                            <button class="col s12 btn waves-effect waves-green green" id="submit-quote" type="button" data-test-submit>SUBMIT</button>
-                        </div>
-
-                        <div class="col l4 offset-l1 m6 s12 center">
-                            <button class="col s12 btn waves-effect orange" id="reset-quote" type="reset" data-test-clear>CLEAR</button>
-                        </div>                                                                        
-                    </div>
+                    @Html.Partial("Partial/Submit")                    
                 }
             </div>
         </div>

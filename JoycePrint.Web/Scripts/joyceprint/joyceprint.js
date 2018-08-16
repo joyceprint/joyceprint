@@ -16,4 +16,9 @@ $(document).ready(function () {
     if ($("#quote").length > 0) {
         jLib.quote.initQuote();
     }
+    
+    // If we're coming from the docketbooks.ie site, make sure the user can see the get a quote header
+    if (document.referrer.contains("docketbooks.ie")
+        && document.documentURI.contains("#quote"))
+        $("a[href='#quote']").click();
 });

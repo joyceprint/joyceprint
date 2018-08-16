@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Docket Books Ireland";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+
+<div>
+    
+    @{ Html.RenderAction("Index", "Home"); }    
+
+    @{ Html.RenderAction("DocketBooks", "Services"); }
+
+</div>
+
+<div id="modal-placeholder" class="modal"></div>
+
+<div id="loader-placeholder"></div>

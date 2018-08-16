@@ -3,6 +3,10 @@
 
 @model Notification
 
+@{
+    var closeButtonId = Model.Type == NotificationType.Success ? "close-success" : "close-failure";
+}
+
 <div id="notificationModal">
     
     <div class="modal-content">                
@@ -29,7 +33,7 @@
     </div>
 
     <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        <a href="#!" id="@closeButtonId" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
 
 </div>

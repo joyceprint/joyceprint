@@ -10,7 +10,7 @@
             <div class="collapsible-body" data-test-help-information>
                 <div id="paper-size" class="card">
                     <div class="card-image">
-                        <img id="img-paper-size" class="responsive-img" src="~/Content/images/jp-card-paper-size.jpg" alt="Paper Size Image">
+                        @Html.Image(new { id = "img-paper-size", @class="responsive-img", src="/Content/images/jp-card-paper-size.jpg", alt="Paper Size Image" })                        
                     </div>
                     <div class="card-content">
                         <div class="row">
@@ -40,7 +40,7 @@
             <div class="collapsible-body" data-test-help-information>
                 <div id="paper-orientation" class="card">
                     <div class="card-image">
-                        <img id="img-paper-orientation" class="responsive-img" src="~/Content/images/jp-card-paper-orientation.jpg" alt="Paper Orientation Image">
+                        @Html.Image(new { id="img-paper-orientation", @class="responsive-img", src="/Content/images/jp-card-paper-orientation.jpg", alt="Paper Orientation Image" })
                     </div>
                     <div class="card-content">
                         <div class="row">
@@ -75,7 +75,7 @@
             <div class="collapsible-body" data-test-help-information>
                 <div id="book-type" class="card">
                     <div class="card-image">
-                        <img id="img-book-type" class="responsive-img" src="~/Content/images/jp-card-book-type.jpg" alt="Book Type Image">
+                        @Html.Image(new { id="img-book-type", @class="responsive-img", src="/Content/images/jp-card-book-type.jpg", alt="Book Type Image" })
                     </div>
                     <div class="card-content">
                         <div class="row">

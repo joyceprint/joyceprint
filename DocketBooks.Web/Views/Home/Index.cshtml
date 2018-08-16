@@ -1,0 +1,27 @@
+﻿<section id="home" class="row no-mar-bot" data-test-form-id="frmHome" data-menu-item>
+    <div id="home-parallax-container">
+        <div class="parallax-container">
+            <div class="parallax">
+                @Html.Image(new { src = "/Content/images/homepage.jpg", alt = "Docket Books Ireland", srcset = "/Content/images/homepage-21.jpg:1367w" })                
+            </div>
+        </div>
+    </div>
+    @*
+        This content needs to be fixed in the center of the screen while the parallax is on screen
+
+        When the page scrolls we adjust the position of this content so it stays in the center of the parallax
+
+        when the bottom of the parallax is on the screen we allow this content to move with the image again
+        rather than being fixed
+
+        same idea for reverse scrolling - position of the content needs to be adjusted to the bottom position if the
+        parallax view is not in the view -
+            if image top is in viewport - move to top
+            if image bottom is in viewport - move to bottom
+    *@
+    <div class="center-align" id="home-parallax-content">
+        <h1 class="home-header">DOCKET BOOKS IRELAND</h1>
+        <h4 class="home-text">High Quality Printing. <br class="show-on-700px" /> Fast Reliable Service.</h4>
+        <a href="http://joyceprint.ie/#quote" id="contact-us" class="btn btn-large btn-round pink home-btn">CONTACT US</a>
+    </div>
+</section>
