@@ -20,7 +20,7 @@ namespace JoycePrint.Web.Tests.Tests
         #endregion
 
         /// <summary>
-        /// Verify the display of the page, all display checks will be called from here        
+        /// Verify the display of the page, all display checks will be called from here
         /// </summary>
         private void VerifyDisplay()
         {

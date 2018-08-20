@@ -23,7 +23,7 @@ namespace JoycePrint.Web.Tests.Tests
         #endregion
 
         /// <summary>
-        /// Verify the display of the page, all display checks will be called from here        
+        /// Verify the display of the page, all display checks will be called from here
         /// </summary>
         private void VerifyDisplay()
         {
@@ -37,8 +37,7 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyNavigation()
         {
-            Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(HeaderPom.ByNavLogo)));
-            Wait1Sec.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(HeaderPom.BySideNavLogo)));
+            Wait1Sec.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(HeaderPom.ByNavLogo)));
 
             HeaderPom.HeaderTestData.HomeText.MatchesActual(HeaderPom.NavHome.Text, "Nav Home");
             HeaderPom.HeaderTestData.QuoteText.MatchesActual(HeaderPom.NavQuote.Text, "Nav Quote");
@@ -59,12 +58,11 @@ namespace JoycePrint.Web.Tests.Tests
         {
             ResizeScreen(ScreenType.Tiny);
 
-            Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(HeaderPom.BySideNavLogo)));
-            Wait1Sec.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(HeaderPom.ByNavLogo)));
+            Wait1Sec.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(HeaderPom.ByNavLogo)));
 
-            HeaderPom.HeaderTestData.HomeText.MatchesActual(HeaderPom.SideNavHome.Text, "Side Nav Home");
-            HeaderPom.HeaderTestData.QuoteText.MatchesActual(HeaderPom.SideNavQuote.Text, "Side Nav Quote");
-            HeaderPom.HeaderTestData.AboutUsText.MatchesActual(HeaderPom.SideNavAboutUs.Text, "Side Nav About Us");
+            HeaderPom.HeaderTestData.HomeText.MatchesActual(HeaderPom.SideNavHome.GetAttribute("innerText"), "Side Nav Home");
+            HeaderPom.HeaderTestData.QuoteText.MatchesActual(HeaderPom.SideNavQuote.GetAttribute("innerText"), "Side Nav Quote");
+            HeaderPom.HeaderTestData.AboutUsText.MatchesActual(HeaderPom.SideNavAboutUs.GetAttribute("innerText"), "Side Nav About Us");
 
             HeaderPom.HeaderTestData.HomeLink.MatchesActual(HeaderPom.SideNavHome.GetAttribute("href"), "Side Nav Home Link");
             HeaderPom.HeaderTestData.QuoteLink.MatchesActual(HeaderPom.SideNavQuote.GetAttribute("href"), "Side Nav Quote Link");

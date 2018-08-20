@@ -22,13 +22,13 @@ namespace JoycePrint.Web.Tests.Tests
         #endregion
 
         /// <summary>
-        /// Verify the display of the page, all display checks will be called from here        
+        /// Verify the display of the page, all display checks will be called from here
         /// </summary>
         private void VerifyDisplay()
         {
             FooterPom.FooterTestData.CopyrightText.MatchesActual(FooterPom.Copyright.Text, "Copyright Information");
 
-            Wait1Sec.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(FooterPom.ByLogo)));
+            Wait1Sec.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(FooterPom.ByLogo)));
         }
     }
 }

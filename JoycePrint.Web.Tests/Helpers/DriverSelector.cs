@@ -15,19 +15,20 @@ namespace JoycePrint.Web.Tests.Helpers
             {
                 var uri = new Uri(standaloneServerAddress);
 
-                DesiredCapabilities capabilities;
+                DriverOptions capabilities;
 
                 switch (browser.ToLower())
                 {
                     case "chrome":
-                        capabilities = DesiredCapabilities.Chrome();
+                        capabilities = new ChromeOptions();
+                        ((ChromeOptions)capabilities).AddArguments("disable-infobars");
                         break;
                     case "ie":
                     case "internetexplorer":
-                        capabilities = DesiredCapabilities.InternetExplorer();
+                        capabilities = new InternetExplorerOptions();
                         break;
                     case "firefox":
-                        capabilities = DesiredCapabilities.Firefox();
+                        capabilities = new FirefoxOptions();
                         break;
                     default:
                         return null;
@@ -39,7 +40,9 @@ namespace JoycePrint.Web.Tests.Helpers
             switch (browser.ToLower())
             {
                 case "chrome":
-                    return new ChromeDriver();
+                    var options = new ChromeOptions();
+                    options.AddArguments("disable-infobars");
+                    return new ChromeDriver(options);
                 case "firefox":
                     return new FirefoxDriver();
                 case "ie":

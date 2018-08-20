@@ -7,22 +7,12 @@ namespace JoycePrint.Web.Tests.TestData
         /// <summary>
         /// The company history text that appears on the about us page
         /// </summary>
-        public string CompanyHistoryText => "Our goal is to create an online resource for the printing, graphics and communications trade in Ireland, which will become the first port of call for industry people seeking news, information, products, technical support, employment, new business and much more. Calling on more than 30 years experience in the Printing, Graphics and communications industry and utilising a global network of experts in their field, we intend to make available to you, all the resources you need to help your business grow. Through our PrintTrade TV, you will have the opportunity to view product demonstrations, tips and tricks, business development tools and technical support videos, all from your PC desktop. So whether you are seeking new or used equipment, technical assistance,guidance on industry trends, new opportunities and ideas, then make PrintTrade.ie your home page and keep yourself informed! PrintTrade.ie will always be a “work in progress “ and will develop into what you need it to be. We look forward to receiving your feedback at any time. Your PrintTrade.ie Team";
-
-        /// <summary>
-        /// The address label that appears on the about us page
-        /// </summary>
-        public string AddressLabel => "Address";
+        public string CompanyHistoryText => $"ABOUT US{Environment.NewLine}Based in Foxford, Co.Mayo, Joyceprint was established in 1994 and has been a Print Trade supplier for over 20 years. As a family-run Irish company, we are widely known for our extensive range of Carbonless NCR products. We offer a wide range of quality products and pride ourselves on providing a friendly and helpful service with fast turnarounds and competitive pricing. Whether you require invoice books, order books, delivery books, receipt books, restaurant books/pads, NCR sets or pads, this is the site to order them from.{Environment.NewLine}{Environment.NewLine}Docket books are available in duplicate, triplicate and four part. All standard sizes from A6 to A3 can be purchased and custom sizes are catered for. NCR sets and pads are also available. We ship anywhere within Ireland.{Environment.NewLine}{Environment.NewLine}Our clients are based nationwide and our best form of advertising is, and always has been, recommendations by satisfied customers. We can guarantee our clients total security and confidentiality.{Environment.NewLine}{Environment.NewLine}Thank you for visiting our website. Contact us today for a no obligation quote.";
 
         /// <summary>
         /// The address text that appears on the about us page
         /// </summary>
-        public string AddressText => $"Castlebar Road,{Environment.NewLine}Foxford,{Environment.NewLine}Co Mayo,{Environment.NewLine}Ireland";
-
-        /// <summary>
-        /// The phone label that appears on the about us page
-        /// </summary>
-        public string PhoneLabel => "Telephone";
+        public string AddressText => $"Castlebar Road,{Environment.NewLine}Foxford, Co Mayo,{Environment.NewLine}F26HH50";
 
         /// <summary>
         /// The phone text that appears on the about us page
@@ -35,24 +25,9 @@ namespace JoycePrint.Web.Tests.TestData
         public string PhoneLink => "tel:353949256876";
 
         /// <summary>
-        /// The fax label that appears on the about us page
-        /// </summary>
-        public string FaxLabel => "Fax";
-
-        /// <summary>
-        /// The fax text that appears on the about us page
-        /// </summary>
-        public string FaxText => "+353-94-9256876";
-
-        /// <summary>
-        /// The email label that appears on the about us page
-        /// </summary>
-        public string EmailLabel => "Email";
-
-        /// <summary>
         /// The email text that appears on the about us page
         /// </summary>
-        public string EmailText => "joyceprintitsup@gmail.com";
+        public string EmailText => "joyceprint@gmail.com";
 
         /// <summary>
         /// The email link that appears on the about us page
@@ -60,18 +35,13 @@ namespace JoycePrint.Web.Tests.TestData
         public string EmailLink => "mailto:info@yourdomain.com";
 
         /// <summary>
-        /// The skype label that appears on the about us page
+        /// The mobile text that appears on the about us page
         /// </summary>
-        public string SkypeLabel => "Skype";
+        public string MobileText => "+353-86-0670627";
 
         /// <summary>
-        /// The skype text that appears on the about us page
+        /// The mobile link that appears on the about us page
         /// </summary>
-        public string SkypeText => "joyceprintitsup";
-
-        /// <summary>
-        /// The skype link that appears on the about us page
-        /// </summary>
-        public string SkypeLink => "skype:joyceprintitsup?call";
+        public string MobileLink => "tel:353860670627";
     }
 }

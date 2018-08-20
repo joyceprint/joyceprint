@@ -52,7 +52,7 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// <param name="seconds"></param>
         public void Sleep(int seconds)
         {
-            Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(seconds));
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(seconds);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// </summary>
         public void MaximizeWindow()
         {
-            if (((RemoteWebDriver)Driver).Capabilities.BrowserName.Equals("Chrome", StringComparison.OrdinalIgnoreCase))
+            if (((RemoteWebDriver)Driver).Capabilities.HasCapability("Chrome"))
             {
                 var js = (IJavaScriptExecutor) Driver;
                 js.ExecuteScript("window.resizeTo(1024, 768);");

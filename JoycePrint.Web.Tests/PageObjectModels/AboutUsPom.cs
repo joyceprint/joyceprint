@@ -25,7 +25,7 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-form-id='frmAboutUs']")]
         public IWebElement Form { get; set; }
-        
+
         /// <summary>
         /// The parallax image element at the top of the page
         /// </summary>
@@ -51,7 +51,7 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// The company history image element for the page
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-company-history]")]
-        public IWebElement CompanyHistory { get; set; }       
+        public IWebElement CompanyHistory { get; set; }
 
         /// <summary>
         /// The company history image element for the page
@@ -59,24 +59,12 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         [FindsBy(How = How.CssSelector, Using = "[data-test-history-img]")]
         public IWebElement CompanyHistoryImage { get; set; }
         public static string ByCompanyHistoryImage => "[data-test-history-img]";
-        
-        /// <summary>
-        /// The address label element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-address-label]")]
-        public IWebElement AddressLabel { get; set; }
-        
+
         /// <summary>
         /// The address text element for the page
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-address-text]")]
-        public IWebElement AddressText { get; set; }        
-             
-        /// <summary>
-        /// The phone label element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-phone-label]")]
-        public IWebElement PhoneLabel { get; set; }
+        public IWebElement AddressText { get; set; }
 
         /// <summary>
         /// The phone text element for the page
@@ -85,40 +73,16 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         public IWebElement PhoneText { get; set; }
 
         /// <summary>
-        /// The fax label element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-fax-label]")]
-        public IWebElement FaxLabel { get; set; }
-
-        /// <summary>
-        /// The fax text element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-fax-text]")]
-        public IWebElement FaxText { get; set; }
-
-        /// <summary>
-        /// The email label element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-email-label]")]
-        public IWebElement EmailLabel { get; set; }
-
-        /// <summary>
         /// The email text element for the page
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-email-text]")]
         public IWebElement EmailText { get; set; }
 
         /// <summary>
-        /// The skype label element for the page
+        /// The mobile text element for the page
         /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-skype-label]")]
-        public IWebElement SkypeLabel { get; set; }
-        
-        /// <summary>
-        /// The skype text element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-skype-text]")]
-        public IWebElement SkypeText { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "[data-test-mobile-text]")]
+        public IWebElement MobileText { get; set; }
 
         /// <summary>
         /// The map element for the page

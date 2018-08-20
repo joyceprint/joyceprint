@@ -48,6 +48,12 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         public IWebElement NavHome { get; set; }
 
         /// <summary>
+        /// The navigation services link element for the page
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-services-home]")]
+        public IWebElement NavServices { get; set; }
+
+        /// <summary>
         /// The navigation quote link element for the page
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-nav-quote]")]
@@ -76,17 +82,16 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         public IWebElement SideNavMenu { get; set; }
 
         /// <summary>
-        /// The side navigation image logo element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-side-nav-logo]")]
-        public IWebElement SideNavLogo { get; set; }
-        public string BySideNavLogo = "[data-test-side-nav-logo]";
-
-        /// <summary>
         /// The side navigation home link element for the page
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-side-nav-home]")]
         public IWebElement SideNavHome { get; set; }
+
+        /// <summary>
+        /// The side navigation services link element for the page
+        /// </summary>
+        [FindsBy(How = How.CssSelector, Using = "[data-test-side-nav-services]")]
+        public IWebElement SideNavServices { get; set; }
 
         /// <summary>
         /// The side navigation quote link element for the page

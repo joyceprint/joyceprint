@@ -1,6 +1,7 @@
 ﻿using JoycePrint.Web.Tests.TestData;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
@@ -30,18 +31,6 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         #region Quote Form Elements
 
         /// <summary>
-        /// The form element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-banner-top]")]
-        public IWebElement BannerTop { get; set; }
-
-        /// <summary>
-        /// The form element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-banner-bottom]")]
-        public IWebElement BannerBottom { get; set; }
-
-        /// <summary>
         /// The message input group form element for the page, the related items will be found using a utility function so we don't have to create them all here for each field
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-message]")]
@@ -50,7 +39,8 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// <summary>
         /// The recaptcha element for the page
         /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[ data-test-recaptcha]")]
+        [Obsolete("The recaptcha functionality has been removed from the site - July 2018")]
+        [FindsBy(How = How.CssSelector, Using = "[data-test-recaptcha]")]
         public IWebElement Recaptcha { get; set; }
 
         /// <summary>

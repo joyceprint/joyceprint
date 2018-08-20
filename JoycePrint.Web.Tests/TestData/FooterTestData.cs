@@ -7,6 +7,6 @@ namespace JoycePrint.Web.Tests.TestData
         /// <summary>
         /// The copyright text that appears on the footer control
         /// </summary>
-        public string CopyrightText => $"© JoycePrint Ltd {DateTime.Now.Year}, All rights reserved";
+        public string CopyrightText => $"© JoycePrint Ltd {DateTime.Now.Year}. Registered Number: 447238";
     }
 }
