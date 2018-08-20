@@ -35,8 +35,8 @@ namespace JoycePrint.Domain.Tests.Models
         public void SetNotificationTypeSuccess()
         {
             var expectedViewName = "Notification";
-            var expectedHeader = "We have recieved your email and will get back to you shortly";
-            var expectedMessage = "Some body text";
+            var expectedHeader = "We have received your email and will get back to you shortly";
+            var expectedMessage = "Thank you for your enquiry";
             const NotificationType expectedType = NotificationType.Success;
 
             var notifiation = new Notification();

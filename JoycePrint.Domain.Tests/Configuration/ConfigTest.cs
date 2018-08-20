@@ -23,7 +23,7 @@ namespace JoycePrint.Domain.Tests.Configuration
         [TestMethod]
         public void GetRecaptchaSecretKeyTest()
         {
-            const string expectedRecaptchaSecretKey = "6LcC2Q0UAAAAALvPAkBtQT2a5AE8DUCotVfQu04t";
+            const string expectedRecaptchaSecretKey = "6Lf8OyIUAAAAAKBAsgBMK_2wC_LPRdP4ltvGvOnc";
 
             AssertAreEqual(expectedRecaptchaSecretKey, Config.RecaptchaSecretKey, "Recaptcha Secret Key");
         }
@@ -34,7 +34,7 @@ namespace JoycePrint.Domain.Tests.Configuration
         [TestMethod]
         public void GetRecaptchaPublicKeyTest()
         {
-            const string expectedRecaptchaPublicKey = "6LcC2Q0UAAAAADtadrrG_FTRs82tvd2J1fOwK-KW";
+            const string expectedRecaptchaPublicKey = "6Lf8OyIUAAAAAAg4gTKwaW6VvPvON8GIsTp_QwAE";
 
             AssertAreEqual(expectedRecaptchaPublicKey, Config.RecaptchaPublicKey, "Recaptcha Public Key");
         }
@@ -45,7 +45,7 @@ namespace JoycePrint.Domain.Tests.Configuration
         [TestMethod]
         public void GetNotificationHeaderSuccessTest()
         {
-            const string expectedNotificationHeaderSuccess = "We have recieved your email and will get back to you shortly";
+            const string expectedNotificationHeaderSuccess = "We have received your email and will get back to you shortly";
 
             AssertAreEqual(expectedNotificationHeaderSuccess, Config.NotificationHeaderSuccess, "Notification Header Success");
         }
@@ -56,7 +56,7 @@ namespace JoycePrint.Domain.Tests.Configuration
         [TestMethod]
         public void GetNotificationMessageSuccessTest()
         {
-            const string expectedNotificationMessageSuccess = "Some body text";
+            const string expectedNotificationMessageSuccess = "Thank you for your enquiry";
 
             AssertAreEqual(expectedNotificationMessageSuccess, Config.NotificationMessageSuccess, "Notification Messge Success");
         }
