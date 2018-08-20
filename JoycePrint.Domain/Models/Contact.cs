@@ -32,7 +32,7 @@ namespace JoycePrint.Domain.Models
         /// The phone number of the contact
         /// </summary>  
         [Required(ErrorMessage = "Phone is a required field")]
-        [StringLength(30, MinimumLength = 10, ErrorMessage = "Please correct the contact number")]
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Please correct the contact number")]
         [RegularExpression(@"^( *)([0-9]+[ ]*[-]?[ ]*)*$", ErrorMessage = "Please use a valid phone number")]
         public string Phone { get; set; }
     }
