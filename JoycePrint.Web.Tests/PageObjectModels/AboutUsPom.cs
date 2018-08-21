@@ -27,27 +27,6 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         public IWebElement Form { get; set; }
 
         /// <summary>
-        /// The parallax image element at the top of the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-parallax-top]")]
-        public IWebElement ParallaxImageTop { get; set; }
-        public static string ByParallaxImageTop => "[data-test-parallax-top]";
-
-        /// <summary>
-        /// The parallax image element in the middle of the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-parallax-middle]")]
-        public IWebElement ParallaxImageMiddle { get; set; }
-        public static string ByParallaxImageMiddle => "[data-test-parallax-middle]";
-
-        /// <summary>
-        /// The parallax image element at the bottom of the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-parallax-bottom]")]
-        public IWebElement ParallaxImageBottom { get; set; }
-        public static string ByParallaxImageBottom => "[data-test-parallax-bottom]";
-
-        /// <summary>
         /// The company history image element for the page
         /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-company-history]")]

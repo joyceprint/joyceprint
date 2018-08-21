@@ -31,24 +31,11 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyDisplay()
         {
-            // TOOD: Fix parallax
-            //VerifyParallaxImages();
-
             VerifyCompanyHistory();
 
             VerifyCompanyInformation();
 
             VerifyAnchorLinksToApplications();
-        }
-
-        /// <summary>
-        /// Verify that the images used for parallax are being displayed
-        /// </summary>
-        private void VerifyParallaxImages()
-        {
-            Wait1Sec.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(AboutUsPom.ByParallaxImageTop)));
-            Wait1Sec.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(AboutUsPom.ByParallaxImageMiddle)));
-            Wait1Sec.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(AboutUsPom.ByParallaxImageBottom)));
         }
 
         /// <summary>
@@ -58,8 +45,7 @@ namespace JoycePrint.Web.Tests.Tests
         {
             AboutUsPom.AboutUsTestData.CompanyHistoryText.MatchesActual(AboutUsPom.CompanyHistory.Text, "Company History");
 
-            // TODO: Fix Image
-            //Wait1Sec.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(AboutUsPom.ByCompanyHistoryImage)));
+            Wait1Sec.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(AboutUsPom.ByCompanyHistoryImage)));
         }
 
         /// <summary>

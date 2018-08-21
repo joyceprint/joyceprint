@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 namespace JoycePrint.Web.Tests.Helpers.Materialize
 {
     public class MaterializeSelectGroup : IMaterializeGroup
-    {       
+    {
         #region Properties
 
         public string IconText { get; set; }
@@ -26,8 +26,8 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
 
         // TODO: Possibly make this an enum
         public string FieldInputType { get; set; }
-        
-        public string SpanText { get; set; }        
+
+        public string SpanText { get; set; }
 
         public string SpanClasses { get; set; }
 
@@ -38,7 +38,7 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
         public string UnOrderedSelectedItemText { get; set; }
 
         public string SelectListClasses { get; set; }
-        
+
         public string SelectListSelectedItemText { get; set; }
 
         #endregion
@@ -52,7 +52,7 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
         public static void VerifyMaterializeSelectField(IWebElement inputGroupContainer, MaterializeSelectGroup testData, FieldCss updateCssTo)
         {
             IWebElement iconElement = null;
-            IWebElement inputElement = null;            
+            IWebElement inputElement = null;
             IWebElement labelElement = null;
             IWebElement validationLabelElement = null;
 
@@ -99,11 +99,11 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
                 testData.UpdateCssForUnOrderedListSelectedItem(testData.UnOrderedSelectItemClasses, updateCssTo).MatchesActualCss(liElement.GetAttribute("class"), $"{fieldName} UnOrderList Selected Item Classes");
 
             if (testData.UnOrderedSelectedItemText != null)
-                testData.UnOrderedSelectedItemText.MatchesActual(liElement.GetAttribute("innerText"), $"{fieldName} UnOrderList Selected Item Text");            
+                testData.UnOrderedSelectedItemText.MatchesActual(liElement.GetAttribute("innerText"), $"{fieldName} UnOrderList Selected Item Text");
 
             if (testData.SelectListClasses != null)
                 testData.UpdateCssForSelectList(testData.SelectListClasses, updateCssTo).MatchesActualCss(selectElement.GetAttribute("class"), $"{fieldName} SelectList Classes");
-            
+
             if (testData.SelectListSelectedItemText != null)
                 testData.SelectListSelectedItemText.MatchesActual(optionElement.GetAttribute("innerText"), $"{fieldName} SelectList Selected Item Text");
 

@@ -26,7 +26,7 @@ namespace JoycePrint.Web.Tests.Tests
 
             VerifyDisplay();
 
-            VerifyValidation();
+            //VerifyValidation();
         }
 
         #endregion
@@ -36,21 +36,48 @@ namespace JoycePrint.Web.Tests.Tests
         /// </summary>
         private void VerifyDisplay()
         {
-            // TODO: Fix these tests !!!
-            VerifyQuoteDisplay();
+            VerifyHelpDisplay();
 
-            //VerifyHelpDisplay();
+            VerifyFormDisplay();
 
-            VerifyContactFormDisplay();
-
-            //VerifyProductFormDisplay();
+            VerifyMapDisplay();
         }
 
         /// <summary>
-        /// Verify the quote form fields that are displayed
+        /// Verify the map is displayed
         /// </summary>
-        private void VerifyQuoteDisplay()
+        private void VerifyMapDisplay()
         {
+            // TODO: Write this test
+        }
+
+        /// <summary>
+        /// Verify the help that's displayed on the form
+        /// </summary>
+        private void VerifyHelpDisplay()
+        {
+            if (QuotePom.HelpChecklist.Count != QuotePom.QuoteTestData.HelpCheckList.Count)
+                Assert.Fail($"The expected number of checklist items [{QuotePom.HelpChecklist.Count}] does not match the actual number of check list items [{QuotePom.QuoteTestData.HelpCheckList.Count}]");
+
+            var index = 0;
+            foreach (var item in QuotePom.QuoteTestData.HelpCheckList)
+            {
+                item.MatchesActual(QuotePom.HelpChecklist[index].Text, $"Checklist Item [{index}]");
+                index++;
+            }
+        }
+
+        /// <summary>
+        /// Verify the form fields that are displayed
+        /// </summary>
+        private void VerifyFormDisplay()
+        {
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.NameInputGroup, QuotePom.QuoteTestData.Name, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.PhoneInputGroup, QuotePom.QuoteTestData.Phone, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.EmailInputGroup, QuotePom.QuoteTestData.Email, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);
+
             QuotePom.QuoteTestData.ClearText.MatchesActual(QuotePom.Clear.Text, "Clear Button");
             QuotePom.QuoteTestData.SubmitText.MatchesActual(QuotePom.Submit.Text, "Submit Button");
 
@@ -63,58 +90,6 @@ namespace JoycePrint.Web.Tests.Tests
         }
 
         /// <summary>
-        /// Verify the help that's displayed on the form
-        /// </summary>
-        private void VerifyHelpDisplay()
-        {
-            var collapseHeaders = QuotePom.HelpTitles.Count;
-            var collapseBodies = QuotePom.HelpInformation.Count;
-
-            if (collapseHeaders != collapseBodies)
-                Assert.Fail($"Colapseable header count, differs for body count. Header Count : {collapseHeaders} - Body Count : {collapseBodies}");
-
-            // The first collapsable control is active on page load
-            FieldCss updateCssTo;
-
-            for (int activeIndex = 0; activeIndex < collapseHeaders; activeIndex++)
-            {
-                if (activeIndex != 0)
-                    QuotePom.HelpTitles[activeIndex].Click();
-
-                for (var index = 0; index < collapseHeaders; index++)
-                {
-                    updateCssTo = index == activeIndex ? FieldCss.Active : FieldCss.Initial;
-
-                    MaterializeCollapse.VerifyMaterializeCollapse(QuotePom.HelpTitles[index], QuotePom.HelpInformation[index], QuotePom.QuoteTestData.Help[index], updateCssTo, Wait10Sec);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Verify the contact form fields that are displayed
-        /// </summary>
-        private void VerifyContactFormDisplay()
-        {
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Initial);
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.PositionInputGroup, QuotePom.QuoteTestData.Position, FieldCss.Optional);
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.NameInputGroup, QuotePom.QuoteTestData.Name, FieldCss.Initial);
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.PhoneInputGroup, QuotePom.QuoteTestData.Phone, FieldCss.Initial);
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.EmailInputGroup, QuotePom.QuoteTestData.Email, FieldCss.Initial);
-        }
-
-        /// <summary>
-        /// Verify the product form fields that are displayed
-        /// </summary>
-        private void VerifyProductFormDisplay()
-        {
-            MaterializeSelectGroup.VerifyMaterializeSelectField(QuotePom.DocketTypeSelectGroup, QuotePom.QuoteTestData.DocketType, FieldCss.Initial);
-
-            MaterializeSelectGroup.VerifyMaterializeSelectField(QuotePom.DocketSizeSelectGroup, QuotePom.QuoteTestData.DocketSize, FieldCss.Initial);
-
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.DocketQuantityInputGroup, QuotePom.QuoteTestData.DocketQuantity, FieldCss.Initial);
-        }
-
-        /// <summary>
         /// 
         /// </summary>
         /// <remarks>
@@ -124,7 +99,7 @@ namespace JoycePrint.Web.Tests.Tests
         private void VerifyValidation()
         {
             ///
-            /// this needs to be repeated for each group
+            /// this needs to be repeated for each group -- TODO :: finish this validation
             /// 
 
             // Clear the fields to reset everything
@@ -163,6 +138,7 @@ namespace JoycePrint.Web.Tests.Tests
 
             // Clear out the test value
             QuotePom.QuoteTestData.Message.InputText = null;
+
             // Clear the fields
             QuotePom.Clear.Click();
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Initial);
@@ -172,9 +148,10 @@ namespace JoycePrint.Web.Tests.Tests
 
             // Submit the form and check the validation display
             QuotePom.Submit.Click();
-            // because we're not active here we don't want to compare the validation label text
+
+            // Because we're not active here we don't want to compare the validation label text
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Invalid | FieldCss.Active);
-                        
+
             // Check in validation message
             input.Click();
             MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.MessageInputGroup, QuotePom.QuoteTestData.Message, FieldCss.Invalid);

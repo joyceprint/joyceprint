@@ -68,12 +68,6 @@ namespace JoycePrint.Web.Tests.PageObjectModels
         /// <summary>
         /// 
         /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-position]")]
-        public IWebElement PositionInputGroup { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [FindsBy(How = How.CssSelector, Using = "[data-test-name]")]
         public IWebElement NameInputGroup { get; set; }
 
@@ -91,45 +85,16 @@ namespace JoycePrint.Web.Tests.PageObjectModels
 
         #endregion
 
-        #region Docket Form Elements
+        #region Checklist Help View
 
         /// <summary>
-        /// 
+        /// The checklist information
         /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-docket-type")]
-        public IWebElement DocketTypeSelectGroup { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "[data-test-helplist]")]
+        [SuppressMessage("ReSharper", "CollectionNeverUpdated.Global")]
+        public IList<IWebElement> HelpChecklist { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-docket-size]")]
-        public IWebElement DocketSizeSelectGroup { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-docket-quantity]")]
-        public IWebElement DocketQuantityInputGroup { get; set; }
         #endregion
-
-        #region Docket Help Partial View 
-
-        /// <summary>
-        /// A list of all the help titles on the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-help-title]")]
-        [SuppressMessage("ReSharper", "CollectionNeverUpdated.Global")]
-        public IList<IWebElement> HelpTitles { get; set; }
-
-
-        /// <summary>
-        /// The submit button element for the page
-        /// </summary>
-        [FindsBy(How = How.CssSelector, Using = "[data-test-help-information]")]
-        [SuppressMessage("ReSharper", "CollectionNeverUpdated.Global")]
-        public IList<IWebElement> HelpInformation { get; set; }
-
-        #endregion        
 
         #endregion
 

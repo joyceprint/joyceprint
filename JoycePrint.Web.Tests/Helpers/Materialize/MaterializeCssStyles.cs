@@ -10,7 +10,7 @@
 
         public static string MaterializeInputGroupIconClassesInitial => "material-icons prefix orange-text text-accent-4";
 
-        public static string MaterializeInputGroupInputClassesInitial => "validate";
+        public static string MaterializeInputGroupInputClassesInitial => null;
 
         public static string MaterializeInputGroupLabelClassesInitial => null;
 
