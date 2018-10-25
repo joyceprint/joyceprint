@@ -9,7 +9,7 @@ namespace JoycePrint.Domain.Models
     {
         /// <summary>
         /// The attachment collection to attach to the email
-        /// </summary>        
+        /// </summary>
         /// <remarks>
         /// The HttpPostedFileBase is created to substitute HttpPostedFile in MVC applications for better unit testing.
         /// </remarks>
@@ -21,6 +21,6 @@ namespace JoycePrint.Domain.Models
         public Attachment()
         {
             Files = new List<HttpPostedFileBase>();
-        }    
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace Common.Logging.FileLogger
             var seperator = "-----------------------------------------------------------------------------------------------------";
 
             try
-            {                
+            {
                 using (var fs = new FileStream(Path.Combine(_logPath, _logFile), FileMode.Append, FileAccess.Write, FileShare.Write))
                 {
                     using (var sw = new StreamWriter(fs))

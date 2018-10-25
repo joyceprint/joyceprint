@@ -14,7 +14,7 @@ namespace Common.Analytics.GoogleAnalytics
         public void Dispose() { }
 
         private void OnBeginRequest(object source, EventArgs evernArgs)
-        {            
+        {
             Analyzer.Instance.PageAnalysis(((HttpApplication)source).Context, GetPageTracking(((HttpApplication)source).Context));
         }
 
@@ -28,10 +28,10 @@ namespace Common.Analytics.GoogleAnalytics
                 var index = sa.LastIndexOf('/');
                 page += sa.Substring((index == -1 ? 0 : index));
             }
-            
+
             var tracking = new Page
             {
-                Host = context.Request.Url.Host, 
+                Host = context.Request.Url.Host,
                 Title = null,
                 Name = page
             };

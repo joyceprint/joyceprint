@@ -11,19 +11,19 @@ namespace Common.MVC.Helpers
     {
         private static readonly string[] CacheBustFor = { "src", "srcset" };
 
-        /// <summary>        
+        /// <summary>
         /// Creates an image tag that stamps each image, to prevent issues with browsers caching old images
         /// This method uses the LastWriteTime to generate the time stamp
         /// <para />
         /// Add srcset attributes, using a ':' to seperate the image path from corresponding image width and
         /// using a ',' to seperate different image path and image width combinations
-        /// <para />        
-        /// Example:        
-        /// /Content/images/homepage-21.jpg:1367w,/Content/images/homepage-21.jpg:1367w        
+        /// <para />
+        /// Example:
+        /// /Content/images/homepage-21.jpg:1367w,/Content/images/homepage-21.jpg:1367w
         /// </summary>
         /// <param name="helper"></param>
         /// <param name="htmlAttributes"></param>
-        /// <returns></returns>        
+        /// <returns></returns>
         public static MvcHtmlString Image(this HtmlHelper helper, object htmlAttributes)
         {
             var img = new TagBuilder("img");

@@ -7,7 +7,7 @@ namespace JoycePrint.Domain.Models
         /// <summary>
         /// The company the contact represents
         /// </summary>  
-        [Required(ErrorMessage = "Company name is a required field")]      
+        [Required(ErrorMessage = "Company name is a required field")]
         [MaxLength(150, ErrorMessage = "Too many characters used")]
         [RegularExpression(@"^( *)(([A-Za-z0-9]+)( *))*$", ErrorMessage = "Please check company name")]
         public string Company { get; set; }

@@ -71,7 +71,7 @@ namespace Common.Analytics.GoogleAnalytics
         /// Capture page analysis for the analytics provider
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="tracking"></param>        
+        /// <param name="tracking"></param>
         public override void PageAnalysis(HttpContext context, Page tracking)
         {
             if (!Analyze()) return;
@@ -128,7 +128,7 @@ namespace Common.Analytics.GoogleAnalytics
             catch (Exception ex)
             {
                 Logger.Instance.Log(MessageLevel.Error, ex, $"Error running analysis for tracking [{tracking}]");
-            }            
+            }
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace Common.Analytics.GoogleAnalytics
 
             // Hit Type [ Type is Page View ]
             tracking.Append($"&t=pageview");
-            
+
             // Document Hostname
             tracking.Append($"&dh={pageTracking.Host}");
 

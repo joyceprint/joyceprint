@@ -82,7 +82,7 @@ namespace JoycePrint.Domain.Mail
 
         /// <summary>
         /// Send the email message using the smtp configuration
-        /// </summary>                
+        /// </summary>
         /// <returns></returns>
         public bool SendEmail()
         {

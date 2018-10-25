@@ -5,23 +5,20 @@ using Common.Providers;
 
 namespace Common.Analytics
 {
-    /// <summary>
-    /// This is the class that is used to access the logger, through the Provider member
-    /// </summary>
     public static class Analyzer
     {
         #region Private Variables
 
         // Lock object to ensure safe threads
         internal static readonly object Lock = new object();
-        
+
         // Only one provider will be used
         private static AnalyticsProvider _provider;
 
         #endregion
 
         #region Properties
-        
+
         [Description("Flag indicating whether or not the provider has been initialized")]
         public static bool IsInitialized { get; set; }
 
@@ -54,7 +51,7 @@ namespace Common.Analytics
                     if (_provider == null)
                     {
                         try
-                        {                            
+                        {
                             // Get a collection of providers and the default provider.
                             _provider = ProviderFactory.InstantiateDefaultProvider<AnalyticsProvider>(@"providers/analytics");
 
@@ -62,7 +59,7 @@ namespace Common.Analytics
                             IsInitialized = true;
                         }
                         catch (Exception)
-                        {                            
+                        {
                             throw;
                         }
                     }

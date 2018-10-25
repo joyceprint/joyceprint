@@ -17,6 +17,6 @@ namespace JoycePrint.Domain.Models
         /// <summary>
         /// The size of the dockets in the docket book
         /// </summary>
-        public DocketBookSize? Size { get; set; }        
+        public DocketBookSize? Size { get; set; }
     }
 }

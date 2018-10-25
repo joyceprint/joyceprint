@@ -6,9 +6,9 @@ using Common.Logging.Enums;
 using Common.Security.Ciphers;
 
 namespace JoycePrint.Domain.Configuration
-{       
+{
     public static class Config
-    {        
+    {
         public static string RecaptchaUrl => ConfigurationManager.AppSettings.Get("RecaptchaUrl");
 
         public static string RecaptchaSecretKey => StringCipher.Decrypt(ConfigurationManager.AppSettings.Get("RecaptchaSecretKey"), PassPhrase);

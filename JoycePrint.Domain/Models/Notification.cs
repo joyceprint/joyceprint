@@ -13,7 +13,7 @@ namespace JoycePrint.Domain.Models
 
         /// <summary>
         /// The header for the notification
-        /// </summary>       
+        /// </summary>
         public string Header { get; private set; }
 
         /// <summary>
@@ -51,6 +51,6 @@ namespace JoycePrint.Domain.Models
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
-        }        
+        }
     }
 }

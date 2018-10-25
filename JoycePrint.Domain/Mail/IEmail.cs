@@ -10,8 +10,8 @@ namespace JoycePrint.Domain.Mail
 
         string Subject { get; set; }
 
-        List<Attachment> Attachments { get; set; }        
+        List<Attachment> Attachments { get; set; }
 
-        bool SendEmail();                
-    }    
+        bool SendEmail();
+    }
 }

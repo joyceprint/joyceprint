@@ -9,13 +9,13 @@ namespace Common.Security.Ciphers
     public static class StringCipher
     {
         /// <summary>
-        /// This constant is used to determine the keysize of the encryption algorithm in bits. 
+        /// This constant is used to determine the keysize of the encryption algorithm in bits.
         /// We divide this by 8 within the code below to get the equivalent number of bytes.
         /// </summary>
         private const int Keysize = 256;
 
         /// <summary>
-        /// This constant determines the number of iterations for the password bytes generation function. 
+        /// This constant determines the number of iterations for the password bytes generation function.
         /// </summary>
         private const int DerivationIterations = 1000;
 
@@ -54,12 +54,12 @@ namespace Common.Security.Ciphers
         /// <param name="passPhrase">The pass phrase used to encrypt the plainText string</param>
         /// <returns></returns>
         /// <remarks>
-        /// Salt - In cryptography, a salt is random data that is used as an additional input to a one-way function that "hashes" a password or passphrase. 
-        /// Salts are closely related to the concept of nonce. The primary function of salts is to defend against dictionary attacks or against its hashed 
+        /// Salt - In cryptography, a salt is random data that is used as an additional input to a one-way function that "hashes" a password or passphrase.
+        /// Salts are closely related to the concept of nonce. The primary function of salts is to defend against dictionary attacks or against its hashed
         /// equivalent, a pre-computed rainbow table attack.
         /// 
-        /// IV - In cryptography, an initialization vector (IV) or starting variable (SV) is a fixed-size input to a cryptographic primitive that is typically 
-        /// required to be random or pseudorandom.         
+        /// IV - In cryptography, an initialization vector (IV) or starting variable (SV) is a fixed-size input to a cryptographic primitive that is typically
+        /// required to be random or pseudorandom.
         /// </remarks>
         public static string Encrypt(string plainText, string passPhrase)
         {

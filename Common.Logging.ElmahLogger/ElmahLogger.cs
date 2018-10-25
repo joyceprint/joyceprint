@@ -35,8 +35,8 @@ namespace Common.Logging.ElmahLogger
         }
 
         public override void Log(MessageLevel messageLevel, string message)
-        {            
-            Log(new Exception(message));            
+        {
+            Log(new Exception(message));
         }
 
         public override void Log(MessageLevel messageLevel, Exception ex)
@@ -48,6 +48,6 @@ namespace Common.Logging.ElmahLogger
         {
             ex.Data.Add("Additional Message", additionalMessage);
             Log(ex);
-        }       
+        }
     }
 }

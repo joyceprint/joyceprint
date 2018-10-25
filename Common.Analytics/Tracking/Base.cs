@@ -5,6 +5,6 @@
     /// </summary>
     public class Base
     {
-        public string Host;        
+        public string Host;
     }
 }

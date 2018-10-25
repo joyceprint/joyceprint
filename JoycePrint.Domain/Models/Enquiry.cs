@@ -11,7 +11,7 @@ namespace JoycePrint.Domain.Models
 
         /// <summary>
         /// Is this enquiry a question
-        /// </summary>       
+        /// </summary>
         public bool IsQuestion { get; set; }
 
         /// <summary>

@@ -27,7 +27,7 @@ namespace JoycePrint.Domain.Models
 
         /// <summary>
         /// The attachment collection to attach to the email
-        /// </summary>        
+        /// </summary>
         public Attachment Attachment { get; set; }
 
         public QuoteRequest()
@@ -104,9 +104,9 @@ namespace JoycePrint.Domain.Models
                 if (file == null) continue;
 
                 attachments.Add(new System.Net.Mail.Attachment(file.InputStream, file.FileName));
-            }     
-            
-            return attachments;           
-        }        
+            }
+
+            return attachments;
+        }
     }
 }

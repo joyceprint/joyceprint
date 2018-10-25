@@ -14,5 +14,5 @@ namespace JoycePrint.Domain.Mail
         string GetSubjectLine();
 
         AttachmentCollection GetMessageAttachments();
-    }    
+    }
 }

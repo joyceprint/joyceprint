@@ -13,7 +13,7 @@ namespace JoycePrint.Domain.Tests
         [AssemblyInitialize()]
         public static void AssemblyInitialize(TestContext context)
         {
-            Console.WriteLine("Assembly Initializing...");            
+            Console.WriteLine("Assembly Initializing...");
         }
 
         protected static void AssertAreEqual<T>(T expected, T actual, string field)
