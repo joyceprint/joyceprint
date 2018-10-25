@@ -12,7 +12,7 @@ namespace JoycePrint.Web.Controllers
     {
         /// <summary>
         /// Disable caching [Internet Explorer]
-        /// This is required, otherwise all ajax requests will be cached        
+        /// This is required, otherwise all ajax requests will be cached
         /// </summary>
         public void DisableAjaxRequestCachingInInternetExplorer()
         {
@@ -122,7 +122,7 @@ namespace JoycePrint.Web.Controllers
             // Set the exception to handled to stop if from bubbling out of the MVC block
             filterContext.ExceptionHandled = true;
 
-            // Redirect on error:            
+            // Redirect on error:
             filterContext.Result = filterContext.HttpContext.Request.IsAjaxRequest() ? RedirectForAjax() : RedirectToAction("Exception", "Error");
         }
 

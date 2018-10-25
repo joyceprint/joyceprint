@@ -14,7 +14,7 @@ namespace JoycePrint.Web
             // Enabling attribute routing
             routes.MapMvcAttributeRoutes();
 
-            // This is the catch all route            
+            // This is the catch all route
             routes.MapRoute(
                 name: "CatchAll",
                 url: "{*url}",

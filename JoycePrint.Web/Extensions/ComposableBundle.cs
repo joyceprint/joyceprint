@@ -19,7 +19,7 @@ namespace JoycePrint.Web.Extensions
             _bundle = bundle;
         }
 
-        private IEnumerable<string> VirtualPaths => _virtualPaths.ToArray();        
+        private IEnumerable<string> VirtualPaths => _virtualPaths.ToArray();
 
         public ComposableBundle<T> Include(params string[] virtualPaths)
         {
@@ -27,7 +27,7 @@ namespace JoycePrint.Web.Extensions
             _bundle.Include(virtualPaths);
             return this;
         }
-               
+
         public void UseBundle(ComposableBundle<T> bundle)
         {
             // ReSharper disable once UseObjectOrCollectionInitializer
@@ -63,7 +63,7 @@ namespace JoycePrint.Web.Extensions
             foreach (var file in content)
             {
                 if (!BundleConfig.BaseBundle.Contains(file))
-                {                    
+                {
                     // content.Remove(file);
                     // ReSharper disable once UnusedVariable
                     var bundlefiles = _bundle;

@@ -1,4 +1,4 @@
-![JoycePrint]("./readme-images/jp-logo-rgb.png")
+![JoycePrint](./readme-images/jp-logo-rgb.png)
 
 # Overview
 

@@ -14,7 +14,7 @@ namespace JoycePrint.Web.Controllers
         /// This has to accept a post request in the event that the client side validation is turned off
         /// and the server side validation fails
         /// </summary>
-        /// <returns></returns>                        
+        /// <returns></returns>
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         [ChildActionOnly]
         [Route("recaptcha")]

@@ -13,7 +13,7 @@ namespace JoycePrint.Web.Controllers
         /// <remarks>
         /// This is called from
         /// --> No where at the moment
-        /// </remarks>        
+        /// </remarks>
         [HttpGet]
         [Route("error", Name = "Error")]
         public ActionResult Error()
@@ -25,14 +25,14 @@ namespace JoycePrint.Web.Controllers
         }
 
         /// <summary>
-        /// Handles exceptions thrown from requests within the MVC framework        
+        /// Handles exceptions thrown from requests within the MVC framework
         /// The exception is logged in the OnException method of the base controller class
         /// </summary>
         /// <returns></returns>
         /// <remarks>
         /// This is redirected to from 
         /// --> The base controller OnExecption method
-        /// </remarks>        
+        /// </remarks>
         [HttpGet]
         [Route("exception", Name = "Exception")]
         public ActionResult Exception()
@@ -49,14 +49,14 @@ namespace JoycePrint.Web.Controllers
         /// <summary>
         /// Handles a 404 from inside the MVC Request Handler
         /// </summary>
-        /// <returns></returns>        
+        /// <returns></returns>
         /// <remarks>
         /// We cannot use attribute routing here as we want to use this as the catch all action
         /// If we use both conventional and attribute routing for this, the conventional routing seems to stop working,
         /// we would need to ensure that our conventional route gets added to the end of the routing table
         /// </remarks>
         //[Route("notfound", Name = "NotFound")]
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]        
+        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult NotFound()
         {
             // Set this value to hide the navigation menu in the _Navigation view
@@ -64,7 +64,7 @@ namespace JoycePrint.Web.Controllers
 
             // Returning a view here will result in the client getting a 200 status code.
             // Set the Response.StatusCode to 404 to cause the pipeline to use the error page referenced
-            // by the HttpErrors section of the config file for a 404 response to preserve the 404 error code      
+            // by the HttpErrors section of the config file for a 404 response to preserve the 404 error code
             //Response.StatusCode = 404;
 
             return View("Error/NotFound");
@@ -77,8 +77,8 @@ namespace JoycePrint.Web.Controllers
         /// <remarks>
         /// This is invoked from 
         /// --> The base controller OnExecption method
-        /// --> The javascript method HandleAjaxError in the error.js file        
-        /// </remarks>        
+        /// --> The javascript method HandleAjaxError in the error.js file
+        /// </remarks>
         [HttpGet]
         [Route("ajax", Name = "Ajax")]
         public ActionResult Ajax()

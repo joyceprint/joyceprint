@@ -8,7 +8,7 @@ namespace JoycePrint.Web
         /// 
         /// </summary>
         /// <param name="filters"></param>
-        /// <remarks>        
+        /// <remarks>
         /// HandleErrorAttribute
         /// -------------------------
         /// This captures any error thrown in the ASP.NET MVC pipeline and returns a custom "Error" view providing you have custom 
@@ -22,7 +22,7 @@ namespace JoycePrint.Web
         /// HandleErrorAttribute can be removed as it will be handled by the IIS error handling section <httpErrors></httpErrors>
         /// </remarks>
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-        {            
+        {
             //filters.Add(new HandleErrorAttribute());
         }
     }

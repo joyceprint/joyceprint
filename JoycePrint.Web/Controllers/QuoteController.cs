@@ -11,7 +11,7 @@ namespace JoycePrint.Web.Controllers
         /// <summary>
         /// This method should only be called from the Single Page Index view, using ChildActionOnly stops this view from being called by the url
         /// </summary>
-        /// <returns></returns>        
+        /// <returns></returns>
         [HttpGet]
         [ChildActionOnly]
         [Route]
@@ -31,13 +31,13 @@ namespace JoycePrint.Web.Controllers
         /// [ Security - CSRF ]
         /// [ ValidateAntiForgeryToken() ] - Prevents MVC Cross Site Request Forgery
         /// This has to be used with @Html.AntiForgeryToken() on the form
-        /// [ValidateAntiForgeryHeader]        
+        /// [ValidateAntiForgeryHeader]
         /// 
         /// The following event has been moved to google tag manager
         /// [EventAnalysis(Category = "User Interaction", Action = "Quote Request", Label = "Quote Request", Value = "0")]
         /// </remarks>
         [HttpPost]
-        [ValidateAntiForgeryToken]        
+        [ValidateAntiForgeryToken]
         [Route]
         public ActionResult Index(QuoteRequest model)
         {

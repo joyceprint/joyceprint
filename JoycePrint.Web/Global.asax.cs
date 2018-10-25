@@ -11,7 +11,7 @@ using Common.Logging.Enums;
 namespace JoycePrint.Web
 {
     public class MvcApplication : HttpApplication
-    {        
+    {
         protected void Application_Start()
         {
             EnableSecurity();
