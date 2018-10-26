@@ -11,7 +11,6 @@ namespace Common.MVC.Attributes
         /// Rename the anti forgery token to hide that fact that you're running MVC
         /// </summary>
         //private const string KeyName = "__st";
-        // TODO: Changing this header is supposed to work - try it again
         private const string KeyName = "__RequestVerificationToken";
 
         public void OnAuthorization(AuthorizationContext filterContext)

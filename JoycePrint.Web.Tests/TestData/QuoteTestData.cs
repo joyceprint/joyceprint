@@ -82,6 +82,8 @@ namespace JoycePrint.Web.Tests.TestData
 
         #region Contact Form Input
 
+        public string CompanyValidationMessage = "Company name is a required field";
+
         /// <summary>
         /// 
         /// </summary>
@@ -105,7 +107,7 @@ namespace JoycePrint.Web.Tests.TestData
                     LabelText = "Company",
 
                     ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial,
-                    ValidationLabelText = "Company name is a required field",
+                    ValidationLabelText = CompanyValidationMessage,
 
                     FieldInputType = "input"
                 };

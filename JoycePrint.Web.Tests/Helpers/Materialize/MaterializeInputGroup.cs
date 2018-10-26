@@ -28,7 +28,7 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
 
         public string FieldInputType { get; set; }
 
-        public bool Initialized { get; set; }        
+        public bool Initialized { get; set; }
 
         #endregion
 
@@ -50,7 +50,7 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
 
             testData.UpdateCssForIcon(testData.IconClasses, updateCssTo).MatchesActualCss(iconElement.GetAttribute("class"), $"{fieldName} Icon Classes");
             testData.IconText.MatchesActual(iconElement.Text, $"{fieldName} Icon Text");
-            
+
             if (testData.InputClasses != null)
                 testData.UpdateCssForInput(testData.InputClasses, updateCssTo).MatchesActualCss(inputElement.GetAttribute("class"), $"{fieldName} Input Classes");
 
@@ -69,8 +69,9 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
             testData.UpdateCssForValidationLabel(testData.ValidationLabelClasses, updateCssTo).MatchesActualCss(validationLabelElement.GetAttribute("class"), $"{fieldName} Validation Label Classes");
 
             // We only check the validation if it's displayed
-            if (validationLabelElement.Displayed)
-                testData.ValidationLabelText.MatchesActual(validationLabelElement.Text, $"{fieldName} Validation Label Text");
+            var validationElement = validationLabelElement.FindElement(By.TagName("span"));
+            if (validationElement != null)
+                testData.ValidationLabelText.MatchesActual(validationElement.GetAttribute("textContent"), $"{fieldName} Validation Label Text");
         }
 
         /// <summary>
@@ -95,10 +96,11 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
 
             fieldName = labelElement.Text;
 
-            if (labelElements.Count != 2) return;
-            validationLabelElement = labelElements[1];
+            var spanElements = inputGroupContainer.FindElements(By.TagName("span"));
+            if (spanElements.Count != 2) return;
+            validationLabelElement = spanElements[0];
         }
-      
+
         /// <summary>
         /// Gets the materialize input field for the input group
         /// This will allow us to update the input

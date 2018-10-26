@@ -18,7 +18,6 @@ namespace Utility.Security
                 // Parse the arguments and tranform them into the correct options object
                 var options = Parser.Default.ParseArguments<EncryptOptions, DecryptOptions>(args);
 
-                // TODO: We seem to have to take a return value from this
                 options.MapResult(
                     (EncryptOptions opts) => Encrypt(opts),
                     (DecryptOptions opts) => Decrypt(opts),

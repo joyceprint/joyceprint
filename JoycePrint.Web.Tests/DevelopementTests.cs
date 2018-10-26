@@ -70,7 +70,7 @@ namespace JoycePrint.Web.Tests
     public sealed class DevelopmentTests
     {
         private static readonly List<IWebDriver> Drivers = new List<IWebDriver>();
-        
+
         #region Setup / Tear-down
 
         [ClassInitialize]

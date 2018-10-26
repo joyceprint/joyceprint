@@ -14,7 +14,7 @@
 
         public static string MaterializeInputGroupLabelClassesInitial => null;
 
-        public static string MaterializeInputGroupValidationLabelClassesInitial => "val-msg";
+        public static string MaterializeInputGroupValidationLabelClassesInitial => "field-validation-valid";
 
         #endregion
 
@@ -26,7 +26,7 @@
 
         public static string MaterializeInputGroupLabelClassesTouched => null;
 
-        public static string MaterializeInputGroupValidationLabelClassesTouched => "val-msg";
+        public static string MaterializeInputGroupValidationLabelClassesTouched => null;
 
         #endregion
 
@@ -38,7 +38,7 @@
 
         public static string MaterializeInputGroupLabelClassesValid => "active";
 
-        public static string MaterializeInputGroupValidationLabelClassesValid => "val-msg active";
+        public static string MaterializeInputGroupValidationLabelClassesValid => "field-validation-valid";
 
         #endregion
 
@@ -50,7 +50,7 @@
 
         public static string MaterializeInputGroupLabelClassesInValid => "active";
 
-        public static string MaterializeInputGroupValidationLabelClassesInValid => "val-msg active";
+        public static string MaterializeInputGroupValidationLabelClassesInValid => "field-validation-error";
 
         #endregion
 
@@ -74,7 +74,7 @@
 
         public static string MaterializeInputGroupLabelClassesActive => null;
 
-        public static string MaterializeInputGroupValidationLabelClassesActive => "val-msg";
+        public static string MaterializeInputGroupValidationLabelClassesActive => "active";
 
         #endregion
 

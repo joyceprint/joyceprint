@@ -161,7 +161,7 @@ namespace JoycePrint.Web.Tests.Helpers
             cssClasses.Add(FieldCss.Valid, MaterializeCssStyles.MaterializeInputGroupInputClassesValid);
             cssClasses.Add(FieldCss.Invalid, MaterializeCssStyles.MaterializeInputGroupInputClassesInValid);
             cssClasses.Add(FieldCss.Optional, MaterializeCssStyles.MaterializeInputGroupInputClassesOptional);
-            cssClasses.Add(FieldCss.Active, MaterializeCssStyles.MaterializeInputGroupInputClassesActive);                        
+            cssClasses.Add(FieldCss.Active, MaterializeCssStyles.MaterializeInputGroupInputClassesActive);
 
             return UpdateCssTo(value, css, getFor, cssClasses);
         }
@@ -178,7 +178,7 @@ namespace JoycePrint.Web.Tests.Helpers
             var cssClasses = new Dictionary<FieldCss, string>();
 
             cssClasses.Add(FieldCss.Initial, MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial);
-            cssClasses.Add(FieldCss.Touched, MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesTouched);            
+            cssClasses.Add(FieldCss.Touched, MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesTouched);
             cssClasses.Add(FieldCss.Valid, MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesValid);
             cssClasses.Add(FieldCss.Invalid, MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInValid);
             cssClasses.Add(FieldCss.Optional, MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesOptional);
