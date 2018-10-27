@@ -54,7 +54,11 @@ namespace JoycePrint.Web.Tests.TestData
             messageTestData.LabelText = "Message";
 
             messageTestData.ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial;
-            messageTestData.ValidationLabelText = "Please provide details";
+            messageTestData.ValidationLabelText = new Dictionary<string, string>
+            {
+                { "Required", "Please provide details" },
+                { "Length", "Please reduce the number of characters" }
+            };
 
             messageTestData.FieldInputType = "textarea";
 
@@ -82,8 +86,6 @@ namespace JoycePrint.Web.Tests.TestData
 
         #region Contact Form Input
 
-        public string CompanyValidationMessage = "Company name is a required field";
-
         /// <summary>
         /// 
         /// </summary>
@@ -107,7 +109,12 @@ namespace JoycePrint.Web.Tests.TestData
                     LabelText = "Company",
 
                     ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial,
-                    ValidationLabelText = CompanyValidationMessage,
+                    ValidationLabelText = new Dictionary<string, string>
+                    {
+                        { "Required", "Company name is a required field" },
+                        { "RegEx", "Please check company name" },
+                        { "Length", "Too many characters used" }
+                    },
 
                     FieldInputType = "input"
                 };
@@ -137,7 +144,12 @@ namespace JoycePrint.Web.Tests.TestData
                     LabelText = "Name",
 
                     ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial,
-                    ValidationLabelText = "Please check your name",
+                    ValidationLabelText = new Dictionary<string, string>
+                    {
+                        { "Required", "Name is a required field" },
+                        { "RegEx", "Please check your name" },
+                        { "Length", "Please enter your name" }
+                    },
 
                     FieldInputType = "input"
                 };
@@ -169,7 +181,12 @@ namespace JoycePrint.Web.Tests.TestData
                     LabelText = "Phone",
 
                     ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial,
-                    ValidationLabelText = "Please use a valid phone number",
+                    ValidationLabelText = new Dictionary<string, string>
+                    {
+                        { "Required", "Phone is a required field" },
+                        { "RegEx", "Please use a valid phone number" },
+                        { "Length", "Please correct the contact number" }
+                    },
 
                     FieldInputType = "input"
                 };
@@ -200,7 +217,12 @@ namespace JoycePrint.Web.Tests.TestData
                 messageTestData.LabelText = "Email";
 
                 messageTestData.ValidationLabelClasses = MaterializeCssStyles.MaterializeInputGroupValidationLabelClassesInitial;
-                messageTestData.ValidationLabelText = "Please enter a valid email address";
+                messageTestData.ValidationLabelText = new Dictionary<string, string>
+                    {
+                        { "Required", "Email is a required field" },
+                        { "RegEx", "Please enter a valid email address" },
+                        { "Length", "Did you forget your email" }
+                    };
 
                 messageTestData.FieldInputType = "input";
 

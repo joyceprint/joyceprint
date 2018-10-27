@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using JoycePrint.Web.Tests.Enums;
 using OpenQA.Selenium;
@@ -22,7 +23,7 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
 
         public string LabelClasses { get; set; }
 
-        public string ValidationLabelText { get; set; }
+        public Dictionary<string, string> ValidationLabelText { get; set; }
 
         public string ValidationLabelClasses { get; set; }
 
@@ -33,12 +34,12 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
         #endregion
 
         /// <summary>
-        /// Verfiy the materialize fields state when the page is loaded       
+        /// Verfiy the materialize fields state when the page is loaded
         /// </summary>
         /// <param name="inputGroupContainer">The materialize input group container that is used to get the elements that need to be checked</param>
         /// <param name="testData">The test data to be used for the comparision</param>
         /// <param name="updateCssTo">The css style required, the field will have it's css updated to this type</param>
-        public static void VerifyMaterializeInputField(IWebElement inputGroupContainer, MaterializeInputGroup testData, FieldCss updateCssTo)
+        public static void VerifyMaterializeInputField(IWebElement inputGroupContainer, MaterializeInputGroup testData, FieldCss updateCssTo, string validationType = null)
         {
             IWebElement iconElement = null;
             IWebElement inputElement = null;
@@ -55,7 +56,7 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
                 testData.UpdateCssForInput(testData.InputClasses, updateCssTo).MatchesActualCss(inputElement.GetAttribute("class"), $"{fieldName} Input Classes");
 
             if (testData.InputText != null)
-                testData.InputText.MatchesActual(testData.FieldInputType.Equals("textarea", StringComparison.OrdinalIgnoreCase) ? inputElement.GetAttribute("value") : inputElement.Text, $"{fieldName} Input Text");
+                testData.InputText.MatchesActual(testData.FieldInputType.Equals("textarea", StringComparison.OrdinalIgnoreCase) ? inputElement.GetAttribute("value") : inputElement.GetAttribute("value"), $"{fieldName} Input Text");
 
             if (testData.LabelClasses != null)
                 testData.UpdateCssForLabel(testData.LabelClasses, updateCssTo).MatchesActualCss(labelElement.GetAttribute("class"), $"{fieldName} Label Classes");
@@ -70,8 +71,8 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
 
             // We only check the validation if it's displayed
             var validationElement = validationLabelElement.FindElement(By.TagName("span"));
-            if (validationElement != null)
-                testData.ValidationLabelText.MatchesActual(validationElement.GetAttribute("textContent"), $"{fieldName} Validation Label Text");
+            if (validationElement != null && validationType != null)
+                testData.ValidationLabelText[validationType].MatchesActual(validationElement.GetAttribute("textContent"), $"{fieldName} Validation Label Text");
         }
 
         /// <summary>
@@ -111,6 +112,11 @@ namespace JoycePrint.Web.Tests.Helpers.Materialize
         public static IWebElement GetMaterializeInputField(IWebElement inputGroupContainer, MaterializeInputGroup testData)
         {
             return inputGroupContainer.FindElement(By.TagName(testData.FieldInputType));
+        }
+
+        public static IWebElement GetMaterializeIconField(IWebElement inputGroupContainer)
+        {
+            return inputGroupContainer.FindElement(By.TagName("i"));
         }
     }
 }

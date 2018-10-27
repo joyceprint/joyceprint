@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using JoycePrint.Web.Tests.Enums;
 using JoycePrint.Web.Tests.Helpers.Materialize;
+using OpenQA.Selenium.Interactions;
 
 namespace JoycePrint.Web.Tests.Tests
 {
@@ -17,12 +18,16 @@ namespace JoycePrint.Web.Tests.Tests
     {
         #region Base Properties & Functions
 
+        private Actions _actions;
+
         protected override void RunTest(IWebDriver driver)
         {
             HeaderPom = new HeaderPom(driver);
             HeaderPom.NavQuote.Click();
 
             QuotePom = new QuotePom(driver);
+
+            _actions = new Actions(driver);
 
             VerifyDisplay();
 
@@ -91,8 +96,12 @@ namespace JoycePrint.Web.Tests.Tests
 
         private void VerifyValidation()
         {
-            VerifyCompanyValidation();
-            VerifyMessageValidation();
+            VerifyInputValidation(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, "JoycePrint Ltd", new string('a', 151), "!");
+            VerifyInputValidation(QuotePom.NameInputGroup, QuotePom.QuoteTestData.Name, "John Smith", new string('a', 151), "!");
+            VerifyInputValidation(QuotePom.PhoneInputGroup, QuotePom.QuoteTestData.Phone, "0876481033", new string('2', 31), "!dsa");
+            VerifyInputValidation(QuotePom.EmailInputGroup, QuotePom.QuoteTestData.Email, "test@email.com", string.Concat(new string('a', 255), "a@a.a"), "@#$!");
+
+            VerifyTextareaValidation();
         }
 
         /// <summary>
@@ -101,68 +110,72 @@ namespace JoycePrint.Web.Tests.Tests
         /// <remarks>
         /// The input needs to have it's clicked function called to make the validation fire
         /// </remarks>
-        private void VerifyCompanyValidation()
+        private void VerifyInputValidation(IWebElement inputGroup, MaterializeInputGroup testData,
+            string validValue, string invalidValueLength, string invalidValueRegEx)
         {
-            var validationLabelText = "Company name is a required field";
-            var validationLabelTextAlt = "Please check company name";
+            var icon = MaterializeInputGroup.GetMaterializeIconField(inputGroup);
+            var input = MaterializeInputGroup.GetMaterializeInputField(inputGroup, testData);
 
             // Clear the fields to reset everything
             QuotePom.Clear.Click();
 
-            var input = MaterializeInputGroup.GetMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company);
+            // Test - Initial
+            MaterializeInputGroup.VerifyMaterializeInputField(inputGroup, testData, FieldCss.Initial);
 
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Initial);
-
-            // Enter a valid value
-            input.SendKeys(QuotePom.QuoteTestData.Company.UpdateTextTo("JoycePrint Ltd"));
-            QuotePom.Form.Click();
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Valid);
-
-            // Enter an invalid value
-            input.SendKeys(QuotePom.QuoteTestData.Company.UpdateTextTo("!"));
-            QuotePom.QuoteTestData.CompanyValidationMessage = validationLabelTextAlt;
+            // Test - Valid Value
+            input.SendKeys(testData.UpdateTextTo(validValue));
+            icon.Click();
             input.Click();
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Invalid);
+            MaterializeInputGroup.VerifyMaterializeInputField(inputGroup, testData, FieldCss.Valid);
+
+            // Test - Invalid Regex Value
+            input.Clear();
+            input.SendKeys(testData.UpdateTextTo(invalidValueRegEx));
+            icon.Click();
+            input.Click();
+            MaterializeInputGroup.VerifyMaterializeInputField(inputGroup, testData, FieldCss.Invalid, "RegEx");
 
             // Clear the fields
+            input.SendKeys(testData.UpdateTextTo(string.Empty));
             QuotePom.Clear.Click();
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(inputGroup, testData, FieldCss.Initial);
 
-            // Enter an invalid value
-            input.SendKeys(QuotePom.QuoteTestData.Company.UpdateTextTo("!"));
-            QuotePom.Form.Click();
-            QuotePom.QuoteTestData.CompanyValidationMessage = validationLabelTextAlt;
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Invalid);
+            // Enter an invalid value - Length
+            input.SendKeys(testData.UpdateTextTo(invalidValueLength));
+            icon.Click();
+            _actions.MoveToElement(input).Click().Build().Perform();
+            MaterializeInputGroup.VerifyMaterializeInputField(inputGroup, testData, FieldCss.Invalid, "Length");
 
-            // Enter an invalid value
-            input.SendKeys(QuotePom.QuoteTestData.Company.UpdateTextTo(string.Empty));
+            // Enter an invalid value - Missing
+            input.SendKeys(testData.UpdateTextTo(string.Empty));
             input.Clear();
-            input.SendKeys(Keys.Delete);
-            QuotePom.QuoteTestData.CompanyValidationMessage = validationLabelText;
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Invalid);
+            icon.Click();
+            _actions.MoveToElement(input).Click().Build().Perform();
+            MaterializeInputGroup.VerifyMaterializeInputField(inputGroup, testData, FieldCss.Invalid, "Required");
 
             // Enter a valid value
             input.Clear();
-            input.SendKeys(QuotePom.QuoteTestData.Company.UpdateTextTo("JoycePrint Ltd"));
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Valid);
+            input.SendKeys(testData.UpdateTextTo(validValue));
+            icon.Click();
+            input.Click();
+            MaterializeInputGroup.VerifyMaterializeInputField(inputGroup, testData, FieldCss.Valid);
 
             // Clear out the test value
-            QuotePom.QuoteTestData.Company.InputText = null;
+            testData.InputText = null;
 
             // Clear the fields
             QuotePom.Clear.Click();
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Initial);
+            MaterializeInputGroup.VerifyMaterializeInputField(inputGroup, testData, FieldCss.Initial);
 
             // Enter an invalid value
-            input.SendKeys(QuotePom.QuoteTestData.Company.UpdateTextTo("!"));
+            input.SendKeys(testData.UpdateTextTo(invalidValueRegEx));
 
             // Submit the form and check the validation display
             QuotePom.Submit.Click();
 
             // Check in validation message
-            QuotePom.QuoteTestData.CompanyValidationMessage = validationLabelTextAlt;
             input.Click();
-            MaterializeInputGroup.VerifyMaterializeInputField(QuotePom.CompanyInputGroup, QuotePom.QuoteTestData.Company, FieldCss.Invalid);
+            MaterializeInputGroup.VerifyMaterializeInputField(inputGroup, testData, FieldCss.Invalid, "RegEx");
         }
 
         /// <summary>
@@ -171,7 +184,7 @@ namespace JoycePrint.Web.Tests.Tests
         /// <remarks>
         /// The input needs to have it's clicked function called to make the validation fire
         /// </remarks>
-        private void VerifyMessageValidation()
+        private void VerifyTextareaValidation()
         {
             // Clear the fields to reset everything
             QuotePom.Clear.Click();

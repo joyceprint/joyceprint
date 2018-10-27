@@ -167,6 +167,6 @@ namespace JoycePrint.Web.Tests
             CurrentDriver.Manage().Window.Size = new Size(screenSize.Width, screenSize.Height);
         }
 
-        #endregion       
+        #endregion
     }
 }
