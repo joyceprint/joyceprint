@@ -1,0 +1,70 @@
+We want to use
+
+MVC .NET - Back end logic
+
+Angular.js - Front end logic
+1.0.x Will work on IE 8
+2.0.x Has dropped support for IE 8 and other browsers
+	This is a way around having to write alot of useless front end auto update stuff
+	It will probably not help with sending the validation calls back to the server so the MVC validation attributes can be used
+
+	http://www.codeproject.com/Articles/806029/Getting-started-with-AngularJS-and-ASP-NET-MVC-Par
+	http://stephenwalther.com/archive/2015/01/29/asp-net-5-and-angularjs-part-6-security
+	https://www.youtube.com/watch?v=f67PFtrldGQ
+	https://www.pluralsight.com/courses/building-strongly-typed-angularjs-apps-aspdotnet-mvc5
+
+bootStrap - Front end styling
+	This is easy to use, scales, twitter bootstrap for MVC is based off of it.
+	This is fully customizable on download
+	This uses the grid system, using a 12 column grid
+
+	http://webaim.org/
+	http://webaim.org/standards/wcag/checklist
+	http://webaim.org/standards/508/checklist
+	http://wave.webaim.org/
+
+Tool that you can customize before generating and downloading the scripts
+	http://getbootstrap.com/customize/
+
+Other boot strapping tool
+	http://bootsnipp.com/
+
+	http://stackoverflow.com/questions/9780333/fluid-or-fixed-grid-system-in-responsive-design-based-on-twitter-bootstrap
+	http://www.sitepoint.com/responsive-web-design-tips-bootstrap-css/
+
+site
+	submit form
+	emails joyceprint and the user with the item
+		asks the user do they want to recieve this email
+	
+=================================================================================================================================
+
+https://github.com/polydegmon/JoycePrint.git
+
+app: website
+
+initial: send info via email page
+			with working everything
+	
+enhance: an account is then created via the email address
+			print - an account has been created for you using.... to enable you to view your order, past orders, order status
+			this could be used as an expansion to get a live conversation - via skype, zoom
+		
+			next time the user logs in they can view previous jobs
+	
+			there is an add to cart feature
+				can send optional email with instructions
+				an send quick quantity, new numbers
+				updated line items - bread to white bread etc...
+
+ehance: [may not be wanted]				
+		for price comparison
+			there are drop down boxes
+			people can add more drop downs
+				there can be sub drop downs for specific drop downs
+			the price is shown for each and auto calculated
+			
+			more comparison columns can be added to check the price of say
+				2 part 50 set docket book
+				vs
+				3 part 50 set docket book

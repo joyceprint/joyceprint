@@ -1,0 +1,121 @@
+﻿/****************************************************************************************
+ * Loading
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used with the interaction loading functionalit
+****************************************************************************************/
+
+.loader-overlay {
+    position: fixed;
+    z-index: 999;
+    top: -100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 125%;
+    width: 100%;
+    background-color: @color-bluegrey;
+    opacity: 0.2;
+    display: block;
+}
+
+.loader-holder {
+    position: fixed;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.loader {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    border-radius: 50%;
+    z-index: 1;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+.loader-outside {
+    border: 0.3em solid transparent;
+    border-left-color: rgba(@color-loading, 0.7);
+    border-right-color: rgba(@color-loading, 0.7);
+    animation: 0.8s loader-outside ease-in-out infinite;
+    height: 4.5rem;
+    width: 4.5rem;    
+}
+
+.loader-inside {
+    border: 0.35em solid transparent;
+    border-left-color: @color-loading;
+    border-right-color: @color-loading;
+    animation: 0.35s loader-inside linear infinite;
+    width: 3.0rem;
+    height: 3.0rem;   
+}
+
+@-webkit-keyframes loader-outside {
+    0% {
+        -webkit-transform: translate(-50%,-50%) rotate(0);
+        transform: translate(-50%,-50%) rotate(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translate(-50%,-50%) rotate(180deg);
+        transform: translate(-50%,-50%) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes loader-outside {
+    0% {
+        -webkit-transform: translate(-50%,-50%) rotate(0);
+        transform: translate(-50%,-50%) rotate(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translate(-50%,-50%) rotate(180deg);
+        transform: translate(-50%,-50%) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes loader-inside {
+    0% {
+        -webkit-transform: translate(-50%,-50%) rotate(0);
+        transform: translate(-50%,-50%) rotate(0);
+    }
+
+    100% {
+        -webkit-transform: translate(-50%,-50%) rotate(-180deg);
+        transform: translate(-50%,-50%) rotate(-180deg);
+    }
+}
+
+@keyframes loader-inside {
+    0% {
+        -webkit-transform: translate(-50%,-50%) rotate(0);
+        transform: translate(-50%,-50%) rotate(0);
+    }
+
+    100% {
+        -webkit-transform: translate(-50%,-50%) rotate(-180deg);
+        transform: translate(-50%,-50%) rotate(-180deg);
+    }
+}

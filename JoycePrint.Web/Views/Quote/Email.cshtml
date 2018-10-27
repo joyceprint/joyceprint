@@ -1,0 +1,70 @@
+﻿@model JoycePrint.Domain.Models.QuoteRequest
+
+@{
+    ViewBag.Title = "Trade Docket Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.All);
+}
+
+<div class="row add-pad-top">
+    <div class="col s12">
+        <div class="row">
+            <h6 class="col s2 primary-text right-align">Name</h6>
+            <h6 class="col s1 center">:</h6>
+            <h6 class="col s9 text-500">@Model.Contact.Name</h6>
+        </div>
+
+        <div class="row">
+            <h6 class="col s2 primary-text right-align">Company</h6>
+            <h6 class="col s1 center">:</h6>
+            <h6 class="col s9 text-500">@Model.Contact.Company</h6>
+        </div>
+
+        <div class="row">
+            <h6 class="col s2 primary-text right-align">Phone</h6>
+            <h6 class="col s1 center">:</h6>
+            <h6 class="col s9 text-500">@Model.Contact.Phone</h6>
+        </div>
+
+        <div class="row">
+            <h6 class="col s2 primary-text right-align">Email</h6>
+            <h6 class="col s1 center">:</h6>
+            <h6 class="col s9 text-500">@Model.Contact.Email</h6>
+        </div>
+        <div class="row">
+            <h6 class="col s2 primary-text right-align">Message</h6>
+            <h6 class="col s1 center">:</h6>
+            <span class="col s9 text-500">
+                <pre class="match-h6-margin">@Model.Enquiry.Message</pre>
+            </span>
+        </div>
+
+        <div class="row">
+            <h6 class="col s2 primary-text right-align">Attachments</h6>
+            <h6 class="col s1 center">:</h6>
+            <div class="col s9 h6 text-500 match-h6-margin">
+                @if (Model.Attachment.Files == null || Model.Attachment.Files.Count(f => f != null) <= 0)
+                {
+                    <text>No attachments were sent with this request</text>
+                }
+                else
+                {   <div class="row">
+                        <span class="col s12 add-pad-bot no-pad-left">The following file(s) were upload with this request</span>
+
+                        @foreach (var file in Model.Attachment.Files)
+                        {
+                            var fileSizeInKb = Math.Ceiling((double)file.ContentLength / 1024);
+
+                            <span class="col s1 text-600 right-align">File :</span>
+                            <span class="col s8">@file.FileName</span>
+                            <span class="col s1 text-600 right-align">Size :</span>
+                            <span class="col s2">@fileSizeInKb KB</span>
+                            <div class="clearfix"></div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

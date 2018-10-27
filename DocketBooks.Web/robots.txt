@@ -1,0 +1,22 @@
+﻿# Allow all robots to index this site.
+user-agent: *
+ 
+# Tell all robots not to index the following action method routes
+disallow: /home
+disallow: /services
+disallow: /services/docketbooks
+
+disallow: /error
+disallow: /exception
+disallow: /notfound
+
+disallow: /error.html
+disallow: /403.html
+disallow: /404.html
+disallow: /500.html
+ 
+# Tell all robots to index the following action method routes
+allow: /
+ 
+# Add a link to the site-map. Unfortunately this must be an absolute URL.
+sitemap: http://docketbooks.ie/sitemap.xml

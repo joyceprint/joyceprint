@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 
 // ReSharper disable once CheckNamespace
-namespace JoycePrint.UI
+namespace JoycePrint.Web
 {
     public class ViewEngine : RazorViewEngine
     {
@@ -11,7 +11,9 @@ namespace JoycePrint.UI
             var newLocationFormat = new[]
             {
                 "~/Views/{1}/Partial/{0}.cshtml",
-                "~/Views/Shared/Partial/{0}.cshtml"
+                "~/Views/Shared/Partial/{0}.cshtml",
+                "~/Views/{0}.cshtml",
+                "~/Views/Shared/DisplayTemplates/{0}.cshtml"
             };
 
             PartialViewLocationFormats = PartialViewLocationFormats.Union(newLocationFormat).ToArray();

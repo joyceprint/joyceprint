@@ -1,0 +1,2304 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2017-07-22 17:09:41",
+    "containerVersion": {
+        "path": "accounts/1591679318/containers/7194522/versions/17",
+        "accountId": "1591679318",
+        "containerId": "7194522",
+        "containerVersionId": "17",
+        "name": "Printers Buy & Sell - Referrals Added",
+        "description": "The referral tags have been setup to capture people coming from the Trade Services vs the For Sale pages on the printersbuyandsell.ie site",
+        "container": {
+            "path": "accounts/1591679318/containers/7194522",
+            "accountId": "1591679318",
+            "containerId": "7194522",
+            "name": "www.joyceprint.ie",
+            "publicId": "GTM-W7BKWVJ",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1500304268535",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/1591679318/containers/7194522/workspaces?apiLink=container"
+        },
+        "tag": [
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "19",
+                "name": "GA - JoycePrint - Event - Button - Get A Quote",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{EV - 0}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{EC - User Interaction}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{EA - Button}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{EL - Get A Quote}}"
+                    }
+                ],
+                "fingerprint": "1500046083334",
+                "firingTriggerId": [
+                    "51"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "UNLIMITED"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "13",
+                "name": "GA - JoycePrint - Event - Button - Quote Clear",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{EV - 0}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{EC - User Interaction}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{EA - Button}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{EL - Quote Clear}}"
+                    }
+                ],
+                "fingerprint": "1500044132710",
+                "firingTriggerId": [
+                    "21"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "UNLIMITED"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "12",
+                "name": "GA - JoycePrint - Event - Button - Quote Submit",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{EV - 0}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{EC - User Interaction}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{EA - Button}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{EL - Quote Request}}"
+                    }
+                ],
+                "fingerprint": "1500044140047",
+                "firingTriggerId": [
+                    "20"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "UNLIMITED"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "11",
+                "name": "GA - JoycePrint - Event - Interaction - Quote",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{EV - 0}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{EC - User Interaction}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{EA - Form Interaction}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{Click ID}}"
+                    }
+                ],
+                "fingerprint": "1500044093424",
+                "firingTriggerId": [
+                    "22",
+                    "29",
+                    "30",
+                    "31",
+                    "32",
+                    "33"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_LOAD"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "14",
+                "name": "GA - JoycePrint - Link From - docketbooks.ie",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{EV - 0}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{EC - Referral}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{EA - Referral}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{EL - docketbooks.ie}}"
+                    }
+                ],
+                "fingerprint": "1500003757024",
+                "firingTriggerId": [
+                    "25"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_LOAD"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "16",
+                "name": "GA - JoycePrint - Link From - google.com",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{EV - 0}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{EC - Referral}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{EA - Referral}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{EL - google.com}}"
+                    }
+                ],
+                "fingerprint": "1500003771043",
+                "firingTriggerId": [
+                    "37"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_LOAD"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "20",
+                "name": "GA - JoycePrint - Link From - printersbuyandsell.ie - Sale Items",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{EV - 0}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{EC - Referral}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{EA - Referral}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{EL - printersbuyandsell.ie - Sale Items}}"
+                    }
+                ],
+                "fingerprint": "1500304268535",
+                "firingTriggerId": [
+                    "53"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_LOAD"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "10",
+                "name": "GA - JoycePrint - Link From - printersbuyandsell.ie - Trade Services",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{EV - 0}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{EC - Referral}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{EA - Referral}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{EL - printersbuyandsell.ie - Trade Services}}"
+                    }
+                ],
+                "fingerprint": "1500304096611",
+                "firingTriggerId": [
+                    "23"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_LOAD"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "1",
+                "name": "GA - JoycePrint - Page View",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    }
+                ],
+                "fingerprint": "1500004033008",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_LOAD"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "7",
+                "name": "GA - JoycePrint - Page View - 403 Html",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    }
+                ],
+                "fingerprint": "1500044575551",
+                "firingTriggerId": [
+                    "12"
+                ],
+                "blockingTriggerId": [
+                    "27"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "4",
+                "name": "GA - JoycePrint - Page View - 403 MVC View",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    }
+                ],
+                "fingerprint": "1500044581017",
+                "firingTriggerId": [
+                    "10"
+                ],
+                "blockingTriggerId": [
+                    "27"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "6",
+                "name": "GA - JoycePrint - Page View - 404 Html",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    }
+                ],
+                "fingerprint": "1500044585471",
+                "firingTriggerId": [
+                    "13"
+                ],
+                "blockingTriggerId": [
+                    "27"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "3",
+                "name": "GA - JoycePrint - Page View - 404 MVC View",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    }
+                ],
+                "fingerprint": "1500044589942",
+                "firingTriggerId": [
+                    "9"
+                ],
+                "blockingTriggerId": [
+                    "27"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "8",
+                "name": "GA - JoycePrint - Page View - 500 Html",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    }
+                ],
+                "fingerprint": "1500044595126",
+                "firingTriggerId": [
+                    "14"
+                ],
+                "blockingTriggerId": [
+                    "27"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "5",
+                "name": "GA - JoycePrint - Page View - 500 MVC View",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    }
+                ],
+                "fingerprint": "1500044599376",
+                "firingTriggerId": [
+                    "11"
+                ],
+                "blockingTriggerId": [
+                    "27"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "9",
+                "name": "GA - JoycePrint - Page View - Error Html",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    }
+                ],
+                "fingerprint": "1500044602856",
+                "firingTriggerId": [
+                    "15"
+                ],
+                "blockingTriggerId": [
+                    "27"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "2",
+                "name": "GA - JoycePrint - Page View - Error MVC View",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    }
+                ],
+                "fingerprint": "1500044606504",
+                "firingTriggerId": [
+                    "8"
+                ],
+                "blockingTriggerId": [
+                    "27"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "tagId": "18",
+                "name": "GA - Joyceprint - Event - Interaction - Menu",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{EV - 0}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{EC - User Interaction}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Google Analytics Tracking Id}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{EA - Menu Interaction}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{Click Text}}"
+                    }
+                ],
+                "fingerprint": "1500046416027",
+                "firingTriggerId": [
+                    "49"
+                ],
+                "parentFolderId": "17",
+                "tagFiringOption": "UNLIMITED"
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "27",
+                "name": ".NO RUN",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "STOP EVENT"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{STOP}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "True"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499827225797",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "51",
+                "name": "Click - Button - Get A Quote",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click ID}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "get-a-quote"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500046054834",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "21",
+                "name": "Click - Button - Quote Reset",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click ID}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "reset-quote"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044357924",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "20",
+                "name": "Click - Button - Quote Submit",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click ID}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "submit-quote"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044364424",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "49",
+                "name": "Click - Interaction - Menu",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "gtm.click"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click Classes}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "gtm-menu"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500045588880",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "22",
+                "name": "Click - Interaction - Quote Form - Company",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click ID}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Contact_Company"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044260298",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "30",
+                "name": "Click - Interaction - Quote Form - Email",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click ID}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Contact_Email"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044282326",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "32",
+                "name": "Click - Interaction - Quote Form - Message",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click ID}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Enquiry_Message"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044295199",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "29",
+                "name": "Click - Interaction - Quote Form - Name",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click ID}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Contact_Name"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044309477",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "31",
+                "name": "Click - Interaction - Quote Form - Phone",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click ID}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Contact_Phone"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044324640",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "33",
+                "name": "Click - Interaction - Quote Form - Upload",
+                "type": "CLICK",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click ID}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Attachment_Files"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044337689",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "12",
+                "name": "Page View - Html Page - 403",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "403 Html Page"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "403.html"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044659417",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "13",
+                "name": "Page View - Html Page - 404",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "404 Html Page"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "404.html"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044663795",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "14",
+                "name": "Page View - Html Page - 500",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "500 Html Page"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "500.html"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044667469",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "15",
+                "name": "Page View - Html Page - Error",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Error Html Page"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "error.html"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044672042",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "10",
+                "name": "Page View - MVC View - 403",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "403 MVC View"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "403"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044675547",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "9",
+                "name": "Page View - MVC View - 404",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "404 MVC View"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "404"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044681556",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "11",
+                "name": "Page View - MVC View - 500",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "500 MVC View"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "500"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044687324",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "8",
+                "name": "Page View - MVC View - Error",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Error MVC View"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "error"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500044691244",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "25",
+                "name": "Referral - docketbooks.ie",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "gtm.js"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Referrer}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "docketbooks.ie"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499996541685",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "37",
+                "name": "Referral - google.com",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "gtm.js"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Referrer}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "google.com"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499996627202",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "53",
+                "name": "Referral - printersbuyandsell.ie - Sale Items",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "gtm.js"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Referrer}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "http://www.printersbuyandsell.ie/forsale.htm"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500304209577",
+                "parentFolderId": "18"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "triggerId": "23",
+                "name": "Referral - printersbuyandsell.ie - Trade Services",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "gtm.js"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Referrer}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "http://homepage.eircom.net/~navalass104/tradeservices.htm"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500062204309",
+                "parentFolderId": "18"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "14",
+                "name": "EA - Button",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "Button"
+                    }
+                ],
+                "fingerprint": "1500003814820",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "10",
+                "name": "EA - Form Interaction",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "Form Interaction"
+                    }
+                ],
+                "fingerprint": "1500003821549",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "27",
+                "name": "EA - Menu Interaction",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "Menu Interaction"
+                    }
+                ],
+                "fingerprint": "1500043925167",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "19",
+                "name": "EA - Referral",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "Refferal"
+                    }
+                ],
+                "fingerprint": "1500003835261",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "18",
+                "name": "EC - Referral",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "Referral"
+                    }
+                ],
+                "fingerprint": "1500003841144",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "6",
+                "name": "EC - User Interaction",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "User Interaction"
+                    }
+                ],
+                "fingerprint": "1500003848341",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "28",
+                "name": "EL - Get A Quote",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "Get A Quote"
+                    }
+                ],
+                "fingerprint": "1500045732314",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "15",
+                "name": "EL - Quote Clear",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "Quote Clear"
+                    }
+                ],
+                "fingerprint": "1500003855418",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "8",
+                "name": "EL - Quote Request",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "Quote Request"
+                    }
+                ],
+                "fingerprint": "1500003863694",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "20",
+                "name": "EL - docketbooks.ie",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "docketbooks.ie"
+                    }
+                ],
+                "fingerprint": "1500003886107",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "26",
+                "name": "EL - google.com",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "google.com"
+                    }
+                ],
+                "fingerprint": "1500003892289",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "29",
+                "name": "EL - printersbuyandsell.ie - Sale Items",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "printersbuyandsell.ie - Sale Items"
+                    }
+                ],
+                "fingerprint": "1500304157528",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "17",
+                "name": "EL - printersbuyandsell.ie - Trade Services",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "printersbuyandsell.ie - Trade Services"
+                    }
+                ],
+                "fingerprint": "1500304121018",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "9",
+                "name": "EV - 0",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "0"
+                    }
+                ],
+                "fingerprint": "1500003910329",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "4",
+                "name": "Google Analytics Tracking Id",
+                "type": "gas",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "cookieDomain",
+                        "value": "auto"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "doubleClick",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setTrackerName",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useDebugVersion",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useHashAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "decorateFormsAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableLinkId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableEcommerce",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "{{gaProperty}}"
+                    }
+                ],
+                "fingerprint": "1499738802725",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "1",
+                "name": "Google Analytics Tracking Id - Dev",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "UA-88639794-1"
+                    }
+                ],
+                "fingerprint": "1499997631449",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "2",
+                "name": "Google Analytics Tracking Id - joyceprint.ie",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "UA-88639794-4"
+                    }
+                ],
+                "fingerprint": "1499736434165",
+                "parentFolderId": "7"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "21",
+                "name": "Referrer - docketbooks.ie",
+                "type": "f",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "URL"
+                    }
+                ],
+                "fingerprint": "1499743360587",
+                "parentFolderId": "16"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "5",
+                "name": "Referrer - printersbuyandsell.ie",
+                "type": "f",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "URL"
+                    }
+                ],
+                "fingerprint": "1499742032698",
+                "parentFolderId": "16"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "22",
+                "name": "STOP",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "True"
+                    }
+                ],
+                "fingerprint": "1499827275180",
+                "parentFolderId": "19"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "variableId": "3",
+                "name": "gaProperty",
+                "type": "smm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{Page Hostname}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "dev.joyceprint.com"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{Google Analytics Tracking Id - Dev}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "joyceprint.ie"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{Google Analytics Tracking Id - joyceprint.ie}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500002909137",
+                "parentFolderId": "7"
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "folderId": "19",
+                "name": "Google Analytics - Events",
+                "fingerprint": "1499739862086"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "folderId": "7",
+                "name": "Google Analytics - Properties",
+                "fingerprint": "1499738755699"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "folderId": "16",
+                "name": "Google Analytics - Referrers",
+                "fingerprint": "1499738784537"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "folderId": "17",
+                "name": "Google Analytics - Tags",
+                "fingerprint": "1499738820468"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "folderId": "18",
+                "name": "Google Analytics - Triggers",
+                "fingerprint": "1499738852694"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "EVENT",
+                "name": "Event"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "CLICK_ELEMENT",
+                "name": "Click Element"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "CLICK_CLASSES",
+                "name": "Click Classes"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "CLICK_ID",
+                "name": "Click ID"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "CLICK_TARGET",
+                "name": "Click Target"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "CLICK_URL",
+                "name": "Click URL"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "CLICK_TEXT",
+                "name": "Click Text"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "FORM_ELEMENT",
+                "name": "Form Element"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "FORM_CLASSES",
+                "name": "Form Classes"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "FORM_ID",
+                "name": "Form ID"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "FORM_TARGET",
+                "name": "Form Target"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "FORM_URL",
+                "name": "Form URL"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "FORM_TEXT",
+                "name": "Form Text"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "ERROR_MESSAGE",
+                "name": "Error Message"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "ERROR_URL",
+                "name": "Error URL"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "ERROR_LINE",
+                "name": "Error Line"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "NEW_HISTORY_FRAGMENT",
+                "name": "New History Fragment"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "OLD_HISTORY_FRAGMENT",
+                "name": "Old History Fragment"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "NEW_HISTORY_STATE",
+                "name": "New History State"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "OLD_HISTORY_STATE",
+                "name": "Old History State"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "HISTORY_SOURCE",
+                "name": "History Source"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "CONTAINER_VERSION",
+                "name": "Container Version"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "DEBUG_MODE",
+                "name": "Debug Mode"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "RANDOM_NUMBER",
+                "name": "Random Number"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "CONTAINER_ID",
+                "name": "Container ID"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "HTML_ID",
+                "name": "HTML ID"
+            },
+            {
+                "accountId": "1591679318",
+                "containerId": "7194522",
+                "type": "ENVIRONMENT_NAME",
+                "name": "Environment Name"
+            }
+        ],
+        "fingerprint": "1500304414645",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/1591679318/containers/7194522/versions/17?apiLink=version"
+    }
+}

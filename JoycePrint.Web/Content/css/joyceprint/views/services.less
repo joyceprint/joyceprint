@@ -1,0 +1,42 @@
+﻿/****************************************************************************************
+ * Services
+ * --------------------------------------------------
+ * 
+ * This file contains the styles used on the services view
+****************************************************************************************/
+
+.services-header {
+    .section-header;    
+}
+
+/* Card Extensions *********************************************************************/
+#services .card {
+    box-shadow: 0.3rem -0.3rem 0.5rem rgba(0,0,0,0.14);
+}
+
+#services .card.large {
+    height: 550px;
+    min-height: 550px;
+}
+
+#services .card-title {
+    .text-600;
+    color: @color-bluegrey;
+    font-family: "Avenir Heavy";
+}
+
+#services .card-content p {
+    .helvetica-light;
+}
+
+#services .card-image {
+    border-bottom-color: @color-grey-light;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+
+/* This stops the card from hiding most of the text */
+#services .card.large,
+#services .card-image + .card-content {
+    max-height: 80% !important;
+}

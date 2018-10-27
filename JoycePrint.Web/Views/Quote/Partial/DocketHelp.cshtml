@@ -1,39 +1,98 @@
-﻿<article id="information">
-    <div class="panel panel-warning">
-        <div class="panel-body">
-            <div class="panel-heading text-weight-700">
-                Size
+﻿<article id="information" class="row">
+    <ul id="docket-help" class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header primary-text valign-wrapper active" id="help-paper-size" data-test-help-title>
+                <div class="valign">
+                    <i class="material-icons">filter_drama</i>
+                    <span>Paper Size</span>
+                </div>                
             </div>
-            <ul>
-                <li><span class="text-danger">A4</span> - 210 x 297mm</li>
-                <li><span class="text-danger">A5</span> - Half A4 - 148.5 x 210mm</li>
-                <li><span class="text-danger">A6</span> - Quarter A4 - 105 x 148.5mm</li>
-                <li><span class="text-danger">DL</span> - Third A4 - 99 x 210mm</li>
-            </ul>
-
-            <div class="panel-heading text-weight-700">
-                Orientation
+            <div class="collapsible-body" data-test-help-information>
+                <div id="paper-size" class="card">
+                    <div class="card-image">
+                        @Html.Image(new { id = "img-paper-size", @class="responsive-img", src="/Content/images/jp-card-paper-size.jpg", alt="Paper Size Image" })                        
+                    </div>
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12">
+                                <span class="card-title primary-text">Available Sizes</span>
+                            </div>
+                            <div class="col s10 offset-s1">
+                                <ul>
+                                    <li><span class="red-text text-accent-4">A4</span> - 210 x 297mm</li>
+                                    <li><span class="red-text text-accent-4">A5</span> - Half A4 - 148.5 x 210mm</li>
+                                    <li><span class="red-text text-accent-4">A6</span> - Quarter A4 - 105 x 148.5mm</li>
+                                    <li><span class="red-text text-accent-4">DL</span> - Third A4 - 99 x 210mm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li>A6 - Shape: Protrait Size: 105 x 148.5mm</li>
-                <li>A6 - Shape: Landscape Size: 148.5 x 105mm</li>
-                <li>DL - Shape: Protrait Size: 99 x 210mm</li>
-                <li>DL - Shape: Landscape Size: 210 x 99mm</li>
-                <li>A5 - Shape: Protrait Size: 148.5 x 210mm</li>
-                <li>A5 - Shape: Landscape Size: 210 x 148.5mm</li>
-                <li>A4 - Shape: Protrait Size: 210 x 297mm</li>
-                <li>A4 - Shape: Landscape Size: 297 x 210mm</li>
-                <li>A3 - Shape: Landscape Size: 400 x 297mm</li>
-            </ul>
-
-            <div class="panel-heading text-weight-700">
-                Type of Book
+        </li>
+        <li>
+            <div class="collapsible-header primary-text valign-wrapper" id="help-paper-orientation" data-test-help-title>
+                <div class="valign">
+                    <i class="material-icons">filter_drama</i>
+                    <span>Paper Orientation</span>
+                </div>    
             </div>
-            <ul>
-                <li><span>Duplicate</span> (2 sheets in a Set - <span class="text-danger">100</span> sets per book)</li>
-                <li><span>Triplicate</span> (3 sheets in a Set - <span class="text-danger">50</span> sets per book)</li>
-                <li><span>Quad</span> (4 sheets in a Set - <span class="text-danger">50</span> sets per book)</li>
-            </ul>
-        </div>
-    </div>
+            <div class="collapsible-body" data-test-help-information>
+                <div id="paper-orientation" class="card">
+                    <div class="card-image">
+                        @Html.Image(new { id="img-paper-orientation", @class="responsive-img", src="/Content/images/jp-card-paper-orientation.jpg", alt="Paper Orientation Image" })
+                    </div>
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12">
+                                <span class="card-title primary-text">Paper Orientation</span>
+                            </div>
+                            <div class="col s10 offset-s1">
+                                <ul>
+                                    <li><span class="red-text text-accent-4">A6</span> - Shape: Protrait Size: 105 x 148.5mm</li>
+                                    <li><span class="red-text text-accent-4">A6</span> - Shape: Landscape Size: 148.5 x 105mm</li>
+                                    <li><span class="red-text text-accent-4">DL</span> - Shape: Protrait Size: 99 x 210mm</li>
+                                    <li><span class="red-text text-accent-4">DL</span> - Shape: Landscape Size: 210 x 99mm</li>
+                                    <li><span class="red-text text-accent-4">A5</span> - Shape: Protrait Size: 148.5 x 210mm</li>
+                                    <li><span class="red-text text-accent-4">A5</span> - Shape: Landscape Size: 210 x 148.5mm</li>
+                                    <li><span class="red-text text-accent-4">A4</span> - Shape: Protrait Size: 210 x 297mm</li>
+                                    <li><span class="red-text text-accent-4">A4</span> - Shape: Landscape Size: 297 x 210mm</li>
+                                    <li><span class="red-text text-accent-4">A3</span> - Shape: Landscape Size: 400 x 297mm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header primary-text valign-wrapper" id="help-docket-type" data-test-help-title>
+                <div class="valign">
+                    <i class="material-icons">filter_drama</i>
+                    <span>Book Type</span>
+                </div>                
+            </div>
+            <div class="collapsible-body" data-test-help-information>
+                <div id="book-type" class="card">
+                    <div class="card-image">
+                        @Html.Image(new { id="img-book-type", @class="responsive-img", src="/Content/images/jp-card-book-type.jpg", alt="Book Type Image" })
+                    </div>
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12">
+                                <span class="card-title primary-text">Book Type</span>
+                            </div>
+                            <div class="col s10 offset-s1">
+                                <ul>
+                                    <li><span class="red-text text-accent-4">Duplicate</span> (2 sheets in a Set - <span class="red-text text-accent-4">100</span> sets per book)</li>
+                                    <li><span class="red-text text-accent-4">Triplicate</span> (3 sheets in a Set - <span class="red-text text-accent-4">50</span> sets per book)</li>
+                                    <li><span class="red-text text-accent-4">Quad</span> (4 sheets in a Set - <span class="red-text text-accent-4">50</span> sets per book)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
 </article>

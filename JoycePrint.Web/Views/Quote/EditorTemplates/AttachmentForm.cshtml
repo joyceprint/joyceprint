@@ -1,0 +1,19 @@
+﻿@using JoycePrint.Domain.Models
+
+@model Attachment
+
+<section id="attachment" class="row no-mar-bot">
+    
+    <div class="file-field input-field col s12">
+        <div class="btn warning">
+            <span id="icon-attachment">
+                <i class="medium material-icons">note_add</i>
+            </span>
+            @Html.TextBoxFor(m => m.Files, new {type = "file", multiple = "multiple"})
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+        </div>                
+    </div>
+
+</section>

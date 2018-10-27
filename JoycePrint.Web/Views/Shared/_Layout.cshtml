@@ -1,8 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using JoycePrint.Domain.Mail
 
+<!DOCTYPE html>
 <html>
-
 <head id="headMaster">
+    
+    @Html.Partial("Partial/GoogleTagManager_Head")
 
     <!-- Set the encoding to UTF-8 -->
     <meta charset="utf-8" />
@@ -15,32 +17,46 @@
 
     <!-- This line allows sub pages to omit the Header section -->
     @RenderSection("head", false)
-   
-    <!-- Normal browser style sheet links -->
-    @Styles.Render("~/Content/css/joyceprintcss")    
-    
-    <link rel="icon" href="@Url.Content("~/Content/images/favicon.ico")" />
 
-    <!-- Including google font: Roboto -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <!-- Normal browser style sheet links -->
+    @Styles.Render("~/css/joyceprintcss")
+        
+    @Html.Partial("Partial/Favicons")
+        
+    <!-- Incuding the materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>@ViewBag.Title</title>
-
-</head>
-
-<body class="container-fluid">
-            
-    @Html.Partial("_Header")
-       
-    <div id="wrap">        
-        <main id="masterBody" class="row">
-            @RenderBody()
-        </main>
-    </div>
     
-    @Html.Partial("_Footer")
+    <meta name="description" content="Get a great price from JoycePrint on trade docket books and other print trade items">
 
-    @Scripts.Render("~/Scripts/joyceprintjs")
+    @{
+        var action = ViewContext.RouteData.Values["action"]?.ToString();
+    }
+        
+</head>
+<body>
+    
+    @Html.Partial("Partial/GoogleTagManager_Body")
+
+    @if (!string.Equals(action, Email.EmailView, StringComparison.OrdinalIgnoreCase))
+    {
+        @Html.Partial("_Header")
+    }
+
+    <main>
+        @RenderBody()
+    </main>
+
+    @if (!string.Equals(action, Email.EmailView, StringComparison.OrdinalIgnoreCase))
+    {
+        @Html.Partial("_Footer")
+    }
+
+    <!-- This is the overlay that will be used to hide the screen while the loading icon is active -->
+    <div id="loader-overlay"></div>
+
+    @Scripts.Render("~/js/joyceprintjs")
 
 </body>
 </html>

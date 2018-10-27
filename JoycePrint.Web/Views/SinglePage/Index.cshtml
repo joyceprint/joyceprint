@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Trade Docket Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    BundleConfig.UpdateScriptBundle(BundleTable.Bundles.GetBundleFor("~/js/joyceprintjs"), BundleConfig.PageBundle.All);
+}
+
+<div>
+    @{ Html.RenderAction("Index", "Home"); }
+
+    @{ Html.RenderAction("Index", "Services"); }
+
+    @{ Html.RenderAction("Index", "AboutUs"); }
+    
+    @{ Html.RenderAction("Index", "Quote"); }
+    
+</div>
+
+<div id="modal-placeholder" class="modal"></div>
+
+<div id="loader-placeholder"></div>

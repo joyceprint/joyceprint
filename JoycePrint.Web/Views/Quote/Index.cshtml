@@ -1,52 +1,45 @@
 ﻿@using JoycePrint.Domain.Models
+
 @model QuoteRequest
 
-@{
-    ViewBag.Title = "Quote";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<section id="quote" class="row no-mar-bot light-grey" data-test-form-id="frmQuote" data-menu-item>
 
-<section id="quote" class="col-xs-12">
+    <div class="container">
+        <div class="row eq-height no-mar-bot">
+            <div class="col s12">
+                <h1 class="quote-header center-align">Get A Quote</h1>
+            </div>
 
-    <div class="text-center">
-        <h1 class="text-danger text-weight-900">
-            Delivery To Ireland & The UK
-        </h1>
-    </div>
+            <div class="col l5 m10 offset-m1 s12">
+                @Html.Partial("Partial/PrintChecklist")
 
-    <div class="row row-vertical-align">
-
-        <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-1">
-            @Html.Partial("DocketHelp")
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { @class = "form-horizontal", required = "true" }))
-            {
-                @Html.AntiForgeryToken()
-
-                @Html.EditorFor(model => model.Contact, "ContactForm")
-
-                <div class="clearfix"></div>
-
-                @Html.EditorFor(model => model.DocketBook, "DocketForm")
-
-                <div class="col-sm-5 col-sm-offset-1">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <button class="btn btn-success form-control" formmethod="post" type="submit">SUBMIT</button>
-                        </div>
+                <div class="row">
+                    <div class="col s12">
+                        @Html.Partial("Partial/Map")
                     </div>
                 </div>
+            </div>
 
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <button class="btn btn-warning form-control" type="reset">CLEAR</button>
-                        </div>
-                    </div>
-                </div>
-            }
+            <div class="col l6 offset-l1 m10 offset-m1 s12">
+                @using (Html.BeginForm("Index", "Quote", FormMethod.Post, new { required = "true", id = "frm-quote", enctype = "multipart/form-data" }))
+                {
+                    <!--
+                    [ Security - CSRF ]
+                    Html.AntiForgeryToken() - Prevents MVC Cross Site Request Forgery
+                    This has to be used with [ ValidateAntiForgeryToken() ] on the action method
+                    -->
+                    @Html.AntiForgeryToken()
+                    
+                    @Html.EditorFor(model => model.Contact, "ContactForm")
+
+                    @Html.EditorFor(model => model.Enquiry, "EnquiryForm")
+
+                    @Html.EditorFor(model => model.Attachment, "AttachmentForm")
+
+                    @Html.Partial("Partial/Submit")
+                }
+            </div>
         </div>
     </div>
+
 </section>

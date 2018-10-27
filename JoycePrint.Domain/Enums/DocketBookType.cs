@@ -5,7 +5,7 @@ namespace JoycePrint.Domain.Enums
     public enum DocketBookType
     {
         [Display(Name = "Duplicate")]
-        Duplicate,
+        Duplicate = 0,
         [Display(Name = "Triplicate")]
         Triplicate,
         [Display(Name = "Quad")]
