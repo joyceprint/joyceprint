@@ -11,7 +11,7 @@ namespace DocketBooks.Web
         /// The list of base scripts to be used on each page
         /// </summary>
         private static List<string> BaseBundle => new List<string> {
-            "~/Scripts/jquery-3.1.1.min.js",
+            "~/Scripts/jquery-3.3.1.min.js",
             "~/Scripts/materialize.min.js",
             "~/Scripts/docketbooks/jLib-loading.js",
             "~/Scripts/docketbooks/jLib-materialize-extensions.js",

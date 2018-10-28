@@ -212,6 +212,7 @@
     <Content Include="Scripts\docketbooks\jLib-loading.js" />
     <Content Include="Scripts\docketbooks\jLib-materialize-extensions.js" />
     <Content Include="Scripts\docketbooks\jLib-nav.js" />
+    <None Include="Properties\PublishProfiles\docketbooks.ie.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

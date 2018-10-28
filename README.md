@@ -72,3 +72,56 @@ JoycePrint.Web.Tests
 
 DockerBooks.Web
 DockerBooks.Web.Tests
+
+## SSL
+
+To add SSL to the website for free we use [SSL For Free](https://www.sslforfree.com/)
+Following the guide [here](https://wallydavid.com/visual-guide-installing-lets-encrypt-ssl-media-temple-or-a-plesk-hosting-account/)
+
+### Setup
+
+Create a folder at the root of the website called `.well-known` with the permission set `755`
+
+Add a web config file to the `.well-known` hosts with the following contents
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <system.webServer>
+    <!-- This will stop any redirects you have at the higher level -->
+    <httpRedirect enabled="false" />
+
+    <!-- This will stop any integrated mode settings you have at the higher level -->
+    <validation validateIntegratedModeConfiguration="false"/>
+  </system.webServer>
+
+  <!-- This will allow unauthenticated users to acme-challenge subfolder -->
+  <location path="acme-challenge">
+    <system.web>
+      <authorization>
+        <allow users="*"/>
+      </authorization>
+    </system.web>
+  </location>
+</configuration>
+```
+
+Create a folder inside the `well-known` folder called `acme-challenge` with the permission set `755`
+
+Add a web config file to the `acme-challenge` hosts with the following contents
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <staticContent>
+            <mimeMap fileExtension="." mimeType="text/plain" />
+        </staticContent>
+    </system.webServer>
+</configuration>
+```
+
+Add the files that `SSL For Free` provides to the `acme-challenge` with the permission set `644`
+
+
+
