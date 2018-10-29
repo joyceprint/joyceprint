@@ -38,24 +38,29 @@ The following projects handle application logging
 
 The following proects handle the joyceprint site
 
-- JoycePrint.Docs
+- **JoycePrint.Docs**
   - The design material for the website
-- JoycePrint.Domain
+- **JoycePrint.Domain**
   - The logic for the JoycePrint web application
-- JoycePrint.Web
-  - The site is a simple application that provides basic information and a simple form that allows the user to submit information for a job quote.
-- JoycePrint.Domain.Tests
-- JoycePrint.Web.Tests
+- **JoycePrint.Web**
+  - A simple application that provides basic information and a simple form that allows the user to submit information for a job quote.
+- **JoycePrint.Domain.Tests**
+  - Unit Tests
+- **JoycePrint.Web.Tests**
+  - Selenium Tests
 
 The following projects handle the docketbooks site
 
-- DockerBooks.Web
-- DockerBooks.Web.Tests
+- **DocketBooks.Web**
+  - A simple web application used for advertising and redirecting customers to the main site
+- **DocketBooks.Web.Tests**
+  - Selenium Tests
 
 ## SSL
 
 To add SSL to the website for free we use [SSL For Free](https://www.sslforfree.com/)  
-Following the guide [here](https://wallydavid.com/visual-guide-installing-lets-encrypt-ssl-media-temple-or-a-plesk-hosting-account/)  
+Following the guide [here](https://wallydavid.com/visual-guide-installing-lets-encrypt-ssl-media-temple-or-a-plesk-hosting-account/)
+
 **The cert needs to be updated every 90 days**
 
 ### Setup
