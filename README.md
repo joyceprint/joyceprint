@@ -2,8 +2,7 @@
 
 # Overview
 
-The joyceprint website, built in MVC 5 and .NET 4.6.2, hosted on IIS 8.5  
-The site is a simple application that provides basic information and a simple form that allows the user to submit information for a job quote.
+The JoycePrint Ltd applications, built in MVC 5 and .NET 4.6.2, hosted on IIS 8.5
 
 ## Projects
 
@@ -42,7 +41,9 @@ The following proects handle the joyceprint site
 - JoycePrint.Docs
   - The design material for the website
 - JoycePrint.Domain
+  - The logic for the JoycePrint web application
 - JoycePrint.Web
+  - The site is a simple application that provides basic information and a simple form that allows the user to submit information for a job quote.
 - JoycePrint.Domain.Tests
 - JoycePrint.Web.Tests
 
