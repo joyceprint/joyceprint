@@ -2,7 +2,7 @@
 
 # Overview
 
-The joyceprint website, built in MVC 5 and .NET 4.6.2, hosted on IIS 8.5
+The joyceprint website, built in MVC 5 and .NET 4.6.2, hosted on IIS 8.5`n
 The site is a simple application that provides basic information and a simple form that allows the user to submit information for a job quote.
 
 ## Projects
@@ -40,6 +40,7 @@ The following projects handle application logging
 The following proects handle the joyceprint site
 
 - JoycePrint.Docs
+  - The design material for the website
 - JoycePrint.Domain
 - JoycePrint.Web
 - JoycePrint.Domain.Tests
@@ -52,8 +53,9 @@ The following projects handle the docketbooks site
 
 ## SSL
 
-To add SSL to the website for free we use [SSL For Free](https://www.sslforfree.com/)
-Following the guide [here](https://wallydavid.com/visual-guide-installing-lets-encrypt-ssl-media-temple-or-a-plesk-hosting-account/)
+To add SSL to the website for free we use [SSL For Free](https://www.sslforfree.com/)`n
+Following the guide [here](https://wallydavid.com/visual-guide-installing-lets-encrypt-ssl-media-temple-or-a-plesk-hosting-account/)`n
+**The cert needs to be updated every 90 days**
 
 ### Setup
 
