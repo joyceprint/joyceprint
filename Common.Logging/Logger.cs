@@ -14,14 +14,14 @@ namespace Common.Logging
 
         // Lock object to ensure safe threads
         internal static readonly object Lock = new object();
-        
+
         // Only one provider will be used
         private static LogProvider _provider;
 
         #endregion
 
         #region Properties
-        
+
         [Description("Flag indicating whether or not the provider has been initialized")]
         public static bool IsInitialized { get; set; }
 
@@ -54,7 +54,7 @@ namespace Common.Logging
                     if (_provider == null)
                     {
                         try
-                        {                            
+                        {
                             // Get a collection of providers and the default provider.
                             _provider = ProviderFactory.InstantiateDefaultProvider<LogProvider>(@"providers/logging");
 
@@ -62,7 +62,7 @@ namespace Common.Logging
                             IsInitialized = true;
                         }
                         catch (Exception)
-                        {                            
+                        {
                             throw;
                         }
                     }

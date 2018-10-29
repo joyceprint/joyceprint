@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoycePrint.Domain.Tests", "JoycePrint.Domain.Tests\JoycePrint.Domain.Tests.csproj", "{0F221AEC-F6D4-49F9-8B53-C5883AF304DD}"
 EndProject
@@ -112,5 +112,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A4E1CF8-1BD1-462F-9FCB-A076B36A1858}
 	EndGlobalSection
 EndGlobal
